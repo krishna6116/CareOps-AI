@@ -1,0 +1,12 @@
+item,value
+total_rows,11496.0
+training_rows,9196.0
+testing_rows,2300.0
+baseline_mae_days,4.488962308754279
+baseline_rmse_days,5.774970566425039
+baseline_r2,-0.0006388556568213133
+model_mae_days,2.590747502886731
+model_rmse_days,3.2264659634484394
+model_r2,0.6876568479099235
+model_mape_percent,26.377018074282184
+training_time_seconds,0.3887059688568115

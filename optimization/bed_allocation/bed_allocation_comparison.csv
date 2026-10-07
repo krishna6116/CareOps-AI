@@ -1,0 +1,6 @@
+metric,baseline,optimized,improvement_percent
+Total Demand,1653,1653,0.0
+Allocated Beds,989,989,0.0
+Unmet Demand,664,664,0.0
+Transfer Pressure,0,0,0.0
+Unused Capacity,1601,1601,0.0

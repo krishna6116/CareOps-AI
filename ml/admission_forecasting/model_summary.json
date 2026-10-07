@@ -1,0 +1,168 @@
+{
+    "project": "CareOps AI",
+    "module": "Admission Demand Forecasting",
+    "source_file": "C:\\Users\\krish\\Documents\\CareOps-AI\\data\\synthetic\\daily_operations.csv",
+    "source_type": "Existing daily admissions dataset",
+    "historical_start_date": "2024-01-01",
+    "historical_end_date": "2026-10-05",
+    "number_of_departments": 9,
+    "number_of_historical_days": 1009,
+    "total_historical_admissions": 11640.0,
+    "model": "XGBRegressor",
+    "baseline": "7-Day Seasonal Naive",
+    "forecast_horizon_days": 30,
+    "test_fraction": 0.2,
+    "features": [
+        "year",
+        "month",
+        "day",
+        "day_of_week",
+        "day_of_year",
+        "week_of_year",
+        "quarter",
+        "is_weekend",
+        "is_month_start",
+        "is_month_end",
+        "is_quarter_start",
+        "is_quarter_end",
+        "dow_sin",
+        "dow_cos",
+        "month_sin",
+        "month_cos",
+        "doy_sin",
+        "doy_cos",
+        "trend",
+        "lag_1",
+        "lag_7",
+        "lag_14",
+        "lag_28",
+        "rolling_mean_7",
+        "rolling_std_7",
+        "rolling_min_7",
+        "rolling_max_7",
+        "rolling_mean_14",
+        "rolling_std_14",
+        "rolling_min_14",
+        "rolling_max_14",
+        "rolling_mean_28",
+        "rolling_std_28",
+        "rolling_min_28",
+        "rolling_max_28"
+    ],
+    "lags": [
+        1,
+        7,
+        14,
+        28
+    ],
+    "rolling_windows": [
+        7,
+        14,
+        28
+    ],
+    "model_parameters": {
+        "n_estimators": 300,
+        "max_depth": 6,
+        "learning_rate": 0.04,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 2,
+        "reg_lambda": 2.0,
+        "objective": "reg:squarederror",
+        "tree_method": "hist",
+        "random_state": 42,
+        "n_jobs": -1,
+        "verbosity": 0
+    },
+    "model_selection": {
+        "method": "Per-department chronological validation-tail MAE",
+        "validation_fraction_of_training": 0.2,
+        "candidates": {
+            "shallow": {
+                "n_estimators": 300,
+                "max_depth": 1,
+                "learning_rate": 0.04,
+                "min_child_weight": 5,
+                "reg_lambda": 5.0
+            },
+            "regularized": {
+                "n_estimators": 120,
+                "max_depth": 2,
+                "learning_rate": 0.025,
+                "min_child_weight": 8,
+                "reg_lambda": 8.0
+            },
+            "mid": {
+                "n_estimators": 300,
+                "max_depth": 3,
+                "learning_rate": 0.03,
+                "min_child_weight": 5,
+                "reg_lambda": 5.0
+            }
+        },
+        "selected_by_department": {
+            "Cardiology": {
+                "candidate": "regularized",
+                "validation_MAE": 0.854961514093314
+            },
+            "Emergency": {
+                "candidate": "shallow",
+                "validation_MAE": 0.6334497630596161
+            },
+            "General Medicine": {
+                "candidate": "regularized",
+                "validation_MAE": 1.8434798125248806
+            },
+            "ICU": {
+                "candidate": "shallow",
+                "validation_MAE": 0.695249072115892
+            },
+            "Neurology": {
+                "candidate": "mid",
+                "validation_MAE": 0.6472138660206537
+            },
+            "Oncology": {
+                "candidate": "shallow",
+                "validation_MAE": 0.5310144211954562
+            },
+            "Orthopedics": {
+                "candidate": "regularized",
+                "validation_MAE": 0.727900531831061
+            },
+            "Pediatrics": {
+                "candidate": "shallow",
+                "validation_MAE": 0.7010074018672773
+            },
+            "Surgery": {
+                "candidate": "regularized",
+                "validation_MAE": 0.8876204137589522
+            }
+        },
+        "holdout_used_for_selection": false
+    },
+    "overall_ml_metrics": {
+        "MAE": 0.8544095043183314,
+        "RMSE": 1.119594893182763,
+        "MAPE_percent": 41.77846132507651
+    },
+    "overall_baseline_metrics": {
+        "MAE": 1.0208685843203609,
+        "RMSE": 1.5195659427146686,
+        "MAPE_percent": 68.2368951539806
+    },
+    "MAE_improvement_vs_baseline_percent": 16.305632532795485,
+    "RMSE_improvement_vs_baseline_percent": 26.32140128235348,
+    "departments_modelled": [
+        "Cardiology",
+        "Emergency",
+        "General Medicine",
+        "ICU",
+        "Neurology",
+        "Oncology",
+        "Orthopedics",
+        "Pediatrics",
+        "Surgery"
+    ],
+    "generated_at": "2026-10-05T11:18:54.538968",
+    "safety_note": "Operations decision support only. Not a clinical diagnosis or treatment system."
+}

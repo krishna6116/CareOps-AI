@@ -1,0 +1,74 @@
+{
+  "audit": {
+    "project": "CareOps-AI",
+    "purpose": "Determine whether synthetic appointment data contains learnable no-show signal.",
+    "source_file": "C:\\Users\\krish\\Documents\\CareOps-AI\\data\\processed\\appointments.csv",
+    "source_data_modified": false,
+    "seed": 42,
+    "runtime_seconds": 4.188935995101929
+  },
+  "dataset": {
+    "rows": 120000,
+    "columns": 31,
+    "date_min": "2024-01-01T08:00:00",
+    "date_max": "2026-09-22T16:00:00"
+  },
+  "target": {
+    "show_count": 107450,
+    "no_show_count": 12550,
+    "total": 120000,
+    "no_show_rate": 0.10458333333333333
+  },
+  "target_consistency": {
+    "attended_column_present": true,
+    "consistency_checked_rows": 120000,
+    "inconsistent_rows": 0,
+    "consistency_percentage": 100.0
+  },
+  "patient_history": {
+    "total_appointments": 120000,
+    "first_appointments": 45404,
+    "repeat_appointments": 74596,
+    "repeat_appointment_percentage": 62.163333333333334,
+    "historical_no_show_rate_correlation": 0.2565335789319699,
+    "previous_no_show_count_correlation": 0.24793657201135383
+  },
+  "baseline": {
+    "positive_rate": 0.10458333333333333,
+    "constant_probability": 0.10458333333333333,
+    "roc_auc": 0.5,
+    "pr_auc": 0.10382556593518005
+  },
+  "xgboost_signal_test": {
+    "available": true,
+    "train_rows": 84000,
+    "test_rows": 36000,
+    "features": 41,
+    "train_positive": 8797,
+    "train_negative": 75203,
+    "scale_pos_weight": 8.548709787427532,
+    "roc_auc": 0.5403139144032558,
+    "pr_auc": 0.11691753929187215,
+    "runtime_seconds": 1.622286081314087,
+    "threshold": 0.5,
+    "accuracy": 0.54725,
+    "precision": 0.11496439970537688,
+    "recall": 0.4990674127364775,
+    "f1": 0.18687952107757547,
+    "true_positive": 1873,
+    "true_negative": 17828,
+    "false_positive": 14419,
+    "false_negative": 1880
+  },
+  "final_signal_assessment": {
+    "signal_score": 2,
+    "conclusion": "WEAK OR MOSTLY RANDOM SIGNAL",
+    "recommendation": "The dataset appears to contain limited predictive information. Extensive model tuning is unlikely to produce a reliable improvement unless the synthetic data-generating process is changed.",
+    "evidence": [
+      "XGBoost ROC-AUC is 0.5403, which is very close to random ranking.",
+      "Categorical group no-show rates are relatively similar.",
+      "Numeric features show weak direct correlation with no-show status.",
+      "Historical patient no-show behavior contains noticeable predictive signal."
+    ]
+  }
+}

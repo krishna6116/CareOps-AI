@@ -1,0 +1,10 @@
+department,total_beds,available_beds,occupied_beds,isolation_beds,icu_beds,emergency_reserve_beds,emergency_available_beds,bed_utilization,bed_availability_rate
+Cardiology,20,4,14,0,0,0,4,0.7,0.2
+Emergency,10,1,9,10,0,10,1,0.9,0.1
+General Medicine,100,9,91,0,0,0,9,0.91,0.09
+ICU,20,2,18,20,20,20,2,0.9,0.1
+Neurology,15,4,10,0,0,0,4,0.6666666666666666,0.26666666666666666
+Oncology,10,2,8,10,0,0,2,0.8,0.2
+Orthopedics,15,0,12,0,0,0,0,0.8,0.0
+Pediatrics,15,3,10,0,0,0,3,0.6666666666666666,0.2
+Surgery,25,6,18,0,0,0,6,0.72,0.24

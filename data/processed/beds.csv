@@ -1,0 +1,231 @@
+bed_id,ward,bed_type,status,floor,department,isolation_capable,emergency_reserve,available_for_emergency
+B0001,General,General,Occupied,2,General Medicine,False,False,False
+B0002,General,General,Occupied,2,General Medicine,False,False,False
+B0003,General,General,Occupied,2,General Medicine,False,False,False
+B0004,General,General,Occupied,2,General Medicine,False,False,False
+B0005,General,General,Occupied,2,General Medicine,False,False,False
+B0006,General,General,Occupied,2,General Medicine,False,False,False
+B0007,General,General,Occupied,2,General Medicine,False,False,False
+B0008,General,General,Occupied,2,General Medicine,False,False,False
+B0009,General,General,Occupied,2,General Medicine,False,False,False
+B0010,General,General,Occupied,2,General Medicine,False,False,False
+B0011,General,General,Occupied,2,General Medicine,False,False,False
+B0012,General,General,Occupied,2,General Medicine,False,False,False
+B0013,General,General,Occupied,2,General Medicine,False,False,False
+B0014,General,General,Occupied,2,General Medicine,False,False,False
+B0015,General,General,Occupied,2,General Medicine,False,False,False
+B0016,General,General,Occupied,2,General Medicine,False,False,False
+B0017,General,General,Occupied,2,General Medicine,False,False,False
+B0018,General,General,Occupied,2,General Medicine,False,False,False
+B0019,General,General,Occupied,2,General Medicine,False,False,False
+B0020,General,General,Occupied,2,General Medicine,False,False,False
+B0021,General,General,Occupied,2,General Medicine,False,False,False
+B0022,General,General,Occupied,2,General Medicine,False,False,False
+B0023,General,General,Occupied,2,General Medicine,False,False,False
+B0024,General,General,Occupied,2,General Medicine,False,False,False
+B0025,General,General,Occupied,2,General Medicine,False,False,False
+B0026,General,General,Occupied,2,General Medicine,False,False,False
+B0027,General,General,Occupied,2,General Medicine,False,False,False
+B0028,General,General,Occupied,2,General Medicine,False,False,False
+B0029,General,General,Occupied,2,General Medicine,False,False,False
+B0030,General,General,Occupied,2,General Medicine,False,False,False
+B0031,General,General,Occupied,2,General Medicine,False,False,False
+B0032,General,General,Occupied,2,General Medicine,False,False,False
+B0033,General,General,Occupied,2,General Medicine,False,False,False
+B0034,General,General,Occupied,2,General Medicine,False,False,False
+B0035,General,General,Occupied,2,General Medicine,False,False,False
+B0036,General,General,Occupied,2,General Medicine,False,False,False
+B0037,General,General,Occupied,2,General Medicine,False,False,False
+B0038,General,General,Occupied,2,General Medicine,False,False,False
+B0039,General,General,Occupied,2,General Medicine,False,False,False
+B0040,General,General,Occupied,2,General Medicine,False,False,False
+B0041,General,General,Occupied,2,General Medicine,False,False,False
+B0042,General,General,Occupied,2,General Medicine,False,False,False
+B0043,General,General,Occupied,2,General Medicine,False,False,False
+B0044,General,General,Occupied,2,General Medicine,False,False,False
+B0045,General,General,Occupied,2,General Medicine,False,False,False
+B0046,General,General,Occupied,2,General Medicine,False,False,False
+B0047,General,General,Occupied,2,General Medicine,False,False,False
+B0048,General,General,Occupied,2,General Medicine,False,False,False
+B0049,General,General,Occupied,2,General Medicine,False,False,False
+B0050,General,General,Occupied,2,General Medicine,False,False,False
+B0051,General,General,Occupied,2,General Medicine,False,False,False
+B0052,General,General,Occupied,2,General Medicine,False,False,False
+B0053,General,General,Occupied,2,General Medicine,False,False,False
+B0054,General,General,Occupied,2,General Medicine,False,False,False
+B0055,General,General,Occupied,2,General Medicine,False,False,False
+B0056,General,General,Occupied,2,General Medicine,False,False,False
+B0057,General,General,Occupied,2,General Medicine,False,False,False
+B0058,General,General,Occupied,2,General Medicine,False,False,False
+B0059,General,General,Occupied,2,General Medicine,False,False,False
+B0060,General,General,Occupied,2,General Medicine,False,False,False
+B0061,General,General,Occupied,2,General Medicine,False,False,False
+B0062,General,General,Occupied,2,General Medicine,False,False,False
+B0063,General,General,Occupied,2,General Medicine,False,False,False
+B0064,General,General,Occupied,2,General Medicine,False,False,False
+B0065,General,General,Occupied,2,General Medicine,False,False,False
+B0066,General,General,Occupied,2,General Medicine,False,False,False
+B0067,General,General,Occupied,2,General Medicine,False,False,False
+B0068,General,General,Occupied,2,General Medicine,False,False,False
+B0069,General,General,Occupied,2,General Medicine,False,False,False
+B0070,General,General,Occupied,2,General Medicine,False,False,False
+B0071,General,General,Occupied,2,General Medicine,False,False,False
+B0072,General,General,Occupied,2,General Medicine,False,False,False
+B0073,General,General,Occupied,2,General Medicine,False,False,False
+B0074,General,General,Occupied,2,General Medicine,False,False,False
+B0075,General,General,Occupied,2,General Medicine,False,False,False
+B0076,General,General,Occupied,2,General Medicine,False,False,False
+B0077,General,General,Occupied,2,General Medicine,False,False,False
+B0078,General,General,Occupied,2,General Medicine,False,False,False
+B0079,General,General,Occupied,2,General Medicine,False,False,False
+B0080,General,General,Occupied,2,General Medicine,False,False,False
+B0081,General,General,Occupied,2,General Medicine,False,False,False
+B0082,General,General,Occupied,2,General Medicine,False,False,False
+B0083,General,General,Occupied,2,General Medicine,False,False,False
+B0084,General,General,Occupied,2,General Medicine,False,False,False
+B0085,General,General,Occupied,2,General Medicine,False,False,False
+B0086,General,General,Occupied,2,General Medicine,False,False,False
+B0087,General,General,Occupied,2,General Medicine,False,False,False
+B0088,General,General,Occupied,2,General Medicine,False,False,False
+B0089,General,General,Occupied,2,General Medicine,False,False,False
+B0090,General,General,Occupied,2,General Medicine,False,False,False
+B0091,General,General,Occupied,2,General Medicine,False,False,False
+B0092,General,General,Available,2,General Medicine,False,False,True
+B0093,General,General,Available,2,General Medicine,False,False,True
+B0094,General,General,Available,2,General Medicine,False,False,True
+B0095,General,General,Available,2,General Medicine,False,False,True
+B0096,General,General,Available,2,General Medicine,False,False,True
+B0097,General,General,Available,2,General Medicine,False,False,True
+B0098,General,General,Available,2,General Medicine,False,False,True
+B0099,General,General,Available,2,General Medicine,False,False,True
+B0100,General,General,Available,2,General Medicine,False,False,True
+B0101,ICU,ICU,Occupied,3,ICU,True,True,False
+B0102,ICU,ICU,Occupied,3,ICU,True,True,False
+B0103,ICU,ICU,Occupied,3,ICU,True,True,False
+B0104,ICU,ICU,Occupied,3,ICU,True,True,False
+B0105,ICU,ICU,Occupied,3,ICU,True,True,False
+B0106,ICU,ICU,Occupied,3,ICU,True,True,False
+B0107,ICU,ICU,Occupied,3,ICU,True,True,False
+B0108,ICU,ICU,Occupied,3,ICU,True,True,False
+B0109,ICU,ICU,Occupied,3,ICU,True,True,False
+B0110,ICU,ICU,Occupied,3,ICU,True,True,False
+B0111,ICU,ICU,Occupied,3,ICU,True,True,False
+B0112,ICU,ICU,Occupied,3,ICU,True,True,False
+B0113,ICU,ICU,Occupied,3,ICU,True,True,False
+B0114,ICU,ICU,Occupied,3,ICU,True,True,False
+B0115,ICU,ICU,Occupied,3,ICU,True,True,False
+B0116,ICU,ICU,Occupied,3,ICU,True,True,False
+B0117,ICU,ICU,Occupied,3,ICU,True,True,False
+B0118,ICU,ICU,Occupied,3,ICU,True,True,False
+B0119,ICU,ICU,Available,3,ICU,True,True,True
+B0120,ICU,ICU,Available,3,ICU,True,True,True
+B0121,Emergency,Emergency,Occupied,1,Emergency,True,True,False
+B0122,Emergency,Emergency,Occupied,1,Emergency,True,True,False
+B0123,Emergency,Emergency,Occupied,1,Emergency,True,True,False
+B0124,Emergency,Emergency,Occupied,1,Emergency,True,True,False
+B0125,Emergency,Emergency,Occupied,1,Emergency,True,True,False
+B0126,Emergency,Emergency,Occupied,1,Emergency,True,True,False
+B0127,Emergency,Emergency,Occupied,1,Emergency,True,True,False
+B0128,Emergency,Emergency,Occupied,1,Emergency,True,True,False
+B0129,Emergency,Emergency,Occupied,1,Emergency,True,True,False
+B0130,Emergency,Emergency,Available,1,Emergency,True,True,True
+B0131,Surgery,General,Occupied,2,Surgery,False,False,False
+B0132,Surgery,General,Occupied,2,Surgery,False,False,False
+B0133,Surgery,General,Occupied,2,Surgery,False,False,False
+B0134,Surgery,General,Occupied,2,Surgery,False,False,False
+B0135,Surgery,General,Available,2,Surgery,False,False,True
+B0136,Surgery,General,Available,2,Surgery,False,False,True
+B0137,Surgery,General,Available,2,Surgery,False,False,True
+B0138,Surgery,General,Occupied,2,Surgery,False,False,False
+B0139,Surgery,General,Occupied,2,Surgery,False,False,False
+B0140,Surgery,General,Occupied,2,Surgery,False,False,False
+B0141,Surgery,General,Occupied,2,Surgery,False,False,False
+B0142,Surgery,General,Available,2,Surgery,False,False,True
+B0143,Surgery,General,Occupied,2,Surgery,False,False,False
+B0144,Surgery,General,Occupied,2,Surgery,False,False,False
+B0145,Surgery,General,Occupied,2,Surgery,False,False,False
+B0146,Surgery,General,Occupied,2,Surgery,False,False,False
+B0147,Surgery,General,Available,2,Surgery,False,False,True
+B0148,Surgery,General,Available,2,Surgery,False,False,True
+B0149,Surgery,General,Occupied,2,Surgery,False,False,False
+B0150,Surgery,General,Occupied,2,Surgery,False,False,False
+B0151,Surgery,General,Occupied,2,Surgery,False,False,False
+B0152,Surgery,General,Occupied,2,Surgery,False,False,False
+B0153,Surgery,General,Occupied,2,Surgery,False,False,False
+B0154,Surgery,General,Occupied,2,Surgery,False,False,False
+B0155,Surgery,General,Available,2,Surgery,False,False,True
+B0156,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0157,Cardiology,General,Available,2,Cardiology,False,False,True
+B0158,Cardiology,General,Available,2,Cardiology,False,False,True
+B0159,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0160,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0161,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0162,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0163,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0164,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0165,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0166,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0167,Cardiology,General,Available,2,Cardiology,False,False,True
+B0168,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0169,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0170,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0171,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0172,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0173,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0174,Cardiology,General,Maintenance,2,Cardiology,False,False,False
+B0175,Cardiology,General,Occupied,2,Cardiology,False,False,False
+B0176,Neurology,General,Occupied,2,Neurology,False,False,False
+B0177,Neurology,General,Occupied,2,Neurology,False,False,False
+B0178,Neurology,General,Maintenance,2,Neurology,False,False,False
+B0179,Neurology,General,Occupied,2,Neurology,False,False,False
+B0180,Neurology,General,Occupied,2,Neurology,False,False,False
+B0181,Neurology,General,Occupied,2,Neurology,False,False,False
+B0182,Neurology,General,Occupied,2,Neurology,False,False,False
+B0183,Neurology,General,Available,2,Neurology,False,False,True
+B0184,Neurology,General,Occupied,2,Neurology,False,False,False
+B0185,Neurology,General,Available,2,Neurology,False,False,True
+B0186,Neurology,General,Occupied,2,Neurology,False,False,False
+B0187,Neurology,General,Occupied,2,Neurology,False,False,False
+B0188,Neurology,General,Occupied,2,Neurology,False,False,False
+B0189,Neurology,General,Available,2,Neurology,False,False,True
+B0190,Neurology,General,Occupied,2,Neurology,False,False,False
+B0191,Orthopedics,General,Occupied,2,Orthopedics,False,False,False
+B0192,Orthopedics,General,Available,2,Orthopedics,False,False,True
+B0193,Orthopedics,General,Occupied,2,Orthopedics,False,False,False
+B0194,Orthopedics,General,Available,2,Orthopedics,False,False,True
+B0195,Orthopedics,General,Maintenance,2,Orthopedics,False,False,False
+B0196,Orthopedics,General,Available,2,Orthopedics,False,False,True
+B0197,Orthopedics,General,Occupied,2,Orthopedics,False,False,False
+B0198,Orthopedics,General,Occupied,2,Orthopedics,False,False,False
+B0199,Orthopedics,General,Occupied,2,Orthopedics,False,False,False
+B0200,Orthopedics,General,Occupied,2,Orthopedics,False,False,False
+B0201,Orthopedics,General,Occupied,2,Orthopedics,False,False,False
+B0202,Orthopedics,General,Available,2,Orthopedics,False,False,True
+B0203,Orthopedics,General,Occupied,2,Orthopedics,False,False,False
+B0204,Orthopedics,General,Occupied,2,Orthopedics,False,False,False
+B0205,Orthopedics,General,Occupied,2,Orthopedics,False,False,False
+B0206,Pediatrics,General,Available,2,Pediatrics,False,False,True
+B0207,Pediatrics,General,Available,2,Pediatrics,False,False,True
+B0208,Pediatrics,General,Occupied,2,Pediatrics,False,False,False
+B0209,Pediatrics,General,Available,2,Pediatrics,False,False,True
+B0210,Pediatrics,General,Occupied,2,Pediatrics,False,False,False
+B0211,Pediatrics,General,Occupied,2,Pediatrics,False,False,False
+B0212,Pediatrics,General,Occupied,2,Pediatrics,False,False,False
+B0213,Pediatrics,General,Occupied,2,Pediatrics,False,False,False
+B0214,Pediatrics,General,Occupied,2,Pediatrics,False,False,False
+B0215,Pediatrics,General,Occupied,2,Pediatrics,False,False,False
+B0216,Pediatrics,General,Occupied,2,Pediatrics,False,False,False
+B0217,Pediatrics,General,Available,2,Pediatrics,False,False,True
+B0218,Pediatrics,General,Occupied,2,Pediatrics,False,False,False
+B0219,Pediatrics,General,Occupied,2,Pediatrics,False,False,False
+B0220,Pediatrics,General,Occupied,2,Pediatrics,False,False,False
+B0221,Oncology,Isolation,Available,2,Oncology,True,False,True
+B0222,Oncology,Isolation,Occupied,2,Oncology,True,False,False
+B0223,Oncology,Isolation,Available,2,Oncology,True,False,True
+B0224,Oncology,Isolation,Occupied,2,Oncology,True,False,False
+B0225,Oncology,Isolation,Occupied,2,Oncology,True,False,False
+B0226,Oncology,Isolation,Occupied,2,Oncology,True,False,False
+B0227,Oncology,Isolation,Occupied,2,Oncology,True,False,False
+B0228,Oncology,Isolation,Occupied,2,Oncology,True,False,False
+B0229,Oncology,Isolation,Maintenance,2,Oncology,True,False,False
+B0230,Oncology,Isolation,Available,2,Oncology,True,False,True

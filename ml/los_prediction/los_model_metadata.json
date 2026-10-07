@@ -1,0 +1,84 @@
+{
+    "project": "CareOps-AI",
+    "module": "Length-of-Stay Prediction",
+    "model_type": "XGBRegressor",
+    "random_seed": 42,
+    "target": {
+        "name": "los_target",
+        "unit": "days",
+        "construction_method": "existing_los_column"
+    },
+    "data_sources": {
+        "admissions_file": "C:\\Users\\krish\\Documents\\CareOps-AI\\data\\synthetic\\admissions.csv",
+        "patients_file": "C:\\Users\\krish\\Documents\\CareOps-AI\\data\\synthetic\\patients.csv"
+    },
+    "training": {
+        "rows": 9196,
+        "date_start": "2024-01-01T00:00:00",
+        "date_end": "2026-02-26T00:00:00"
+    },
+    "testing": {
+        "rows": 2300,
+        "date_start": "2026-02-26T00:00:00",
+        "date_end": "2026-10-01T00:00:00"
+    },
+    "split": {
+        "method": "chronological",
+        "test_size": 0.2
+    },
+    "features": {
+        "numeric": [
+            "age_model",
+            "icu_required_model",
+            "procedure_indicator_model",
+            "comorbidity_count_model",
+            "admission_year",
+            "admission_month",
+            "admission_day",
+            "admission_dayofweek",
+            "admission_weekofyear",
+            "admission_is_weekend"
+        ],
+        "categorical": [
+            "department_model",
+            "diagnosis_category_model",
+            "severity_model",
+            "admission_type_model",
+            "gender_model"
+        ],
+        "severity_handling": "categorical"
+    },
+    "xgboost": {
+        "n_estimators": 250,
+        "max_depth": 7,
+        "learning_rate": 0.04,
+        "subsample": 0.9,
+        "colsample_bytree": 0.9,
+        "min_child_weight": 2,
+        "reg_lambda": 2.0,
+        "objective": "reg:squarederror",
+        "tree_method": "hist",
+        "random_state": 42,
+        "n_jobs": 5,
+        "verbosity": 0
+    },
+    "baseline_metrics": {
+        "mae_days": 4.488962308754279,
+        "rmse_days": 5.774970566425039,
+        "r2": -0.0006388556568213133,
+        "mape_percent": 53.21752563828455
+    },
+    "xgboost_metrics": {
+        "mae_days": 2.590747502886731,
+        "rmse_days": 3.2264659634484394,
+        "r2": 0.6876568479099235,
+        "mape_percent": 26.377018074282184
+    },
+    "training_time_seconds": 0.3887059688568115,
+    "target_leakage_prevention": {
+        "discharge_date_used_as_feature": false,
+        "los_used_as_feature": false,
+        "chronological_split": true
+    },
+    "generated_at": "2026-10-05T11:18:56.574682"
+}

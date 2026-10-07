@@ -1,0 +1,195 @@
+================================================================================
+CAREOPS AI - ADMISSION DEMAND FORECASTING REPORT
+================================================================================
+
+PROJECT PURPOSE
+CareOps AI is an operations decision-support platform for healthcare resource planning. This module forecasts future hospital admission demand to support later capacity and resource optimization.
+
+SOURCE DATA
+Source file: C:\Users\krish\Documents\CareOps-AI\data\synthetic\daily_operations.csv
+Source type: Existing daily admissions dataset
+Historical start: 2024-01-01
+Historical end: 2026-10-05
+Historical days: 1,009
+Departments: 9
+Historical admissions: 11,640
+
+FORECASTING APPROACH
+Machine-learning model: XGBRegressor
+Baseline: 7-Day Seasonal Naive
+Validation: Chronological time-based split
+Random shuffling: Not used
+Forecast horizon: 30 days
+
+FEATURES
+Calendar features:
+ - Year
+ - Month
+ - Day
+ - Day of week
+ - Day of year
+ - Week of year
+ - Quarter
+ - Weekend indicator
+ - Month start/end indicators
+ - Quarter start/end indicators
+
+Seasonality features:
+ - Day-of-week sine/cosine
+ - Month sine/cosine
+ - Day-of-year sine/cosine
+
+Historical lag features:
+ - 1-day lag
+ - 7-day lag
+ - 14-day lag
+ - 28-day lag
+
+Rolling features:
+ - 7-day mean
+ - 7-day standard deviation
+ - 7-day minimum
+ - 7-day maximum
+ - 14-day mean
+ - 14-day standard deviation
+ - 14-day minimum
+ - 14-day maximum
+ - 28-day mean
+ - 28-day standard deviation
+ - 28-day minimum
+ - 28-day maximum
+
+OVERALL MODEL PERFORMANCE
+--------------------------------------------------------------------------------
+ML MAE: 0.8544
+ML RMSE: 1.1196
+ML MAPE: 41.78%
+
+Baseline performance:
+Baseline MAE: 1.0209
+Baseline RMSE: 1.5196
+Baseline MAPE: 68.24%
+
+BASELINE COMPARISON
+--------------------------------------------------------------------------------
+MAE improvement vs baseline: 16.31%
+RMSE improvement vs baseline: 26.32%
+
+DEPARTMENT MODEL PERFORMANCE
+--------------------------------------------------------------------------------
+
+Department: Cardiology
+MAE: 0.9141
+RMSE: 1.0790
+MAPE: 37.35%
+
+Department: Emergency
+MAE: 0.6344
+RMSE: 0.7195
+MAPE: 37.33%
+
+Department: General Medicine
+MAE: 1.8347
+RMSE: 2.2525
+MAPE: 52.40%
+
+Department: ICU
+MAE: 0.6815
+RMSE: 0.8240
+MAPE: 56.90%
+
+Department: Neurology
+MAE: 0.7017
+RMSE: 0.8413
+MAPE: 25.88%
+
+Department: Oncology
+MAE: 0.5144
+RMSE: 0.5661
+MAPE: 57.90%
+
+Department: Orthopedics
+MAE: 0.6911
+RMSE: 0.8496
+MAPE: 39.75%
+
+Department: Pediatrics
+MAE: 0.8063
+RMSE: 0.9572
+MAPE: 32.03%
+
+Department: Surgery
+MAE: 0.9114
+RMSE: 1.0864
+MAPE: 35.69%
+
+30-DAY FORECAST
+--------------------------------------------------------------------------------
+Forecast start: 2026-10-06
+Forecast end: 2026-11-04
+Total forecasted admissions: 384.92
+
+Department forecast totals:
+ - General Medicine: 153.22
+ - Cardiology: 42.14
+ - Pediatrics: 38.57
+ - Surgery: 36.51
+ - Neurology: 33.26
+ - Emergency: 27.90
+ - Orthopedics: 21.69
+ - ICU: 16.10
+ - Oncology: 15.54
+
+TOP FORECASTING FEATURES
+--------------------------------------------------------------------------------
+ - day_of_year: 0.051209
+ - rolling_mean_14: 0.050922
+ - rolling_std_14: 0.049428
+ - day_of_week: 0.048792
+ - trend: 0.048740
+ - rolling_std_28: 0.048013
+ - doy_sin: 0.046239
+ - week_of_year: 0.045363
+ - doy_cos: 0.043973
+ - rolling_mean_28: 0.043855
+ - day: 0.041537
+ - dow_sin: 0.041264
+ - lag_1: 0.040527
+ - rolling_mean_7: 0.039108
+ - lag_28: 0.035974
+
+OUTPUT FILES
+--------------------------------------------------------------------------------
+Data catalog:
+  C:\Users\krish\Documents\CareOps-AI\ml\admission_forecasting\data_catalog.csv
+
+Daily admissions used:
+  C:\Users\krish\Documents\CareOps-AI\ml\admission_forecasting\daily_admissions_used.csv
+
+Forecasting features:
+  C:\Users\krish\Documents\CareOps-AI\ml\admission_forecasting\admission_forecasting_features.csv
+
+Metrics:
+  C:\Users\krish\Documents\CareOps-AI\ml\admission_forecasting\admission_forecasting_metrics.csv
+
+Test predictions:
+  C:\Users\krish\Documents\CareOps-AI\ml\admission_forecasting\admission_test_predictions.csv
+
+30-day forecast:
+  C:\Users\krish\Documents\CareOps-AI\ml\admission_forecasting\admission_30_day_forecast.csv
+
+Forecast summary:
+  C:\Users\krish\Documents\CareOps-AI\ml\admission_forecasting\admission_30_day_forecast_summary.csv
+
+Feature importance:
+  C:\Users\krish\Documents\CareOps-AI\ml\admission_forecasting\admission_feature_importance.csv
+
+Trained model:
+  C:\Users\krish\Documents\CareOps-AI\ml\admission_forecasting\models\admission_forecasting_models.joblib
+
+Model summary:
+  C:\Users\krish\Documents\CareOps-AI\ml\admission_forecasting\model_summary.json
+
+SAFETY / PORTFOLIO POSITIONING
+--------------------------------------------------------------------------------
+This forecasting model is an operations decision-support component. It should not be represented as an autonomous clinical diagnosis or treatment system. The public portfolio implementation should use synthetic/de-identified data. Forecasts should support qualified healthcare operations professionals rather than silently automate decisions.

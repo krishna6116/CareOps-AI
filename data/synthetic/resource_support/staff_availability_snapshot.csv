@@ -1,0 +1,301 @@
+staff_id,staff_name,role,specialty,department,availability,shift_preference,max_hours,as_of_date,data_provenance
+S00001,Elizabeth Parrish,Administrator,Internal Medicine,Cardiology,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00002,Martin Sanders,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00003,Benjamin Brown,Nurse,Emergency Medicine,Neurology,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00004,Mariah Bolton,Nurse,Orthopedics,Cardiology,Leave,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00005,Michael Allen,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00006,Ronald Palmer,Nurse,Internal Medicine,Oncology,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00007,Ashley Martinez,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00008,Stefanie Tyler,Nurse,Critical Care,Cardiology,Available,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00009,Misty Villegas PhD,Nurse,Emergency Medicine,Oncology,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00010,Heather Young,Nurse,Oncology,ICU,Busy,Night,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00011,Edward Smith,Nurse,Critical Care,Oncology,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00012,Carla Davidson,Technician,Radiology,Neurology,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00013,John Greer,Nurse,Cardiology,Surgery,Available,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00014,Timothy Barnes,Nurse,Neurology,Orthopedics,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00015,Laura Sandoval,Administrator,Critical Care,General Medicine,Available,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00016,Lori Miller,Nurse,Radiology,Emergency,Available,Morning,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00017,Aaron Gonzalez,Nurse,Oncology,General Medicine,Busy,Night,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00018,Megan Meyer,Administrator,Cardiology,Cardiology,Busy,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00019,Zachary Marquez,Administrator,Orthopedics,ICU,Available,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00020,Michael Hudson,Nurse,Radiology,Neurology,Available,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00021,Daniel Pollard,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00022,Dominique Graves,Administrator,Cardiology,Pediatrics,Busy,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00023,John Winters,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00024,Dr. Brian Harris,Doctor,Pediatrics,Pediatrics,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00025,Faith Miller,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00026,Sarah Fernandez,Therapist,Emergency Medicine,Neurology,Available,Morning,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00027,Jacqueline Rodgers,Nurse,Cardiology,Cardiology,Available,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00028,Anthony Thomas,Nurse,Radiology,Cardiology,Leave,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00029,Johnny Smith DDS,Therapist,Oncology,General Medicine,Busy,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00030,Kevin Galvan,Nurse,Orthopedics,Pediatrics,Busy,Night,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00031,Mr. Christopher Lloyd,Nurse,Pediatrics,Orthopedics,Busy,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00032,Brian Nguyen,Nurse,Oncology,ICU,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00033,Thomas Hammond,Nurse,Emergency Medicine,ICU,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00034,Barbara Hickman,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00035,Eileen Johnson,Doctor,Cardiology,Cardiology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00036,Julia Armstrong,Doctor,Critical Care,ICU,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00037,Andrew Gordon,Nurse,Oncology,Neurology,Available,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00038,Tony Mcgee,Nurse,General Surgery,Oncology,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00039,Chloe Rodriguez,Nurse,Critical Care,ICU,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00040,Susan Mccormick,Doctor,Critical Care,ICU,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00041,Trevor Owens,Therapist,Pediatrics,Oncology,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00042,Edward Johnson,Nurse,Emergency Medicine,Neurology,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00043,Emily Hunt,Nurse,Cardiology,Cardiology,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00044,William Lee,Nurse,Pediatrics,Cardiology,Busy,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00045,Valerie Ramirez,Nurse,Orthopedics,ICU,Busy,Morning,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00046,Mckenzie Jordan,Nurse,Radiology,ICU,Available,Evening,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00047,Jean Sweeney,Doctor,Oncology,Oncology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00048,Robert Martin,Doctor,Orthopedics,Orthopedics,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00049,Dr. Richard Williams,Technician,Radiology,Surgery,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00050,Brenda Wagner,Technician,Radiology,Pediatrics,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00051,Sarah Rose,Nurse,Oncology,Orthopedics,Busy,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00052,Amanda Wilson,Administrator,Radiology,ICU,Available,Night,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00053,Christy Powell,Nurse,Pediatrics,Orthopedics,Available,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00054,Terry Pearson,Administrator,Internal Medicine,General Medicine,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00055,Benjamin Johnson,Technician,Radiology,Emergency,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00056,Joseph Lewis,Nurse,Pediatrics,Emergency,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00057,Alicia Klein,Nurse,Internal Medicine,Orthopedics,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00058,Mathew Barton,Nurse,Cardiology,Neurology,Busy,Night,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00059,Mrs. Haley Trujillo DVM,Nurse,Internal Medicine,Pediatrics,Leave,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00060,Michelle Martin,Doctor,Emergency Medicine,Emergency,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00061,Jerome Brooks,Nurse,Neurology,General Medicine,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00062,Sandra Green,Administrator,Pediatrics,Surgery,Busy,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00063,Robert Thompson,Nurse,Internal Medicine,Emergency,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00064,Danny Sweeney,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00065,Christopher Aguilar,Administrator,Emergency Medicine,Orthopedics,Available,Night,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00066,Heather Hinton,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00067,Nicholas Garcia,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00068,Deborah Jones,Nurse,Oncology,General Medicine,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00069,Stephanie Williams,Doctor,Pediatrics,Pediatrics,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00070,Jessica Deleon,Nurse,Critical Care,Emergency,Available,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00071,Nicole Barrett,Technician,Radiology,Cardiology,Busy,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00072,Cynthia Kennedy,Nurse,Cardiology,Oncology,Available,Evening,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00073,Carla Nelson,Doctor,Cardiology,Cardiology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00074,Aaron Deleon,Therapist,Pediatrics,Pediatrics,Busy,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00075,Jon Hobbs,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00076,Jennifer Williamson,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00077,Daniel Jones,Nurse,Critical Care,Orthopedics,Busy,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00078,Jared Young,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00079,Andre Martin,Nurse,Emergency Medicine,Surgery,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00080,Robert Francis,Nurse,Emergency Medicine,Pediatrics,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00081,Aaron Barnett,Doctor,Cardiology,Cardiology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00082,Amanda Price,Nurse,General Surgery,Pediatrics,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00083,Alexander Martinez,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00084,Thomas Gay,Nurse,Emergency Medicine,Surgery,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00085,Andrew Scott,Technician,Radiology,Cardiology,Available,Evening,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00086,Andrew Morgan,Nurse,General Surgery,Orthopedics,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00087,Lynn Burns,Doctor,Neurology,Neurology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00088,Jerry Landry,Administrator,Oncology,Cardiology,Leave,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00089,Tristan Holt,Nurse,Oncology,General Medicine,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00090,Tony Scott,Nurse,Cardiology,Orthopedics,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00091,Jennifer Price,Doctor,Internal Medicine,General Medicine,Busy,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00092,Sean Allen,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00093,Natasha Schaefer,Nurse,Radiology,Surgery,Available,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00094,Chelsea Stout,Doctor,Cardiology,Cardiology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00095,David Marshall,Nurse,General Surgery,Cardiology,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00096,Stephanie Dyer,Technician,Radiology,Surgery,Available,Morning,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00097,Rebecca Larsen,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00098,Michelle Haas,Nurse,Critical Care,Orthopedics,Busy,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00099,Donna Small,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00100,Jessica Price,Nurse,Critical Care,Cardiology,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00101,Amanda Allen,Nurse,Critical Care,Oncology,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00102,David Ortiz,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00103,Gregory Cooke,Nurse,Pediatrics,Neurology,Available,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00104,Jonathan Jimenez,Nurse,Internal Medicine,General Medicine,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00105,David Love,Nurse,Oncology,Neurology,Available,Night,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00106,Julie Smith,Doctor,Neurology,Neurology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00107,Scott Best,Doctor,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00108,James Henry,Therapist,General Surgery,Pediatrics,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00109,Jeremy Mann,Nurse,Orthopedics,Pediatrics,Available,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00110,Steven Bullock,Technician,Radiology,Orthopedics,Busy,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00111,John Green,Technician,Radiology,Orthopedics,Available,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00112,Courtney Rodriguez,Nurse,Pediatrics,Emergency,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00113,Kyle Christensen,Nurse,General Surgery,Neurology,Available,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00114,Kelly Martinez,Nurse,Neurology,Surgery,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00115,Matthew Zimmerman,Nurse,General Surgery,ICU,Busy,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00116,Michael Jones,Nurse,Critical Care,Pediatrics,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00117,Thomas Doyle,Nurse,Pediatrics,Pediatrics,Available,Night,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00118,Jack Kennedy,Nurse,Radiology,Emergency,Available,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00119,Randy Vaughn,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00120,Jennifer Owens,Nurse,Orthopedics,Oncology,Busy,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00121,Courtney Murray,Doctor,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00122,Alexandria Scott,Technician,Radiology,Oncology,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00123,Darren Cooper,Doctor,Pediatrics,Pediatrics,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00124,Todd Trujillo,Nurse,Internal Medicine,Pediatrics,Available,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00125,Cathy Thompson,Technician,Radiology,Pediatrics,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00126,David Marshall,Nurse,Orthopedics,Neurology,Busy,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00127,Tracy Ramos,Doctor,Orthopedics,Orthopedics,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00128,Holly Hawkins,Therapist,Internal Medicine,Orthopedics,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00129,Holly Coleman,Doctor,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00130,James Jackson,Doctor,Critical Care,ICU,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00131,Joshua Campbell,Nurse,Oncology,Oncology,Available,Night,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00132,Crystal Powell,Nurse,Neurology,Orthopedics,Available,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00133,Heather Moore,Technician,Radiology,Cardiology,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00134,Jason Snow,Technician,Radiology,Oncology,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00135,Amber Rojas,Nurse,Cardiology,General Medicine,Available,Morning,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00136,Heather Dennis,Doctor,Cardiology,Cardiology,Busy,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00137,Daniel Shea,Nurse,Neurology,Neurology,Busy,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00138,Tara Ward,Therapist,Critical Care,General Medicine,Busy,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00139,Sean Paul,Technician,Radiology,Orthopedics,Busy,Evening,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00140,James Allison,Administrator,Cardiology,General Medicine,Busy,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00141,Patricia Torres,Nurse,Oncology,Surgery,Available,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00142,Alexis Richardson,Nurse,Pediatrics,Neurology,Available,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00143,Craig James,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00144,Theresa Martinez,Administrator,Radiology,ICU,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00145,Anthony Guerra,Administrator,Oncology,Emergency,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00146,Michele Harris,Therapist,General Surgery,ICU,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00147,Kara Russell,Nurse,Critical Care,Surgery,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00148,Savannah Williams,Doctor,Critical Care,ICU,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00149,Nicholas Guzman,Doctor,Critical Care,ICU,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00150,Cody Nolan,Nurse,Emergency Medicine,Surgery,Available,Night,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00151,Miss Janice Espinoza,Nurse,Emergency Medicine,ICU,Available,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00152,Justin House,Nurse,Pediatrics,General Medicine,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00153,Rachel Foster,Nurse,Radiology,General Medicine,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00154,Daniel Branch,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00155,Michael Parks,Nurse,Radiology,Cardiology,Available,Night,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00156,Roger Hudson,Nurse,Internal Medicine,Neurology,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00157,Michael Reyes,Nurse,Internal Medicine,Oncology,Busy,Morning,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00158,Nicole Scott,Technician,Radiology,ICU,Leave,Night,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00159,Karen Frazier,Nurse,Orthopedics,General Medicine,Available,Evening,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00160,Sara Thompson,Nurse,Oncology,Oncology,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00161,Sean Young,Nurse,Pediatrics,ICU,Busy,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00162,Justin Gonzalez,Nurse,Cardiology,Pediatrics,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00163,James Bird,Nurse,Critical Care,Neurology,Busy,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00164,John Lambert,Nurse,Emergency Medicine,Oncology,Busy,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00165,Cynthia Barnes,Doctor,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00166,John Johnston,Technician,Radiology,Oncology,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00167,Michael Guzman,Administrator,Neurology,Neurology,Available,Evening,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00168,Antonio Adams,Doctor,Oncology,Oncology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00169,Patrick Carter,Therapist,General Surgery,General Medicine,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00170,Jessica Richardson,Nurse,Pediatrics,Orthopedics,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00171,Danielle Montoya,Nurse,Pediatrics,ICU,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00172,Katherine Mitchell,Nurse,Radiology,Emergency,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00173,Cory Johnson,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00174,Alicia Ellis,Doctor,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00175,Kylie Daniels,Nurse,Emergency Medicine,Emergency,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00176,Michael Nicholson,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00177,Laura Lane,Administrator,Neurology,Oncology,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00178,Desiree Martin,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00179,Philip Little,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00180,Jennifer Smith,Technician,Radiology,Emergency,Busy,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00181,Angela Smith,Doctor,Neurology,Neurology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00182,Emily Wilson,Nurse,General Surgery,Emergency,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00183,Timothy Martin,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00184,Jessica Myers,Therapist,Cardiology,Oncology,Busy,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00185,Brittany Garcia,Administrator,Neurology,Emergency,Available,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00186,Diana Stewart,Doctor,Oncology,Oncology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00187,Maria Fuentes,Doctor,Orthopedics,Orthopedics,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00188,Evan Kelley,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00189,Keith Moody,Nurse,Emergency Medicine,Surgery,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00190,Bradley Fernandez,Nurse,Neurology,Neurology,Available,Evening,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00191,Cynthia Sweeney,Nurse,Cardiology,Surgery,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00192,Valerie Schneider,Technician,Radiology,ICU,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00193,Christopher Hughes,Nurse,Orthopedics,General Medicine,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00194,Robert Kim,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00195,Regina Morris,Technician,Radiology,Cardiology,Available,Morning,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00196,Blake Harper,Administrator,Internal Medicine,Emergency,Busy,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00197,Richard Lewis,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00198,Brett Wong,Nurse,Cardiology,ICU,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00199,Susan Reid,Technician,Radiology,Cardiology,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00200,Thomas Gibson,Therapist,Neurology,Neurology,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00201,David Norman,Technician,Radiology,Orthopedics,Available,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00202,Adam Anderson,Doctor,Critical Care,ICU,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00203,Bradley Jackson,Nurse,Neurology,Surgery,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00204,Troy Kelly,Technician,Radiology,ICU,Busy,Night,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00205,Kevin West,Nurse,Orthopedics,Neurology,Busy,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00206,Rose White,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00207,Matthew Lucas,Therapist,Critical Care,ICU,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00208,Susan Ortiz,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00209,Gabrielle Garcia DDS,Nurse,Internal Medicine,Oncology,Busy,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00210,Kristin Smith,Nurse,Emergency Medicine,ICU,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00211,Craig Hernandez,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00212,Stephanie Nunez,Nurse,Oncology,ICU,Leave,Evening,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00213,Justin Harris,Administrator,Emergency Medicine,Neurology,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00214,Brandy King,Nurse,Neurology,Surgery,Available,Night,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00215,Sally Barrera,Technician,Radiology,General Medicine,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00216,Ashley Mercado,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00217,Robert Orr,Nurse,Cardiology,Neurology,Available,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00218,Kevin Howell,Doctor,Emergency Medicine,Emergency,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00219,Christy Alvarado,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00220,Kelly Osborne,Nurse,Neurology,General Medicine,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00221,James Brooks,Nurse,Radiology,Neurology,Available,Night,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00222,Brooke Lee,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00223,Claire Cooper,Doctor,Cardiology,Cardiology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00224,Austin Andrade,Administrator,Emergency Medicine,General Medicine,Busy,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00225,Kathryn Wood,Nurse,General Surgery,Oncology,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00226,Robert Lopez,Nurse,Radiology,Orthopedics,Busy,Night,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00227,Melinda Savage,Nurse,Radiology,General Medicine,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00228,Ms. Madeline Duncan DDS,Nurse,General Surgery,General Medicine,Available,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00229,Angel Pennington,Nurse,Neurology,Emergency,Leave,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00230,Jacob Gay,Doctor,Neurology,Neurology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00231,Douglas Foster PhD,Therapist,Oncology,ICU,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00232,Donald Foster,Nurse,Oncology,General Medicine,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00233,Haley King,Nurse,Critical Care,General Medicine,Available,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00234,Christopher Mckinney,Nurse,Pediatrics,Cardiology,Leave,Night,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00235,Daniel Baker,Nurse,General Surgery,Emergency,Available,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00236,Stephanie Parker,Therapist,Orthopedics,General Medicine,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00237,Terri Ferguson,Technician,Radiology,Oncology,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00238,Erika Cole,Nurse,Emergency Medicine,Emergency,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00239,Joshua Kennedy,Nurse,Orthopedics,Oncology,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00240,Charles Ward,Technician,Radiology,Surgery,Available,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00241,Bianca Garcia,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00242,Mary Davenport,Nurse,General Surgery,Neurology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00243,Matthew Camacho,Nurse,Radiology,ICU,Busy,Night,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00244,Linda Lopez,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00245,Jeremy Cox,Technician,Radiology,Orthopedics,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00246,Richard Wells,Nurse,Critical Care,Pediatrics,Busy,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00247,Randall Burke,Nurse,General Surgery,Emergency,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00248,Jared Lopez,Doctor,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00249,Paul Armstrong,Nurse,Internal Medicine,Orthopedics,Available,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00250,Jonathon Davis,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00251,Larry Stewart,Nurse,Neurology,Emergency,Available,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00252,Deborah Brown,Technician,Radiology,Orthopedics,Busy,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00253,Kelly Bradley,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00254,David Nichols,Administrator,Internal Medicine,General Medicine,Busy,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00255,Robert Mclean,Therapist,Oncology,Pediatrics,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00256,David Barnes,Nurse,Cardiology,General Medicine,Leave,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00257,Jacob Smith,Doctor,Neurology,Neurology,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00258,Tyler Diaz,Technician,Radiology,ICU,Busy,Night,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00259,Zachary Estes,Technician,Radiology,Pediatrics,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00260,Stephanie West,Nurse,Radiology,Cardiology,Busy,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00261,Miranda White,Administrator,Emergency Medicine,General Medicine,Available,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00262,Stephanie Stafford,Nurse,Neurology,Orthopedics,Busy,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00263,Jasmine Torres,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00264,Ryan Mcdonald,Nurse,Cardiology,Neurology,Available,Evening,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00265,Stephanie Moore,Surgeon,General Surgery,Surgery,Busy,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00266,Jennifer Melendez,Technician,Radiology,ICU,Available,Evening,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00267,Jean Hanson,Nurse,Neurology,General Medicine,Available,Night,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00268,Austin Welch,Nurse,Radiology,ICU,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00269,Stacey Moore,Administrator,Critical Care,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00270,Timothy Morris,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00271,Christina Hart,Nurse,Cardiology,ICU,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00272,Janice Neal,Nurse,Radiology,Surgery,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00273,Aaron Briggs,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00274,Adam Kaiser,Nurse,Critical Care,Orthopedics,Busy,Evening,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00275,Stacy Fernandez,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00276,Christopher Martin,Nurse,Orthopedics,Cardiology,Available,Morning,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00277,Randy Stevens,Nurse,Internal Medicine,Surgery,Available,Night,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00278,Sarah Robertson,Doctor,Emergency Medicine,Emergency,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00279,Steven Lopez,Doctor,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00280,Jodi Ward,Therapist,Radiology,Surgery,Available,Evening,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00281,Jane Russo,Doctor,Orthopedics,Orthopedics,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00282,Kelly Jennings,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00283,Mary Miller,Nurse,Orthopedics,Orthopedics,Busy,Morning,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00284,Austin Cortez,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00285,Katherine Olsen,Surgeon,General Surgery,Surgery,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00286,Ashley Rose,Nurse,Orthopedics,Orthopedics,Available,Night,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00287,Marcus Turner,Administrator,Neurology,Neurology,Busy,Morning,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00288,Lisa Jackson,Administrator,General Surgery,Emergency,Available,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00289,Roger Moss,Doctor,Pediatrics,Pediatrics,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00290,Mary Gonzalez,Nurse,Emergency Medicine,Orthopedics,Busy,Night,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00291,Lori Smith,Nurse,Emergency Medicine,Neurology,Busy,Night,24,2026-10-04,synthetic_static_staff_availability_assumption
+S00292,Manuel Bush,Nurse,General Surgery,Pediatrics,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00293,Beverly Garcia,Nurse,Pediatrics,Cardiology,Available,Morning,40,2026-10-04,synthetic_static_staff_availability_assumption
+S00294,Mr. Adam House,Nurse,Critical Care,Cardiology,Available,Evening,32,2026-10-04,synthetic_static_staff_availability_assumption
+S00295,Dustin Clark,Administrator,Neurology,Neurology,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00296,Lisa Edwards,Doctor,Internal Medicine,General Medicine,Available,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00297,Jay Olson,Nurse,Orthopedics,Orthopedics,Busy,Morning,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00298,Gregory Young,Nurse,Oncology,Neurology,Available,Evening,36,2026-10-04,synthetic_static_staff_availability_assumption
+S00299,Alyssa West,Nurse,Oncology,Orthopedics,Available,Evening,48,2026-10-04,synthetic_static_staff_availability_assumption
+S00300,Elizabeth Khan,Nurse,Internal Medicine,Emergency,Available,Morning,36,2026-10-04,synthetic_static_staff_availability_assumption

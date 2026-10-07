@@ -1,0 +1,10 @@
+department,compatible_available_beds,emergency_reserve_beds,protected_emergency_reserve,usable_routine_capacity
+Cardiology,26,0,0,26
+Emergency,1,1,1,0
+General Medicine,26,0,0,26
+ICU,2,2,1,1
+Neurology,26,0,0,26
+Oncology,28,0,0,28
+Orthopedics,26,0,0,26
+Pediatrics,26,0,0,26
+Surgery,26,0,0,26

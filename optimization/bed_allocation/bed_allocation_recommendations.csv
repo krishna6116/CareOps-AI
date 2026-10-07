@@ -1,0 +1,10 @@
+department,baseline_unmet,optimized_unmet,allocation_change,optimized_transfer_pressure,recommendation,recommended_action
+Cardiology,136,136,0,0,Cardiology retains 136 unmet bed-demand units after optimization.,"Review discharges, staffing, compatible capacity, transfers, and emergency reserve."
+Emergency,823,809,14,0,"Optimization allocated 14 additional bed-days to Emergency, reducing unmet demand from 823 to 809.",Review compatible-bed reallocation and staffing feasibility.
+General Medicine,211,211,0,2,General Medicine retains 211 unmet bed-demand units after optimization.,"Review discharges, staffing, compatible capacity, transfers, and emergency reserve."
+ICU,92,78,14,0,"Optimization allocated 14 additional bed-days to ICU, reducing unmet demand from 92 to 78.",Review compatible-bed reallocation and staffing feasibility.
+Neurology,93,93,0,0,Neurology retains 93 unmet bed-demand units after optimization.,"Review discharges, staffing, compatible capacity, transfers, and emergency reserve."
+Oncology,125,124,1,1,"Optimization allocated 1 additional bed-days to Oncology, reducing unmet demand from 125 to 124.",Review compatible-bed reallocation and staffing feasibility.
+Orthopedics,170,169,1,1,"Optimization allocated 1 additional bed-days to Orthopedics, reducing unmet demand from 170 to 169.",Review compatible-bed reallocation and staffing feasibility.
+Pediatrics,131,130,1,1,"Optimization allocated 1 additional bed-days to Pediatrics, reducing unmet demand from 131 to 130.",Review compatible-bed reallocation and staffing feasibility.
+Surgery,144,144,0,0,Surgery retains 144 unmet bed-demand units after optimization.,"Review discharges, staffing, compatible capacity, transfers, and emergency reserve."

@@ -1,0 +1,4 @@
+metric,baseline,optimized,absolute_improvement,improvement_percent
+Unmet Demand,1925,1894,31,1.6103896103896103
+Transfer Pressure,0,5,-5,0.0
+Unused Capacity,3,1008,-1005,-33500.0

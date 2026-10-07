@@ -1,0 +1,20 @@
+{
+    "model": "XGBoost native API",
+    "target": "daily ICU admissions",
+    "target_unit": "admissions_per_day",
+    "capacity_note": "ICU bed occupancy and capacity risk are not estimated from admissions.",
+    "test_metrics": {
+        "MAE": 0.7281378660653088,
+        "RMSE": 0.9267583030674812,
+        "R2": 0.052674939358570816,
+        "MAPE_percent": 39.55649879905913
+    },
+    "baseline_7_day_metrics": {
+        "MAE": 1.0067567567567568,
+        "RMSE": 1.3779146013627437,
+        "R2": -1.0941638551790116,
+        "MAPE_percent": 65.48148148148147
+    },
+    "forecast_horizon_days": 30,
+    "feature_count": 54
+}

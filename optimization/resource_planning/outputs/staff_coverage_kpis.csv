@@ -1,0 +1,2160 @@
+date,department,shift,role,required_staff,assigned_staff,unfilled_staff
+2026-10-05,cardiology,Evening,administrator,1,1,0
+2026-10-05,cardiology,Evening,nurse,4,4,0
+2026-10-05,cardiology,Evening,technician,2,2,0
+2026-10-05,cardiology,Morning,administrator,1,1,0
+2026-10-05,cardiology,Morning,doctor,7,7,0
+2026-10-05,cardiology,Morning,nurse,5,5,0
+2026-10-05,cardiology,Morning,technician,1,1,0
+2026-10-05,cardiology,Night,nurse,3,3,0
+2026-10-05,emergency,Evening,administrator,1,1,0
+2026-10-05,emergency,Evening,nurse,3,3,0
+2026-10-05,emergency,Morning,administrator,1,1,0
+2026-10-05,emergency,Morning,doctor,3,3,0
+2026-10-05,emergency,Morning,nurse,4,4,0
+2026-10-05,emergency,Morning,technician,1,1,0
+2026-10-05,emergency,Night,administrator,1,1,0
+2026-10-05,emergency,Night,nurse,2,2,0
+2026-10-05,general medicine,Evening,administrator,1,1,0
+2026-10-05,general medicine,Evening,nurse,17,17,0
+2026-10-05,general medicine,Evening,therapist,1,1,0
+2026-10-05,general medicine,Morning,administrator,2,2,0
+2026-10-05,general medicine,Morning,doctor,22,22,0
+2026-10-05,general medicine,Morning,nurse,17,17,0
+2026-10-05,general medicine,Night,administrator,1,1,0
+2026-10-05,general medicine,Night,nurse,17,17,0
+2026-10-05,general medicine,Night,therapist,1,1,0
+2026-10-05,icu,Evening,administrator,1,1,0
+2026-10-05,icu,Evening,nurse,4,4,0
+2026-10-05,icu,Evening,technician,1,1,0
+2026-10-05,icu,Evening,therapist,1,1,0
+2026-10-05,icu,Morning,doctor,4,4,0
+2026-10-05,icu,Morning,nurse,4,4,0
+2026-10-05,icu,Night,administrator,1,1,0
+2026-10-05,icu,Night,nurse,4,4,0
+2026-10-05,icu,Night,technician,1,1,0
+2026-10-05,neurology,Evening,administrator,1,1,0
+2026-10-05,neurology,Evening,nurse,6,6,0
+2026-10-05,neurology,Evening,therapist,1,1,0
+2026-10-05,neurology,Morning,administrator,1,1,0
+2026-10-05,neurology,Morning,doctor,6,6,0
+2026-10-05,neurology,Morning,nurse,4,4,0
+2026-10-05,neurology,Morning,therapist,1,1,0
+2026-10-05,neurology,Night,nurse,4,4,0
+2026-10-05,oncology,Evening,administrator,1,1,0
+2026-10-05,oncology,Evening,nurse,6,6,0
+2026-10-05,oncology,Evening,technician,2,2,0
+2026-10-05,oncology,Evening,therapist,1,1,0
+2026-10-05,oncology,Morning,doctor,4,4,0
+2026-10-05,oncology,Morning,nurse,3,3,0
+2026-10-05,oncology,Morning,technician,1,1,0
+2026-10-05,oncology,Night,nurse,2,2,0
+2026-10-05,oncology,Night,technician,1,1,0
+2026-10-05,oncology,Night,therapist,1,1,0
+2026-10-05,orthopedics,Evening,nurse,4,4,0
+2026-10-05,orthopedics,Evening,technician,1,1,0
+2026-10-05,orthopedics,Morning,doctor,2,2,0
+2026-10-05,orthopedics,Morning,nurse,4,4,0
+2026-10-05,orthopedics,Morning,technician,1,1,0
+2026-10-05,orthopedics,Night,nurse,4,4,0
+2026-10-05,orthopedics,Night,technician,1,1,0
+2026-10-05,pediatrics,Evening,nurse,4,4,0
+2026-10-05,pediatrics,Evening,technician,1,1,0
+2026-10-05,pediatrics,Morning,doctor,3,3,0
+2026-10-05,pediatrics,Morning,nurse,4,4,0
+2026-10-05,pediatrics,Morning,technician,1,1,0
+2026-10-05,pediatrics,Morning,therapist,1,1,0
+2026-10-05,pediatrics,Night,nurse,4,4,0
+2026-10-05,surgery,Evening,nurse,5,5,0
+2026-10-05,surgery,Morning,administrator,1,1,0
+2026-10-05,surgery,Morning,doctor,4,4,0
+2026-10-05,surgery,Morning,nurse,5,5,0
+2026-10-05,surgery,Morning,surgeon,12,12,0
+2026-10-05,surgery,Morning,technician,1,1,0
+2026-10-05,surgery,Night,nurse,5,5,0
+2026-10-06,cardiology,Evening,administrator,1,1,0
+2026-10-06,cardiology,Evening,nurse,4,4,0
+2026-10-06,cardiology,Evening,technician,2,2,0
+2026-10-06,cardiology,Morning,administrator,1,1,0
+2026-10-06,cardiology,Morning,doctor,7,7,0
+2026-10-06,cardiology,Morning,nurse,5,5,0
+2026-10-06,cardiology,Morning,technician,1,1,0
+2026-10-06,cardiology,Night,nurse,3,3,0
+2026-10-06,emergency,Evening,administrator,1,1,0
+2026-10-06,emergency,Evening,nurse,3,3,0
+2026-10-06,emergency,Morning,administrator,1,1,0
+2026-10-06,emergency,Morning,doctor,3,3,0
+2026-10-06,emergency,Morning,nurse,4,4,0
+2026-10-06,emergency,Night,nurse,2,2,0
+2026-10-06,general medicine,Evening,administrator,1,1,0
+2026-10-06,general medicine,Evening,nurse,17,17,0
+2026-10-06,general medicine,Evening,therapist,1,1,0
+2026-10-06,general medicine,Morning,administrator,2,2,0
+2026-10-06,general medicine,Morning,doctor,22,22,0
+2026-10-06,general medicine,Morning,nurse,17,17,0
+2026-10-06,general medicine,Night,administrator,1,1,0
+2026-10-06,general medicine,Night,nurse,17,17,0
+2026-10-06,general medicine,Night,therapist,1,1,0
+2026-10-06,icu,Evening,nurse,4,4,0
+2026-10-06,icu,Evening,technician,1,1,0
+2026-10-06,icu,Evening,therapist,1,1,0
+2026-10-06,icu,Morning,doctor,3,3,0
+2026-10-06,icu,Morning,nurse,4,4,0
+2026-10-06,icu,Night,nurse,4,4,0
+2026-10-06,icu,Night,technician,1,1,0
+2026-10-06,neurology,Evening,administrator,1,1,0
+2026-10-06,neurology,Evening,nurse,6,6,0
+2026-10-06,neurology,Evening,therapist,1,1,0
+2026-10-06,neurology,Morning,administrator,1,1,0
+2026-10-06,neurology,Morning,doctor,5,5,0
+2026-10-06,neurology,Morning,nurse,4,4,0
+2026-10-06,neurology,Morning,therapist,1,1,0
+2026-10-06,neurology,Night,nurse,4,4,0
+2026-10-06,oncology,Evening,administrator,1,1,0
+2026-10-06,oncology,Evening,nurse,6,6,0
+2026-10-06,oncology,Evening,technician,2,2,0
+2026-10-06,oncology,Evening,therapist,1,1,0
+2026-10-06,oncology,Morning,doctor,4,4,0
+2026-10-06,oncology,Morning,nurse,3,3,0
+2026-10-06,oncology,Morning,technician,1,1,0
+2026-10-06,oncology,Night,nurse,2,2,0
+2026-10-06,oncology,Night,technician,1,1,0
+2026-10-06,oncology,Night,therapist,1,1,0
+2026-10-06,orthopedics,Evening,nurse,4,4,0
+2026-10-06,orthopedics,Evening,technician,1,1,0
+2026-10-06,orthopedics,Morning,doctor,2,2,0
+2026-10-06,orthopedics,Morning,nurse,4,4,0
+2026-10-06,orthopedics,Morning,technician,1,1,0
+2026-10-06,orthopedics,Night,nurse,4,4,0
+2026-10-06,orthopedics,Night,technician,1,1,0
+2026-10-06,pediatrics,Evening,nurse,4,4,0
+2026-10-06,pediatrics,Evening,technician,1,1,0
+2026-10-06,pediatrics,Morning,doctor,4,4,0
+2026-10-06,pediatrics,Morning,nurse,4,4,0
+2026-10-06,pediatrics,Morning,technician,1,1,0
+2026-10-06,pediatrics,Morning,therapist,1,1,0
+2026-10-06,pediatrics,Night,nurse,4,4,0
+2026-10-06,surgery,Evening,nurse,5,5,0
+2026-10-06,surgery,Evening,technician,1,1,0
+2026-10-06,surgery,Morning,administrator,1,1,0
+2026-10-06,surgery,Morning,doctor,5,5,0
+2026-10-06,surgery,Morning,nurse,5,5,0
+2026-10-06,surgery,Morning,surgeon,16,16,0
+2026-10-06,surgery,Morning,technician,1,1,0
+2026-10-06,surgery,Night,nurse,5,5,0
+2026-10-07,cardiology,Evening,administrator,1,1,0
+2026-10-07,cardiology,Evening,nurse,4,4,0
+2026-10-07,cardiology,Evening,technician,2,2,0
+2026-10-07,cardiology,Morning,administrator,1,1,0
+2026-10-07,cardiology,Morning,doctor,7,7,0
+2026-10-07,cardiology,Morning,nurse,5,5,0
+2026-10-07,cardiology,Morning,technician,1,1,0
+2026-10-07,cardiology,Night,nurse,3,3,0
+2026-10-07,emergency,Evening,administrator,1,1,0
+2026-10-07,emergency,Evening,nurse,3,3,0
+2026-10-07,emergency,Morning,administrator,1,1,0
+2026-10-07,emergency,Morning,doctor,3,3,0
+2026-10-07,emergency,Morning,nurse,4,4,0
+2026-10-07,emergency,Morning,technician,1,1,0
+2026-10-07,emergency,Night,administrator,1,1,0
+2026-10-07,emergency,Night,nurse,2,2,0
+2026-10-07,general medicine,Evening,nurse,17,17,0
+2026-10-07,general medicine,Evening,therapist,1,1,0
+2026-10-07,general medicine,Morning,administrator,2,2,0
+2026-10-07,general medicine,Morning,doctor,20,20,0
+2026-10-07,general medicine,Morning,nurse,17,17,0
+2026-10-07,general medicine,Night,administrator,1,1,0
+2026-10-07,general medicine,Night,nurse,17,17,0
+2026-10-07,general medicine,Night,therapist,1,1,0
+2026-10-07,icu,Evening,nurse,4,4,0
+2026-10-07,icu,Evening,technician,1,1,0
+2026-10-07,icu,Evening,therapist,1,1,0
+2026-10-07,icu,Morning,doctor,3,3,0
+2026-10-07,icu,Morning,nurse,4,4,0
+2026-10-07,icu,Night,nurse,4,4,0
+2026-10-07,icu,Night,technician,1,1,0
+2026-10-07,neurology,Evening,administrator,1,1,0
+2026-10-07,neurology,Evening,nurse,5,5,0
+2026-10-07,neurology,Morning,administrator,1,1,0
+2026-10-07,neurology,Morning,doctor,4,4,0
+2026-10-07,neurology,Morning,nurse,3,3,0
+2026-10-07,neurology,Night,nurse,3,3,0
+2026-10-07,oncology,Evening,administrator,1,1,0
+2026-10-07,oncology,Evening,nurse,6,6,0
+2026-10-07,oncology,Evening,technician,2,2,0
+2026-10-07,oncology,Evening,therapist,1,1,0
+2026-10-07,oncology,Morning,doctor,4,4,0
+2026-10-07,oncology,Morning,nurse,3,3,0
+2026-10-07,oncology,Morning,technician,1,1,0
+2026-10-07,oncology,Night,nurse,2,2,0
+2026-10-07,oncology,Night,technician,1,1,0
+2026-10-07,oncology,Night,therapist,1,1,0
+2026-10-07,orthopedics,Evening,nurse,4,4,0
+2026-10-07,orthopedics,Evening,technician,1,1,0
+2026-10-07,orthopedics,Morning,doctor,2,2,0
+2026-10-07,orthopedics,Morning,nurse,4,4,0
+2026-10-07,orthopedics,Morning,technician,1,1,0
+2026-10-07,orthopedics,Night,nurse,4,4,0
+2026-10-07,orthopedics,Night,technician,1,1,0
+2026-10-07,pediatrics,Evening,nurse,4,4,0
+2026-10-07,pediatrics,Evening,technician,1,1,0
+2026-10-07,pediatrics,Morning,doctor,4,4,0
+2026-10-07,pediatrics,Morning,nurse,4,4,0
+2026-10-07,pediatrics,Morning,technician,1,1,0
+2026-10-07,pediatrics,Morning,therapist,1,1,0
+2026-10-07,pediatrics,Night,nurse,4,4,0
+2026-10-07,surgery,Evening,nurse,5,5,0
+2026-10-07,surgery,Evening,technician,1,1,0
+2026-10-07,surgery,Morning,administrator,1,1,0
+2026-10-07,surgery,Morning,doctor,5,5,0
+2026-10-07,surgery,Morning,nurse,5,5,0
+2026-10-07,surgery,Morning,surgeon,16,16,0
+2026-10-07,surgery,Morning,technician,1,1,0
+2026-10-07,surgery,Night,nurse,5,5,0
+2026-10-08,cardiology,Evening,administrator,1,1,0
+2026-10-08,cardiology,Evening,nurse,4,4,0
+2026-10-08,cardiology,Evening,technician,2,2,0
+2026-10-08,cardiology,Morning,administrator,1,1,0
+2026-10-08,cardiology,Morning,doctor,7,7,0
+2026-10-08,cardiology,Morning,nurse,5,5,0
+2026-10-08,cardiology,Morning,technician,1,1,0
+2026-10-08,cardiology,Night,nurse,3,3,0
+2026-10-08,emergency,Evening,administrator,1,1,0
+2026-10-08,emergency,Evening,nurse,3,3,0
+2026-10-08,emergency,Morning,administrator,1,1,0
+2026-10-08,emergency,Morning,doctor,3,3,0
+2026-10-08,emergency,Morning,nurse,4,4,0
+2026-10-08,emergency,Morning,technician,1,1,0
+2026-10-08,emergency,Night,nurse,2,2,0
+2026-10-08,general medicine,Evening,nurse,16,16,0
+2026-10-08,general medicine,Evening,therapist,1,1,0
+2026-10-08,general medicine,Morning,administrator,2,2,0
+2026-10-08,general medicine,Morning,doctor,20,20,0
+2026-10-08,general medicine,Morning,nurse,16,16,0
+2026-10-08,general medicine,Night,administrator,1,1,0
+2026-10-08,general medicine,Night,nurse,16,16,0
+2026-10-08,general medicine,Night,therapist,1,1,0
+2026-10-08,icu,Evening,administrator,1,1,0
+2026-10-08,icu,Evening,nurse,3,3,0
+2026-10-08,icu,Evening,technician,1,1,0
+2026-10-08,icu,Evening,therapist,1,1,0
+2026-10-08,icu,Morning,doctor,3,3,0
+2026-10-08,icu,Morning,nurse,3,3,0
+2026-10-08,icu,Night,administrator,1,1,0
+2026-10-08,icu,Night,nurse,3,3,0
+2026-10-08,icu,Night,technician,1,1,0
+2026-10-08,neurology,Evening,administrator,1,1,0
+2026-10-08,neurology,Evening,nurse,5,5,0
+2026-10-08,neurology,Evening,therapist,1,1,0
+2026-10-08,neurology,Morning,administrator,1,1,0
+2026-10-08,neurology,Morning,doctor,4,4,0
+2026-10-08,neurology,Morning,nurse,3,3,0
+2026-10-08,neurology,Night,nurse,3,3,0
+2026-10-08,oncology,Evening,administrator,1,1,0
+2026-10-08,oncology,Evening,nurse,6,6,0
+2026-10-08,oncology,Evening,technician,2,2,0
+2026-10-08,oncology,Evening,therapist,1,1,0
+2026-10-08,oncology,Morning,doctor,4,4,0
+2026-10-08,oncology,Morning,nurse,3,3,0
+2026-10-08,oncology,Morning,technician,1,1,0
+2026-10-08,oncology,Night,nurse,2,2,0
+2026-10-08,oncology,Night,technician,1,1,0
+2026-10-08,oncology,Night,therapist,1,1,0
+2026-10-08,orthopedics,Evening,nurse,4,4,0
+2026-10-08,orthopedics,Evening,technician,1,1,0
+2026-10-08,orthopedics,Morning,doctor,2,2,0
+2026-10-08,orthopedics,Morning,nurse,4,4,0
+2026-10-08,orthopedics,Morning,technician,1,1,0
+2026-10-08,orthopedics,Night,nurse,4,4,0
+2026-10-08,orthopedics,Night,technician,1,1,0
+2026-10-08,pediatrics,Evening,nurse,4,4,0
+2026-10-08,pediatrics,Evening,technician,1,1,0
+2026-10-08,pediatrics,Evening,therapist,1,1,0
+2026-10-08,pediatrics,Morning,doctor,4,4,0
+2026-10-08,pediatrics,Morning,nurse,4,4,0
+2026-10-08,pediatrics,Morning,technician,1,1,0
+2026-10-08,pediatrics,Morning,therapist,1,1,0
+2026-10-08,pediatrics,Night,nurse,4,4,0
+2026-10-08,surgery,Evening,nurse,5,5,0
+2026-10-08,surgery,Evening,technician,1,1,0
+2026-10-08,surgery,Morning,administrator,1,1,0
+2026-10-08,surgery,Morning,doctor,5,5,0
+2026-10-08,surgery,Morning,nurse,5,5,0
+2026-10-08,surgery,Morning,surgeon,16,16,0
+2026-10-08,surgery,Morning,technician,1,1,0
+2026-10-08,surgery,Night,nurse,5,5,0
+2026-10-09,cardiology,Evening,administrator,1,1,0
+2026-10-09,cardiology,Evening,nurse,4,4,0
+2026-10-09,cardiology,Evening,technician,2,2,0
+2026-10-09,cardiology,Morning,administrator,1,1,0
+2026-10-09,cardiology,Morning,doctor,7,7,0
+2026-10-09,cardiology,Morning,nurse,5,5,0
+2026-10-09,cardiology,Morning,technician,1,1,0
+2026-10-09,cardiology,Night,nurse,4,4,0
+2026-10-09,emergency,Evening,administrator,1,1,0
+2026-10-09,emergency,Evening,nurse,2,2,0
+2026-10-09,emergency,Morning,administrator,1,1,0
+2026-10-09,emergency,Morning,doctor,3,3,0
+2026-10-09,emergency,Morning,nurse,3,3,0
+2026-10-09,emergency,Night,nurse,2,2,0
+2026-10-09,general medicine,Evening,nurse,16,16,0
+2026-10-09,general medicine,Evening,therapist,1,1,0
+2026-10-09,general medicine,Morning,administrator,2,2,0
+2026-10-09,general medicine,Morning,doctor,20,20,0
+2026-10-09,general medicine,Morning,nurse,16,16,0
+2026-10-09,general medicine,Night,administrator,1,1,0
+2026-10-09,general medicine,Night,nurse,16,16,0
+2026-10-09,general medicine,Night,therapist,1,1,0
+2026-10-09,icu,Evening,administrator,1,1,0
+2026-10-09,icu,Evening,nurse,3,3,0
+2026-10-09,icu,Evening,technician,1,1,0
+2026-10-09,icu,Evening,therapist,1,1,0
+2026-10-09,icu,Morning,doctor,3,3,0
+2026-10-09,icu,Morning,nurse,3,3,0
+2026-10-09,icu,Night,administrator,1,1,0
+2026-10-09,icu,Night,nurse,3,3,0
+2026-10-09,icu,Night,technician,1,1,0
+2026-10-09,neurology,Evening,administrator,1,1,0
+2026-10-09,neurology,Evening,nurse,6,6,0
+2026-10-09,neurology,Evening,therapist,1,1,0
+2026-10-09,neurology,Morning,administrator,1,1,0
+2026-10-09,neurology,Morning,doctor,6,6,0
+2026-10-09,neurology,Morning,nurse,4,4,0
+2026-10-09,neurology,Morning,therapist,1,1,0
+2026-10-09,neurology,Night,nurse,4,4,0
+2026-10-09,oncology,Evening,administrator,1,1,0
+2026-10-09,oncology,Evening,nurse,6,6,0
+2026-10-09,oncology,Evening,technician,2,2,0
+2026-10-09,oncology,Evening,therapist,1,1,0
+2026-10-09,oncology,Morning,doctor,4,4,0
+2026-10-09,oncology,Morning,nurse,3,3,0
+2026-10-09,oncology,Morning,technician,1,1,0
+2026-10-09,oncology,Night,nurse,2,2,0
+2026-10-09,oncology,Night,technician,1,1,0
+2026-10-09,oncology,Night,therapist,1,1,0
+2026-10-09,orthopedics,Evening,nurse,4,4,0
+2026-10-09,orthopedics,Evening,technician,1,1,0
+2026-10-09,orthopedics,Morning,doctor,2,2,0
+2026-10-09,orthopedics,Morning,nurse,4,4,0
+2026-10-09,orthopedics,Morning,technician,1,1,0
+2026-10-09,orthopedics,Night,nurse,4,4,0
+2026-10-09,orthopedics,Night,technician,1,1,0
+2026-10-09,pediatrics,Evening,nurse,4,4,0
+2026-10-09,pediatrics,Evening,technician,1,1,0
+2026-10-09,pediatrics,Evening,therapist,1,1,0
+2026-10-09,pediatrics,Morning,doctor,4,4,0
+2026-10-09,pediatrics,Morning,nurse,4,4,0
+2026-10-09,pediatrics,Morning,technician,1,1,0
+2026-10-09,pediatrics,Morning,therapist,1,1,0
+2026-10-09,pediatrics,Night,nurse,4,4,0
+2026-10-09,surgery,Evening,nurse,5,5,0
+2026-10-09,surgery,Evening,technician,1,1,0
+2026-10-09,surgery,Morning,administrator,1,1,0
+2026-10-09,surgery,Morning,doctor,5,5,0
+2026-10-09,surgery,Morning,nurse,5,5,0
+2026-10-09,surgery,Morning,surgeon,16,16,0
+2026-10-09,surgery,Morning,technician,1,1,0
+2026-10-09,surgery,Night,nurse,5,5,0
+2026-10-10,cardiology,Evening,administrator,1,1,0
+2026-10-10,cardiology,Evening,nurse,4,4,0
+2026-10-10,cardiology,Evening,technician,2,2,0
+2026-10-10,cardiology,Morning,administrator,1,1,0
+2026-10-10,cardiology,Morning,doctor,7,7,0
+2026-10-10,cardiology,Morning,nurse,5,5,0
+2026-10-10,cardiology,Morning,technician,1,1,0
+2026-10-10,cardiology,Night,nurse,4,4,0
+2026-10-10,emergency,Evening,administrator,1,1,0
+2026-10-10,emergency,Evening,nurse,3,3,0
+2026-10-10,emergency,Morning,administrator,1,1,0
+2026-10-10,emergency,Morning,doctor,3,3,0
+2026-10-10,emergency,Morning,nurse,4,4,0
+2026-10-10,emergency,Morning,technician,1,1,0
+2026-10-10,emergency,Night,administrator,1,1,0
+2026-10-10,emergency,Night,nurse,2,2,0
+2026-10-10,general medicine,Evening,nurse,16,16,0
+2026-10-10,general medicine,Evening,therapist,1,1,0
+2026-10-10,general medicine,Morning,administrator,1,1,0
+2026-10-10,general medicine,Morning,doctor,18,18,0
+2026-10-10,general medicine,Morning,nurse,16,16,0
+2026-10-10,general medicine,Night,nurse,16,16,0
+2026-10-10,general medicine,Night,therapist,1,1,0
+2026-10-10,icu,Evening,nurse,3,3,0
+2026-10-10,icu,Evening,technician,1,1,0
+2026-10-10,icu,Evening,therapist,1,1,0
+2026-10-10,icu,Morning,doctor,3,3,0
+2026-10-10,icu,Morning,nurse,3,3,0
+2026-10-10,icu,Night,nurse,3,3,0
+2026-10-10,icu,Night,technician,1,1,0
+2026-10-10,neurology,Evening,administrator,1,1,0
+2026-10-10,neurology,Evening,nurse,6,6,0
+2026-10-10,neurology,Evening,therapist,1,1,0
+2026-10-10,neurology,Morning,administrator,1,1,0
+2026-10-10,neurology,Morning,doctor,5,5,0
+2026-10-10,neurology,Morning,nurse,4,4,0
+2026-10-10,neurology,Morning,therapist,1,1,0
+2026-10-10,neurology,Night,nurse,4,4,0
+2026-10-10,oncology,Evening,administrator,1,1,0
+2026-10-10,oncology,Evening,nurse,6,6,0
+2026-10-10,oncology,Evening,technician,2,2,0
+2026-10-10,oncology,Evening,therapist,1,1,0
+2026-10-10,oncology,Morning,doctor,4,4,0
+2026-10-10,oncology,Morning,nurse,3,3,0
+2026-10-10,oncology,Morning,technician,1,1,0
+2026-10-10,oncology,Night,nurse,2,2,0
+2026-10-10,oncology,Night,technician,1,1,0
+2026-10-10,oncology,Night,therapist,1,1,0
+2026-10-10,orthopedics,Evening,nurse,3,3,0
+2026-10-10,orthopedics,Evening,technician,1,1,0
+2026-10-10,orthopedics,Morning,doctor,2,2,0
+2026-10-10,orthopedics,Morning,nurse,3,3,0
+2026-10-10,orthopedics,Morning,technician,1,1,0
+2026-10-10,orthopedics,Night,nurse,3,3,0
+2026-10-10,orthopedics,Night,technician,1,1,0
+2026-10-10,pediatrics,Evening,nurse,4,4,0
+2026-10-10,pediatrics,Evening,technician,1,1,0
+2026-10-10,pediatrics,Evening,therapist,1,1,0
+2026-10-10,pediatrics,Morning,doctor,4,4,0
+2026-10-10,pediatrics,Morning,nurse,4,4,0
+2026-10-10,pediatrics,Morning,technician,1,1,0
+2026-10-10,pediatrics,Morning,therapist,1,1,0
+2026-10-10,pediatrics,Night,nurse,4,4,0
+2026-10-10,surgery,Evening,nurse,4,4,0
+2026-10-10,surgery,Morning,administrator,1,1,0
+2026-10-10,surgery,Morning,doctor,4,4,0
+2026-10-10,surgery,Morning,nurse,4,4,0
+2026-10-10,surgery,Morning,surgeon,13,13,0
+2026-10-10,surgery,Morning,technician,1,1,0
+2026-10-10,surgery,Night,nurse,4,4,0
+2026-10-11,cardiology,Evening,administrator,1,1,0
+2026-10-11,cardiology,Evening,nurse,4,4,0
+2026-10-11,cardiology,Evening,technician,2,2,0
+2026-10-11,cardiology,Morning,administrator,1,1,0
+2026-10-11,cardiology,Morning,doctor,7,7,0
+2026-10-11,cardiology,Morning,nurse,5,5,0
+2026-10-11,cardiology,Morning,technician,1,1,0
+2026-10-11,cardiology,Night,nurse,4,4,0
+2026-10-11,emergency,Evening,administrator,1,1,0
+2026-10-11,emergency,Evening,nurse,3,3,0
+2026-10-11,emergency,Morning,administrator,1,1,0
+2026-10-11,emergency,Morning,doctor,3,3,0
+2026-10-11,emergency,Morning,nurse,4,4,0
+2026-10-11,emergency,Morning,technician,1,1,0
+2026-10-11,emergency,Night,administrator,1,1,0
+2026-10-11,emergency,Night,nurse,2,2,0
+2026-10-11,general medicine,Evening,nurse,15,15,0
+2026-10-11,general medicine,Evening,therapist,1,1,0
+2026-10-11,general medicine,Morning,administrator,1,1,0
+2026-10-11,general medicine,Morning,doctor,18,18,0
+2026-10-11,general medicine,Morning,nurse,15,15,0
+2026-10-11,general medicine,Night,nurse,15,15,0
+2026-10-11,general medicine,Night,therapist,1,1,0
+2026-10-11,icu,Evening,nurse,3,3,0
+2026-10-11,icu,Evening,technician,1,1,0
+2026-10-11,icu,Evening,therapist,1,1,0
+2026-10-11,icu,Morning,doctor,3,3,0
+2026-10-11,icu,Morning,nurse,3,3,0
+2026-10-11,icu,Night,nurse,3,3,0
+2026-10-11,icu,Night,technician,1,1,0
+2026-10-11,neurology,Evening,administrator,1,1,0
+2026-10-11,neurology,Evening,nurse,6,6,0
+2026-10-11,neurology,Evening,therapist,1,1,0
+2026-10-11,neurology,Morning,administrator,1,1,0
+2026-10-11,neurology,Morning,doctor,5,5,0
+2026-10-11,neurology,Morning,nurse,4,4,0
+2026-10-11,neurology,Night,nurse,4,4,0
+2026-10-11,oncology,Evening,administrator,1,1,0
+2026-10-11,oncology,Evening,nurse,5,5,0
+2026-10-11,oncology,Evening,technician,1,1,0
+2026-10-11,oncology,Evening,therapist,1,1,0
+2026-10-11,oncology,Morning,doctor,3,3,0
+2026-10-11,oncology,Morning,nurse,3,3,0
+2026-10-11,oncology,Morning,technician,1,1,0
+2026-10-11,oncology,Night,nurse,2,2,0
+2026-10-11,oncology,Night,technician,1,1,0
+2026-10-11,oncology,Night,therapist,1,1,0
+2026-10-11,orthopedics,Evening,nurse,3,3,0
+2026-10-11,orthopedics,Evening,technician,1,1,0
+2026-10-11,orthopedics,Morning,doctor,2,2,0
+2026-10-11,orthopedics,Morning,nurse,3,3,0
+2026-10-11,orthopedics,Morning,technician,1,1,0
+2026-10-11,orthopedics,Night,nurse,3,3,0
+2026-10-11,orthopedics,Night,technician,1,1,0
+2026-10-11,pediatrics,Evening,nurse,4,4,0
+2026-10-11,pediatrics,Evening,technician,1,1,0
+2026-10-11,pediatrics,Evening,therapist,1,1,0
+2026-10-11,pediatrics,Morning,doctor,4,4,0
+2026-10-11,pediatrics,Morning,nurse,4,4,0
+2026-10-11,pediatrics,Morning,technician,1,1,0
+2026-10-11,pediatrics,Morning,therapist,1,1,0
+2026-10-11,pediatrics,Night,nurse,4,4,0
+2026-10-11,surgery,Evening,nurse,4,4,0
+2026-10-11,surgery,Morning,administrator,1,1,0
+2026-10-11,surgery,Morning,doctor,4,4,0
+2026-10-11,surgery,Morning,nurse,4,4,0
+2026-10-11,surgery,Morning,surgeon,13,13,0
+2026-10-11,surgery,Morning,technician,1,1,0
+2026-10-11,surgery,Night,nurse,4,4,0
+2026-10-12,cardiology,Evening,administrator,1,1,0
+2026-10-12,cardiology,Evening,nurse,4,4,0
+2026-10-12,cardiology,Evening,technician,2,2,0
+2026-10-12,cardiology,Morning,administrator,1,1,0
+2026-10-12,cardiology,Morning,doctor,7,7,0
+2026-10-12,cardiology,Morning,nurse,5,5,0
+2026-10-12,cardiology,Morning,technician,1,1,0
+2026-10-12,cardiology,Night,nurse,4,4,0
+2026-10-12,emergency,Evening,administrator,1,1,0
+2026-10-12,emergency,Evening,nurse,3,3,0
+2026-10-12,emergency,Morning,administrator,1,1,0
+2026-10-12,emergency,Morning,doctor,3,3,0
+2026-10-12,emergency,Morning,nurse,4,4,0
+2026-10-12,emergency,Morning,technician,1,1,0
+2026-10-12,emergency,Night,administrator,1,1,0
+2026-10-12,emergency,Night,nurse,3,3,0
+2026-10-12,general medicine,Evening,administrator,1,1,0
+2026-10-12,general medicine,Evening,nurse,16,16,0
+2026-10-12,general medicine,Evening,therapist,1,1,0
+2026-10-12,general medicine,Morning,administrator,2,2,0
+2026-10-12,general medicine,Morning,doctor,23,23,0
+2026-10-12,general medicine,Morning,nurse,16,16,0
+2026-10-12,general medicine,Night,administrator,1,1,0
+2026-10-12,general medicine,Night,nurse,16,16,0
+2026-10-12,general medicine,Night,therapist,1,1,0
+2026-10-12,icu,Evening,nurse,3,3,0
+2026-10-12,icu,Evening,technician,1,1,0
+2026-10-12,icu,Evening,therapist,1,1,0
+2026-10-12,icu,Morning,doctor,3,3,0
+2026-10-12,icu,Morning,nurse,3,3,0
+2026-10-12,icu,Night,nurse,3,3,0
+2026-10-12,icu,Night,technician,1,1,0
+2026-10-12,neurology,Evening,administrator,1,1,0
+2026-10-12,neurology,Evening,nurse,6,6,0
+2026-10-12,neurology,Evening,therapist,1,1,0
+2026-10-12,neurology,Morning,administrator,1,1,0
+2026-10-12,neurology,Morning,doctor,6,6,0
+2026-10-12,neurology,Morning,nurse,4,4,0
+2026-10-12,neurology,Morning,therapist,1,1,0
+2026-10-12,neurology,Night,nurse,4,4,0
+2026-10-12,oncology,Evening,administrator,1,1,0
+2026-10-12,oncology,Evening,nurse,6,6,0
+2026-10-12,oncology,Evening,technician,2,2,0
+2026-10-12,oncology,Evening,therapist,1,1,0
+2026-10-12,oncology,Morning,doctor,4,4,0
+2026-10-12,oncology,Morning,nurse,3,3,0
+2026-10-12,oncology,Morning,technician,1,1,0
+2026-10-12,oncology,Night,nurse,2,2,0
+2026-10-12,oncology,Night,technician,1,1,0
+2026-10-12,oncology,Night,therapist,1,1,0
+2026-10-12,orthopedics,Evening,nurse,3,3,0
+2026-10-12,orthopedics,Evening,technician,1,1,0
+2026-10-12,orthopedics,Morning,doctor,3,3,0
+2026-10-12,orthopedics,Morning,nurse,3,3,0
+2026-10-12,orthopedics,Morning,technician,1,1,0
+2026-10-12,orthopedics,Night,nurse,3,3,0
+2026-10-12,orthopedics,Night,technician,1,1,0
+2026-10-12,pediatrics,Evening,nurse,4,4,0
+2026-10-12,pediatrics,Evening,technician,1,1,0
+2026-10-12,pediatrics,Evening,therapist,1,1,0
+2026-10-12,pediatrics,Morning,doctor,4,4,0
+2026-10-12,pediatrics,Morning,nurse,4,4,0
+2026-10-12,pediatrics,Morning,technician,1,1,0
+2026-10-12,pediatrics,Morning,therapist,1,1,0
+2026-10-12,pediatrics,Night,nurse,4,4,0
+2026-10-12,surgery,Evening,nurse,4,4,0
+2026-10-12,surgery,Evening,technician,1,1,0
+2026-10-12,surgery,Morning,administrator,1,1,0
+2026-10-12,surgery,Morning,doctor,6,6,0
+2026-10-12,surgery,Morning,nurse,4,4,0
+2026-10-12,surgery,Morning,surgeon,17,17,0
+2026-10-12,surgery,Morning,technician,1,1,0
+2026-10-12,surgery,Night,nurse,4,4,0
+2026-10-13,cardiology,Evening,administrator,1,1,0
+2026-10-13,cardiology,Evening,nurse,4,4,0
+2026-10-13,cardiology,Evening,technician,2,2,0
+2026-10-13,cardiology,Morning,administrator,1,1,0
+2026-10-13,cardiology,Morning,doctor,7,7,0
+2026-10-13,cardiology,Morning,nurse,5,5,0
+2026-10-13,cardiology,Morning,technician,1,1,0
+2026-10-13,cardiology,Night,nurse,4,4,0
+2026-10-13,emergency,Evening,administrator,1,1,0
+2026-10-13,emergency,Evening,nurse,3,3,0
+2026-10-13,emergency,Morning,administrator,1,1,0
+2026-10-13,emergency,Morning,doctor,3,3,0
+2026-10-13,emergency,Morning,nurse,4,4,0
+2026-10-13,emergency,Morning,technician,1,1,0
+2026-10-13,emergency,Night,nurse,2,2,0
+2026-10-13,general medicine,Evening,administrator,1,1,0
+2026-10-13,general medicine,Evening,nurse,16,16,0
+2026-10-13,general medicine,Evening,therapist,1,1,0
+2026-10-13,general medicine,Morning,administrator,2,2,0
+2026-10-13,general medicine,Morning,doctor,23,23,0
+2026-10-13,general medicine,Morning,nurse,16,16,0
+2026-10-13,general medicine,Night,administrator,1,1,0
+2026-10-13,general medicine,Night,nurse,16,16,0
+2026-10-13,general medicine,Night,therapist,1,1,0
+2026-10-13,icu,Evening,nurse,3,3,0
+2026-10-13,icu,Evening,technician,1,1,0
+2026-10-13,icu,Evening,therapist,1,1,0
+2026-10-13,icu,Morning,doctor,3,3,0
+2026-10-13,icu,Morning,nurse,3,3,0
+2026-10-13,icu,Night,nurse,3,3,0
+2026-10-13,icu,Night,technician,1,1,0
+2026-10-13,neurology,Evening,administrator,1,1,0
+2026-10-13,neurology,Evening,nurse,5,5,0
+2026-10-13,neurology,Morning,administrator,1,1,0
+2026-10-13,neurology,Morning,doctor,4,4,0
+2026-10-13,neurology,Morning,nurse,3,3,0
+2026-10-13,neurology,Night,nurse,3,3,0
+2026-10-13,oncology,Evening,administrator,1,1,0
+2026-10-13,oncology,Evening,nurse,6,6,0
+2026-10-13,oncology,Evening,technician,2,2,0
+2026-10-13,oncology,Evening,therapist,1,1,0
+2026-10-13,oncology,Morning,doctor,4,4,0
+2026-10-13,oncology,Morning,nurse,3,3,0
+2026-10-13,oncology,Morning,technician,1,1,0
+2026-10-13,oncology,Night,nurse,2,2,0
+2026-10-13,oncology,Night,technician,1,1,0
+2026-10-13,oncology,Night,therapist,1,1,0
+2026-10-13,orthopedics,Evening,nurse,3,3,0
+2026-10-13,orthopedics,Evening,technician,1,1,0
+2026-10-13,orthopedics,Morning,doctor,3,3,0
+2026-10-13,orthopedics,Morning,nurse,3,3,0
+2026-10-13,orthopedics,Morning,technician,1,1,0
+2026-10-13,orthopedics,Night,nurse,3,3,0
+2026-10-13,orthopedics,Night,technician,1,1,0
+2026-10-13,pediatrics,Evening,nurse,4,4,0
+2026-10-13,pediatrics,Evening,technician,1,1,0
+2026-10-13,pediatrics,Evening,therapist,1,1,0
+2026-10-13,pediatrics,Morning,doctor,4,4,0
+2026-10-13,pediatrics,Morning,nurse,4,4,0
+2026-10-13,pediatrics,Morning,technician,1,1,0
+2026-10-13,pediatrics,Morning,therapist,1,1,0
+2026-10-13,pediatrics,Night,nurse,4,4,0
+2026-10-13,surgery,Evening,nurse,4,4,0
+2026-10-13,surgery,Evening,technician,1,1,0
+2026-10-13,surgery,Morning,administrator,1,1,0
+2026-10-13,surgery,Morning,doctor,6,6,0
+2026-10-13,surgery,Morning,nurse,4,4,0
+2026-10-13,surgery,Morning,surgeon,17,17,0
+2026-10-13,surgery,Morning,technician,1,1,0
+2026-10-13,surgery,Night,nurse,4,4,0
+2026-10-14,cardiology,Evening,administrator,1,1,0
+2026-10-14,cardiology,Evening,nurse,4,4,0
+2026-10-14,cardiology,Evening,technician,2,2,0
+2026-10-14,cardiology,Morning,administrator,1,1,0
+2026-10-14,cardiology,Morning,doctor,7,7,0
+2026-10-14,cardiology,Morning,nurse,5,5,0
+2026-10-14,cardiology,Morning,technician,1,1,0
+2026-10-14,cardiology,Night,nurse,4,4,0
+2026-10-14,emergency,Evening,administrator,1,1,0
+2026-10-14,emergency,Evening,nurse,3,3,0
+2026-10-14,emergency,Morning,administrator,1,1,0
+2026-10-14,emergency,Morning,doctor,3,3,0
+2026-10-14,emergency,Morning,nurse,4,4,0
+2026-10-14,emergency,Morning,technician,1,1,0
+2026-10-14,emergency,Night,administrator,1,1,0
+2026-10-14,emergency,Night,nurse,2,2,0
+2026-10-14,general medicine,Evening,nurse,16,16,0
+2026-10-14,general medicine,Evening,therapist,1,1,0
+2026-10-14,general medicine,Morning,administrator,2,2,0
+2026-10-14,general medicine,Morning,doctor,21,21,0
+2026-10-14,general medicine,Morning,nurse,16,16,0
+2026-10-14,general medicine,Night,administrator,1,1,0
+2026-10-14,general medicine,Night,nurse,16,16,0
+2026-10-14,general medicine,Night,therapist,1,1,0
+2026-10-14,icu,Evening,nurse,3,3,0
+2026-10-14,icu,Evening,technician,1,1,0
+2026-10-14,icu,Evening,therapist,1,1,0
+2026-10-14,icu,Morning,doctor,3,3,0
+2026-10-14,icu,Morning,nurse,3,3,0
+2026-10-14,icu,Night,nurse,3,3,0
+2026-10-14,icu,Night,technician,1,1,0
+2026-10-14,neurology,Evening,administrator,1,1,0
+2026-10-14,neurology,Evening,nurse,5,5,0
+2026-10-14,neurology,Morning,administrator,1,1,0
+2026-10-14,neurology,Morning,doctor,4,4,0
+2026-10-14,neurology,Morning,nurse,3,3,0
+2026-10-14,neurology,Night,nurse,3,3,0
+2026-10-14,oncology,Evening,administrator,1,1,0
+2026-10-14,oncology,Evening,nurse,6,6,0
+2026-10-14,oncology,Evening,technician,2,2,0
+2026-10-14,oncology,Evening,therapist,1,1,0
+2026-10-14,oncology,Morning,doctor,4,4,0
+2026-10-14,oncology,Morning,nurse,3,3,0
+2026-10-14,oncology,Morning,technician,1,1,0
+2026-10-14,oncology,Night,nurse,2,2,0
+2026-10-14,oncology,Night,technician,1,1,0
+2026-10-14,oncology,Night,therapist,1,1,0
+2026-10-14,orthopedics,Evening,nurse,4,4,0
+2026-10-14,orthopedics,Evening,technician,1,1,0
+2026-10-14,orthopedics,Morning,doctor,3,3,0
+2026-10-14,orthopedics,Morning,nurse,3,3,0
+2026-10-14,orthopedics,Morning,technician,1,1,0
+2026-10-14,orthopedics,Night,nurse,3,3,0
+2026-10-14,orthopedics,Night,technician,1,1,0
+2026-10-14,pediatrics,Evening,nurse,4,4,0
+2026-10-14,pediatrics,Evening,technician,1,1,0
+2026-10-14,pediatrics,Evening,therapist,1,1,0
+2026-10-14,pediatrics,Morning,doctor,4,4,0
+2026-10-14,pediatrics,Morning,nurse,4,4,0
+2026-10-14,pediatrics,Morning,technician,1,1,0
+2026-10-14,pediatrics,Morning,therapist,1,1,0
+2026-10-14,pediatrics,Night,nurse,4,4,0
+2026-10-14,surgery,Evening,nurse,4,4,0
+2026-10-14,surgery,Evening,technician,1,1,0
+2026-10-14,surgery,Morning,administrator,1,1,0
+2026-10-14,surgery,Morning,doctor,6,6,0
+2026-10-14,surgery,Morning,nurse,4,4,0
+2026-10-14,surgery,Morning,surgeon,17,17,0
+2026-10-14,surgery,Morning,technician,1,1,0
+2026-10-14,surgery,Night,nurse,4,4,0
+2026-10-15,cardiology,Evening,administrator,1,1,0
+2026-10-15,cardiology,Evening,nurse,4,4,0
+2026-10-15,cardiology,Evening,technician,2,2,0
+2026-10-15,cardiology,Morning,administrator,1,1,0
+2026-10-15,cardiology,Morning,doctor,7,7,0
+2026-10-15,cardiology,Morning,nurse,5,5,0
+2026-10-15,cardiology,Morning,technician,1,1,0
+2026-10-15,cardiology,Night,nurse,4,4,0
+2026-10-15,emergency,Evening,administrator,1,1,0
+2026-10-15,emergency,Evening,nurse,3,3,0
+2026-10-15,emergency,Morning,administrator,1,1,0
+2026-10-15,emergency,Morning,doctor,3,3,0
+2026-10-15,emergency,Morning,nurse,4,4,0
+2026-10-15,emergency,Morning,technician,1,1,0
+2026-10-15,emergency,Night,nurse,2,2,0
+2026-10-15,general medicine,Evening,nurse,16,16,0
+2026-10-15,general medicine,Evening,therapist,1,1,0
+2026-10-15,general medicine,Morning,administrator,2,2,0
+2026-10-15,general medicine,Morning,doctor,21,21,0
+2026-10-15,general medicine,Morning,nurse,16,16,0
+2026-10-15,general medicine,Night,administrator,1,1,0
+2026-10-15,general medicine,Night,nurse,16,16,0
+2026-10-15,general medicine,Night,therapist,1,1,0
+2026-10-15,icu,Evening,nurse,3,3,0
+2026-10-15,icu,Evening,technician,1,1,0
+2026-10-15,icu,Evening,therapist,1,1,0
+2026-10-15,icu,Morning,doctor,3,3,0
+2026-10-15,icu,Morning,nurse,3,3,0
+2026-10-15,icu,Night,nurse,3,3,0
+2026-10-15,icu,Night,technician,1,1,0
+2026-10-15,neurology,Evening,administrator,1,1,0
+2026-10-15,neurology,Evening,nurse,5,5,0
+2026-10-15,neurology,Evening,therapist,1,1,0
+2026-10-15,neurology,Morning,administrator,1,1,0
+2026-10-15,neurology,Morning,doctor,4,4,0
+2026-10-15,neurology,Morning,nurse,3,3,0
+2026-10-15,neurology,Night,nurse,3,3,0
+2026-10-15,oncology,Evening,administrator,1,1,0
+2026-10-15,oncology,Evening,nurse,6,6,0
+2026-10-15,oncology,Evening,technician,2,2,0
+2026-10-15,oncology,Evening,therapist,1,1,0
+2026-10-15,oncology,Morning,doctor,4,4,0
+2026-10-15,oncology,Morning,nurse,3,3,0
+2026-10-15,oncology,Morning,technician,1,1,0
+2026-10-15,oncology,Night,nurse,2,2,0
+2026-10-15,oncology,Night,technician,1,1,0
+2026-10-15,oncology,Night,therapist,1,1,0
+2026-10-15,orthopedics,Evening,nurse,4,4,0
+2026-10-15,orthopedics,Evening,technician,1,1,0
+2026-10-15,orthopedics,Morning,doctor,3,3,0
+2026-10-15,orthopedics,Morning,nurse,3,3,0
+2026-10-15,orthopedics,Morning,technician,1,1,0
+2026-10-15,orthopedics,Night,nurse,3,3,0
+2026-10-15,orthopedics,Night,technician,1,1,0
+2026-10-15,pediatrics,Evening,nurse,4,4,0
+2026-10-15,pediatrics,Evening,technician,1,1,0
+2026-10-15,pediatrics,Evening,therapist,1,1,0
+2026-10-15,pediatrics,Morning,doctor,5,5,0
+2026-10-15,pediatrics,Morning,nurse,4,4,0
+2026-10-15,pediatrics,Morning,technician,1,1,0
+2026-10-15,pediatrics,Morning,therapist,1,1,0
+2026-10-15,pediatrics,Night,nurse,4,4,0
+2026-10-15,surgery,Evening,nurse,4,4,0
+2026-10-15,surgery,Evening,technician,1,1,0
+2026-10-15,surgery,Morning,administrator,1,1,0
+2026-10-15,surgery,Morning,doctor,5,5,0
+2026-10-15,surgery,Morning,nurse,4,4,0
+2026-10-15,surgery,Morning,surgeon,16,16,0
+2026-10-15,surgery,Morning,technician,1,1,0
+2026-10-15,surgery,Night,nurse,4,4,0
+2026-10-16,cardiology,Evening,administrator,1,1,0
+2026-10-16,cardiology,Evening,nurse,4,4,0
+2026-10-16,cardiology,Evening,technician,2,2,0
+2026-10-16,cardiology,Morning,administrator,1,1,0
+2026-10-16,cardiology,Morning,doctor,7,7,0
+2026-10-16,cardiology,Morning,nurse,5,5,0
+2026-10-16,cardiology,Morning,technician,1,1,0
+2026-10-16,cardiology,Night,nurse,4,4,0
+2026-10-16,emergency,Evening,administrator,1,1,0
+2026-10-16,emergency,Evening,nurse,3,3,0
+2026-10-16,emergency,Morning,administrator,1,1,0
+2026-10-16,emergency,Morning,doctor,4,4,0
+2026-10-16,emergency,Morning,nurse,4,4,0
+2026-10-16,emergency,Morning,technician,1,1,0
+2026-10-16,emergency,Night,administrator,1,1,0
+2026-10-16,emergency,Night,nurse,3,3,0
+2026-10-16,general medicine,Evening,nurse,16,16,0
+2026-10-16,general medicine,Evening,therapist,1,1,0
+2026-10-16,general medicine,Morning,administrator,2,2,0
+2026-10-16,general medicine,Morning,doctor,21,21,0
+2026-10-16,general medicine,Morning,nurse,16,16,0
+2026-10-16,general medicine,Night,administrator,1,1,0
+2026-10-16,general medicine,Night,nurse,16,16,0
+2026-10-16,general medicine,Night,therapist,1,1,0
+2026-10-16,icu,Evening,nurse,3,3,0
+2026-10-16,icu,Evening,technician,1,1,0
+2026-10-16,icu,Evening,therapist,1,1,0
+2026-10-16,icu,Morning,doctor,3,3,0
+2026-10-16,icu,Morning,nurse,3,3,0
+2026-10-16,icu,Night,nurse,3,3,0
+2026-10-16,icu,Night,technician,1,1,0
+2026-10-16,neurology,Evening,administrator,1,1,0
+2026-10-16,neurology,Evening,nurse,6,6,0
+2026-10-16,neurology,Evening,therapist,1,1,0
+2026-10-16,neurology,Morning,administrator,1,1,0
+2026-10-16,neurology,Morning,doctor,6,6,0
+2026-10-16,neurology,Morning,nurse,4,4,0
+2026-10-16,neurology,Morning,therapist,1,1,0
+2026-10-16,neurology,Night,nurse,4,4,0
+2026-10-16,oncology,Evening,administrator,1,1,0
+2026-10-16,oncology,Evening,nurse,6,6,0
+2026-10-16,oncology,Evening,technician,2,2,0
+2026-10-16,oncology,Evening,therapist,1,1,0
+2026-10-16,oncology,Morning,doctor,4,4,0
+2026-10-16,oncology,Morning,nurse,3,3,0
+2026-10-16,oncology,Morning,technician,1,1,0
+2026-10-16,oncology,Night,nurse,2,2,0
+2026-10-16,oncology,Night,technician,1,1,0
+2026-10-16,oncology,Night,therapist,1,1,0
+2026-10-16,orthopedics,Evening,nurse,4,4,0
+2026-10-16,orthopedics,Evening,technician,1,1,0
+2026-10-16,orthopedics,Morning,doctor,3,3,0
+2026-10-16,orthopedics,Morning,nurse,3,3,0
+2026-10-16,orthopedics,Morning,technician,1,1,0
+2026-10-16,orthopedics,Night,nurse,3,3,0
+2026-10-16,orthopedics,Night,technician,1,1,0
+2026-10-16,pediatrics,Evening,nurse,4,4,0
+2026-10-16,pediatrics,Evening,technician,1,1,0
+2026-10-16,pediatrics,Evening,therapist,1,1,0
+2026-10-16,pediatrics,Morning,doctor,4,4,0
+2026-10-16,pediatrics,Morning,nurse,4,4,0
+2026-10-16,pediatrics,Morning,technician,1,1,0
+2026-10-16,pediatrics,Morning,therapist,1,1,0
+2026-10-16,pediatrics,Night,nurse,4,4,0
+2026-10-16,surgery,Evening,nurse,4,4,0
+2026-10-16,surgery,Evening,technician,1,1,0
+2026-10-16,surgery,Morning,administrator,1,1,0
+2026-10-16,surgery,Morning,doctor,5,5,0
+2026-10-16,surgery,Morning,nurse,4,4,0
+2026-10-16,surgery,Morning,surgeon,15,15,0
+2026-10-16,surgery,Morning,technician,1,1,0
+2026-10-16,surgery,Night,nurse,4,4,0
+2026-10-17,cardiology,Evening,administrator,1,1,0
+2026-10-17,cardiology,Evening,nurse,4,4,0
+2026-10-17,cardiology,Evening,technician,2,2,0
+2026-10-17,cardiology,Morning,administrator,1,1,0
+2026-10-17,cardiology,Morning,doctor,7,7,0
+2026-10-17,cardiology,Morning,nurse,5,5,0
+2026-10-17,cardiology,Morning,technician,1,1,0
+2026-10-17,cardiology,Night,nurse,4,4,0
+2026-10-17,emergency,Evening,administrator,1,1,0
+2026-10-17,emergency,Evening,nurse,3,3,0
+2026-10-17,emergency,Morning,administrator,1,1,0
+2026-10-17,emergency,Morning,doctor,4,4,0
+2026-10-17,emergency,Morning,nurse,4,4,0
+2026-10-17,emergency,Morning,technician,1,1,0
+2026-10-17,emergency,Night,administrator,1,1,0
+2026-10-17,emergency,Night,nurse,3,3,0
+2026-10-17,general medicine,Evening,nurse,15,15,0
+2026-10-17,general medicine,Evening,therapist,1,1,0
+2026-10-17,general medicine,Morning,administrator,2,2,0
+2026-10-17,general medicine,Morning,doctor,19,19,0
+2026-10-17,general medicine,Morning,nurse,15,15,0
+2026-10-17,general medicine,Night,administrator,1,1,0
+2026-10-17,general medicine,Night,nurse,15,15,0
+2026-10-17,general medicine,Night,therapist,1,1,0
+2026-10-17,icu,Evening,nurse,3,3,0
+2026-10-17,icu,Evening,technician,1,1,0
+2026-10-17,icu,Evening,therapist,1,1,0
+2026-10-17,icu,Morning,doctor,3,3,0
+2026-10-17,icu,Morning,nurse,3,3,0
+2026-10-17,icu,Night,nurse,3,3,0
+2026-10-17,icu,Night,technician,1,1,0
+2026-10-17,neurology,Evening,administrator,1,1,0
+2026-10-17,neurology,Evening,nurse,6,6,0
+2026-10-17,neurology,Evening,therapist,1,1,0
+2026-10-17,neurology,Morning,administrator,1,1,0
+2026-10-17,neurology,Morning,doctor,6,6,0
+2026-10-17,neurology,Morning,nurse,4,4,0
+2026-10-17,neurology,Morning,therapist,1,1,0
+2026-10-17,neurology,Night,nurse,4,4,0
+2026-10-17,oncology,Evening,administrator,1,1,0
+2026-10-17,oncology,Evening,nurse,6,6,0
+2026-10-17,oncology,Evening,technician,2,2,0
+2026-10-17,oncology,Evening,therapist,1,1,0
+2026-10-17,oncology,Morning,doctor,4,4,0
+2026-10-17,oncology,Morning,nurse,3,3,0
+2026-10-17,oncology,Morning,technician,1,1,0
+2026-10-17,oncology,Night,nurse,2,2,0
+2026-10-17,oncology,Night,technician,1,1,0
+2026-10-17,oncology,Night,therapist,1,1,0
+2026-10-17,orthopedics,Evening,nurse,3,3,0
+2026-10-17,orthopedics,Evening,technician,1,1,0
+2026-10-17,orthopedics,Morning,doctor,3,3,0
+2026-10-17,orthopedics,Morning,nurse,3,3,0
+2026-10-17,orthopedics,Morning,technician,1,1,0
+2026-10-17,orthopedics,Night,nurse,3,3,0
+2026-10-17,orthopedics,Night,technician,1,1,0
+2026-10-17,pediatrics,Evening,nurse,4,4,0
+2026-10-17,pediatrics,Evening,technician,1,1,0
+2026-10-17,pediatrics,Evening,therapist,1,1,0
+2026-10-17,pediatrics,Morning,doctor,4,4,0
+2026-10-17,pediatrics,Morning,nurse,4,4,0
+2026-10-17,pediatrics,Morning,technician,1,1,0
+2026-10-17,pediatrics,Morning,therapist,1,1,0
+2026-10-17,pediatrics,Night,nurse,4,4,0
+2026-10-17,surgery,Evening,nurse,4,4,0
+2026-10-17,surgery,Morning,administrator,1,1,0
+2026-10-17,surgery,Morning,doctor,4,4,0
+2026-10-17,surgery,Morning,nurse,4,4,0
+2026-10-17,surgery,Morning,surgeon,13,13,0
+2026-10-17,surgery,Morning,technician,1,1,0
+2026-10-17,surgery,Night,nurse,4,4,0
+2026-10-18,cardiology,Evening,administrator,1,1,0
+2026-10-18,cardiology,Evening,nurse,4,4,0
+2026-10-18,cardiology,Evening,technician,2,2,0
+2026-10-18,cardiology,Morning,administrator,1,1,0
+2026-10-18,cardiology,Morning,doctor,7,7,0
+2026-10-18,cardiology,Morning,nurse,5,5,0
+2026-10-18,cardiology,Morning,technician,1,1,0
+2026-10-18,cardiology,Night,nurse,4,4,0
+2026-10-18,emergency,Evening,administrator,1,1,0
+2026-10-18,emergency,Evening,nurse,3,3,0
+2026-10-18,emergency,Morning,administrator,1,1,0
+2026-10-18,emergency,Morning,doctor,4,4,0
+2026-10-18,emergency,Morning,nurse,4,4,0
+2026-10-18,emergency,Morning,technician,1,1,0
+2026-10-18,emergency,Night,administrator,1,1,0
+2026-10-18,emergency,Night,nurse,3,3,0
+2026-10-18,general medicine,Evening,nurse,15,15,0
+2026-10-18,general medicine,Evening,therapist,1,1,0
+2026-10-18,general medicine,Morning,administrator,1,1,0
+2026-10-18,general medicine,Morning,doctor,18,18,0
+2026-10-18,general medicine,Morning,nurse,15,15,0
+2026-10-18,general medicine,Night,nurse,15,15,0
+2026-10-18,general medicine,Night,therapist,1,1,0
+2026-10-18,icu,Evening,nurse,3,3,0
+2026-10-18,icu,Evening,technician,1,1,0
+2026-10-18,icu,Evening,therapist,1,1,0
+2026-10-18,icu,Morning,doctor,3,3,0
+2026-10-18,icu,Morning,nurse,3,3,0
+2026-10-18,icu,Night,nurse,3,3,0
+2026-10-18,icu,Night,technician,1,1,0
+2026-10-18,neurology,Evening,administrator,1,1,0
+2026-10-18,neurology,Evening,nurse,6,6,0
+2026-10-18,neurology,Evening,therapist,1,1,0
+2026-10-18,neurology,Morning,administrator,1,1,0
+2026-10-18,neurology,Morning,doctor,5,5,0
+2026-10-18,neurology,Morning,nurse,4,4,0
+2026-10-18,neurology,Morning,therapist,1,1,0
+2026-10-18,neurology,Night,nurse,4,4,0
+2026-10-18,oncology,Evening,administrator,1,1,0
+2026-10-18,oncology,Evening,nurse,6,6,0
+2026-10-18,oncology,Evening,technician,2,2,0
+2026-10-18,oncology,Evening,therapist,1,1,0
+2026-10-18,oncology,Morning,doctor,4,4,0
+2026-10-18,oncology,Morning,nurse,3,3,0
+2026-10-18,oncology,Morning,technician,1,1,0
+2026-10-18,oncology,Night,nurse,2,2,0
+2026-10-18,oncology,Night,technician,1,1,0
+2026-10-18,oncology,Night,therapist,1,1,0
+2026-10-18,orthopedics,Evening,nurse,4,4,0
+2026-10-18,orthopedics,Evening,technician,1,1,0
+2026-10-18,orthopedics,Morning,doctor,3,3,0
+2026-10-18,orthopedics,Morning,nurse,3,3,0
+2026-10-18,orthopedics,Morning,technician,1,1,0
+2026-10-18,orthopedics,Night,nurse,3,3,0
+2026-10-18,orthopedics,Night,technician,1,1,0
+2026-10-18,pediatrics,Evening,nurse,4,4,0
+2026-10-18,pediatrics,Evening,technician,1,1,0
+2026-10-18,pediatrics,Evening,therapist,1,1,0
+2026-10-18,pediatrics,Morning,doctor,4,4,0
+2026-10-18,pediatrics,Morning,nurse,4,4,0
+2026-10-18,pediatrics,Morning,technician,1,1,0
+2026-10-18,pediatrics,Morning,therapist,1,1,0
+2026-10-18,pediatrics,Night,nurse,4,4,0
+2026-10-18,surgery,Evening,nurse,4,4,0
+2026-10-18,surgery,Morning,administrator,1,1,0
+2026-10-18,surgery,Morning,doctor,5,5,0
+2026-10-18,surgery,Morning,nurse,4,4,0
+2026-10-18,surgery,Morning,surgeon,14,14,0
+2026-10-18,surgery,Morning,technician,1,1,0
+2026-10-18,surgery,Night,nurse,4,4,0
+2026-10-19,cardiology,Evening,administrator,1,1,0
+2026-10-19,cardiology,Evening,nurse,4,4,0
+2026-10-19,cardiology,Evening,technician,2,2,0
+2026-10-19,cardiology,Morning,administrator,1,1,0
+2026-10-19,cardiology,Morning,doctor,7,7,0
+2026-10-19,cardiology,Morning,nurse,5,5,0
+2026-10-19,cardiology,Morning,technician,1,1,0
+2026-10-19,cardiology,Night,nurse,4,4,0
+2026-10-19,emergency,Evening,administrator,1,1,0
+2026-10-19,emergency,Evening,nurse,3,3,0
+2026-10-19,emergency,Morning,administrator,1,1,0
+2026-10-19,emergency,Morning,doctor,4,4,0
+2026-10-19,emergency,Morning,nurse,4,4,0
+2026-10-19,emergency,Morning,technician,1,1,0
+2026-10-19,emergency,Night,administrator,1,1,0
+2026-10-19,emergency,Night,nurse,3,3,0
+2026-10-19,general medicine,Evening,administrator,1,1,0
+2026-10-19,general medicine,Evening,nurse,15,15,0
+2026-10-19,general medicine,Evening,therapist,1,1,0
+2026-10-19,general medicine,Morning,administrator,2,2,0
+2026-10-19,general medicine,Morning,doctor,23,23,0
+2026-10-19,general medicine,Morning,nurse,15,15,0
+2026-10-19,general medicine,Night,administrator,1,1,0
+2026-10-19,general medicine,Night,nurse,15,15,0
+2026-10-19,general medicine,Night,therapist,1,1,0
+2026-10-19,icu,Evening,nurse,3,3,0
+2026-10-19,icu,Evening,technician,1,1,0
+2026-10-19,icu,Morning,doctor,2,2,0
+2026-10-19,icu,Morning,nurse,3,3,0
+2026-10-19,icu,Night,nurse,3,3,0
+2026-10-19,neurology,Evening,administrator,1,1,0
+2026-10-19,neurology,Evening,nurse,6,6,0
+2026-10-19,neurology,Evening,therapist,1,1,0
+2026-10-19,neurology,Morning,administrator,1,1,0
+2026-10-19,neurology,Morning,doctor,6,6,0
+2026-10-19,neurology,Morning,nurse,4,4,0
+2026-10-19,neurology,Morning,therapist,1,1,0
+2026-10-19,neurology,Night,nurse,4,4,0
+2026-10-19,oncology,Evening,administrator,1,1,0
+2026-10-19,oncology,Evening,nurse,6,6,0
+2026-10-19,oncology,Evening,technician,2,2,0
+2026-10-19,oncology,Evening,therapist,1,1,0
+2026-10-19,oncology,Morning,doctor,4,4,0
+2026-10-19,oncology,Morning,nurse,3,3,0
+2026-10-19,oncology,Morning,technician,1,1,0
+2026-10-19,oncology,Night,nurse,2,2,0
+2026-10-19,oncology,Night,technician,1,1,0
+2026-10-19,oncology,Night,therapist,1,1,0
+2026-10-19,orthopedics,Evening,nurse,4,4,0
+2026-10-19,orthopedics,Evening,technician,1,1,0
+2026-10-19,orthopedics,Morning,doctor,3,3,0
+2026-10-19,orthopedics,Morning,nurse,3,3,0
+2026-10-19,orthopedics,Morning,technician,1,1,0
+2026-10-19,orthopedics,Night,nurse,3,3,0
+2026-10-19,orthopedics,Night,technician,1,1,0
+2026-10-19,pediatrics,Evening,nurse,4,4,0
+2026-10-19,pediatrics,Evening,technician,1,1,0
+2026-10-19,pediatrics,Evening,therapist,1,1,0
+2026-10-19,pediatrics,Morning,doctor,4,4,0
+2026-10-19,pediatrics,Morning,nurse,4,4,0
+2026-10-19,pediatrics,Morning,technician,1,1,0
+2026-10-19,pediatrics,Morning,therapist,1,1,0
+2026-10-19,pediatrics,Night,nurse,4,4,0
+2026-10-19,surgery,Evening,nurse,4,4,0
+2026-10-19,surgery,Evening,technician,1,1,0
+2026-10-19,surgery,Morning,administrator,1,1,0
+2026-10-19,surgery,Morning,doctor,6,6,0
+2026-10-19,surgery,Morning,nurse,4,4,0
+2026-10-19,surgery,Morning,surgeon,17,17,0
+2026-10-19,surgery,Morning,technician,1,1,0
+2026-10-19,surgery,Night,nurse,4,4,0
+2026-10-20,cardiology,Evening,administrator,1,1,0
+2026-10-20,cardiology,Evening,nurse,4,4,0
+2026-10-20,cardiology,Evening,technician,2,2,0
+2026-10-20,cardiology,Morning,administrator,1,1,0
+2026-10-20,cardiology,Morning,doctor,7,7,0
+2026-10-20,cardiology,Morning,nurse,5,5,0
+2026-10-20,cardiology,Morning,technician,1,1,0
+2026-10-20,cardiology,Night,nurse,4,4,0
+2026-10-20,emergency,Evening,administrator,1,1,0
+2026-10-20,emergency,Evening,nurse,3,3,0
+2026-10-20,emergency,Morning,administrator,1,1,0
+2026-10-20,emergency,Morning,doctor,4,4,0
+2026-10-20,emergency,Morning,nurse,4,4,0
+2026-10-20,emergency,Morning,technician,1,1,0
+2026-10-20,emergency,Night,administrator,1,1,0
+2026-10-20,emergency,Night,nurse,3,3,0
+2026-10-20,general medicine,Evening,nurse,15,15,0
+2026-10-20,general medicine,Evening,therapist,1,1,0
+2026-10-20,general medicine,Morning,administrator,2,2,0
+2026-10-20,general medicine,Morning,doctor,21,21,0
+2026-10-20,general medicine,Morning,nurse,15,15,0
+2026-10-20,general medicine,Night,administrator,1,1,0
+2026-10-20,general medicine,Night,nurse,15,15,0
+2026-10-20,general medicine,Night,therapist,1,1,0
+2026-10-20,icu,Evening,administrator,1,1,0
+2026-10-20,icu,Evening,nurse,3,3,0
+2026-10-20,icu,Evening,technician,1,1,0
+2026-10-20,icu,Evening,therapist,1,1,0
+2026-10-20,icu,Morning,doctor,4,4,0
+2026-10-20,icu,Morning,nurse,3,3,0
+2026-10-20,icu,Night,administrator,1,1,0
+2026-10-20,icu,Night,nurse,3,3,0
+2026-10-20,icu,Night,technician,1,1,0
+2026-10-20,neurology,Evening,administrator,1,1,0
+2026-10-20,neurology,Evening,nurse,6,6,0
+2026-10-20,neurology,Evening,therapist,1,1,0
+2026-10-20,neurology,Morning,administrator,1,1,0
+2026-10-20,neurology,Morning,doctor,5,5,0
+2026-10-20,neurology,Morning,nurse,4,4,0
+2026-10-20,neurology,Morning,therapist,1,1,0
+2026-10-20,neurology,Night,nurse,4,4,0
+2026-10-20,oncology,Evening,administrator,1,1,0
+2026-10-20,oncology,Evening,nurse,6,6,0
+2026-10-20,oncology,Evening,technician,2,2,0
+2026-10-20,oncology,Evening,therapist,1,1,0
+2026-10-20,oncology,Morning,doctor,4,4,0
+2026-10-20,oncology,Morning,nurse,3,3,0
+2026-10-20,oncology,Morning,technician,1,1,0
+2026-10-20,oncology,Night,nurse,2,2,0
+2026-10-20,oncology,Night,technician,1,1,0
+2026-10-20,oncology,Night,therapist,1,1,0
+2026-10-20,orthopedics,Evening,nurse,4,4,0
+2026-10-20,orthopedics,Evening,technician,1,1,0
+2026-10-20,orthopedics,Morning,doctor,3,3,0
+2026-10-20,orthopedics,Morning,nurse,3,3,0
+2026-10-20,orthopedics,Morning,technician,1,1,0
+2026-10-20,orthopedics,Night,nurse,3,3,0
+2026-10-20,orthopedics,Night,technician,1,1,0
+2026-10-20,pediatrics,Evening,nurse,4,4,0
+2026-10-20,pediatrics,Evening,technician,1,1,0
+2026-10-20,pediatrics,Evening,therapist,1,1,0
+2026-10-20,pediatrics,Morning,doctor,4,4,0
+2026-10-20,pediatrics,Morning,nurse,4,4,0
+2026-10-20,pediatrics,Morning,technician,1,1,0
+2026-10-20,pediatrics,Morning,therapist,1,1,0
+2026-10-20,pediatrics,Night,nurse,4,4,0
+2026-10-20,surgery,Evening,nurse,4,4,0
+2026-10-20,surgery,Evening,technician,1,1,0
+2026-10-20,surgery,Morning,administrator,1,1,0
+2026-10-20,surgery,Morning,doctor,6,6,0
+2026-10-20,surgery,Morning,nurse,4,4,0
+2026-10-20,surgery,Morning,surgeon,17,17,0
+2026-10-20,surgery,Morning,technician,1,1,0
+2026-10-20,surgery,Night,nurse,4,4,0
+2026-10-21,cardiology,Evening,administrator,1,1,0
+2026-10-21,cardiology,Evening,nurse,4,4,0
+2026-10-21,cardiology,Evening,technician,2,2,0
+2026-10-21,cardiology,Morning,administrator,1,1,0
+2026-10-21,cardiology,Morning,doctor,7,7,0
+2026-10-21,cardiology,Morning,nurse,5,5,0
+2026-10-21,cardiology,Morning,technician,1,1,0
+2026-10-21,cardiology,Night,nurse,4,4,0
+2026-10-21,emergency,Evening,administrator,1,1,0
+2026-10-21,emergency,Evening,nurse,3,3,0
+2026-10-21,emergency,Morning,administrator,1,1,0
+2026-10-21,emergency,Morning,doctor,4,4,0
+2026-10-21,emergency,Morning,nurse,4,4,0
+2026-10-21,emergency,Morning,technician,1,1,0
+2026-10-21,emergency,Night,administrator,1,1,0
+2026-10-21,emergency,Night,nurse,3,3,0
+2026-10-21,general medicine,Evening,nurse,15,15,0
+2026-10-21,general medicine,Evening,therapist,1,1,0
+2026-10-21,general medicine,Morning,administrator,2,2,0
+2026-10-21,general medicine,Morning,doctor,20,20,0
+2026-10-21,general medicine,Morning,nurse,15,15,0
+2026-10-21,general medicine,Night,administrator,1,1,0
+2026-10-21,general medicine,Night,nurse,15,15,0
+2026-10-21,general medicine,Night,therapist,1,1,0
+2026-10-21,icu,Evening,administrator,1,1,0
+2026-10-21,icu,Evening,nurse,3,3,0
+2026-10-21,icu,Evening,technician,1,1,0
+2026-10-21,icu,Evening,therapist,1,1,0
+2026-10-21,icu,Morning,doctor,4,4,0
+2026-10-21,icu,Morning,nurse,3,3,0
+2026-10-21,icu,Night,administrator,1,1,0
+2026-10-21,icu,Night,nurse,3,3,0
+2026-10-21,icu,Night,technician,1,1,0
+2026-10-21,neurology,Evening,administrator,1,1,0
+2026-10-21,neurology,Evening,nurse,5,5,0
+2026-10-21,neurology,Evening,therapist,1,1,0
+2026-10-21,neurology,Morning,administrator,1,1,0
+2026-10-21,neurology,Morning,doctor,5,5,0
+2026-10-21,neurology,Morning,nurse,4,4,0
+2026-10-21,neurology,Night,nurse,4,4,0
+2026-10-21,oncology,Evening,administrator,1,1,0
+2026-10-21,oncology,Evening,nurse,6,6,0
+2026-10-21,oncology,Evening,technician,2,2,0
+2026-10-21,oncology,Evening,therapist,1,1,0
+2026-10-21,oncology,Morning,doctor,4,4,0
+2026-10-21,oncology,Morning,nurse,3,3,0
+2026-10-21,oncology,Morning,technician,1,1,0
+2026-10-21,oncology,Night,nurse,2,2,0
+2026-10-21,oncology,Night,technician,1,1,0
+2026-10-21,oncology,Night,therapist,1,1,0
+2026-10-21,orthopedics,Evening,nurse,4,4,0
+2026-10-21,orthopedics,Evening,technician,1,1,0
+2026-10-21,orthopedics,Morning,doctor,3,3,0
+2026-10-21,orthopedics,Morning,nurse,3,3,0
+2026-10-21,orthopedics,Morning,technician,1,1,0
+2026-10-21,orthopedics,Night,nurse,3,3,0
+2026-10-21,orthopedics,Night,technician,1,1,0
+2026-10-21,pediatrics,Evening,nurse,4,4,0
+2026-10-21,pediatrics,Evening,technician,1,1,0
+2026-10-21,pediatrics,Evening,therapist,1,1,0
+2026-10-21,pediatrics,Morning,doctor,4,4,0
+2026-10-21,pediatrics,Morning,nurse,4,4,0
+2026-10-21,pediatrics,Morning,technician,1,1,0
+2026-10-21,pediatrics,Morning,therapist,1,1,0
+2026-10-21,pediatrics,Night,nurse,4,4,0
+2026-10-21,surgery,Evening,nurse,4,4,0
+2026-10-21,surgery,Evening,technician,1,1,0
+2026-10-21,surgery,Morning,administrator,1,1,0
+2026-10-21,surgery,Morning,doctor,6,6,0
+2026-10-21,surgery,Morning,nurse,4,4,0
+2026-10-21,surgery,Morning,surgeon,17,17,0
+2026-10-21,surgery,Morning,technician,1,1,0
+2026-10-21,surgery,Night,nurse,4,4,0
+2026-10-22,cardiology,Evening,administrator,1,1,0
+2026-10-22,cardiology,Evening,nurse,4,4,0
+2026-10-22,cardiology,Evening,technician,2,2,0
+2026-10-22,cardiology,Morning,administrator,1,1,0
+2026-10-22,cardiology,Morning,doctor,7,7,0
+2026-10-22,cardiology,Morning,nurse,5,5,0
+2026-10-22,cardiology,Morning,technician,1,1,0
+2026-10-22,cardiology,Night,nurse,4,4,0
+2026-10-22,emergency,Evening,administrator,1,1,0
+2026-10-22,emergency,Evening,nurse,3,3,0
+2026-10-22,emergency,Morning,administrator,1,1,0
+2026-10-22,emergency,Morning,doctor,4,4,0
+2026-10-22,emergency,Morning,nurse,4,4,0
+2026-10-22,emergency,Morning,technician,1,1,0
+2026-10-22,emergency,Night,administrator,1,1,0
+2026-10-22,emergency,Night,nurse,3,3,0
+2026-10-22,general medicine,Evening,nurse,15,15,0
+2026-10-22,general medicine,Evening,therapist,1,1,0
+2026-10-22,general medicine,Morning,administrator,2,2,0
+2026-10-22,general medicine,Morning,doctor,20,20,0
+2026-10-22,general medicine,Morning,nurse,15,15,0
+2026-10-22,general medicine,Night,administrator,1,1,0
+2026-10-22,general medicine,Night,nurse,15,15,0
+2026-10-22,general medicine,Night,therapist,1,1,0
+2026-10-22,icu,Evening,administrator,1,1,0
+2026-10-22,icu,Evening,nurse,3,3,0
+2026-10-22,icu,Evening,technician,1,1,0
+2026-10-22,icu,Evening,therapist,1,1,0
+2026-10-22,icu,Morning,doctor,4,4,0
+2026-10-22,icu,Morning,nurse,3,3,0
+2026-10-22,icu,Night,administrator,1,1,0
+2026-10-22,icu,Night,nurse,3,3,0
+2026-10-22,icu,Night,technician,1,1,0
+2026-10-22,neurology,Evening,administrator,1,1,0
+2026-10-22,neurology,Evening,nurse,6,6,0
+2026-10-22,neurology,Evening,therapist,1,1,0
+2026-10-22,neurology,Morning,administrator,1,1,0
+2026-10-22,neurology,Morning,doctor,6,6,0
+2026-10-22,neurology,Morning,nurse,4,4,0
+2026-10-22,neurology,Morning,therapist,1,1,0
+2026-10-22,neurology,Night,nurse,4,4,0
+2026-10-22,oncology,Evening,administrator,1,1,0
+2026-10-22,oncology,Evening,nurse,6,6,0
+2026-10-22,oncology,Evening,technician,2,2,0
+2026-10-22,oncology,Evening,therapist,1,1,0
+2026-10-22,oncology,Morning,doctor,4,4,0
+2026-10-22,oncology,Morning,nurse,3,3,0
+2026-10-22,oncology,Morning,technician,1,1,0
+2026-10-22,oncology,Night,nurse,2,2,0
+2026-10-22,oncology,Night,technician,1,1,0
+2026-10-22,oncology,Night,therapist,1,1,0
+2026-10-22,orthopedics,Evening,nurse,4,4,0
+2026-10-22,orthopedics,Evening,technician,1,1,0
+2026-10-22,orthopedics,Morning,doctor,3,3,0
+2026-10-22,orthopedics,Morning,nurse,3,3,0
+2026-10-22,orthopedics,Morning,technician,1,1,0
+2026-10-22,orthopedics,Night,nurse,3,3,0
+2026-10-22,orthopedics,Night,technician,1,1,0
+2026-10-22,pediatrics,Evening,nurse,4,4,0
+2026-10-22,pediatrics,Evening,technician,1,1,0
+2026-10-22,pediatrics,Evening,therapist,1,1,0
+2026-10-22,pediatrics,Morning,doctor,4,4,0
+2026-10-22,pediatrics,Morning,nurse,4,4,0
+2026-10-22,pediatrics,Morning,technician,1,1,0
+2026-10-22,pediatrics,Morning,therapist,1,1,0
+2026-10-22,pediatrics,Night,nurse,4,4,0
+2026-10-22,surgery,Evening,nurse,4,4,0
+2026-10-22,surgery,Evening,technician,1,1,0
+2026-10-22,surgery,Morning,administrator,1,1,0
+2026-10-22,surgery,Morning,doctor,6,6,0
+2026-10-22,surgery,Morning,nurse,4,4,0
+2026-10-22,surgery,Morning,surgeon,17,17,0
+2026-10-22,surgery,Morning,technician,1,1,0
+2026-10-22,surgery,Night,nurse,4,4,0
+2026-10-23,cardiology,Evening,administrator,1,1,0
+2026-10-23,cardiology,Evening,nurse,4,4,0
+2026-10-23,cardiology,Evening,technician,2,2,0
+2026-10-23,cardiology,Morning,administrator,1,1,0
+2026-10-23,cardiology,Morning,doctor,7,7,0
+2026-10-23,cardiology,Morning,nurse,5,5,0
+2026-10-23,cardiology,Morning,technician,1,1,0
+2026-10-23,cardiology,Night,nurse,4,4,0
+2026-10-23,emergency,Evening,administrator,1,1,0
+2026-10-23,emergency,Evening,nurse,3,3,0
+2026-10-23,emergency,Morning,administrator,1,1,0
+2026-10-23,emergency,Morning,doctor,4,4,0
+2026-10-23,emergency,Morning,nurse,4,4,0
+2026-10-23,emergency,Morning,technician,1,1,0
+2026-10-23,emergency,Night,administrator,1,1,0
+2026-10-23,emergency,Night,nurse,3,3,0
+2026-10-23,general medicine,Evening,nurse,15,15,0
+2026-10-23,general medicine,Evening,therapist,1,1,0
+2026-10-23,general medicine,Morning,administrator,2,2,0
+2026-10-23,general medicine,Morning,doctor,20,20,0
+2026-10-23,general medicine,Morning,nurse,15,15,0
+2026-10-23,general medicine,Night,administrator,1,1,0
+2026-10-23,general medicine,Night,nurse,15,15,0
+2026-10-23,general medicine,Night,therapist,1,1,0
+2026-10-23,icu,Evening,administrator,1,1,0
+2026-10-23,icu,Evening,nurse,3,3,0
+2026-10-23,icu,Evening,technician,1,1,0
+2026-10-23,icu,Evening,therapist,1,1,0
+2026-10-23,icu,Morning,doctor,4,4,0
+2026-10-23,icu,Morning,nurse,3,3,0
+2026-10-23,icu,Night,administrator,1,1,0
+2026-10-23,icu,Night,nurse,3,3,0
+2026-10-23,icu,Night,technician,1,1,0
+2026-10-23,neurology,Evening,administrator,1,1,0
+2026-10-23,neurology,Evening,nurse,6,6,0
+2026-10-23,neurology,Evening,therapist,1,1,0
+2026-10-23,neurology,Morning,administrator,1,1,0
+2026-10-23,neurology,Morning,doctor,6,6,0
+2026-10-23,neurology,Morning,nurse,4,4,0
+2026-10-23,neurology,Morning,therapist,1,1,0
+2026-10-23,neurology,Night,nurse,4,4,0
+2026-10-23,oncology,Evening,administrator,1,1,0
+2026-10-23,oncology,Evening,nurse,6,6,0
+2026-10-23,oncology,Evening,technician,2,2,0
+2026-10-23,oncology,Evening,therapist,1,1,0
+2026-10-23,oncology,Morning,doctor,4,4,0
+2026-10-23,oncology,Morning,nurse,3,3,0
+2026-10-23,oncology,Morning,technician,1,1,0
+2026-10-23,oncology,Night,nurse,2,2,0
+2026-10-23,oncology,Night,technician,1,1,0
+2026-10-23,oncology,Night,therapist,1,1,0
+2026-10-23,orthopedics,Evening,nurse,4,4,0
+2026-10-23,orthopedics,Evening,technician,1,1,0
+2026-10-23,orthopedics,Morning,doctor,3,3,0
+2026-10-23,orthopedics,Morning,nurse,3,3,0
+2026-10-23,orthopedics,Morning,technician,1,1,0
+2026-10-23,orthopedics,Night,nurse,3,3,0
+2026-10-23,orthopedics,Night,technician,1,1,0
+2026-10-23,pediatrics,Evening,nurse,4,4,0
+2026-10-23,pediatrics,Evening,technician,1,1,0
+2026-10-23,pediatrics,Evening,therapist,1,1,0
+2026-10-23,pediatrics,Morning,doctor,4,4,0
+2026-10-23,pediatrics,Morning,nurse,4,4,0
+2026-10-23,pediatrics,Morning,technician,1,1,0
+2026-10-23,pediatrics,Morning,therapist,1,1,0
+2026-10-23,pediatrics,Night,nurse,4,4,0
+2026-10-23,surgery,Evening,nurse,4,4,0
+2026-10-23,surgery,Evening,technician,1,1,0
+2026-10-23,surgery,Morning,administrator,1,1,0
+2026-10-23,surgery,Morning,doctor,5,5,0
+2026-10-23,surgery,Morning,nurse,4,4,0
+2026-10-23,surgery,Morning,surgeon,16,16,0
+2026-10-23,surgery,Morning,technician,1,1,0
+2026-10-23,surgery,Night,nurse,4,4,0
+2026-10-24,cardiology,Evening,administrator,1,1,0
+2026-10-24,cardiology,Evening,nurse,4,4,0
+2026-10-24,cardiology,Evening,technician,2,2,0
+2026-10-24,cardiology,Morning,administrator,1,1,0
+2026-10-24,cardiology,Morning,doctor,7,7,0
+2026-10-24,cardiology,Morning,nurse,5,5,0
+2026-10-24,cardiology,Morning,technician,1,1,0
+2026-10-24,cardiology,Night,nurse,4,4,0
+2026-10-24,emergency,Evening,administrator,1,1,0
+2026-10-24,emergency,Evening,nurse,3,3,0
+2026-10-24,emergency,Morning,administrator,1,1,0
+2026-10-24,emergency,Morning,doctor,4,4,0
+2026-10-24,emergency,Morning,nurse,4,4,0
+2026-10-24,emergency,Morning,technician,1,1,0
+2026-10-24,emergency,Night,administrator,1,1,0
+2026-10-24,emergency,Night,nurse,3,3,0
+2026-10-24,general medicine,Evening,nurse,14,14,0
+2026-10-24,general medicine,Evening,therapist,1,1,0
+2026-10-24,general medicine,Morning,administrator,2,2,0
+2026-10-24,general medicine,Morning,doctor,18,18,0
+2026-10-24,general medicine,Morning,nurse,14,14,0
+2026-10-24,general medicine,Night,nurse,14,14,0
+2026-10-24,general medicine,Night,therapist,1,1,0
+2026-10-24,icu,Evening,administrator,1,1,0
+2026-10-24,icu,Evening,nurse,3,3,0
+2026-10-24,icu,Evening,technician,1,1,0
+2026-10-24,icu,Evening,therapist,1,1,0
+2026-10-24,icu,Morning,doctor,4,4,0
+2026-10-24,icu,Morning,nurse,3,3,0
+2026-10-24,icu,Night,administrator,1,1,0
+2026-10-24,icu,Night,nurse,3,3,0
+2026-10-24,icu,Night,technician,1,1,0
+2026-10-24,neurology,Evening,administrator,1,1,0
+2026-10-24,neurology,Evening,nurse,6,6,0
+2026-10-24,neurology,Evening,therapist,1,1,0
+2026-10-24,neurology,Morning,administrator,1,1,0
+2026-10-24,neurology,Morning,doctor,6,6,0
+2026-10-24,neurology,Morning,nurse,4,4,0
+2026-10-24,neurology,Morning,therapist,1,1,0
+2026-10-24,neurology,Night,nurse,4,4,0
+2026-10-24,oncology,Evening,administrator,1,1,0
+2026-10-24,oncology,Evening,nurse,6,6,0
+2026-10-24,oncology,Evening,technician,2,2,0
+2026-10-24,oncology,Evening,therapist,1,1,0
+2026-10-24,oncology,Morning,doctor,4,4,0
+2026-10-24,oncology,Morning,nurse,3,3,0
+2026-10-24,oncology,Morning,technician,1,1,0
+2026-10-24,oncology,Night,nurse,2,2,0
+2026-10-24,oncology,Night,technician,1,1,0
+2026-10-24,oncology,Night,therapist,1,1,0
+2026-10-24,orthopedics,Evening,nurse,3,3,0
+2026-10-24,orthopedics,Evening,technician,1,1,0
+2026-10-24,orthopedics,Morning,doctor,3,3,0
+2026-10-24,orthopedics,Morning,nurse,3,3,0
+2026-10-24,orthopedics,Morning,technician,1,1,0
+2026-10-24,orthopedics,Night,nurse,3,3,0
+2026-10-24,orthopedics,Night,technician,1,1,0
+2026-10-24,pediatrics,Evening,nurse,4,4,0
+2026-10-24,pediatrics,Evening,technician,1,1,0
+2026-10-24,pediatrics,Evening,therapist,1,1,0
+2026-10-24,pediatrics,Morning,doctor,4,4,0
+2026-10-24,pediatrics,Morning,nurse,4,4,0
+2026-10-24,pediatrics,Morning,technician,1,1,0
+2026-10-24,pediatrics,Morning,therapist,1,1,0
+2026-10-24,pediatrics,Night,nurse,4,4,0
+2026-10-24,surgery,Evening,nurse,4,4,0
+2026-10-24,surgery,Morning,administrator,1,1,0
+2026-10-24,surgery,Morning,doctor,4,4,0
+2026-10-24,surgery,Morning,nurse,4,4,0
+2026-10-24,surgery,Morning,surgeon,13,13,0
+2026-10-24,surgery,Morning,technician,1,1,0
+2026-10-24,surgery,Night,nurse,4,4,0
+2026-10-25,cardiology,Evening,administrator,1,1,0
+2026-10-25,cardiology,Evening,nurse,4,4,0
+2026-10-25,cardiology,Evening,technician,2,2,0
+2026-10-25,cardiology,Morning,administrator,1,1,0
+2026-10-25,cardiology,Morning,doctor,7,7,0
+2026-10-25,cardiology,Morning,nurse,5,5,0
+2026-10-25,cardiology,Morning,technician,1,1,0
+2026-10-25,cardiology,Night,nurse,4,4,0
+2026-10-25,emergency,Evening,administrator,1,1,0
+2026-10-25,emergency,Evening,nurse,3,3,0
+2026-10-25,emergency,Morning,administrator,1,1,0
+2026-10-25,emergency,Morning,doctor,4,4,0
+2026-10-25,emergency,Morning,nurse,4,4,0
+2026-10-25,emergency,Morning,technician,1,1,0
+2026-10-25,emergency,Night,administrator,1,1,0
+2026-10-25,emergency,Night,nurse,3,3,0
+2026-10-25,general medicine,Evening,nurse,14,14,0
+2026-10-25,general medicine,Evening,therapist,1,1,0
+2026-10-25,general medicine,Morning,administrator,2,2,0
+2026-10-25,general medicine,Morning,doctor,18,18,0
+2026-10-25,general medicine,Morning,nurse,14,14,0
+2026-10-25,general medicine,Night,nurse,14,14,0
+2026-10-25,general medicine,Night,therapist,1,1,0
+2026-10-25,icu,Evening,administrator,1,1,0
+2026-10-25,icu,Evening,nurse,3,3,0
+2026-10-25,icu,Evening,technician,1,1,0
+2026-10-25,icu,Evening,therapist,1,1,0
+2026-10-25,icu,Morning,doctor,4,4,0
+2026-10-25,icu,Morning,nurse,3,3,0
+2026-10-25,icu,Night,administrator,1,1,0
+2026-10-25,icu,Night,nurse,3,3,0
+2026-10-25,icu,Night,technician,1,1,0
+2026-10-25,neurology,Evening,administrator,1,1,0
+2026-10-25,neurology,Evening,nurse,5,5,0
+2026-10-25,neurology,Evening,therapist,1,1,0
+2026-10-25,neurology,Morning,administrator,1,1,0
+2026-10-25,neurology,Morning,doctor,5,5,0
+2026-10-25,neurology,Morning,nurse,4,4,0
+2026-10-25,neurology,Night,nurse,4,4,0
+2026-10-25,oncology,Evening,administrator,1,1,0
+2026-10-25,oncology,Evening,nurse,6,6,0
+2026-10-25,oncology,Evening,technician,2,2,0
+2026-10-25,oncology,Evening,therapist,1,1,0
+2026-10-25,oncology,Morning,doctor,4,4,0
+2026-10-25,oncology,Morning,nurse,3,3,0
+2026-10-25,oncology,Morning,technician,1,1,0
+2026-10-25,oncology,Night,nurse,2,2,0
+2026-10-25,oncology,Night,technician,1,1,0
+2026-10-25,oncology,Night,therapist,1,1,0
+2026-10-25,orthopedics,Evening,nurse,4,4,0
+2026-10-25,orthopedics,Evening,technician,1,1,0
+2026-10-25,orthopedics,Morning,doctor,3,3,0
+2026-10-25,orthopedics,Morning,nurse,3,3,0
+2026-10-25,orthopedics,Morning,technician,1,1,0
+2026-10-25,orthopedics,Night,nurse,3,3,0
+2026-10-25,orthopedics,Night,technician,1,1,0
+2026-10-25,pediatrics,Evening,nurse,4,4,0
+2026-10-25,pediatrics,Evening,technician,1,1,0
+2026-10-25,pediatrics,Morning,doctor,4,4,0
+2026-10-25,pediatrics,Morning,nurse,4,4,0
+2026-10-25,pediatrics,Morning,technician,1,1,0
+2026-10-25,pediatrics,Morning,therapist,1,1,0
+2026-10-25,pediatrics,Night,nurse,4,4,0
+2026-10-25,surgery,Evening,nurse,4,4,0
+2026-10-25,surgery,Morning,administrator,1,1,0
+2026-10-25,surgery,Morning,doctor,4,4,0
+2026-10-25,surgery,Morning,nurse,4,4,0
+2026-10-25,surgery,Morning,surgeon,13,13,0
+2026-10-25,surgery,Morning,technician,1,1,0
+2026-10-25,surgery,Night,nurse,4,4,0
+2026-10-26,cardiology,Evening,administrator,1,1,0
+2026-10-26,cardiology,Evening,nurse,4,4,0
+2026-10-26,cardiology,Evening,technician,2,2,0
+2026-10-26,cardiology,Morning,administrator,1,1,0
+2026-10-26,cardiology,Morning,doctor,7,7,0
+2026-10-26,cardiology,Morning,nurse,5,5,0
+2026-10-26,cardiology,Morning,technician,1,1,0
+2026-10-26,cardiology,Night,nurse,4,4,0
+2026-10-26,emergency,Evening,administrator,1,1,0
+2026-10-26,emergency,Evening,nurse,3,3,0
+2026-10-26,emergency,Morning,administrator,1,1,0
+2026-10-26,emergency,Morning,doctor,4,4,0
+2026-10-26,emergency,Morning,nurse,4,4,0
+2026-10-26,emergency,Morning,technician,1,1,0
+2026-10-26,emergency,Night,administrator,1,1,0
+2026-10-26,emergency,Night,nurse,3,3,0
+2026-10-26,general medicine,Evening,nurse,14,14,0
+2026-10-26,general medicine,Evening,therapist,1,1,0
+2026-10-26,general medicine,Morning,administrator,2,2,0
+2026-10-26,general medicine,Morning,doctor,22,22,0
+2026-10-26,general medicine,Morning,nurse,14,14,0
+2026-10-26,general medicine,Night,administrator,1,1,0
+2026-10-26,general medicine,Night,nurse,14,14,0
+2026-10-26,general medicine,Night,therapist,1,1,0
+2026-10-26,icu,Evening,administrator,1,1,0
+2026-10-26,icu,Evening,nurse,3,3,0
+2026-10-26,icu,Evening,technician,1,1,0
+2026-10-26,icu,Evening,therapist,1,1,0
+2026-10-26,icu,Morning,doctor,4,4,0
+2026-10-26,icu,Morning,nurse,3,3,0
+2026-10-26,icu,Night,administrator,1,1,0
+2026-10-26,icu,Night,nurse,3,3,0
+2026-10-26,icu,Night,technician,1,1,0
+2026-10-26,neurology,Evening,administrator,1,1,0
+2026-10-26,neurology,Evening,nurse,6,6,0
+2026-10-26,neurology,Evening,therapist,1,1,0
+2026-10-26,neurology,Morning,administrator,1,1,0
+2026-10-26,neurology,Morning,doctor,6,6,0
+2026-10-26,neurology,Morning,nurse,4,4,0
+2026-10-26,neurology,Morning,therapist,1,1,0
+2026-10-26,neurology,Night,nurse,4,4,0
+2026-10-26,oncology,Evening,administrator,1,1,0
+2026-10-26,oncology,Evening,nurse,6,6,0
+2026-10-26,oncology,Evening,technician,2,2,0
+2026-10-26,oncology,Evening,therapist,1,1,0
+2026-10-26,oncology,Morning,doctor,4,4,0
+2026-10-26,oncology,Morning,nurse,3,3,0
+2026-10-26,oncology,Morning,technician,1,1,0
+2026-10-26,oncology,Night,nurse,2,2,0
+2026-10-26,oncology,Night,technician,1,1,0
+2026-10-26,oncology,Night,therapist,1,1,0
+2026-10-26,orthopedics,Evening,nurse,4,4,0
+2026-10-26,orthopedics,Evening,technician,1,1,0
+2026-10-26,orthopedics,Morning,doctor,3,3,0
+2026-10-26,orthopedics,Morning,nurse,3,3,0
+2026-10-26,orthopedics,Morning,technician,1,1,0
+2026-10-26,orthopedics,Night,nurse,3,3,0
+2026-10-26,orthopedics,Night,technician,1,1,0
+2026-10-26,pediatrics,Evening,nurse,4,4,0
+2026-10-26,pediatrics,Evening,technician,1,1,0
+2026-10-26,pediatrics,Evening,therapist,1,1,0
+2026-10-26,pediatrics,Morning,doctor,5,5,0
+2026-10-26,pediatrics,Morning,nurse,4,4,0
+2026-10-26,pediatrics,Morning,technician,1,1,0
+2026-10-26,pediatrics,Morning,therapist,1,1,0
+2026-10-26,pediatrics,Night,nurse,4,4,0
+2026-10-26,surgery,Evening,nurse,4,4,0
+2026-10-26,surgery,Evening,technician,1,1,0
+2026-10-26,surgery,Morning,administrator,1,1,0
+2026-10-26,surgery,Morning,doctor,6,6,0
+2026-10-26,surgery,Morning,nurse,4,4,0
+2026-10-26,surgery,Morning,surgeon,17,17,0
+2026-10-26,surgery,Morning,technician,1,1,0
+2026-10-26,surgery,Night,nurse,4,4,0
+2026-10-27,cardiology,Evening,administrator,1,1,0
+2026-10-27,cardiology,Evening,nurse,4,4,0
+2026-10-27,cardiology,Evening,technician,2,2,0
+2026-10-27,cardiology,Morning,administrator,1,1,0
+2026-10-27,cardiology,Morning,doctor,7,7,0
+2026-10-27,cardiology,Morning,nurse,5,5,0
+2026-10-27,cardiology,Morning,technician,1,1,0
+2026-10-27,cardiology,Night,nurse,4,4,0
+2026-10-27,emergency,Evening,administrator,1,1,0
+2026-10-27,emergency,Evening,nurse,3,3,0
+2026-10-27,emergency,Morning,administrator,1,1,0
+2026-10-27,emergency,Morning,doctor,4,4,0
+2026-10-27,emergency,Morning,nurse,4,4,0
+2026-10-27,emergency,Morning,technician,1,1,0
+2026-10-27,emergency,Night,administrator,1,1,0
+2026-10-27,emergency,Night,nurse,3,3,0
+2026-10-27,general medicine,Evening,nurse,14,14,0
+2026-10-27,general medicine,Evening,therapist,1,1,0
+2026-10-27,general medicine,Morning,administrator,2,2,0
+2026-10-27,general medicine,Morning,doctor,22,22,0
+2026-10-27,general medicine,Morning,nurse,14,14,0
+2026-10-27,general medicine,Night,administrator,1,1,0
+2026-10-27,general medicine,Night,nurse,14,14,0
+2026-10-27,general medicine,Night,therapist,1,1,0
+2026-10-27,icu,Evening,administrator,1,1,0
+2026-10-27,icu,Evening,nurse,3,3,0
+2026-10-27,icu,Evening,technician,1,1,0
+2026-10-27,icu,Evening,therapist,1,1,0
+2026-10-27,icu,Morning,doctor,4,4,0
+2026-10-27,icu,Morning,nurse,3,3,0
+2026-10-27,icu,Night,administrator,1,1,0
+2026-10-27,icu,Night,nurse,3,3,0
+2026-10-27,icu,Night,technician,1,1,0
+2026-10-27,neurology,Evening,administrator,1,1,0
+2026-10-27,neurology,Evening,nurse,6,6,0
+2026-10-27,neurology,Evening,therapist,1,1,0
+2026-10-27,neurology,Morning,administrator,1,1,0
+2026-10-27,neurology,Morning,doctor,5,5,0
+2026-10-27,neurology,Morning,nurse,4,4,0
+2026-10-27,neurology,Morning,therapist,1,1,0
+2026-10-27,neurology,Night,nurse,4,4,0
+2026-10-27,oncology,Evening,administrator,1,1,0
+2026-10-27,oncology,Evening,nurse,6,6,0
+2026-10-27,oncology,Evening,technician,2,2,0
+2026-10-27,oncology,Evening,therapist,1,1,0
+2026-10-27,oncology,Morning,doctor,4,4,0
+2026-10-27,oncology,Morning,nurse,3,3,0
+2026-10-27,oncology,Morning,technician,1,1,0
+2026-10-27,oncology,Night,nurse,2,2,0
+2026-10-27,oncology,Night,technician,1,1,0
+2026-10-27,oncology,Night,therapist,1,1,0
+2026-10-27,orthopedics,Evening,nurse,4,4,0
+2026-10-27,orthopedics,Evening,technician,1,1,0
+2026-10-27,orthopedics,Morning,doctor,3,3,0
+2026-10-27,orthopedics,Morning,nurse,3,3,0
+2026-10-27,orthopedics,Morning,technician,1,1,0
+2026-10-27,orthopedics,Night,nurse,3,3,0
+2026-10-27,orthopedics,Night,technician,1,1,0
+2026-10-27,pediatrics,Evening,nurse,4,4,0
+2026-10-27,pediatrics,Evening,technician,1,1,0
+2026-10-27,pediatrics,Evening,therapist,1,1,0
+2026-10-27,pediatrics,Morning,doctor,4,4,0
+2026-10-27,pediatrics,Morning,nurse,4,4,0
+2026-10-27,pediatrics,Morning,technician,1,1,0
+2026-10-27,pediatrics,Morning,therapist,1,1,0
+2026-10-27,pediatrics,Night,nurse,4,4,0
+2026-10-27,surgery,Evening,nurse,4,4,0
+2026-10-27,surgery,Evening,technician,1,1,0
+2026-10-27,surgery,Morning,administrator,1,1,0
+2026-10-27,surgery,Morning,doctor,6,6,0
+2026-10-27,surgery,Morning,nurse,4,4,0
+2026-10-27,surgery,Morning,surgeon,17,17,0
+2026-10-27,surgery,Morning,technician,1,1,0
+2026-10-27,surgery,Night,nurse,4,4,0
+2026-10-28,cardiology,Evening,administrator,1,1,0
+2026-10-28,cardiology,Evening,nurse,4,4,0
+2026-10-28,cardiology,Evening,technician,2,2,0
+2026-10-28,cardiology,Morning,administrator,1,1,0
+2026-10-28,cardiology,Morning,doctor,7,7,0
+2026-10-28,cardiology,Morning,nurse,5,5,0
+2026-10-28,cardiology,Morning,technician,1,1,0
+2026-10-28,cardiology,Night,nurse,4,4,0
+2026-10-28,emergency,Evening,administrator,1,1,0
+2026-10-28,emergency,Evening,nurse,3,3,0
+2026-10-28,emergency,Morning,administrator,1,1,0
+2026-10-28,emergency,Morning,doctor,4,4,0
+2026-10-28,emergency,Morning,nurse,4,4,0
+2026-10-28,emergency,Morning,technician,1,1,0
+2026-10-28,emergency,Night,administrator,1,1,0
+2026-10-28,emergency,Night,nurse,3,3,0
+2026-10-28,general medicine,Evening,nurse,14,14,0
+2026-10-28,general medicine,Evening,therapist,1,1,0
+2026-10-28,general medicine,Morning,administrator,2,2,0
+2026-10-28,general medicine,Morning,doctor,21,21,0
+2026-10-28,general medicine,Morning,nurse,14,14,0
+2026-10-28,general medicine,Night,administrator,1,1,0
+2026-10-28,general medicine,Night,nurse,14,14,0
+2026-10-28,general medicine,Night,therapist,1,1,0
+2026-10-28,icu,Evening,administrator,1,1,0
+2026-10-28,icu,Evening,nurse,3,3,0
+2026-10-28,icu,Evening,technician,1,1,0
+2026-10-28,icu,Evening,therapist,1,1,0
+2026-10-28,icu,Morning,doctor,4,4,0
+2026-10-28,icu,Morning,nurse,3,3,0
+2026-10-28,icu,Night,administrator,1,1,0
+2026-10-28,icu,Night,nurse,3,3,0
+2026-10-28,icu,Night,technician,1,1,0
+2026-10-28,neurology,Evening,administrator,1,1,0
+2026-10-28,neurology,Evening,nurse,6,6,0
+2026-10-28,neurology,Evening,therapist,1,1,0
+2026-10-28,neurology,Morning,administrator,1,1,0
+2026-10-28,neurology,Morning,doctor,6,6,0
+2026-10-28,neurology,Morning,nurse,4,4,0
+2026-10-28,neurology,Morning,therapist,1,1,0
+2026-10-28,neurology,Night,nurse,4,4,0
+2026-10-28,oncology,Evening,administrator,1,1,0
+2026-10-28,oncology,Evening,nurse,6,6,0
+2026-10-28,oncology,Evening,technician,2,2,0
+2026-10-28,oncology,Evening,therapist,1,1,0
+2026-10-28,oncology,Morning,doctor,4,4,0
+2026-10-28,oncology,Morning,nurse,3,3,0
+2026-10-28,oncology,Morning,technician,1,1,0
+2026-10-28,oncology,Night,nurse,2,2,0
+2026-10-28,oncology,Night,technician,1,1,0
+2026-10-28,oncology,Night,therapist,1,1,0
+2026-10-28,orthopedics,Evening,nurse,4,4,0
+2026-10-28,orthopedics,Evening,technician,1,1,0
+2026-10-28,orthopedics,Morning,doctor,3,3,0
+2026-10-28,orthopedics,Morning,nurse,3,3,0
+2026-10-28,orthopedics,Morning,technician,1,1,0
+2026-10-28,orthopedics,Night,nurse,3,3,0
+2026-10-28,orthopedics,Night,technician,1,1,0
+2026-10-28,pediatrics,Evening,nurse,4,4,0
+2026-10-28,pediatrics,Evening,technician,1,1,0
+2026-10-28,pediatrics,Evening,therapist,1,1,0
+2026-10-28,pediatrics,Morning,doctor,4,4,0
+2026-10-28,pediatrics,Morning,nurse,4,4,0
+2026-10-28,pediatrics,Morning,technician,1,1,0
+2026-10-28,pediatrics,Morning,therapist,1,1,0
+2026-10-28,pediatrics,Night,nurse,4,4,0
+2026-10-28,surgery,Evening,nurse,4,4,0
+2026-10-28,surgery,Evening,technician,1,1,0
+2026-10-28,surgery,Morning,administrator,1,1,0
+2026-10-28,surgery,Morning,doctor,6,6,0
+2026-10-28,surgery,Morning,nurse,4,4,0
+2026-10-28,surgery,Morning,surgeon,17,17,0
+2026-10-28,surgery,Morning,technician,1,1,0
+2026-10-28,surgery,Night,nurse,4,4,0
+2026-10-29,cardiology,Evening,administrator,1,1,0
+2026-10-29,cardiology,Evening,nurse,4,4,0
+2026-10-29,cardiology,Evening,technician,2,2,0
+2026-10-29,cardiology,Morning,administrator,1,1,0
+2026-10-29,cardiology,Morning,doctor,7,7,0
+2026-10-29,cardiology,Morning,nurse,5,5,0
+2026-10-29,cardiology,Morning,technician,1,1,0
+2026-10-29,cardiology,Night,nurse,4,4,0
+2026-10-29,emergency,Evening,administrator,1,1,0
+2026-10-29,emergency,Evening,nurse,3,3,0
+2026-10-29,emergency,Morning,administrator,1,1,0
+2026-10-29,emergency,Morning,doctor,4,4,0
+2026-10-29,emergency,Morning,nurse,4,4,0
+2026-10-29,emergency,Morning,technician,1,1,0
+2026-10-29,emergency,Night,administrator,1,1,0
+2026-10-29,emergency,Night,nurse,3,3,0
+2026-10-29,general medicine,Evening,nurse,14,14,0
+2026-10-29,general medicine,Evening,therapist,1,1,0
+2026-10-29,general medicine,Morning,administrator,2,2,0
+2026-10-29,general medicine,Morning,doctor,20,20,0
+2026-10-29,general medicine,Morning,nurse,14,14,0
+2026-10-29,general medicine,Night,administrator,1,1,0
+2026-10-29,general medicine,Night,nurse,14,14,0
+2026-10-29,general medicine,Night,therapist,1,1,0
+2026-10-29,icu,Evening,administrator,1,1,0
+2026-10-29,icu,Evening,nurse,3,3,0
+2026-10-29,icu,Evening,technician,1,1,0
+2026-10-29,icu,Evening,therapist,1,1,0
+2026-10-29,icu,Morning,doctor,4,4,0
+2026-10-29,icu,Morning,nurse,3,3,0
+2026-10-29,icu,Night,administrator,1,1,0
+2026-10-29,icu,Night,nurse,3,3,0
+2026-10-29,icu,Night,technician,1,1,0
+2026-10-29,neurology,Evening,administrator,1,1,0
+2026-10-29,neurology,Evening,nurse,6,6,0
+2026-10-29,neurology,Evening,therapist,1,1,0
+2026-10-29,neurology,Morning,administrator,1,1,0
+2026-10-29,neurology,Morning,doctor,5,5,0
+2026-10-29,neurology,Morning,nurse,4,4,0
+2026-10-29,neurology,Morning,therapist,1,1,0
+2026-10-29,neurology,Night,nurse,4,4,0
+2026-10-29,oncology,Evening,administrator,1,1,0
+2026-10-29,oncology,Evening,nurse,6,6,0
+2026-10-29,oncology,Evening,technician,2,2,0
+2026-10-29,oncology,Evening,therapist,1,1,0
+2026-10-29,oncology,Morning,doctor,4,4,0
+2026-10-29,oncology,Morning,nurse,3,3,0
+2026-10-29,oncology,Morning,technician,1,1,0
+2026-10-29,oncology,Night,nurse,2,2,0
+2026-10-29,oncology,Night,technician,1,1,0
+2026-10-29,oncology,Night,therapist,1,1,0
+2026-10-29,orthopedics,Evening,nurse,4,4,0
+2026-10-29,orthopedics,Evening,technician,1,1,0
+2026-10-29,orthopedics,Morning,doctor,3,3,0
+2026-10-29,orthopedics,Morning,nurse,3,3,0
+2026-10-29,orthopedics,Morning,technician,1,1,0
+2026-10-29,orthopedics,Night,nurse,3,3,0
+2026-10-29,orthopedics,Night,technician,1,1,0
+2026-10-29,pediatrics,Evening,nurse,4,4,0
+2026-10-29,pediatrics,Evening,technician,1,1,0
+2026-10-29,pediatrics,Evening,therapist,1,1,0
+2026-10-29,pediatrics,Morning,doctor,4,4,0
+2026-10-29,pediatrics,Morning,nurse,4,4,0
+2026-10-29,pediatrics,Morning,technician,1,1,0
+2026-10-29,pediatrics,Morning,therapist,1,1,0
+2026-10-29,pediatrics,Night,nurse,4,4,0
+2026-10-29,surgery,Evening,nurse,4,4,0
+2026-10-29,surgery,Evening,technician,1,1,0
+2026-10-29,surgery,Morning,administrator,1,1,0
+2026-10-29,surgery,Morning,doctor,6,6,0
+2026-10-29,surgery,Morning,nurse,4,4,0
+2026-10-29,surgery,Morning,surgeon,17,17,0
+2026-10-29,surgery,Morning,technician,1,1,0
+2026-10-29,surgery,Night,nurse,4,4,0
+2026-10-30,cardiology,Evening,administrator,1,1,0
+2026-10-30,cardiology,Evening,nurse,4,4,0
+2026-10-30,cardiology,Evening,technician,2,2,0
+2026-10-30,cardiology,Morning,administrator,1,1,0
+2026-10-30,cardiology,Morning,doctor,7,7,0
+2026-10-30,cardiology,Morning,nurse,5,5,0
+2026-10-30,cardiology,Morning,technician,1,1,0
+2026-10-30,cardiology,Night,nurse,4,4,0
+2026-10-30,emergency,Evening,administrator,1,1,0
+2026-10-30,emergency,Evening,nurse,3,3,0
+2026-10-30,emergency,Morning,administrator,1,1,0
+2026-10-30,emergency,Morning,doctor,4,4,0
+2026-10-30,emergency,Morning,nurse,4,4,0
+2026-10-30,emergency,Morning,technician,1,1,0
+2026-10-30,emergency,Night,administrator,1,1,0
+2026-10-30,emergency,Night,nurse,3,3,0
+2026-10-30,general medicine,Evening,nurse,14,14,0
+2026-10-30,general medicine,Evening,therapist,1,1,0
+2026-10-30,general medicine,Morning,administrator,2,2,0
+2026-10-30,general medicine,Morning,doctor,20,20,0
+2026-10-30,general medicine,Morning,nurse,14,14,0
+2026-10-30,general medicine,Night,administrator,1,1,0
+2026-10-30,general medicine,Night,nurse,14,14,0
+2026-10-30,general medicine,Night,therapist,1,1,0
+2026-10-30,icu,Evening,administrator,1,1,0
+2026-10-30,icu,Evening,nurse,3,3,0
+2026-10-30,icu,Evening,technician,1,1,0
+2026-10-30,icu,Evening,therapist,1,1,0
+2026-10-30,icu,Morning,doctor,4,4,0
+2026-10-30,icu,Morning,nurse,3,3,0
+2026-10-30,icu,Night,administrator,1,1,0
+2026-10-30,icu,Night,nurse,3,3,0
+2026-10-30,icu,Night,technician,1,1,0
+2026-10-30,neurology,Evening,administrator,1,1,0
+2026-10-30,neurology,Evening,nurse,6,6,0
+2026-10-30,neurology,Evening,therapist,1,1,0
+2026-10-30,neurology,Morning,administrator,1,1,0
+2026-10-30,neurology,Morning,doctor,6,6,0
+2026-10-30,neurology,Morning,nurse,4,4,0
+2026-10-30,neurology,Morning,therapist,1,1,0
+2026-10-30,neurology,Night,nurse,4,4,0
+2026-10-30,oncology,Evening,administrator,1,1,0
+2026-10-30,oncology,Evening,nurse,6,6,0
+2026-10-30,oncology,Evening,technician,2,2,0
+2026-10-30,oncology,Evening,therapist,1,1,0
+2026-10-30,oncology,Morning,doctor,4,4,0
+2026-10-30,oncology,Morning,nurse,3,3,0
+2026-10-30,oncology,Morning,technician,1,1,0
+2026-10-30,oncology,Night,nurse,2,2,0
+2026-10-30,oncology,Night,technician,1,1,0
+2026-10-30,oncology,Night,therapist,1,1,0
+2026-10-30,orthopedics,Evening,nurse,4,4,0
+2026-10-30,orthopedics,Evening,technician,1,1,0
+2026-10-30,orthopedics,Morning,doctor,3,3,0
+2026-10-30,orthopedics,Morning,nurse,3,3,0
+2026-10-30,orthopedics,Morning,technician,1,1,0
+2026-10-30,orthopedics,Night,nurse,3,3,0
+2026-10-30,orthopedics,Night,technician,1,1,0
+2026-10-30,pediatrics,Evening,nurse,4,4,0
+2026-10-30,pediatrics,Evening,technician,1,1,0
+2026-10-30,pediatrics,Evening,therapist,1,1,0
+2026-10-30,pediatrics,Morning,doctor,4,4,0
+2026-10-30,pediatrics,Morning,nurse,4,4,0
+2026-10-30,pediatrics,Morning,technician,1,1,0
+2026-10-30,pediatrics,Morning,therapist,1,1,0
+2026-10-30,pediatrics,Night,nurse,4,4,0
+2026-10-30,surgery,Evening,nurse,4,4,0
+2026-10-30,surgery,Evening,technician,1,1,0
+2026-10-30,surgery,Morning,administrator,1,1,0
+2026-10-30,surgery,Morning,doctor,5,5,0
+2026-10-30,surgery,Morning,nurse,4,4,0
+2026-10-30,surgery,Morning,surgeon,16,16,0
+2026-10-30,surgery,Morning,technician,1,1,0
+2026-10-30,surgery,Night,nurse,4,4,0
+2026-10-31,cardiology,Evening,administrator,1,1,0
+2026-10-31,cardiology,Evening,nurse,4,4,0
+2026-10-31,cardiology,Evening,technician,2,2,0
+2026-10-31,cardiology,Morning,administrator,1,1,0
+2026-10-31,cardiology,Morning,doctor,7,7,0
+2026-10-31,cardiology,Morning,nurse,5,5,0
+2026-10-31,cardiology,Morning,technician,1,1,0
+2026-10-31,cardiology,Night,nurse,4,4,0
+2026-10-31,emergency,Evening,administrator,1,1,0
+2026-10-31,emergency,Evening,nurse,3,3,0
+2026-10-31,emergency,Morning,administrator,1,1,0
+2026-10-31,emergency,Morning,doctor,4,4,0
+2026-10-31,emergency,Morning,nurse,4,4,0
+2026-10-31,emergency,Morning,technician,1,1,0
+2026-10-31,emergency,Night,administrator,1,1,0
+2026-10-31,emergency,Night,nurse,3,3,0
+2026-10-31,general medicine,Evening,nurse,14,14,0
+2026-10-31,general medicine,Evening,therapist,1,1,0
+2026-10-31,general medicine,Morning,administrator,2,2,0
+2026-10-31,general medicine,Morning,doctor,18,18,0
+2026-10-31,general medicine,Morning,nurse,14,14,0
+2026-10-31,general medicine,Night,nurse,14,14,0
+2026-10-31,general medicine,Night,therapist,1,1,0
+2026-10-31,icu,Evening,nurse,3,3,0
+2026-10-31,icu,Evening,technician,1,1,0
+2026-10-31,icu,Evening,therapist,1,1,0
+2026-10-31,icu,Morning,doctor,3,3,0
+2026-10-31,icu,Morning,nurse,3,3,0
+2026-10-31,icu,Night,nurse,3,3,0
+2026-10-31,icu,Night,technician,1,1,0
+2026-10-31,neurology,Evening,administrator,1,1,0
+2026-10-31,neurology,Evening,nurse,6,6,0
+2026-10-31,neurology,Evening,therapist,1,1,0
+2026-10-31,neurology,Morning,administrator,1,1,0
+2026-10-31,neurology,Morning,doctor,6,6,0
+2026-10-31,neurology,Morning,nurse,4,4,0
+2026-10-31,neurology,Morning,therapist,1,1,0
+2026-10-31,neurology,Night,nurse,4,4,0
+2026-10-31,oncology,Evening,administrator,1,1,0
+2026-10-31,oncology,Evening,nurse,6,6,0
+2026-10-31,oncology,Evening,technician,2,2,0
+2026-10-31,oncology,Evening,therapist,1,1,0
+2026-10-31,oncology,Morning,doctor,4,4,0
+2026-10-31,oncology,Morning,nurse,3,3,0
+2026-10-31,oncology,Morning,technician,1,1,0
+2026-10-31,oncology,Night,nurse,2,2,0
+2026-10-31,oncology,Night,technician,1,1,0
+2026-10-31,oncology,Night,therapist,1,1,0
+2026-10-31,orthopedics,Evening,nurse,4,4,0
+2026-10-31,orthopedics,Evening,technician,1,1,0
+2026-10-31,orthopedics,Morning,doctor,3,3,0
+2026-10-31,orthopedics,Morning,nurse,3,3,0
+2026-10-31,orthopedics,Morning,technician,1,1,0
+2026-10-31,orthopedics,Night,nurse,3,3,0
+2026-10-31,orthopedics,Night,technician,1,1,0
+2026-10-31,pediatrics,Evening,nurse,4,4,0
+2026-10-31,pediatrics,Evening,technician,1,1,0
+2026-10-31,pediatrics,Evening,therapist,1,1,0
+2026-10-31,pediatrics,Morning,doctor,4,4,0
+2026-10-31,pediatrics,Morning,nurse,4,4,0
+2026-10-31,pediatrics,Morning,technician,1,1,0
+2026-10-31,pediatrics,Morning,therapist,1,1,0
+2026-10-31,pediatrics,Night,nurse,4,4,0
+2026-10-31,surgery,Evening,nurse,4,4,0
+2026-10-31,surgery,Morning,administrator,1,1,0
+2026-10-31,surgery,Morning,doctor,5,5,0
+2026-10-31,surgery,Morning,nurse,4,4,0
+2026-10-31,surgery,Morning,surgeon,14,14,0
+2026-10-31,surgery,Morning,technician,1,1,0
+2026-10-31,surgery,Night,nurse,4,4,0
+2026-11-01,cardiology,Evening,administrator,1,1,0
+2026-11-01,cardiology,Evening,nurse,4,4,0
+2026-11-01,cardiology,Evening,technician,2,2,0
+2026-11-01,cardiology,Morning,administrator,1,1,0
+2026-11-01,cardiology,Morning,doctor,7,7,0
+2026-11-01,cardiology,Morning,nurse,5,5,0
+2026-11-01,cardiology,Morning,technician,1,1,0
+2026-11-01,cardiology,Night,nurse,4,4,0
+2026-11-01,emergency,Evening,administrator,1,1,0
+2026-11-01,emergency,Evening,nurse,3,3,0
+2026-11-01,emergency,Morning,administrator,1,1,0
+2026-11-01,emergency,Morning,doctor,4,4,0
+2026-11-01,emergency,Morning,nurse,4,4,0
+2026-11-01,emergency,Morning,technician,1,1,0
+2026-11-01,emergency,Night,administrator,1,1,0
+2026-11-01,emergency,Night,nurse,3,3,0
+2026-11-01,general medicine,Evening,nurse,14,14,0
+2026-11-01,general medicine,Evening,therapist,1,1,0
+2026-11-01,general medicine,Morning,administrator,1,1,0
+2026-11-01,general medicine,Morning,doctor,18,18,0
+2026-11-01,general medicine,Morning,nurse,14,14,0
+2026-11-01,general medicine,Night,nurse,14,14,0
+2026-11-01,general medicine,Night,therapist,1,1,0
+2026-11-01,icu,Evening,administrator,1,1,0
+2026-11-01,icu,Evening,nurse,3,3,0
+2026-11-01,icu,Evening,technician,1,1,0
+2026-11-01,icu,Evening,therapist,1,1,0
+2026-11-01,icu,Morning,doctor,3,3,0
+2026-11-01,icu,Morning,nurse,3,3,0
+2026-11-01,icu,Night,administrator,1,1,0
+2026-11-01,icu,Night,nurse,3,3,0
+2026-11-01,icu,Night,technician,1,1,0
+2026-11-01,neurology,Evening,administrator,1,1,0
+2026-11-01,neurology,Evening,nurse,6,6,0
+2026-11-01,neurology,Evening,therapist,1,1,0
+2026-11-01,neurology,Morning,administrator,1,1,0
+2026-11-01,neurology,Morning,doctor,6,6,0
+2026-11-01,neurology,Morning,nurse,4,4,0
+2026-11-01,neurology,Morning,therapist,1,1,0
+2026-11-01,neurology,Night,nurse,4,4,0
+2026-11-01,oncology,Evening,administrator,1,1,0
+2026-11-01,oncology,Evening,nurse,6,6,0
+2026-11-01,oncology,Evening,technician,2,2,0
+2026-11-01,oncology,Evening,therapist,1,1,0
+2026-11-01,oncology,Morning,doctor,4,4,0
+2026-11-01,oncology,Morning,nurse,3,3,0
+2026-11-01,oncology,Morning,technician,1,1,0
+2026-11-01,oncology,Night,nurse,2,2,0
+2026-11-01,oncology,Night,technician,1,1,0
+2026-11-01,oncology,Night,therapist,1,1,0
+2026-11-01,orthopedics,Evening,nurse,5,5,0
+2026-11-01,orthopedics,Evening,technician,1,1,0
+2026-11-01,orthopedics,Evening,therapist,1,1,0
+2026-11-01,orthopedics,Morning,doctor,4,4,0
+2026-11-01,orthopedics,Morning,nurse,4,4,0
+2026-11-01,orthopedics,Morning,technician,1,1,0
+2026-11-01,orthopedics,Night,nurse,3,3,0
+2026-11-01,orthopedics,Night,technician,1,1,0
+2026-11-01,pediatrics,Evening,nurse,4,4,0
+2026-11-01,pediatrics,Evening,technician,1,1,0
+2026-11-01,pediatrics,Morning,doctor,4,4,0
+2026-11-01,pediatrics,Morning,nurse,4,4,0
+2026-11-01,pediatrics,Morning,technician,1,1,0
+2026-11-01,pediatrics,Morning,therapist,1,1,0
+2026-11-01,pediatrics,Night,nurse,4,4,0
+2026-11-01,surgery,Evening,nurse,4,4,0
+2026-11-01,surgery,Morning,administrator,1,1,0
+2026-11-01,surgery,Morning,doctor,4,4,0
+2026-11-01,surgery,Morning,nurse,4,4,0
+2026-11-01,surgery,Morning,surgeon,12,12,0
+2026-11-01,surgery,Morning,technician,1,1,0
+2026-11-01,surgery,Night,nurse,4,4,0
+2026-11-02,cardiology,Evening,administrator,1,1,0
+2026-11-02,cardiology,Evening,nurse,4,4,0
+2026-11-02,cardiology,Evening,technician,2,2,0
+2026-11-02,cardiology,Morning,administrator,1,1,0
+2026-11-02,cardiology,Morning,doctor,7,7,0
+2026-11-02,cardiology,Morning,nurse,5,5,0
+2026-11-02,cardiology,Morning,technician,1,1,0
+2026-11-02,cardiology,Night,nurse,4,4,0
+2026-11-02,emergency,Evening,administrator,1,1,0
+2026-11-02,emergency,Evening,nurse,3,3,0
+2026-11-02,emergency,Morning,administrator,1,1,0
+2026-11-02,emergency,Morning,doctor,4,4,0
+2026-11-02,emergency,Morning,nurse,4,4,0
+2026-11-02,emergency,Morning,technician,1,1,0
+2026-11-02,emergency,Night,administrator,1,1,0
+2026-11-02,emergency,Night,nurse,3,3,0
+2026-11-02,general medicine,Evening,nurse,14,14,0
+2026-11-02,general medicine,Evening,therapist,1,1,0
+2026-11-02,general medicine,Morning,administrator,2,2,0
+2026-11-02,general medicine,Morning,doctor,22,22,0
+2026-11-02,general medicine,Morning,nurse,14,14,0
+2026-11-02,general medicine,Night,administrator,1,1,0
+2026-11-02,general medicine,Night,nurse,14,14,0
+2026-11-02,general medicine,Night,therapist,1,1,0
+2026-11-02,icu,Evening,administrator,1,1,0
+2026-11-02,icu,Evening,nurse,3,3,0
+2026-11-02,icu,Evening,technician,1,1,0
+2026-11-02,icu,Evening,therapist,1,1,0
+2026-11-02,icu,Morning,doctor,4,4,0
+2026-11-02,icu,Morning,nurse,3,3,0
+2026-11-02,icu,Night,administrator,1,1,0
+2026-11-02,icu,Night,nurse,3,3,0
+2026-11-02,icu,Night,technician,1,1,0
+2026-11-02,neurology,Evening,administrator,1,1,0
+2026-11-02,neurology,Evening,nurse,6,6,0
+2026-11-02,neurology,Evening,therapist,1,1,0
+2026-11-02,neurology,Morning,administrator,1,1,0
+2026-11-02,neurology,Morning,doctor,6,6,0
+2026-11-02,neurology,Morning,nurse,4,4,0
+2026-11-02,neurology,Morning,therapist,1,1,0
+2026-11-02,neurology,Night,nurse,4,4,0
+2026-11-02,oncology,Evening,administrator,1,1,0
+2026-11-02,oncology,Evening,nurse,6,6,0
+2026-11-02,oncology,Evening,technician,2,2,0
+2026-11-02,oncology,Evening,therapist,1,1,0
+2026-11-02,oncology,Morning,doctor,4,4,0
+2026-11-02,oncology,Morning,nurse,3,3,0
+2026-11-02,oncology,Morning,technician,1,1,0
+2026-11-02,oncology,Night,nurse,2,2,0
+2026-11-02,oncology,Night,technician,1,1,0
+2026-11-02,oncology,Night,therapist,1,1,0
+2026-11-02,orthopedics,Evening,nurse,4,4,0
+2026-11-02,orthopedics,Evening,technician,1,1,0
+2026-11-02,orthopedics,Morning,doctor,3,3,0
+2026-11-02,orthopedics,Morning,nurse,3,3,0
+2026-11-02,orthopedics,Morning,technician,1,1,0
+2026-11-02,orthopedics,Night,nurse,3,3,0
+2026-11-02,orthopedics,Night,technician,1,1,0
+2026-11-02,pediatrics,Evening,nurse,4,4,0
+2026-11-02,pediatrics,Evening,technician,1,1,0
+2026-11-02,pediatrics,Evening,therapist,1,1,0
+2026-11-02,pediatrics,Morning,doctor,4,4,0
+2026-11-02,pediatrics,Morning,nurse,4,4,0
+2026-11-02,pediatrics,Morning,technician,1,1,0
+2026-11-02,pediatrics,Morning,therapist,1,1,0
+2026-11-02,pediatrics,Night,nurse,4,4,0
+2026-11-02,surgery,Evening,nurse,4,4,0
+2026-11-02,surgery,Evening,technician,1,1,0
+2026-11-02,surgery,Morning,administrator,1,1,0
+2026-11-02,surgery,Morning,doctor,5,5,0
+2026-11-02,surgery,Morning,nurse,4,4,0
+2026-11-02,surgery,Morning,surgeon,16,16,0
+2026-11-02,surgery,Morning,technician,1,1,0
+2026-11-02,surgery,Night,nurse,4,4,0
+2026-11-03,cardiology,Evening,administrator,1,1,0
+2026-11-03,cardiology,Evening,nurse,4,4,0
+2026-11-03,cardiology,Evening,technician,2,2,0
+2026-11-03,cardiology,Morning,administrator,1,1,0
+2026-11-03,cardiology,Morning,doctor,7,7,0
+2026-11-03,cardiology,Morning,nurse,5,5,0
+2026-11-03,cardiology,Morning,technician,1,1,0
+2026-11-03,cardiology,Night,nurse,4,4,0
+2026-11-03,emergency,Evening,administrator,1,1,0
+2026-11-03,emergency,Evening,nurse,3,3,0
+2026-11-03,emergency,Morning,administrator,1,1,0
+2026-11-03,emergency,Morning,doctor,4,4,0
+2026-11-03,emergency,Morning,nurse,4,4,0
+2026-11-03,emergency,Morning,technician,1,1,0
+2026-11-03,emergency,Night,administrator,1,1,0
+2026-11-03,emergency,Night,nurse,3,3,0
+2026-11-03,general medicine,Evening,nurse,14,14,0
+2026-11-03,general medicine,Evening,therapist,1,1,0
+2026-11-03,general medicine,Morning,administrator,2,2,0
+2026-11-03,general medicine,Morning,doctor,22,22,0
+2026-11-03,general medicine,Morning,nurse,14,14,0
+2026-11-03,general medicine,Night,administrator,1,1,0
+2026-11-03,general medicine,Night,nurse,14,14,0
+2026-11-03,general medicine,Night,therapist,1,1,0
+2026-11-03,icu,Evening,administrator,1,1,0
+2026-11-03,icu,Evening,nurse,3,3,0
+2026-11-03,icu,Evening,technician,1,1,0
+2026-11-03,icu,Evening,therapist,1,1,0
+2026-11-03,icu,Morning,doctor,4,4,0
+2026-11-03,icu,Morning,nurse,3,3,0
+2026-11-03,icu,Night,administrator,1,1,0
+2026-11-03,icu,Night,nurse,3,3,0
+2026-11-03,icu,Night,technician,1,1,0
+2026-11-03,neurology,Evening,administrator,1,1,0
+2026-11-03,neurology,Evening,nurse,6,6,0
+2026-11-03,neurology,Evening,therapist,1,1,0
+2026-11-03,neurology,Morning,administrator,1,1,0
+2026-11-03,neurology,Morning,doctor,6,6,0
+2026-11-03,neurology,Morning,nurse,4,4,0
+2026-11-03,neurology,Morning,therapist,1,1,0
+2026-11-03,neurology,Night,nurse,4,4,0
+2026-11-03,oncology,Evening,administrator,1,1,0
+2026-11-03,oncology,Evening,nurse,6,6,0
+2026-11-03,oncology,Evening,technician,2,2,0
+2026-11-03,oncology,Evening,therapist,1,1,0
+2026-11-03,oncology,Morning,doctor,4,4,0
+2026-11-03,oncology,Morning,nurse,3,3,0
+2026-11-03,oncology,Morning,technician,1,1,0
+2026-11-03,oncology,Night,nurse,2,2,0
+2026-11-03,oncology,Night,technician,1,1,0
+2026-11-03,oncology,Night,therapist,1,1,0
+2026-11-03,orthopedics,Evening,nurse,4,4,0
+2026-11-03,orthopedics,Evening,technician,1,1,0
+2026-11-03,orthopedics,Morning,doctor,3,3,0
+2026-11-03,orthopedics,Morning,nurse,3,3,0
+2026-11-03,orthopedics,Morning,technician,1,1,0
+2026-11-03,orthopedics,Night,nurse,3,3,0
+2026-11-03,orthopedics,Night,technician,1,1,0
+2026-11-03,pediatrics,Evening,nurse,4,4,0
+2026-11-03,pediatrics,Evening,technician,1,1,0
+2026-11-03,pediatrics,Evening,therapist,1,1,0
+2026-11-03,pediatrics,Morning,doctor,4,4,0
+2026-11-03,pediatrics,Morning,nurse,4,4,0
+2026-11-03,pediatrics,Morning,technician,1,1,0
+2026-11-03,pediatrics,Morning,therapist,1,1,0
+2026-11-03,pediatrics,Night,nurse,4,4,0
+2026-11-03,surgery,Evening,nurse,4,4,0
+2026-11-03,surgery,Evening,technician,1,1,0
+2026-11-03,surgery,Morning,administrator,1,1,0
+2026-11-03,surgery,Morning,doctor,5,5,0
+2026-11-03,surgery,Morning,nurse,4,4,0
+2026-11-03,surgery,Morning,surgeon,16,16,0
+2026-11-03,surgery,Morning,technician,1,1,0
+2026-11-03,surgery,Night,nurse,4,4,0

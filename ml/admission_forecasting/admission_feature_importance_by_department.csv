@@ -1,0 +1,316 @@
+feature,importance,department
+year,0.0,Cardiology
+month,0.0,Cardiology
+day,0.04156411,Cardiology
+day_of_week,0.03538779,Cardiology
+day_of_year,0.049504574,Cardiology
+week_of_year,0.056704037,Cardiology
+quarter,0.0,Cardiology
+is_weekend,0.0,Cardiology
+is_month_start,0.0,Cardiology
+is_month_end,0.0,Cardiology
+is_quarter_start,0.0,Cardiology
+is_quarter_end,0.0,Cardiology
+dow_sin,0.040343095,Cardiology
+dow_cos,0.020359,Cardiology
+month_sin,0.040121965,Cardiology
+month_cos,0.053292997,Cardiology
+doy_sin,0.04949446,Cardiology
+doy_cos,0.042673934,Cardiology
+trend,0.05694058,Cardiology
+lag_1,0.03497906,Cardiology
+lag_7,0.053269275,Cardiology
+lag_14,0.04112727,Cardiology
+lag_28,0.022783339,Cardiology
+rolling_mean_7,0.046130497,Cardiology
+rolling_std_7,0.051864963,Cardiology
+rolling_min_7,0.03652289,Cardiology
+rolling_max_7,0.04341601,Cardiology
+rolling_mean_14,0.04909502,Cardiology
+rolling_std_14,0.04785496,Cardiology
+rolling_min_14,0.0,Cardiology
+rolling_max_14,0.0,Cardiology
+rolling_mean_28,0.052889716,Cardiology
+rolling_std_28,0.033680454,Cardiology
+rolling_min_28,0.0,Cardiology
+rolling_max_28,0.0,Cardiology
+year,0.06564125,Emergency
+month,0.0,Emergency
+day,0.048288144,Emergency
+day_of_week,0.055585355,Emergency
+day_of_year,0.07190961,Emergency
+week_of_year,0.051892556,Emergency
+quarter,0.0,Emergency
+is_weekend,0.0,Emergency
+is_month_start,0.0,Emergency
+is_month_end,0.0,Emergency
+is_quarter_start,0.0,Emergency
+is_quarter_end,0.0,Emergency
+dow_sin,0.04968307,Emergency
+dow_cos,0.0,Emergency
+month_sin,0.06911407,Emergency
+month_cos,0.0,Emergency
+doy_sin,0.06395352,Emergency
+doy_cos,0.0480261,Emergency
+trend,0.05706774,Emergency
+lag_1,0.03954674,Emergency
+lag_7,0.04086226,Emergency
+lag_14,0.0,Emergency
+lag_28,0.0,Emergency
+rolling_mean_7,0.05379489,Emergency
+rolling_std_7,0.049107734,Emergency
+rolling_min_7,0.0,Emergency
+rolling_max_7,0.0,Emergency
+rolling_mean_14,0.052672867,Emergency
+rolling_std_14,0.049639337,Emergency
+rolling_min_14,0.0,Emergency
+rolling_max_14,0.0,Emergency
+rolling_mean_28,0.06463338,Emergency
+rolling_std_28,0.0685814,Emergency
+rolling_min_28,0.0,Emergency
+rolling_max_28,0.0,Emergency
+year,0.0,General Medicine
+month,0.052653212,General Medicine
+day,0.019042326,General Medicine
+day_of_week,0.059252337,General Medicine
+day_of_year,0.04612446,General Medicine
+week_of_year,0.0483654,General Medicine
+quarter,0.0,General Medicine
+is_weekend,0.0688477,General Medicine
+is_month_start,0.0,General Medicine
+is_month_end,0.0,General Medicine
+is_quarter_start,0.0,General Medicine
+is_quarter_end,0.0,General Medicine
+dow_sin,0.10082788,General Medicine
+dow_cos,0.007049398,General Medicine
+month_sin,0.034568343,General Medicine
+month_cos,0.0,General Medicine
+doy_sin,0.035002775,General Medicine
+doy_cos,0.024802554,General Medicine
+trend,0.038224977,General Medicine
+lag_1,0.03032443,General Medicine
+lag_7,0.027585404,General Medicine
+lag_14,0.028500598,General Medicine
+lag_28,0.04918272,General Medicine
+rolling_mean_7,0.02511106,General Medicine
+rolling_std_7,0.0,General Medicine
+rolling_min_7,0.0,General Medicine
+rolling_max_7,0.0345074,General Medicine
+rolling_mean_14,0.037629195,General Medicine
+rolling_std_14,0.032906044,General Medicine
+rolling_min_14,0.031836677,General Medicine
+rolling_max_14,0.03689138,General Medicine
+rolling_mean_28,0.049861412,General Medicine
+rolling_std_28,0.04392291,General Medicine
+rolling_min_28,0.0,General Medicine
+rolling_max_28,0.036979303,General Medicine
+year,0.0,ICU
+month,0.0,ICU
+day,0.04715742,ICU
+day_of_week,0.052823354,ICU
+day_of_year,0.048865885,ICU
+week_of_year,0.044105683,ICU
+quarter,0.0,ICU
+is_weekend,0.0,ICU
+is_month_start,0.0,ICU
+is_month_end,0.0,ICU
+is_quarter_start,0.0,ICU
+is_quarter_end,0.0,ICU
+dow_sin,0.0,ICU
+dow_cos,0.048125293,ICU
+month_sin,0.0,ICU
+month_cos,0.048816897,ICU
+doy_sin,0.051662207,ICU
+doy_cos,0.059803177,ICU
+trend,0.048873197,ICU
+lag_1,0.03078582,ICU
+lag_7,0.050308682,ICU
+lag_14,0.041205164,ICU
+lag_28,0.048683677,ICU
+rolling_mean_7,0.047478955,ICU
+rolling_std_7,0.04693245,ICU
+rolling_min_7,0.0,ICU
+rolling_max_7,0.051908955,ICU
+rolling_mean_14,0.05405419,ICU
+rolling_std_14,0.06578339,ICU
+rolling_min_14,0.0,ICU
+rolling_max_14,0.062331796,ICU
+rolling_mean_28,0.0,ICU
+rolling_std_28,0.05029387,ICU
+rolling_min_28,0.0,ICU
+rolling_max_28,0.0,ICU
+year,0.029000493,Neurology
+month,0.018317075,Neurology
+day,0.03452349,Neurology
+day_of_week,0.03938923,Neurology
+day_of_year,0.036218088,Neurology
+week_of_year,0.036802493,Neurology
+quarter,0.0,Neurology
+is_weekend,0.039130464,Neurology
+is_month_start,0.037598517,Neurology
+is_month_end,0.0,Neurology
+is_quarter_start,0.0,Neurology
+is_quarter_end,0.02100307,Neurology
+dow_sin,0.033960223,Neurology
+dow_cos,0.034051854,Neurology
+month_sin,0.032950006,Neurology
+month_cos,0.030644273,Neurology
+doy_sin,0.03144957,Neurology
+doy_cos,0.043114502,Neurology
+trend,0.041354153,Neurology
+lag_1,0.039990325,Neurology
+lag_7,0.03151308,Neurology
+lag_14,0.03890471,Neurology
+lag_28,0.03804732,Neurology
+rolling_mean_7,0.035344172,Neurology
+rolling_std_7,0.031295616,Neurology
+rolling_min_7,0.0,Neurology
+rolling_max_7,0.03895812,Neurology
+rolling_mean_14,0.0331332,Neurology
+rolling_std_14,0.040278893,Neurology
+rolling_min_14,0.0,Neurology
+rolling_max_14,0.023742018,Neurology
+rolling_mean_28,0.03544721,Neurology
+rolling_std_28,0.04132545,Neurology
+rolling_min_28,0.0,Neurology
+rolling_max_28,0.032512344,Neurology
+year,0.0,Oncology
+month,0.0,Oncology
+day,0.046758305,Oncology
+day_of_week,0.052950565,Oncology
+day_of_year,0.064149424,Oncology
+week_of_year,0.04359879,Oncology
+quarter,0.0,Oncology
+is_weekend,0.06530474,Oncology
+is_month_start,0.0,Oncology
+is_month_end,0.0,Oncology
+is_quarter_start,0.0,Oncology
+is_quarter_end,0.04665612,Oncology
+dow_sin,0.04272965,Oncology
+dow_cos,0.04208477,Oncology
+month_sin,0.04266335,Oncology
+month_cos,0.0,Oncology
+doy_sin,0.04642417,Oncology
+doy_cos,0.048579518,Oncology
+trend,0.051571656,Oncology
+lag_1,0.03940223,Oncology
+lag_7,0.0,Oncology
+lag_14,0.11404627,Oncology
+lag_28,0.042148035,Oncology
+rolling_mean_7,0.0,Oncology
+rolling_std_7,0.0,Oncology
+rolling_min_7,0.0,Oncology
+rolling_max_7,0.0,Oncology
+rolling_mean_14,0.056461904,Oncology
+rolling_std_14,0.060383637,Oncology
+rolling_min_14,0.0,Oncology
+rolling_max_14,0.0,Oncology
+rolling_mean_28,0.05079824,Oncology
+rolling_std_28,0.043288637,Oncology
+rolling_min_28,0.0,Oncology
+rolling_max_28,0.0,Oncology
+year,0.023881348,Orthopedics
+month,0.0,Orthopedics
+day,0.044604573,Orthopedics
+day_of_week,0.03998856,Orthopedics
+day_of_year,0.0542663,Orthopedics
+week_of_year,0.04278877,Orthopedics
+quarter,0.0,Orthopedics
+is_weekend,0.04835014,Orthopedics
+is_month_start,0.034369186,Orthopedics
+is_month_end,0.037628192,Orthopedics
+is_quarter_start,0.0,Orthopedics
+is_quarter_end,0.0,Orthopedics
+dow_sin,0.040485054,Orthopedics
+dow_cos,0.03246453,Orthopedics
+month_sin,0.060525123,Orthopedics
+month_cos,0.017045962,Orthopedics
+doy_sin,0.036153078,Orthopedics
+doy_cos,0.039935738,Orthopedics
+trend,0.035465024,Orthopedics
+lag_1,0.04185595,Orthopedics
+lag_7,0.026761644,Orthopedics
+lag_14,0.008170689,Orthopedics
+lag_28,0.04543976,Orthopedics
+rolling_mean_7,0.03882361,Orthopedics
+rolling_std_7,0.033912245,Orthopedics
+rolling_min_7,0.0,Orthopedics
+rolling_max_7,0.0,Orthopedics
+rolling_mean_14,0.04869082,Orthopedics
+rolling_std_14,0.050494764,Orthopedics
+rolling_min_14,0.0,Orthopedics
+rolling_max_14,0.03682581,Orthopedics
+rolling_mean_28,0.03405219,Orthopedics
+rolling_std_28,0.047020882,Orthopedics
+rolling_min_28,0.0,Orthopedics
+rolling_max_28,0.0,Orthopedics
+year,0.0,Pediatrics
+month,0.0,Pediatrics
+day,0.05663365,Pediatrics
+day_of_week,0.04879894,Pediatrics
+day_of_year,0.04394168,Pediatrics
+week_of_year,0.04129603,Pediatrics
+quarter,0.0,Pediatrics
+is_weekend,0.0,Pediatrics
+is_month_start,0.0,Pediatrics
+is_month_end,0.0,Pediatrics
+is_quarter_start,0.0,Pediatrics
+is_quarter_end,0.0,Pediatrics
+dow_sin,0.0,Pediatrics
+dow_cos,0.02981066,Pediatrics
+month_sin,0.0,Pediatrics
+month_cos,0.0,Pediatrics
+doy_sin,0.0638879,Pediatrics
+doy_cos,0.049742233,Pediatrics
+trend,0.07257454,Pediatrics
+lag_1,0.050382785,Pediatrics
+lag_7,0.06665488,Pediatrics
+lag_14,0.0,Pediatrics
+lag_28,0.05210112,Pediatrics
+rolling_mean_7,0.06543404,Pediatrics
+rolling_std_7,0.06922112,Pediatrics
+rolling_min_7,0.040409196,Pediatrics
+rolling_max_7,0.0,Pediatrics
+rolling_mean_14,0.076861866,Pediatrics
+rolling_std_14,0.04883948,Pediatrics
+rolling_min_14,0.0,Pediatrics
+rolling_max_14,0.0,Pediatrics
+rolling_mean_28,0.06635991,Pediatrics
+rolling_std_28,0.057049952,Pediatrics
+rolling_min_28,0.0,Pediatrics
+rolling_max_28,0.0,Pediatrics
+year,0.0,Surgery
+month,0.0,Surgery
+day,0.035264123,Surgery
+day_of_week,0.05494886,Surgery
+day_of_year,0.04590455,Surgery
+week_of_year,0.0427175,Surgery
+quarter,0.0,Surgery
+is_weekend,0.07963302,Surgery
+is_month_start,0.0,Surgery
+is_month_end,0.0,Surgery
+is_quarter_start,0.0,Surgery
+is_quarter_end,0.0,Surgery
+dow_sin,0.063343585,Surgery
+dow_cos,0.018611746,Surgery
+month_sin,0.0,Surgery
+month_cos,0.02512247,Surgery
+doy_sin,0.038122497,Surgery
+doy_cos,0.0390781,Surgery
+trend,0.036587857,Surgery
+lag_1,0.05747646,Surgery
+lag_7,0.020909272,Surgery
+lag_14,0.035068918,Surgery
+lag_28,0.025376756,Surgery
+rolling_mean_7,0.03985231,Surgery
+rolling_std_7,0.03978979,Surgery
+rolling_min_7,0.0,Surgery
+rolling_max_7,0.039726853,Surgery
+rolling_mean_14,0.049702473,Surgery
+rolling_std_14,0.04866761,Surgery
+rolling_min_14,0.0,Surgery
+rolling_max_14,0.04930349,Surgery
+rolling_mean_28,0.0406543,Surgery
+rolling_std_28,0.04695464,Surgery
+rolling_min_28,0.0,Surgery
+rolling_max_28,0.027182743,Surgery

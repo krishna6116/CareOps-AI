@@ -1,0 +1,301 @@
+staff_id,staff_name,role,specialty,department,availability,shift_preference,max_hours
+S00001,Elizabeth Parrish,Nurse,Internal Medicine,Surgery,Busy,Morning,36
+S00002,Martin Sanders,Nurse,Cardiology,Cardiology,Busy,Evening,24
+S00003,Benjamin Brown,Nurse,Orthopedics,ICU,Available,Night,40
+S00004,Mariah Bolton,Nurse,Radiology,Neurology,Available,Morning,36
+S00005,Michael Allen,Doctor,Cardiology,Cardiology,Available,Morning,48
+S00006,Ronald Palmer,Nurse,Cardiology,Pediatrics,Busy,Morning,36
+S00007,Ashley Martinez,Administrator,Critical Care,Surgery,Available,Evening,24
+S00008,Stefanie Tyler,Nurse,Radiology,Surgery,Available,Morning,32
+S00009,Misty Villegas PhD,Doctor,Neurology,Neurology,Available,Morning,48
+S00010,Heather Young,Administrator,Oncology,Oncology,Busy,Morning,48
+S00011,Edward Smith,Doctor,Orthopedics,Orthopedics,Busy,Morning,48
+S00012,Carla Davidson,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00013,John Greer,Nurse,Oncology,General Medicine,Busy,Night,24
+S00014,Timothy Barnes,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00015,Laura Sandoval,Nurse,Critical Care,Cardiology,Available,Evening,24
+S00016,Lori Miller,Technician,Radiology,Surgery,Available,Night,40
+S00017,Aaron Gonzalez,Nurse,Neurology,Pediatrics,Busy,Night,24
+S00018,Megan Meyer,Doctor,General Surgery,Surgery,Available,Morning,48
+S00019,Zachary Marquez,Therapist,Emergency Medicine,Cardiology,Available,Evening,48
+S00020,Michael Hudson,Doctor,Neurology,Neurology,Available,Morning,48
+S00021,Daniel Pollard,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00022,Dominique Graves,Nurse,Neurology,Pediatrics,Busy,Morning,40
+S00023,John Winters,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00024,Dr. Brian Harris,Nurse,Critical Care,General Medicine,Busy,Evening,48
+S00025,Faith Miller,Nurse,General Surgery,Cardiology,Available,Morning,32
+S00026,Sarah Fernandez,Doctor,General Surgery,Surgery,Available,Morning,48
+S00027,Jacqueline Rodgers,Nurse,Emergency Medicine,Neurology,Available,Evening,32
+S00028,Anthony Thomas,Surgeon,General Surgery,Surgery,Leave,Morning,48
+S00029,Johnny Smith DDS,Nurse,Cardiology,Cardiology,Available,Night,32
+S00030,Kevin Galvan,Technician,Radiology,Cardiology,Busy,Evening,24
+S00031,Mr. Christopher Lloyd,Nurse,Radiology,Pediatrics,Busy,Evening,36
+S00032,Brian Nguyen,Doctor,General Surgery,Surgery,Available,Morning,48
+S00033,Thomas Hammond,Administrator,Radiology,ICU,Available,Evening,36
+S00034,Barbara Hickman,Nurse,Internal Medicine,Oncology,Available,Morning,40
+S00035,Eileen Johnson,Nurse,Emergency Medicine,ICU,Busy,Evening,40
+S00036,Julia Armstrong,Doctor,Cardiology,Cardiology,Available,Morning,48
+S00037,Andrew Gordon,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00038,Tony Mcgee,Nurse,Oncology,Orthopedics,Busy,Night,40
+S00039,Chloe Rodriguez,Doctor,General Surgery,Surgery,Available,Morning,48
+S00040,Susan Mccormick,Nurse,Oncology,Surgery,Busy,Night,36
+S00041,Trevor Owens,Technician,Radiology,Orthopedics,Available,Evening,24
+S00042,Edward Johnson,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00043,Emily Hunt,Nurse,Critical Care,General Medicine,Busy,Evening,24
+S00044,William Lee,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00045,Valerie Ramirez,Nurse,General Surgery,Cardiology,Available,Night,36
+S00046,Mckenzie Jordan,Nurse,Orthopedics,Orthopedics,Available,Night,36
+S00047,Jean Sweeney,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00048,Robert Martin,Nurse,Internal Medicine,Neurology,Busy,Morning,32
+S00049,Dr. Richard Williams,Nurse,Oncology,ICU,Available,Evening,36
+S00050,Brenda Wagner,Nurse,Radiology,Emergency,Available,Morning,48
+S00051,Sarah Rose,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00052,Amanda Wilson,Doctor,Oncology,Oncology,Available,Morning,48
+S00053,Christy Powell,Therapist,Internal Medicine,ICU,Available,Morning,24
+S00054,Terry Pearson,Nurse,Internal Medicine,Emergency,Available,Night,24
+S00055,Benjamin Johnson,Technician,Radiology,Orthopedics,Available,Evening,36
+S00056,Joseph Lewis,Technician,Radiology,Surgery,Available,Morning,40
+S00057,Alicia Klein,Nurse,Pediatrics,Neurology,Available,Night,24
+S00058,Mathew Barton,Nurse,Internal Medicine,ICU,Available,Night,40
+S00059,Mrs. Haley Trujillo DVM,Nurse,Pediatrics,Cardiology,Available,Night,40
+S00060,Michelle Martin,Nurse,Oncology,Surgery,Available,Night,36
+S00061,Jerome Brooks,Nurse,Pediatrics,Orthopedics,Available,Night,32
+S00062,Sandra Green,Nurse,General Surgery,Neurology,Available,Morning,36
+S00063,Robert Thompson,Nurse,Orthopedics,ICU,Available,Evening,32
+S00064,Danny Sweeney,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00065,Christopher Aguilar,Nurse,Emergency Medicine,Orthopedics,Available,Morning,40
+S00066,Heather Hinton,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00067,Nicholas Garcia,Technician,Radiology,Surgery,Available,Evening,48
+S00068,Deborah Jones,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00069,Stephanie Williams,Nurse,General Surgery,Oncology,Available,Morning,48
+S00070,Jessica Deleon,Technician,Radiology,Surgery,Available,Night,40
+S00071,Nicole Barrett,Nurse,Neurology,Pediatrics,Available,Evening,36
+S00072,Cynthia Kennedy,Doctor,Orthopedics,Orthopedics,Available,Morning,48
+S00073,Carla Nelson,Therapist,Radiology,Oncology,Busy,Night,32
+S00074,Aaron Deleon,Doctor,Neurology,Neurology,Available,Morning,48
+S00075,Jon Hobbs,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00076,Jennifer Williamson,Nurse,Oncology,Cardiology,Leave,Evening,24
+S00077,Daniel Jones,Nurse,Oncology,General Medicine,Available,Evening,32
+S00078,Jared Young,Technician,Radiology,Orthopedics,Available,Night,32
+S00079,Andre Martin,Technician,Radiology,ICU,Available,Night,24
+S00080,Robert Francis,Nurse,General Surgery,ICU,Available,Morning,40
+S00081,Aaron Barnett,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00082,Amanda Price,Nurse,General Surgery,Cardiology,Available,Evening,36
+S00083,Alexander Martinez,Therapist,Neurology,General Medicine,Available,Evening,48
+S00084,Thomas Gay,Technician,Radiology,Pediatrics,Available,Morning,40
+S00085,Andrew Scott,Administrator,Neurology,General Medicine,Busy,Night,36
+S00086,Andrew Morgan,Nurse,General Surgery,Oncology,Leave,Night,36
+S00087,Lynn Burns,Nurse,Emergency Medicine,Neurology,Available,Evening,36
+S00088,Jerry Landry,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00089,Tristan Holt,Administrator,Orthopedics,Cardiology,Available,Morning,32
+S00090,Tony Scott,Administrator,Orthopedics,Pediatrics,Busy,Night,32
+S00091,Jennifer Price,Therapist,Pediatrics,ICU,Available,Night,40
+S00092,Sean Allen,Nurse,Cardiology,Oncology,Busy,Morning,40
+S00093,Natasha Schaefer,Doctor,General Surgery,Surgery,Busy,Morning,48
+S00094,Chelsea Stout,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00095,David Marshall,Nurse,Orthopedics,Oncology,Available,Evening,36
+S00096,Stephanie Dyer,Nurse,Neurology,Emergency,Available,Morning,24
+S00097,Rebecca Larsen,Nurse,Emergency Medicine,Pediatrics,Available,Evening,24
+S00098,Michelle Haas,Nurse,General Surgery,Neurology,Available,Evening,24
+S00099,Donna Small,Doctor,Oncology,Oncology,Available,Morning,48
+S00100,Jessica Price,Nurse,Neurology,Surgery,Available,Night,32
+S00101,Amanda Allen,Nurse,General Surgery,ICU,Busy,Evening,40
+S00102,David Ortiz,Nurse,Critical Care,Pediatrics,Available,Evening,32
+S00103,Gregory Cooke,Technician,Radiology,Pediatrics,Available,Night,48
+S00104,Jonathan Jimenez,Nurse,Radiology,Emergency,Available,Evening,24
+S00105,David Love,Nurse,General Surgery,Oncology,Busy,Night,24
+S00106,Julie Smith,Nurse,Critical Care,Pediatrics,Available,Evening,36
+S00107,Scott Best,Nurse,Radiology,ICU,Available,Morning,36
+S00108,James Henry,Nurse,Oncology,General Medicine,Available,Night,24
+S00109,Jeremy Mann,Nurse,Orthopedics,Neurology,Busy,Evening,48
+S00110,Steven Bullock,Doctor,Oncology,Oncology,Available,Morning,48
+S00111,John Green,Technician,Radiology,Orthopedics,Busy,Morning,24
+S00112,Courtney Rodriguez,Administrator,Oncology,Emergency,Available,Evening,24
+S00113,Kyle Christensen,Doctor,Pediatrics,Pediatrics,Available,Morning,48
+S00114,Kelly Martinez,Therapist,Oncology,Oncology,Available,Night,36
+S00115,Matthew Zimmerman,Nurse,Neurology,Orthopedics,Available,Night,40
+S00116,Michael Jones,Nurse,Orthopedics,Cardiology,Available,Morning,40
+S00117,Thomas Doyle,Nurse,Cardiology,Neurology,Busy,Morning,48
+S00118,Jack Kennedy,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00119,Randy Vaughn,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00120,Jennifer Owens,Nurse,Radiology,Emergency,Leave,Morning,48
+S00121,Courtney Murray,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00122,Alexandria Scott,Administrator,Emergency Medicine,ICU,Available,Evening,36
+S00123,Darren Cooper,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00124,Todd Trujillo,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00125,Cathy Thompson,Technician,Radiology,Neurology,Available,Morning,40
+S00126,David Marshall,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00127,Tracy Ramos,Nurse,Oncology,Surgery,Available,Night,40
+S00128,Holly Hawkins,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00129,Holly Coleman,Therapist,Oncology,ICU,Available,Night,48
+S00130,James Jackson,Administrator,Cardiology,Neurology,Busy,Evening,32
+S00131,Joshua Campbell,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00132,Crystal Powell,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00133,Heather Moore,Doctor,Pediatrics,Pediatrics,Available,Morning,48
+S00134,Jason Snow,Nurse,Cardiology,ICU,Busy,Morning,32
+S00135,Amber Rojas,Nurse,Cardiology,ICU,Available,Morning,40
+S00136,Heather Dennis,Nurse,Pediatrics,Orthopedics,Available,Morning,36
+S00137,Daniel Shea,Technician,Radiology,Cardiology,Busy,Evening,48
+S00138,Tara Ward,Nurse,Neurology,Emergency,Available,Evening,24
+S00139,Sean Paul,Doctor,Critical Care,ICU,Available,Morning,48
+S00140,James Allison,Technician,Radiology,General Medicine,Available,Morning,48
+S00141,Patricia Torres,Administrator,Orthopedics,Orthopedics,Available,Morning,32
+S00142,Alexis Richardson,Doctor,Orthopedics,Orthopedics,Available,Morning,48
+S00143,Craig James,Nurse,Orthopedics,Neurology,Available,Evening,24
+S00144,Theresa Martinez,Technician,Radiology,Oncology,Available,Morning,32
+S00145,Anthony Guerra,Therapist,Neurology,ICU,Busy,Night,36
+S00146,Michele Harris,Technician,Radiology,General Medicine,Available,Morning,36
+S00147,Kara Russell,Doctor,Neurology,Neurology,Available,Morning,48
+S00148,Savannah Williams,Nurse,Oncology,Oncology,Available,Evening,48
+S00149,Nicholas Guzman,Technician,Radiology,ICU,Busy,Evening,36
+S00150,Cody Nolan,Nurse,Oncology,Oncology,Available,Evening,48
+S00151,Miss Janice Espinoza,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00152,Justin House,Therapist,Critical Care,Neurology,Busy,Evening,32
+S00153,Rachel Foster,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00154,Daniel Branch,Nurse,Internal Medicine,Surgery,Busy,Evening,40
+S00155,Michael Parks,Nurse,General Surgery,General Medicine,Busy,Morning,32
+S00156,Roger Hudson,Doctor,General Surgery,Surgery,Available,Morning,48
+S00157,Michael Reyes,Nurse,Internal Medicine,Neurology,Available,Night,32
+S00158,Nicole Scott,Administrator,Pediatrics,Orthopedics,Available,Evening,48
+S00159,Karen Frazier,Nurse,Pediatrics,ICU,Available,Night,32
+S00160,Sara Thompson,Technician,Radiology,Emergency,Available,Morning,24
+S00161,Sean Young,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00162,Justin Gonzalez,Nurse,Neurology,Pediatrics,Busy,Night,24
+S00163,James Bird,Doctor,Emergency Medicine,Emergency,Available,Morning,48
+S00164,John Lambert,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00165,Cynthia Barnes,Nurse,Radiology,General Medicine,Available,Evening,32
+S00166,John Johnston,Nurse,Critical Care,Neurology,Busy,Morning,36
+S00167,Michael Guzman,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00168,Antonio Adams,Doctor,Cardiology,Cardiology,Available,Morning,48
+S00169,Patrick Carter,Administrator,Oncology,Emergency,Available,Evening,40
+S00170,Jessica Richardson,Nurse,Critical Care,General Medicine,Busy,Evening,32
+S00171,Danielle Montoya,Nurse,Emergency Medicine,Oncology,Available,Evening,24
+S00172,Katherine Mitchell,Nurse,Critical Care,Orthopedics,Busy,Night,48
+S00173,Cory Johnson,Nurse,Emergency Medicine,Surgery,Available,Evening,40
+S00174,Alicia Ellis,Nurse,Neurology,Neurology,Available,Evening,36
+S00175,Kylie Daniels,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00176,Michael Nicholson,Therapist,General Surgery,Orthopedics,Available,Night,48
+S00177,Laura Lane,Nurse,Emergency Medicine,Cardiology,Available,Night,32
+S00178,Desiree Martin,Nurse,Orthopedics,General Medicine,Available,Night,32
+S00179,Philip Little,Nurse,Neurology,Cardiology,Available,Morning,24
+S00180,Jennifer Smith,Nurse,Radiology,General Medicine,Available,Evening,48
+S00181,Angela Smith,Therapist,Cardiology,Surgery,Available,Morning,32
+S00182,Emily Wilson,Technician,Radiology,Orthopedics,Available,Morning,48
+S00183,Timothy Martin,Nurse,Neurology,Neurology,Available,Evening,40
+S00184,Jessica Myers,Nurse,Oncology,Orthopedics,Available,Evening,48
+S00185,Brittany Garcia,Technician,Radiology,ICU,Available,Evening,36
+S00186,Diana Stewart,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00187,Maria Fuentes,Nurse,Internal Medicine,Cardiology,Busy,Night,36
+S00188,Evan Kelley,Nurse,Orthopedics,Neurology,Busy,Evening,48
+S00189,Keith Moody,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00190,Bradley Fernandez,Technician,Radiology,ICU,Available,Evening,40
+S00191,Cynthia Sweeney,Nurse,Orthopedics,Cardiology,Available,Evening,48
+S00192,Valerie Schneider,Nurse,Emergency Medicine,ICU,Available,Evening,40
+S00193,Christopher Hughes,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00194,Robert Kim,Nurse,Oncology,ICU,Leave,Evening,36
+S00195,Regina Morris,Doctor,Emergency Medicine,Emergency,Available,Morning,48
+S00196,Blake Harper,Nurse,Pediatrics,Pediatrics,Busy,Morning,32
+S00197,Richard Lewis,Technician,Radiology,Cardiology,Available,Night,36
+S00198,Brett Wong,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00199,Susan Reid,Administrator,Emergency Medicine,Neurology,Available,Morning,36
+S00200,Thomas Gibson,Therapist,Internal Medicine,Surgery,Busy,Morning,36
+S00201,David Norman,Nurse,Neurology,Neurology,Available,Morning,32
+S00202,Adam Anderson,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00203,Bradley Jackson,Technician,Radiology,ICU,Available,Evening,48
+S00204,Troy Kelly,Technician,Radiology,Oncology,Busy,Night,32
+S00205,Kevin West,Nurse,Radiology,Surgery,Available,Night,48
+S00206,Rose White,Administrator,General Surgery,Emergency,Available,Evening,48
+S00207,Matthew Lucas,Nurse,Radiology,Orthopedics,Busy,Night,48
+S00208,Susan Ortiz,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00209,Gabrielle Garcia DDS,Nurse,Critical Care,Surgery,Available,Night,32
+S00210,Kristin Smith,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00211,Craig Hernandez,Technician,Radiology,Oncology,Available,Night,40
+S00212,Stephanie Nunez,Nurse,Neurology,Emergency,Leave,Morning,36
+S00213,Justin Harris,Nurse,Critical Care,Oncology,Available,Evening,36
+S00214,Brandy King,Administrator,Internal Medicine,Pediatrics,Busy,Morning,36
+S00215,Sally Barrera,Doctor,General Surgery,Surgery,Available,Morning,48
+S00216,Ashley Mercado,Nurse,Internal Medicine,Emergency,Available,Morning,36
+S00217,Robert Orr,Nurse,Neurology,Emergency,Available,Morning,48
+S00218,Kevin Howell,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00219,Christy Alvarado,Nurse,Critical Care,Oncology,Busy,Morning,24
+S00220,Kelly Osborne,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00221,James Brooks,Nurse,Emergency Medicine,Neurology,Available,Evening,40
+S00222,Brooke Lee,Nurse,Neurology,Emergency,Available,Night,40
+S00223,Claire Cooper,Doctor,Critical Care,ICU,Available,Morning,48
+S00224,Austin Andrade,Doctor,Orthopedics,Orthopedics,Available,Morning,48
+S00225,Kathryn Wood,Therapist,Neurology,Pediatrics,Available,Evening,40
+S00226,Robert Lopez,Doctor,Critical Care,ICU,Available,Morning,48
+S00227,Melinda Savage,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00228,Ms. Madeline Duncan DDS,Nurse,Pediatrics,Surgery,Available,Evening,36
+S00229,Angel Pennington,Doctor,Pediatrics,Pediatrics,Available,Morning,48
+S00230,Jacob Gay,Surgeon,General Surgery,Surgery,Available,Morning,48
+S00231,Douglas Foster PhD,Nurse,Radiology,ICU,Busy,Night,48
+S00232,Donald Foster,Administrator,Pediatrics,Cardiology,Available,Morning,24
+S00233,Haley King,Administrator,Critical Care,Pediatrics,Busy,Night,40
+S00234,Christopher Mckinney,Doctor,Critical Care,ICU,Available,Morning,48
+S00235,Daniel Baker,Nurse,Radiology,General Medicine,Available,Evening,40
+S00236,Stephanie Parker,Nurse,Internal Medicine,Orthopedics,Available,Morning,36
+S00237,Terri Ferguson,Nurse,Emergency Medicine,Neurology,Busy,Evening,32
+S00238,Erika Cole,Nurse,General Surgery,ICU,Available,Night,40
+S00239,Joshua Kennedy,Nurse,Neurology,Oncology,Busy,Morning,24
+S00240,Charles Ward,Administrator,Internal Medicine,Emergency,Available,Evening,24
+S00241,Bianca Garcia,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00242,Mary Davenport,Nurse,General Surgery,Surgery,Available,Night,32
+S00243,Matthew Camacho,Nurse,Internal Medicine,Pediatrics,Available,Morning,48
+S00244,Linda Lopez,Nurse,Pediatrics,ICU,Available,Morning,24
+S00245,Jeremy Cox,Nurse,Radiology,Cardiology,Busy,Evening,48
+S00246,Richard Wells,Administrator,Emergency Medicine,General Medicine,Available,Morning,36
+S00247,Randall Burke,Therapist,Neurology,Orthopedics,Busy,Morning,24
+S00248,Jared Lopez,Administrator,Orthopedics,Oncology,Busy,Morning,24
+S00249,Paul Armstrong,Nurse,Pediatrics,Pediatrics,Leave,Night,24
+S00250,Jonathon Davis,Technician,Radiology,General Medicine,Available,Night,40
+S00251,Larry Stewart,Nurse,Neurology,General Medicine,Available,Night,40
+S00252,Deborah Brown,Nurse,Radiology,ICU,Available,Evening,48
+S00253,Kelly Bradley,Nurse,Critical Care,Surgery,Available,Morning,48
+S00254,David Nichols,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00255,Robert Mclean,Doctor,Critical Care,ICU,Available,Morning,48
+S00256,David Barnes,Nurse,Orthopedics,Surgery,Available,Evening,32
+S00257,Jacob Smith,Nurse,Internal Medicine,Oncology,Available,Morning,36
+S00258,Tyler Diaz,Nurse,Cardiology,ICU,Available,Night,36
+S00259,Zachary Estes,Administrator,Orthopedics,Cardiology,Available,Morning,24
+S00260,Stephanie West,Doctor,Cardiology,Cardiology,Busy,Morning,48
+S00261,Miranda White,Nurse,Critical Care,General Medicine,Busy,Night,32
+S00262,Stephanie Stafford,Nurse,Critical Care,ICU,Busy,Morning,48
+S00263,Jasmine Torres,Therapist,Orthopedics,General Medicine,Available,Evening,24
+S00264,Ryan Mcdonald,Technician,Radiology,Orthopedics,Busy,Evening,32
+S00265,Stephanie Moore,Technician,Radiology,Cardiology,Available,Morning,36
+S00266,Jennifer Melendez,Nurse,Orthopedics,Orthopedics,Available,Night,36
+S00267,Jean Hanson,Nurse,Neurology,Neurology,Busy,Morning,32
+S00268,Austin Welch,Technician,Radiology,Emergency,Leave,Night,24
+S00269,Stacey Moore,Doctor,Cardiology,Cardiology,Available,Morning,48
+S00270,Timothy Morris,Nurse,Emergency Medicine,Orthopedics,Busy,Night,48
+S00271,Christina Hart,Administrator,Emergency Medicine,Neurology,Busy,Night,24
+S00272,Janice Neal,Administrator,General Surgery,Pediatrics,Available,Morning,40
+S00273,Aaron Briggs,Doctor,Emergency Medicine,Emergency,Available,Morning,48
+S00274,Adam Kaiser,Nurse,Internal Medicine,Orthopedics,Busy,Morning,40
+S00275,Stacy Fernandez,Technician,Radiology,Cardiology,Available,Morning,36
+S00276,Christopher Martin,Nurse,Orthopedics,Cardiology,Available,Evening,40
+S00277,Randy Stevens,Technician,Radiology,Oncology,Busy,Night,36
+S00278,Sarah Robertson,Technician,Radiology,General Medicine,Available,Night,24
+S00279,Steven Lopez,Nurse,Oncology,Neurology,Available,Evening,36
+S00280,Jodi Ward,Nurse,Oncology,Orthopedics,Available,Evening,48
+S00281,Jane Russo,Nurse,Internal Medicine,Emergency,Available,Morning,36
+S00282,Kelly Jennings,Administrator,Neurology,General Medicine,Busy,Morning,24
+S00283,Mary Miller,Doctor,Critical Care,ICU,Available,Morning,48
+S00284,Austin Cortez,Nurse,Emergency Medicine,Neurology,Available,Morning,32
+S00285,Katherine Olsen,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00286,Ashley Rose,Nurse,Oncology,Surgery,Busy,Night,32
+S00287,Marcus Turner,Nurse,Internal Medicine,Pediatrics,Available,Morning,36
+S00288,Lisa Jackson,Doctor,Pediatrics,Pediatrics,Available,Morning,48
+S00289,Roger Moss,Nurse,General Surgery,Oncology,Available,Evening,32
+S00290,Mary Gonzalez,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00291,Lori Smith,Therapist,Critical Care,ICU,Available,Evening,48
+S00292,Manuel Bush,Nurse,Orthopedics,Emergency,Available,Evening,32
+S00293,Beverly Garcia,Nurse,Emergency Medicine,Cardiology,Busy,Morning,36
+S00294,Mr. Adam House,Nurse,Internal Medicine,Emergency,Available,Morning,48
+S00295,Dustin Clark,Administrator,Emergency Medicine,Emergency,Busy,Morning,32
+S00296,Lisa Edwards,Doctor,Cardiology,Cardiology,Available,Morning,48
+S00297,Jay Olson,Doctor,Internal Medicine,General Medicine,Available,Morning,48
+S00298,Gregory Young,Technician,Radiology,Neurology,Available,Evening,48
+S00299,Alyssa West,Nurse,Cardiology,Surgery,Available,Morning,24
+S00300,Elizabeth Khan,Surgeon,General Surgery,Surgery,Available,Morning,48

@@ -1,0 +1,163 @@
+CAREOPS AI - BED ALLOCATION REPORT
+==================================
+
+Planning date: 2026-09-23
+
+CAPACITY
+Total physical beds: 230
+Currently available beds: 36
+Currently unavailable beds: 194
+
+REQUESTS
+Planning requests: 146
+Assigned: 33
+Unassigned: 113
+Assignment rate: 22.60%
+
+COMPATIBILITY
+Compatible patient-bed pairs: 763
+Requests with zero compatible beds: 40
+
+EMERGENCY RESERVE
+Emergency beds available: 1
+Emergency beds used: 0
+Emergency beds remaining: 1
+Emergency reserve target: 2
+Effective Emergency reserve: 1
+
+ICU RESERVE
+ICU beds available: 2
+ICU beds used: 0
+ICU beds remaining: 2
+ICU reserve target: 2
+Effective ICU reserve: 2
+
+SOLVER
+Solver status: OPTIMAL
+Effective Emergency reserve used by model: 1
+Effective ICU reserve used by model: 2
+
+VALIDATION
+Independent validation: PASSED
+
+UNASSIGNED REQUESTS
+- P042006: No safe compatible bed was available under the optimization constraints.
+- P034759: No safe compatible bed was available under the optimization constraints.
+- P002251: No safe compatible bed was available under the optimization constraints.
+- P023961: No safe compatible bed was available under the optimization constraints.
+- P045856: No safe compatible bed was available under the optimization constraints.
+- P028707: No safe compatible bed was available under the optimization constraints.
+- P001329: No safe compatible bed was available under the optimization constraints.
+- P004075: No safe compatible bed was available under the optimization constraints.
+- P016600: No safe compatible bed was available under the optimization constraints.
+- P000155: No safe compatible bed was available under the optimization constraints.
+- P036929: No safe compatible bed was available under the optimization constraints.
+- P034050: No safe compatible bed was available under the optimization constraints.
+- P040802: No safe compatible bed was available under the optimization constraints.
+- P043417: No safe compatible bed was available under the optimization constraints.
+- P020688: No safe compatible bed was available under the optimization constraints.
+- P046465: No safe compatible bed was available under the optimization constraints.
+- P032841: No safe compatible bed was available under the optimization constraints.
+- P025295: No safe compatible bed was available under the optimization constraints.
+- P024425: No safe compatible bed was available under the optimization constraints.
+- P029205: No safe compatible bed was available under the optimization constraints.
+- P010700: No safe compatible bed was available under the optimization constraints.
+- P049570: No safe compatible bed was available under the optimization constraints.
+- P016363: No safe compatible bed was available under the optimization constraints.
+- P042220: No safe compatible bed was available under the optimization constraints.
+- P004189: No safe compatible bed was available under the optimization constraints.
+- P007564: No safe compatible bed was available under the optimization constraints.
+- P002329: No safe compatible bed was available under the optimization constraints.
+- P009865: No safe compatible bed was available under the optimization constraints.
+- P004975: No safe compatible bed was available under the optimization constraints.
+- P026235: No safe compatible bed was available under the optimization constraints.
+- P031662: No safe compatible bed was available under the optimization constraints.
+- P032947: No safe compatible bed was available under the optimization constraints.
+- P031872: No safe compatible bed was available under the optimization constraints.
+- P016113: No safe compatible bed was available under the optimization constraints.
+- P021650: No safe compatible bed was available under the optimization constraints.
+- P000290: No safe compatible bed was available under the optimization constraints.
+- P044538: No safe compatible bed was available under the optimization constraints.
+- P004696: No safe compatible bed was available under the optimization constraints.
+- P009928: No safe compatible bed was available under the optimization constraints.
+- P028756: No safe compatible bed was available under the optimization constraints.
+- P044223: No safe compatible bed was available under the optimization constraints.
+- P005120: No safe compatible bed was available under the optimization constraints.
+- P036939: No safe compatible bed was available under the optimization constraints.
+- P048869: No safe compatible bed was available under the optimization constraints.
+- P019903: No safe compatible bed was available under the optimization constraints.
+- P044708: No safe compatible bed was available under the optimization constraints.
+- P004110: No safe compatible bed was available under the optimization constraints.
+- P023289: No safe compatible bed was available under the optimization constraints.
+- P006868: No safe compatible bed was available under the optimization constraints.
+- P009005: No safe compatible bed was available under the optimization constraints.
+- P037555: No safe compatible bed was available under the optimization constraints.
+- P039613: No safe compatible bed was available under the optimization constraints.
+- P026446: No safe compatible bed was available under the optimization constraints.
+- P047428: No safe compatible bed was available under the optimization constraints.
+- P030718: No safe compatible bed was available under the optimization constraints.
+- P028063: No safe compatible bed was available under the optimization constraints.
+- P012118: No safe compatible bed was available under the optimization constraints.
+- P025670: No safe compatible bed was available under the optimization constraints.
+- P017744: No safe compatible bed was available under the optimization constraints.
+- P011681: No safe compatible bed was available under the optimization constraints.
+- P023800: No safe compatible bed was available under the optimization constraints.
+- P006920: No safe compatible bed was available under the optimization constraints.
+- P024765: No safe compatible bed was available under the optimization constraints.
+- P032012: No safe compatible bed was available under the optimization constraints.
+- P014018: No safe compatible bed was available under the optimization constraints.
+- P041880: No safe compatible bed was available under the optimization constraints.
+- P001775: No safe compatible bed was available under the optimization constraints.
+- P021841: No safe compatible bed was available under the optimization constraints.
+- P034239: No safe compatible bed was available under the optimization constraints.
+- P019492: No safe compatible bed was available under the optimization constraints.
+- P003382: No safe compatible bed was available under the optimization constraints.
+- P015880: No safe compatible bed was available under the optimization constraints.
+- P029979: No safe compatible bed was available under the optimization constraints.
+- P022526: No safe compatible bed was available under the optimization constraints.
+- P005144: No safe compatible bed was available under the optimization constraints.
+- P032541: No safe compatible bed was available under the optimization constraints.
+- P007820: No safe compatible bed was available under the optimization constraints.
+- P015046: No safe compatible bed was available under the optimization constraints.
+- P004271: No safe compatible bed was available under the optimization constraints.
+- P031624: No safe compatible bed was available under the optimization constraints.
+- P031704: No safe compatible bed was available under the optimization constraints.
+- P032812: No safe compatible bed was available under the optimization constraints.
+- P046583: No safe compatible bed was available under the optimization constraints.
+- P018777: No safe compatible bed was available under the optimization constraints.
+- P038292: No safe compatible bed was available under the optimization constraints.
+- P038910: No safe compatible bed was available under the optimization constraints.
+- P023466: No safe compatible bed was available under the optimization constraints.
+- P035650: No safe compatible bed was available under the optimization constraints.
+- P021623: No safe compatible bed was available under the optimization constraints.
+- P043241: No safe compatible bed was available under the optimization constraints.
+- P029815: No safe compatible bed was available under the optimization constraints.
+- P022037: No safe compatible bed was available under the optimization constraints.
+- P036053: No safe compatible bed was available under the optimization constraints.
+- P044210: No safe compatible bed was available under the optimization constraints.
+- P046536: No safe compatible bed was available under the optimization constraints.
+- P026305: No safe compatible bed was available under the optimization constraints.
+- P033294: No safe compatible bed was available under the optimization constraints.
+- P044522: No safe compatible bed was available under the optimization constraints.
+- P034134: No safe compatible bed was available under the optimization constraints.
+- P041323: No safe compatible bed was available under the optimization constraints.
+- P002935: No safe compatible bed was available under the optimization constraints.
+- P034447: No safe compatible bed was available under the optimization constraints.
+- P007802: No safe compatible bed was available under the optimization constraints.
+- P034840: No safe compatible bed was available under the optimization constraints.
+- P003796: No safe compatible bed was available under the optimization constraints.
+- P017072: No safe compatible bed was available under the optimization constraints.
+- P006659: No safe compatible bed was available under the optimization constraints.
+- P045898: No safe compatible bed was available under the optimization constraints.
+- P007071: No safe compatible bed was available under the optimization constraints.
+- P005478: No safe compatible bed was available under the optimization constraints.
+- P027867: No safe compatible bed was available under the optimization constraints.
+- P029160: No safe compatible bed was available under the optimization constraints.
+- P008852: No safe compatible bed was available under the optimization constraints.
+
+IMPORTANT
+Source CSV files were read only and were not modified.
+Unavailable beds were not treated as available.
+Admission type was treated separately from physical bed type.
+Planning date was propagated consistently to allocation records.
+Patients without safe compatible capacity were left UNASSIGNED.

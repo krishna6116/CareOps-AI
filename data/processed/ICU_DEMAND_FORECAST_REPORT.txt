@@ -1,0 +1,67 @@
+CAREOPS-AI ICU DEMAND FORECAST REPORT
+=======================================================
+
+Generated: 2026-09-21T05:07:10.630086
+Source file: C:\Users\krish\Documents\CareOps-AI\data\processed\daily_operations.csv
+
+DATA SUMMARY
+-------------------------------------------------------
+Date range: 2024-01-01 to 2026-09-11
+Calendar days: 985
+Mean ICU demand: 12.926
+Maximum ICU demand: 24.000
+
+MODEL PERFORMANCE
+-------------------------------------------------------
+XGBoost MAE: 2.9594
+XGBoost RMSE: 3.7015
+XGBoost R2: -0.1326
+XGBoost MAPE: 26.01%
+
+7-DAY SEASONAL NAIVE BASELINE
+-------------------------------------------------------
+Baseline MAE: 4.1597
+Baseline RMSE: 5.1269
+Baseline R2: -1.1728
+Baseline MAPE: 36.93%
+
+ICU CAPACITY
+-------------------------------------------------------
+ICU capacity: 20
+Warning threshold: 90%
+
+14-DAY FUTURE FORECAST
+-------------------------------------------------------
+2026-09-12 | Demand: 14.64 | Utilization: 73.2% | Risk: LOW
+2026-09-13 | Demand: 13.52 | Utilization: 67.6% | Risk: LOW
+2026-09-14 | Demand: 11.35 | Utilization: 56.8% | Risk: LOW
+2026-09-15 | Demand: 11.98 | Utilization: 59.9% | Risk: LOW
+2026-09-16 | Demand: 13.44 | Utilization: 67.2% | Risk: LOW
+2026-09-17 | Demand: 13.37 | Utilization: 66.8% | Risk: LOW
+2026-09-18 | Demand: 11.79 | Utilization: 59.0% | Risk: LOW
+2026-09-19 | Demand: 11.02 | Utilization: 55.1% | Risk: LOW
+2026-09-20 | Demand: 11.14 | Utilization: 55.7% | Risk: LOW
+2026-09-21 | Demand: 15.28 | Utilization: 76.4% | Risk: MODERATE
+2026-09-22 | Demand: 17.13 | Utilization: 85.6% | Risk: MODERATE
+2026-09-23 | Demand: 14.88 | Utilization: 74.4% | Risk: LOW
+2026-09-24 | Demand: 13.52 | Utilization: 67.6% | Risk: LOW
+2026-09-25 | Demand: 12.14 | Utilization: 60.7% | Risk: LOW
+
+TOP FEATURES
+-------------------------------------------------------
+week_cos: 4.87%
+rolling_max_28: 4.04%
+rolling_min_7: 3.64%
+month_cos: 3.17%
+week_sin: 3.08%
+demand_change_1d: 3.08%
+week_of_year: 3.06%
+rolling_max_14: 3.01%
+lag_14: 2.95%
+rolling_std_3: 2.93%
+
+MODEL SAFETY / IMPLEMENTATION NOTES
+-------------------------------------------------------
+This model is trained using synthetic hospital operations data.
+Forecasts are operational planning estimates and should be reviewed by human decision-makers.
+The program does not use scikit-learn or SciPy.

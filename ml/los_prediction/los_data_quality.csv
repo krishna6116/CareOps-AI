@@ -1,0 +1,17 @@
+column,dtype,rows,missing_count,missing_percent,unique_values
+age_model,int64,11496,0,0.0,101
+icu_required_model,int64,11496,0,0.0,2
+procedure_indicator_model,int64,11496,0,0.0,2
+comorbidity_count_model,int64,11496,0,0.0,9
+admission_year,int32,11496,0,0.0,3
+admission_month,int32,11496,0,0.0,12
+admission_day,int32,11496,0,0.0,31
+admission_dayofweek,int32,11496,0,0.0,7
+admission_weekofyear,float64,11496,0,0.0,52
+admission_is_weekend,int64,11496,0,0.0,2
+department_model,string,11496,0,0.0,9
+diagnosis_category_model,string,11496,0,0.0,10
+severity_model,string,11496,0,0.0,4
+admission_type_model,string,11496,0,0.0,4
+gender_model,string,11496,0,0.0,3
+los_target,float64,11496,0,0.0,40

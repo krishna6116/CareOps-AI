@@ -1,0 +1,36 @@
+{
+  "project": "CareOps-AI",
+  "module": "Bed Allocation Optimization",
+  "solver": "OR-Tools CP-SAT",
+  "forecast_horizon_days": 14,
+  "emergency_reserve_percent": 0.1,
+  "staff_hours_per_bed_day": 8.0,
+  "objective_weights": {
+    "unmet_demand": 10000,
+    "transfer_pressure": 100,
+    "unused_capacity": 1,
+    "emergency_reserve": 100000
+  },
+  "comparison": {
+    "baseline_unmet_demand": 1925,
+    "optimized_unmet_demand": 1894,
+    "unmet_demand_reduction_percent": 1.6103896103896103,
+    "baseline_transfer_pressure": 0,
+    "optimized_transfer_pressure": 5,
+    "transfer_pressure_reduction_percent": 0.0,
+    "baseline_unused_capacity": 3,
+    "optimized_unused_capacity": 1008,
+    "unused_capacity_reduction_percent": -33500.0
+  },
+  "current_capacity": {
+    "total_beds": 230,
+    "available_beds": 31,
+    "icu_total": 20,
+    "icu_available": 2,
+    "emergency_reserve_total": 30,
+    "emergency_reserve_available": 3
+  },
+  "runtime_seconds": 1.9864528179168701,
+  "synthetic_data": true,
+  "human_review_required": true
+}

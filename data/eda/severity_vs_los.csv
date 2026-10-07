@@ -1,0 +1,5 @@
+severity,count,mean,median,min,max
+Critical,4016,25.23,25.0,9,43
+High,13674,15.74,16.0,4,32
+Low,12517,7.17,7.0,1,23
+Moderate,19793,10.64,11.0,2,26

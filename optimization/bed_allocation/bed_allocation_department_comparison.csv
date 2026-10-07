@@ -1,0 +1,10 @@
+department,baseline_demand,baseline_allocated,baseline_unmet,baseline_unused,optimized_allocated,optimized_unmet,optimized_unused,optimized_transfer,unmet_reduction,allocation_change
+Cardiology,192,56,136,0,56,136,126,0,0,0
+Emergency,823,0,823,0,14,809,0,0,14,14
+General Medicine,336,125,211,1,125,211,267,2,0,0
+ICU,92,0,92,0,14,78,0,0,14,14
+Neurology,148,55,93,1,55,93,127,0,0,0
+Oncology,153,28,125,0,29,124,111,1,1,1
+Orthopedics,170,0,170,0,1,169,125,1,1,1
+Pediatrics,173,42,131,0,43,130,125,1,1,1
+Surgery,227,83,144,1,83,144,127,0,0,0

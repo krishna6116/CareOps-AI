@@ -1,0 +1,63 @@
+========================================================================
+CAREOPS AI — LENGTH-OF-STAY MODEL REPORT
+========================================================================
+
+Generated: 2026-10-05T11:18:57.307824
+
+DATA SOURCES
+------------------------------------------------------------------------
+Admissions: C:\Users\krish\Documents\CareOps-AI\data\synthetic\admissions.csv
+Patients:   C:\Users\krish\Documents\CareOps-AI\data\synthetic\patients.csv
+
+DATASET
+------------------------------------------------------------------------
+Training rows: 9,196
+Testing rows:  2,300
+
+BASELINE MODEL
+------------------------------------------------------------------------
+MAE:  4.4890 days
+RMSE: 5.7750 days
+R²:   -0.0006
+
+RANDOM FOREST MODEL
+------------------------------------------------------------------------
+MAE:  2.5907 days
+RMSE: 3.2265 days
+R²:   0.6877
+MAPE: 26.38%
+
+TRAINING
+------------------------------------------------------------------------
+Training time: 0.39 seconds
+
+TOP FEATURES BY RANDOM FOREST IMPORTANCE
+------------------------------------------------------------------------
+categorical__severity_model_Critical                    0.438747
+categorical__severity_model_High                        0.190407
+categorical__severity_model_Moderate                    0.064911
+categorical__severity_model_Low                         0.062664
+categorical__department_model_ICU                       0.029533
+numeric__procedure_indicator_model                      0.028294
+numeric__icu_required_model                             0.024584
+numeric__comorbidity_count_model                        0.016639
+categorical__diagnosis_category_model_Cancer            0.014489
+categorical__diagnosis_category_model_Other             0.013392
+categorical__diagnosis_category_model_Gastrointestinal  0.008633
+categorical__diagnosis_category_model_Neurological      0.007825
+categorical__diagnosis_category_model_Diabetes          0.007460
+categorical__diagnosis_category_model_Trauma            0.005920
+numeric__age_model                                      0.005359
+
+MODEL INTERPRETATION
+------------------------------------------------------------------------
+The model predicts Length of Stay in days using information available at admission.
+Severity is handled as a categorical feature.
+The train/test split is chronological to reduce future-information leakage.
+Discharge information and the LOS target are not used as predictive features.
+
+DOWNSTREAM USE
+------------------------------------------------------------------------
+Predicted LOS can support hospital occupancy forecasting, discharge planning and bed-allocation optimization in later CareOps-AI modules.
+
+========================================================================

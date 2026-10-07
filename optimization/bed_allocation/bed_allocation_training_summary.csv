@@ -1,0 +1,2 @@
+module,runtime_seconds,forecast_days,baseline_unmet_demand,optimized_unmet_demand,unmet_demand_reduction_percent
+bed_allocation,1.8547,14,664,664,0.0

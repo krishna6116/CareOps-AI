@@ -1,0 +1,10 @@
+index,total_beds,occupied_beds,available_beds,maintenance_beds,total_icu_beds,occupied_icu_beds,available_icu_beds,overall_occupancy,icu_occupancy
+total_beds,,,,,,,,,
+occupied_beds,,,,,,,,,
+available_beds,,,,,,,,,
+maintenance_beds,,,,,,,,,
+total_icu_beds,,,,,,,,,
+occupied_icu_beds,,,,,,,,,
+available_icu_beds,,,,,,,,,
+overall_occupancy,,,,,,,,,
+icu_occupancy,,,,,,,,,

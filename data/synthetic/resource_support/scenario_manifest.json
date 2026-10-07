@@ -1,0 +1,23 @@
+{
+  "data_scope": "synthetic_portfolio_fixture_only",
+  "snapshot_date": "2026-10-04",
+  "seed": 42,
+  "isolation_rules": {
+    "infectious_disease_probability": 0.65,
+    "other_diagnosis_probability": 0.005,
+    "prior_strength_admissions": 100
+  },
+  "limitations": [
+    "Isolation labels are synthetic probability draws, not clinical determinations.",
+    "Bed and staff snapshot dates are assumed to match the latest source-history date.",
+    "Static staff availability is not a live shift-level availability feed.",
+    "Do not use any generated support data for patient care or real staffing decisions."
+  ],
+  "outputs": [
+    "bed_inventory_snapshot.csv",
+    "staff_availability_snapshot.csv",
+    "admission_isolation_labels.csv",
+    "isolation_admission_forecast.csv",
+    "isolation_scenario_rates.csv"
+  ]
+}

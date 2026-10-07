@@ -1,0 +1,17 @@
+{
+  "project": "CareOps AI",
+  "stage": "occupancy_forecasting",
+  "bed_capacity": 230,
+  "historical_days": 1009,
+  "historical_occupancy_source": "daily_operations",
+  "forecast_days": 30,
+  "model": "Ridge regression with lag and seasonal features",
+  "warning_threshold": 0.9,
+  "critical_threshold": 0.95,
+  "normal_days": 30,
+  "warning_days": 0,
+  "critical_days": 0,
+  "average_historical_occupancy_percent": 57.83006166721727,
+  "latest_historical_occupancy_percent": 59.518888888888874,
+  "average_forecast_occupancy_percent": 61.782608695652186
+}

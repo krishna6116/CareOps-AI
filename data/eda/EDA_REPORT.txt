@@ -1,0 +1,792 @@
+
+================================================================================
+CAREOPS AI - EDA REPORT
+================================================================================
+
+DATASET OVERVIEW
+--------------------------------------------------------------------------------
+PATIENTS                  Rows:     50,000 | Columns:  14
+ADMISSIONS                Rows:    120,000 | Columns:  15
+BEDS                      Rows:        230 | Columns:   9
+STAFF                     Rows:        300 | Columns:   8
+APPOINTMENTS              Rows:    120,000 | Columns:  14
+DAILY_OPERATIONS          Rows:      8,964 | Columns:  13
+SHIFTS                    Rows:    194,220 | Columns:  12
+HOSPITAL_SNAPSHOT         Rows:          1 | Columns:  10
+
+================================================================================
+DATA TYPES
+================================================================================
+
+PATIENTS
+  patient_id                          str
+  patient_name                        str
+  age                                 int64
+  gender                              str
+  department                          str
+  diagnosis_category                  str
+  severity                            str
+  admission_type                      str
+  admission_date                      str
+  discharge_date                      str
+  ICU_required                        int64
+  LOS                                 int64
+  procedure_indicator                 int64
+  comorbidity_count                   int64
+
+ADMISSIONS
+  admission_id                        str
+  patient_id                          str
+  patient_name                        str
+  department                          str
+  diagnosis_category                  str
+  severity                            str
+  admission_type                      str
+  admission_date                      str
+  discharge_date                      str
+  ICU_required                        int64
+  LOS                                 int64
+  procedure_indicator                 int64
+  comorbidity_count                   int64
+  assigned_bed_id                     str
+  bed_assigned                        bool
+
+BEDS
+  bed_id                              str
+  ward                                str
+  bed_type                            str
+  status                              str
+  floor                               int64
+  department                          str
+  isolation_capable                   bool
+  emergency_reserve                   bool
+  available_for_emergency             bool
+
+STAFF
+  staff_id                            str
+  staff_name                          str
+  role                                str
+  specialty                           str
+  department                          str
+  availability                        str
+  shift_preference                    str
+  max_hours                           int64
+
+APPOINTMENTS
+  appointment_id                      str
+  patient_id                          str
+  patient_name                        str
+  doctor_id                           str
+  doctor_name                         str
+  department                          str
+  date                                str
+  time                                str
+  duration                            int64
+  priority                            str
+  attended                            str
+  no_show                             int64
+  patient_age                         int64
+  patient_severity                    str
+
+DAILY_OPERATIONS
+  date                                str
+  department                          str
+  admissions                          int64
+  discharges                          int64
+  emergency_cases                     int64
+  ICU_admissions                      int64
+  occupancy                           float64
+  staff_demand                        float64
+  bed_demand                          int64
+  seasonal_multiplier                 float64
+  day_of_week                         str
+  month                               int64
+  year                                int64
+
+SHIFTS
+  shift_id                            str
+  date                                str
+  staff_id                            str
+  staff_name                          str
+  shift                               str
+  department                          str
+  hours                               int64
+  assigned                            str
+  staff_role                          str
+  specialty                           str
+  max_hours                           int64
+  rest_violation                      int64
+
+HOSPITAL_SNAPSHOT
+  snapshot_date                       str
+  total_beds                          int64
+  occupied_beds                       int64
+  available_beds                      int64
+  maintenance_beds                    int64
+  total_icu_beds                      int64
+  occupied_icu_beds                   int64
+  available_icu_beds                  int64
+  overall_occupancy                   float64
+  icu_occupancy                       float64
+
+================================================================================
+MISSING VALUE ANALYSIS
+================================================================================
+
+PATIENTS
+  No missing values.
+
+ADMISSIONS
+  No missing values.
+
+BEDS
+  No missing values.
+
+STAFF
+  No missing values.
+
+APPOINTMENTS
+  No missing values.
+
+DAILY_OPERATIONS
+  No missing values.
+
+SHIFTS
+  No missing values.
+
+HOSPITAL_SNAPSHOT
+  No missing values.
+
+================================================================================
+DUPLICATE ANALYSIS
+================================================================================
+patients                  0 duplicate rows
+admissions                0 duplicate rows
+beds                      0 duplicate rows
+staff                     0 duplicate rows
+appointments              0 duplicate rows
+daily_operations          0 duplicate rows
+shifts                    0 duplicate rows
+hospital_snapshot         0 duplicate rows
+
+================================================================================
+NUMERICAL SUMMARY
+================================================================================
+
+PATIENTS
+            age  ICU_required       LOS  procedure_indicator  comorbidity_count
+count  50000.00      50000.00  50000.00             50000.00           50000.00
+mean      51.46          0.19     12.34                 0.34               1.12
+std       22.38          0.39      6.39                 0.47               1.14
+min        0.00          0.00      1.00                 0.00               0.00
+25%       36.00          0.00      8.00                 0.00               0.00
+50%       52.00          0.00     11.00                 0.00               1.00
+75%       67.00          0.00     16.00                 1.00               2.00
+max      100.00          1.00     43.00                 1.00               8.00
+
+ADMISSIONS
+       ICU_required        LOS  procedure_indicator  comorbidity_count
+count     120000.00  120000.00            120000.00          120000.00
+mean           0.19      12.42                 0.36               1.12
+std            0.39       6.48                 0.48               1.15
+min            0.00       1.00                 0.00               0.00
+25%            0.00       8.00                 0.00               0.00
+50%            0.00      11.00                 0.00               1.00
+75%            0.00      16.00                 1.00               2.00
+max            1.00      44.00                 1.00               8.00
+
+BEDS
+        floor
+count  230.00
+mean     2.04
+std      0.36
+min      1.00
+25%      2.00
+50%      2.00
+75%      2.00
+max      3.00
+
+STAFF
+       max_hours
+count     300.00
+mean       36.23
+std         7.68
+min        24.00
+25%        32.00
+50%        36.00
+75%        40.00
+max        48.00
+
+APPOINTMENTS
+        duration    no_show  patient_age
+count  120000.00  120000.00    120000.00
+mean       37.49       0.10        51.56
+std        16.76       0.31        22.43
+min        15.00       0.00         0.00
+25%        30.00       0.00        36.00
+50%        30.00       0.00        52.00
+75%        45.00       0.00        67.00
+max        60.00       1.00       100.00
+
+DAILY_OPERATIONS
+       admissions  discharges  emergency_cases  ICU_admissions  occupancy  staff_demand  bed_demand  seasonal_multiplier    month     year
+count     8964.00     8964.00          8964.00         8964.00    8964.00       8964.00     8964.00              8964.00  8964.00  8964.00
+mean        14.23       12.74             6.51            1.44      88.16         11.90        5.31                 1.03     6.09  2024.90
+std         12.54       11.81            12.61            1.89       3.27         12.29        4.92                 0.06     3.31     0.79
+min          0.00        0.00             0.00            0.00      77.24          0.70        0.00                 0.96     1.00  2024.00
+25%          7.00        6.00             1.00            0.00      85.92          5.65        2.00                 0.96     3.00  2024.00
+50%         10.00        9.00             2.00            1.00      88.16          7.65        4.00                 1.02     6.00  2025.00
+75%         15.00       14.00             4.00            2.00      90.39         10.95        6.00                 1.04     9.00  2026.00
+max         71.00       71.00            66.00           11.00      99.50         64.50       36.00                 1.12    12.00  2026.00
+
+SHIFTS
+           hours  max_hours  rest_violation
+count  194220.00  194220.00       194220.00
+mean        8.55      36.23            0.05
+std         0.89       7.66            0.21
+min         8.00      24.00            0.00
+25%         8.00      32.00            0.00
+50%         8.00      36.00            0.00
+75%        10.00      40.00            0.00
+max        10.00      48.00            1.00
+
+HOSPITAL_SNAPSHOT
+       total_beds  occupied_beds  available_beds  maintenance_beds  total_icu_beds  occupied_icu_beds  available_icu_beds  overall_occupancy  icu_occupancy
+count         1.0            1.0             1.0               1.0             1.0                1.0                 1.0               1.00            1.0
+mean        230.0          190.0            36.0               4.0            20.0               18.0                 2.0              82.61           90.0
+std           NaN            NaN             NaN               NaN             NaN                NaN                 NaN                NaN            NaN
+min         230.0          190.0            36.0               4.0            20.0               18.0                 2.0              82.61           90.0
+25%         230.0          190.0            36.0               4.0            20.0               18.0                 2.0              82.61           90.0
+50%         230.0          190.0            36.0               4.0            20.0               18.0                 2.0              82.61           90.0
+75%         230.0          190.0            36.0               4.0            20.0               18.0                 2.0              82.61           90.0
+max         230.0          190.0            36.0               4.0            20.0               18.0                 2.0              82.61           90.0
+
+================================================================================
+CATEGORICAL VARIABLE SUMMARY
+================================================================================
+
+PATIENTS
+patient_id                          Unique values: 50000
+patient_name                        Unique values: 40314
+gender                              Unique values: 3
+department                          Unique values: 9
+diagnosis_category                  Unique values: 10
+severity                            Unique values: 4
+admission_type                      Unique values: 4
+admission_date                      Unique values: 966
+discharge_date                      Unique values: 994
+
+ADMISSIONS
+admission_id                        Unique values: 120000
+patient_id                          Unique values: 45395
+patient_name                        Unique values: 37170
+department                          Unique values: 9
+diagnosis_category                  Unique values: 10
+severity                            Unique values: 4
+admission_type                      Unique values: 4
+admission_date                      Unique values: 966
+discharge_date                      Unique values: 998
+assigned_bed_id                     Unique values: 220
+bed_assigned                        Unique values: 1
+
+BEDS
+bed_id                              Unique values: 230
+ward                                Unique values: 9
+bed_type                            Unique values: 4
+status                              Unique values: 3
+department                          Unique values: 9
+isolation_capable                   Unique values: 2
+emergency_reserve                   Unique values: 2
+available_for_emergency             Unique values: 2
+
+STAFF
+staff_id                            Unique values: 300
+staff_name                          Unique values: 299
+role                                Unique values: 6
+specialty                           Unique values: 10
+department                          Unique values: 9
+availability                        Unique values: 3
+shift_preference                    Unique values: 3
+
+APPOINTMENTS
+appointment_id                      Unique values: 120000
+patient_id                          Unique values: 45404
+patient_name                        Unique values: 37094
+doctor_id                           Unique values: 88
+doctor_name                         Unique values: 88
+department                          Unique values: 9
+date                                Unique values: 996
+time                                Unique values: 15
+priority                            Unique values: 3
+attended                            Unique values: 2
+patient_severity                    Unique values: 4
+
+DAILY_OPERATIONS
+date                                Unique values: 996
+department                          Unique values: 9
+day_of_week                         Unique values: 7
+
+SHIFTS
+shift_id                            Unique values: 194220
+date                                Unique values: 996
+staff_id                            Unique values: 300
+staff_name                          Unique values: 299
+shift                               Unique values: 3
+department                          Unique values: 9
+assigned                            Unique values: 2
+staff_role                          Unique values: 6
+specialty                           Unique values: 10
+
+HOSPITAL_SNAPSHOT
+snapshot_date                       Unique values: 1
+
+================================================================================
+PATIENT ANALYSIS
+================================================================================
+
+PATIENT AGE
+count    50000.00
+mean        51.46
+std         22.38
+min          0.00
+25%         36.00
+50%         52.00
+75%         67.00
+max        100.00
+
+GENDER DISTRIBUTION
+gender
+Female    24639
+Male      23947
+Other      1414
+
+PATIENTS BY DEPARTMENT
+department
+Emergency           8983
+General Medicine    8933
+Surgery             5989
+ICU                 5037
+Cardiology          5025
+Oncology            4093
+Orthopedics         3983
+Neurology           3979
+Pediatrics          3978
+
+DIAGNOSIS DISTRIBUTION
+diagnosis_category
+Neurological          5055
+Respiratory           5052
+Cancer                5047
+Gastrointestinal      5027
+Orthopedic            5015
+Cardiovascular        5006
+Diabetes              5003
+Infectious Disease    4959
+Trauma                4924
+Other                 4912
+
+SEVERITY DISTRIBUTION
+severity
+Moderate    19793
+High        13674
+Low         12517
+Critical     4016
+
+ADMISSION TYPE
+admission_type
+Elective     17533
+Emergency    17531
+Urgent       10000
+Transfer      4936
+
+ICU REQUIREMENT
+ICU_required
+0    40466
+1     9534
+
+PROCEDURE INDICATOR
+procedure_indicator
+0    33015
+1    16985
+
+COMORBIDITY COUNT
+count    50000.00
+mean         1.12
+std          1.14
+min          0.00
+25%          0.00
+50%          1.00
+75%          2.00
+max          8.00
+
+================================================================================
+ICU REQUIREMENT BY SEVERITY
+================================================================================
+ICU_required      0      1
+severity                  
+Critical      26.05  73.95
+High          70.26  29.74
+Low           96.31   3.69
+Moderate      89.71  10.29
+
+================================================================================
+PATIENT LENGTH OF STAY
+================================================================================
+count    50000.00
+mean        12.34
+std          6.39
+min          1.00
+25%          8.00
+50%         11.00
+75%         16.00
+max         43.00
+
+AVERAGE LOS BY SEVERITY
+severity
+Critical    25.16
+High        15.77
+Moderate    10.67
+Low          7.14
+
+================================================================================
+ADMISSIONS ANALYSIS
+================================================================================
+
+ADMISSIONS BY DEPARTMENT
+department
+Emergency           21586
+General Medicine    21330
+Surgery             14494
+Cardiology          12218
+ICU                 12117
+Oncology             9720
+Neurology            9516
+Orthopedics          9510
+Pediatrics           9509
+
+ADMISSION TYPE DISTRIBUTION
+admission_type
+Emergency    43602
+Elective     38323
+Urgent       26007
+Transfer     12068
+
+ICU ADMISSIONS
+ICU_required
+0    96968
+1    23032
+
+================================================================================
+BED ANALYSIS
+================================================================================
+
+BED STATUS
+status
+Occupied       190
+Available       36
+Maintenance      4
+
+BED TYPE
+bed_type
+General      190
+ICU           20
+Emergency     10
+Isolation     10
+
+BEDS BY DEPARTMENT
+department
+General Medicine    100
+Surgery              25
+ICU                  20
+Cardiology           20
+Neurology            15
+Orthopedics          15
+Pediatrics           15
+Emergency            10
+Oncology             10
+
+================================================================================
+STAFF ANALYSIS
+================================================================================
+
+STAFF BY ROLE
+role
+Nurse            133
+Doctor            63
+Administrator     36
+Surgeon           25
+Technician        25
+Therapist         18
+
+STAFF BY SPECIALTY
+specialty
+Radiology             46
+General Surgery       41
+Cardiology            34
+Critical Care         31
+Internal Medicine     28
+Emergency Medicine    27
+Oncology              27
+Orthopedics           24
+Neurology             22
+Pediatrics            20
+
+STAFF BY DEPARTMENT
+department
+Oncology            44
+Orthopedics         43
+Emergency           38
+Surgery             35
+Cardiology          33
+ICU                 29
+Pediatrics          28
+General Medicine    26
+Neurology           24
+
+================================================================================
+APPOINTMENT ANALYSIS
+================================================================================
+
+ATTENDANCE
+attended
+Yes    107450
+No      12550
+
+NO-SHOW
+no_show
+0    107450
+1     12550
+
+APPOINTMENTS BY DEPARTMENT
+department
+Emergency           21607
+General Medicine    21364
+Surgery             14405
+ICU                 12085
+Cardiology          12005
+Oncology             9787
+Orthopedics          9654
+Pediatrics           9556
+Neurology            9537
+
+APPOINTMENT PRIORITY
+priority
+Routine    84295
+Urgent     23900
+High       11805
+
+================================================================================
+NO-SHOW RATE
+================================================================================
+No-show appointments: 12,550
+Total appointments: 120,000
+No-show rate: 10.46%
+
+================================================================================
+DAILY OPERATIONS ANALYSIS
+================================================================================
+
+       admissions  discharges  emergency_cases  ICU_admissions  occupancy  staff_demand  bed_demand
+count     8964.00     8964.00          8964.00         8964.00    8964.00       8964.00     8964.00
+mean        14.23       12.74             6.51            1.44      88.16         11.90        5.31
+std         12.54       11.81            12.61            1.89       3.27         12.29        4.92
+min          0.00        0.00             0.00            0.00      77.24          0.70        0.00
+25%          7.00        6.00             1.00            0.00      85.92          5.65        2.00
+50%         10.00        9.00             2.00            1.00      88.16          7.65        4.00
+75%         15.00       14.00             4.00            2.00      90.39         10.95        6.00
+max         71.00       71.00            66.00           11.00      99.50         64.50       36.00
+
+================================================================================
+OCCUPANCY ANALYSIS
+================================================================================
+count    8964.00
+mean       88.16
+std         3.27
+min        77.24
+25%        85.92
+50%        88.16
+75%        90.39
+max        99.50
+
+================================================================================
+SEASONAL DEMAND ANALYSIS
+================================================================================
+count    8964.000
+mean        1.032
+std         0.058
+min         0.960
+25%         0.960
+50%         1.020
+75%         1.040
+max         1.120
+
+AVERAGE OPERATIONS BY MONTH
+       admissions  emergency_cases  ICU_admissions  occupancy
+month                                                        
+1           15.35             7.05            1.58      88.51
+2           15.53             7.08            1.53      88.56
+3           14.13             6.40            1.41      88.05
+4           14.18             6.52            1.41      88.07
+5           14.09             6.43            1.39      88.15
+6           13.21             5.99            1.38      87.89
+7           13.29             6.14            1.35      87.92
+8           13.42             6.14            1.35      87.87
+9           14.18             6.46            1.45      88.16
+10          14.15             6.58            1.46      88.32
+11          14.29             6.47            1.36      88.20
+12          15.43             7.15            1.59      88.46
+
+================================================================================
+DAY-OF-WEEK DEMAND ANALYSIS
+================================================================================
+             admissions  discharges  emergency_cases  ICU_admissions  occupancy
+day_of_week                                                                    
+Friday            15.01       13.45             6.78            1.44      88.35
+Monday            15.15       13.58             6.80            1.43      88.48
+Saturday          13.17       11.76             6.13            1.39      87.87
+Sunday            12.48       11.02             5.94            1.47      87.69
+Thursday          14.26       12.73             6.47            1.43      88.23
+Tuesday           14.93       13.45             6.69            1.47      88.31
+Wednesday         14.62       13.18             6.77            1.43      88.21
+
+================================================================================
+SHIFT ANALYSIS
+================================================================================
+
+SHIFT DISTRIBUTION
+shift
+Morning    75107
+Evening    66011
+Night      53102
+
+SHIFT ASSIGNMENT
+assigned
+Yes    178731
+No      15489
+
+REST VIOLATIONS
+rest_violation
+0    185105
+1      9115
+
+================================================================================
+CORRELATION ANALYSIS
+================================================================================
+
+PATIENTS CORRELATION MATRIX
+                      age  ICU_required   LOS  procedure_indicator  comorbidity_count
+age                  1.00          0.03  0.15                 0.00               0.27
+ICU_required         0.03          1.00  0.57                 0.16               0.12
+LOS                  0.15          0.57  1.00                 0.43               0.38
+procedure_indicator  0.00          0.16  0.43                 1.00               0.09
+comorbidity_count    0.27          0.12  0.38                 0.09               1.00
+
+ADMISSIONS CORRELATION MATRIX
+                     ICU_required   LOS  procedure_indicator  comorbidity_count
+ICU_required                 1.00  0.57                 0.19               0.11
+LOS                          0.57  1.00                 0.46               0.37
+procedure_indicator          0.19  0.46                 1.00               0.10
+comorbidity_count            0.11  0.37                 0.10               1.00
+
+APPOINTMENTS CORRELATION MATRIX
+             duration  no_show  patient_age
+duration         1.00     0.02        -0.00
+no_show          0.02     1.00        -0.02
+patient_age     -0.00    -0.02         1.00
+
+DAILY_OPERATIONS CORRELATION MATRIX
+                     admissions  discharges  emergency_cases  ICU_admissions  occupancy  staff_demand  bed_demand  seasonal_multiplier  month  year
+admissions                 1.00        0.99             0.90            0.41       0.11          0.96        0.94                 0.06  -0.02 -0.01
+discharges                 0.99        1.00             0.89            0.40       0.10          0.95        0.88                 0.06  -0.02 -0.01
+emergency_cases            0.90        0.89             1.00            0.50       0.01          0.96        0.84                 0.03  -0.01 -0.00
+ICU_admissions             0.41        0.40             0.50            1.00      -0.00          0.60        0.38                 0.04  -0.01  0.00
+occupancy                  0.11        0.10             0.01           -0.00       1.00          0.06        0.11                 0.07  -0.02 -0.00
+staff_demand               0.96        0.95             0.96            0.60       0.06          1.00        0.90                 0.05  -0.01 -0.01
+bed_demand                 0.94        0.88             0.84            0.38       0.11          0.90        1.00                 0.06  -0.02 -0.01
+seasonal_multiplier        0.06        0.06             0.03            0.04       0.07          0.05        0.06                 1.00  -0.24 -0.07
+month                     -0.02       -0.02            -0.01           -0.01      -0.02         -0.01       -0.02                -0.24   1.00 -0.18
+year                      -0.01       -0.01            -0.00            0.00      -0.00         -0.01       -0.01                -0.07  -0.18  1.00
+
+SHIFTS CORRELATION MATRIX
+                hours  max_hours  rest_violation
+hours            1.00       0.03           -0.14
+max_hours        0.03       1.00            0.01
+rest_violation  -0.14       0.01            1.00
+
+HOSPITAL_SNAPSHOT CORRELATION MATRIX
+                    total_beds  occupied_beds  available_beds  maintenance_beds  total_icu_beds  occupied_icu_beds  available_icu_beds  overall_occupancy  icu_occupancy
+total_beds                 NaN            NaN             NaN               NaN             NaN                NaN                 NaN                NaN            NaN
+occupied_beds              NaN            NaN             NaN               NaN             NaN                NaN                 NaN                NaN            NaN
+available_beds             NaN            NaN             NaN               NaN             NaN                NaN                 NaN                NaN            NaN
+maintenance_beds           NaN            NaN             NaN               NaN             NaN                NaN                 NaN                NaN            NaN
+total_icu_beds             NaN            NaN             NaN               NaN             NaN                NaN                 NaN                NaN            NaN
+occupied_icu_beds          NaN            NaN             NaN               NaN             NaN                NaN                 NaN                NaN            NaN
+available_icu_beds         NaN            NaN             NaN               NaN             NaN                NaN                 NaN                NaN            NaN
+overall_occupancy          NaN            NaN             NaN               NaN             NaN                NaN                 NaN                NaN            NaN
+icu_occupancy              NaN            NaN             NaN               NaN             NaN                NaN                 NaN                NaN            NaN
+
+================================================================================
+SEVERITY VS LENGTH OF STAY
+================================================================================
+          count   mean  median  min  max
+severity                                
+Critical   4016  25.16    25.0    9   43
+High      13674  15.77    16.0    4   33
+Low       12517   7.14     7.0    1   23
+Moderate  19793  10.67    11.0    2   26
+
+================================================================================
+ICU REQUIREMENT VS LENGTH OF STAY
+================================================================================
+              count   mean  median  min  max
+ICU_required                                
+0             40466  10.58    10.0    1   38
+1              9534  19.82    19.0    4   43
+
+================================================================================
+COMORBIDITY COUNT VS LOS
+================================================================================
+comorbidity_count
+0     9.90
+1    12.17
+2    14.36
+3    16.22
+4    18.22
+5    20.12
+6    22.25
+7    21.65
+8    21.43
+
+================================================================================
+DEPARTMENT VS LENGTH OF STAY
+================================================================================
+department
+Orthopedics         12.47
+Oncology            12.44
+Emergency           12.41
+Neurology           12.38
+Cardiology          12.38
+General Medicine    12.37
+Pediatrics          12.29
+Surgery             12.18
+ICU                 12.17
+
+================================================================================
+EMERGENCY CASES VS ADMISSIONS CORRELATION
+================================================================================
+                 admissions  emergency_cases
+admissions              1.0              0.9
+emergency_cases         0.9              1.0
+
+Correlation between total admissions and ICU admissions: 0.406
+
+Correlation between bed demand and occupancy: 0.109
+
+Correlation between staff demand and admissions: 0.962
+
+================================================================================
+HOSPITAL SNAPSHOT
+================================================================================
+
+snapshot_date  total_beds  occupied_beds  available_beds  maintenance_beds  total_icu_beds  occupied_icu_beds  available_icu_beds  overall_occupancy  icu_occupancy
+   2026-09-22         230            190              36                 4              20                 18                   2              82.61           90.0

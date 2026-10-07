@@ -1,0 +1,2 @@
+planning_date_start,planning_date_end,appointments_requested,appointments_scheduled,appointments_unassigned,baseline_unavailable_doctor_bookings,baseline_off_shift_doctor_bookings,baseline_specialty_mismatch_bookings,optimized_unavailable_doctor_bookings,optimized_off_shift_doctor_bookings,baseline_doctor_time_conflicts,optimized_doctor_time_conflicts,doctor_changes,mean_no_show_risk,mean_schedule_shift_minutes
+2026-10-04,2026-10-04,140,140,0,2,49,0,0,0,12,0,49,0.1265,14.68

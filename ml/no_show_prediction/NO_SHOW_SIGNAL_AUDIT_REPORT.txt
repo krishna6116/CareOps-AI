@@ -1,0 +1,54 @@
+CAREOPS-AI — NO-SHOW SIGNAL AUDIT REPORT
+================================================================================
+
+Purpose:
+Determine whether the existing synthetic appointment dataset contains meaningful learnable signal for predicting patient no-shows.
+
+Source file: C:\Users\krish\Documents\CareOps-AI\data\processed\appointments.csv
+Rows: 120,000
+Columns: 31
+
+TARGET DISTRIBUTION
+--------------------------------------------------------------------------------
+Show:    107,450
+No-show: 12,550
+No-show rate: 10.4583%
+
+TARGET CONSISTENCY
+--------------------------------------------------------------------------------
+Consistency: 100.0
+
+PATIENT HISTORY
+--------------------------------------------------------------------------------
+Repeat appointment percentage: 62.16%
+Historical no-show-rate correlation: 0.2565335789319699
+
+BASELINE
+--------------------------------------------------------------------------------
+Baseline PR-AUC: 0.10382556593518005
+
+XGBOOST SIGNAL TEST
+--------------------------------------------------------------------------------
+ROC-AUC: 0.5403139144032558
+PR-AUC: 0.11691753929187215
+Accuracy @ 0.50: 0.54725
+Precision @ 0.50: 0.11496439970537688
+Recall @ 0.50: 0.4990674127364775
+F1 @ 0.50: 0.18687952107757547
+
+FINAL SIGNAL CONCLUSION
+--------------------------------------------------------------------------------
+WEAK OR MOSTLY RANDOM SIGNAL
+
+The dataset appears to contain limited predictive information. Extensive model tuning is unlikely to produce a reliable improvement unless the synthetic data-generating process is changed.
+
+Evidence:
+- XGBoost ROC-AUC is 0.5403, which is very close to random ranking.
+- Categorical group no-show rates are relatively similar.
+- Numeric features show weak direct correlation with no-show status.
+- Historical patient no-show behavior contains noticeable predictive signal.
+
+Audit runtime: 4.19 seconds
+
+IMPORTANT:
+This audit does not modify the source appointment dataset or the existing no-show model.

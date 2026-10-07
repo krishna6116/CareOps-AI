@@ -1,0 +1,8 @@
+dataset,rows,columns,missing_values,duplicate_rows
+beds,230,9,0,0
+daily_operations,8865,13,0,0
+shifts,192075,12,0,0
+occupancy_forecast,30,6,0,0
+icu_forecast,14,2,0,0
+los_predictions,24000,12,0,0
+hospital_snapshot,1,10,0,0

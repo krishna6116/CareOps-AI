@@ -1,0 +1,9 @@
+metric,value
+total_rows,120000.0
+feature_count,77.0
+train_rows,78000.0
+validation_rows,18000.0
+test_rows,24000.0
+best_iteration,460.0
+selected_threshold,0.2
+training_seconds,15.546573600033298

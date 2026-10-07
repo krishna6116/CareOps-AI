@@ -1,0 +1,34 @@
+CAREOPS AI - OCCUPANCY FORECASTING REPORT
+============================================================
+
+Historical period: 2024-01-01 to 2026-10-05
+Historical days: 1009
+Historical occupancy source: daily_operations
+Bed capacity: 230
+Average historical occupancy: 57.83%
+Latest historical occupancy: 59.52%
+
+MODEL PERFORMANCE
+------------------------------------------------------------
+MAE: 0.026583
+RMSE: 0.033038
+MAPE: 4.61%
+Seasonal naive MAE: 0.050856
+Seasonal naive RMSE: 0.061337
+
+30-DAY FORECAST
+------------------------------------------------------------
+Forecast days: 30
+Normal days: 30
+Warning days: 0
+Critical days: 0
+Average forecast occupancy: 61.78%
+First forecast occupancy: 61.74%
+Last forecast occupancy: 61.30%
+
+Alert thresholds:
+NORMAL: < 90%
+WARNING: 90% - 94.99%
+CRITICAL: >= 95%
+
+Important: Forecasts are operational decision-support outputs based on synthetic data. They are not clinical recommendations or predictions about individual patients.

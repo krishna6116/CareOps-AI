@@ -1,0 +1,5 @@
+bed_type,available_beds,isolation_capable
+emergency,1,1
+general,30,0
+icu,2,2
+isolation,3,3

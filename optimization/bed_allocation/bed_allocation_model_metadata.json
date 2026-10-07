@@ -1,0 +1,71 @@
+{
+    "project": "CareOps-AI",
+    "module": "Bed Allocation Optimization",
+    "generated_at": "2026-09-21T07:10:41.278586",
+    "python_version": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "random_seed": 42,
+    "ortools_version": "9.15.6755",
+    "optimization_engine": "OR-Tools CP-SAT",
+    "forecast_horizon_days": 14,
+    "forecast_start": "2026-09-12",
+    "forecast_end": "2026-09-25",
+    "time_limit_seconds": 30,
+    "num_search_workers": 5,
+    "emergency_reserve_percent": 0.1,
+    "staff_hours_per_bed_per_day": 8.0,
+    "objective_weights": {
+        "unmet_demand": 1000,
+        "icu_unmet": 2500,
+        "emergency_reserve_violation": 3000,
+        "transfer_pressure": 100,
+        "unused_capacity": 1,
+        "reallocation": 5
+    },
+    "current_capacity": {
+        "snapshot_date": "2026-09-11 00:00:00",
+        "total_beds": 230,
+        "occupied_beds": 190,
+        "available_beds": 31,
+        "maintenance_beds": 9,
+        "total_icu_beds": 20,
+        "occupied_icu_beds": 18,
+        "available_icu_beds": 2,
+        "overall_occupancy": 82.61,
+        "icu_occupancy": 90.0,
+        "bed_level_available_beds": 31,
+        "bed_level_maintenance_beds": 9
+    },
+    "solver_days": 14,
+    "input_files": {
+        "beds": "C:\\Users\\krish\\Documents\\CareOps-AI\\data\\processed\\beds.csv",
+        "daily_operations": "C:\\Users\\krish\\Documents\\CareOps-AI\\data\\processed\\daily_operations.csv",
+        "shifts": "C:\\Users\\krish\\Documents\\CareOps-AI\\data\\processed\\shifts.csv",
+        "hospital_snapshot": "C:\\Users\\krish\\Documents\\CareOps-AI\\data\\processed\\hospital_snapshot.csv",
+        "los_predictions": "C:\\Users\\krish\\Documents\\CareOps-AI\\ml\\los_prediction\\los_predictions.csv",
+        "occupancy_forecast": "C:\\Users\\krish\\Documents\\CareOps-AI\\ml\\occupancy_forecasting\\occupancy_future_forecast.csv",
+        "icu_forecast": "C:\\Users\\krish\\Documents\\CareOps-AI\\ml\\icu_demand_forecasting\\icu_future_forecast.csv"
+    },
+    "comparison_summary": {
+        "baseline": {
+            "unmet_demand": 664,
+            "transfer_pressure": 0,
+            "unused_capacity": 1601,
+            "allocated_beds": 989,
+            "demand": 1653
+        },
+        "optimized": {
+            "unmet_demand": 664,
+            "transfer_pressure": 0,
+            "unused_capacity": 1601,
+            "allocated_beds": 989,
+            "demand": 1653
+        },
+        "unmet_demand_reduction_percent": 0.0,
+        "transfer_pressure_reduction_percent": 0.0,
+        "unused_capacity_reduction_percent": 0.0,
+        "baseline_fill_rate_percent": 59.83061101028433,
+        "optimized_fill_rate_percent": 59.83061101028433
+    },
+    "source_data_modified": false
+}

@@ -1,0 +1,9 @@
+-r backend/requirements.txt
+-r requirements-postgresql.txt
+numpy>=1.26.0
+pandas>=2.2.0
+scikit-learn>=1.5.0
+xgboost>=2.1.0
+ortools>=9.11.0
+matplotlib>=3.9.0
+joblib>=1.4.0

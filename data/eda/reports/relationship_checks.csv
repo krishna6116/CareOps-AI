@@ -1,0 +1,4 @@
+relationship,missing_relationships
+admissions -> patients,0
+appointments -> patients,0
+shifts -> staff,0

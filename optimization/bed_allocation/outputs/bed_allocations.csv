@@ -1,0 +1,147 @@
+request_id,patient_id,planning_date,admission_date,department,original_department,required_bed_type,admission_type,icu_required,emergency_required,isolation_required,priority,allocation_status,bed_id,bed_department,bed_type,bed_status,bed_isolation_capable,reason,objective_cost
+REQ_00001,P042006,2026-09-23,2026-08-03,emergency,emergency,emergency,urgent,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00002,P034759,2026-09-23,2026-08-02,oncology,oncology,icu,emergency,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00003,P002251,2026-09-23,2026-08-04,cardiology,cardiology,icu,elective,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00004,P023961,2026-09-23,2026-07-30,emergency,emergency,emergency,emergency,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00005,P045856,2026-09-23,2026-07-31,orthopedics,orthopedics,icu,emergency,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00006,P028707,2026-09-23,2026-07-30,emergency,emergency,emergency,emergency,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00007,P001329,2026-09-23,2026-07-31,neurology,neurology,icu,emergency,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00008,P004075,2026-09-23,2026-08-16,icu,icu,icu,urgent,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00009,P016600,2026-09-23,2026-08-22,emergency,emergency,emergency,emergency,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00010,P000155,2026-09-23,2026-07-25,emergency,emergency,icu,urgent,True,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00011,P036929,2026-09-23,2026-07-27,emergency,emergency,emergency,urgent,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00012,P024874,2026-09-23,2026-08-14,orthopedics,orthopedics,orthopedics,emergency,False,False,False,5,ASSIGNED,B0196,orthopedics,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00013,P034050,2026-09-23,2026-08-19,emergency,emergency,icu,emergency,True,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00014,P005278,2026-09-23,2026-08-01,general medicine,general medicine,general,emergency,False,False,False,5,ASSIGNED,B0092,general medicine,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00015,P028719,2026-09-23,2026-08-13,surgery,surgery,surgery,emergency,False,False,False,5,ASSIGNED,B0135,surgery,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00016,P040802,2026-09-23,2026-08-05,cardiology,cardiology,icu,emergency,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00017,P043417,2026-09-23,2026-08-02,emergency,emergency,emergency,elective,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00018,P020688,2026-09-23,2026-08-16,cardiology,cardiology,icu,transfer,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00019,P008798,2026-09-23,2026-08-21,general medicine,general medicine,general,emergency,False,False,False,5,ASSIGNED,B0099,general medicine,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00020,P046465,2026-09-23,2026-07-25,general medicine,general medicine,icu,emergency,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00021,P042228,2026-09-23,2026-07-27,surgery,surgery,surgery,emergency,False,False,False,5,ASSIGNED,B0155,surgery,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00022,P032841,2026-09-23,2026-08-18,pediatrics,pediatrics,icu,elective,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00023,P025295,2026-09-23,2026-07-28,emergency,emergency,emergency,transfer,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00024,P043741,2026-09-23,2026-08-11,cardiology,cardiology,cardiology,emergency,False,False,False,5,ASSIGNED,B0157,cardiology,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00025,P024425,2026-09-23,2026-08-21,general medicine,general medicine,icu,emergency,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00026,P028688,2026-09-23,2026-08-03,general medicine,general medicine,general,emergency,False,False,False,5,ASSIGNED,B0094,general medicine,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00027,P029205,2026-09-23,2026-08-06,emergency,emergency,emergency,emergency,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00028,P010700,2026-09-23,2026-08-04,surgery,surgery,icu,transfer,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00029,P049570,2026-09-23,2026-08-20,neurology,neurology,neurology,emergency,False,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00030,P016363,2026-09-23,2026-08-21,icu,icu,icu,emergency,False,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00031,P042220,2026-09-23,2026-08-23,emergency,emergency,icu,urgent,True,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00032,P028398,2026-09-23,2026-08-17,general medicine,general medicine,general,emergency,False,False,False,5,ASSIGNED,B0095,general medicine,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00033,P047089,2026-09-23,2026-08-05,neurology,neurology,neurology,emergency,False,False,False,5,ASSIGNED,B0189,neurology,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00034,P004189,2026-09-23,2026-07-28,emergency,emergency,emergency,emergency,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00035,P007564,2026-09-23,2026-08-07,emergency,emergency,emergency,transfer,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00036,P032581,2026-09-23,2026-08-01,general medicine,general medicine,general,emergency,False,False,False,5,ASSIGNED,B0096,general medicine,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00037,P014321,2026-09-23,2026-08-19,cardiology,cardiology,cardiology,emergency,False,False,False,5,ASSIGNED,B0158,cardiology,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00038,P002329,2026-09-23,2026-07-25,icu,icu,icu,emergency,False,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00039,P044372,2026-09-23,2026-07-26,neurology,neurology,neurology,emergency,False,False,False,5,ASSIGNED,B0185,neurology,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00040,P009865,2026-09-23,2026-08-13,emergency,emergency,icu,emergency,True,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00041,P028846,2026-09-23,2026-07-25,general medicine,general medicine,general,emergency,False,False,False,5,ASSIGNED,B0098,general medicine,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00042,P004975,2026-09-23,2026-07-30,emergency,emergency,emergency,elective,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00043,P026235,2026-09-23,2026-07-28,icu,icu,icu,emergency,False,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00044,P027572,2026-09-23,2026-08-06,cardiology,cardiology,cardiology,emergency,False,False,False,5,ASSIGNED,B0167,cardiology,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00045,P031662,2026-09-23,2026-08-06,oncology,oncology,icu,elective,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00046,P032947,2026-09-23,2026-07-27,emergency,emergency,icu,urgent,True,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00047,P031872,2026-09-23,2026-08-23,neurology,neurology,icu,emergency,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00048,P016113,2026-09-23,2026-07-30,cardiology,cardiology,cardiology,emergency,False,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00049,P017124,2026-09-23,2026-08-04,neurology,neurology,neurology,emergency,False,False,False,5,ASSIGNED,B0183,neurology,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00050,P011342,2026-09-23,2026-08-03,orthopedics,orthopedics,orthopedics,emergency,False,False,False,5,ASSIGNED,B0202,orthopedics,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00051,P021650,2026-09-23,2026-07-29,oncology,oncology,icu,emergency,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00052,P000290,2026-09-23,2026-08-01,surgery,surgery,icu,urgent,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00053,P044538,2026-09-23,2026-07-27,emergency,emergency,emergency,urgent,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00054,P004696,2026-09-23,2026-08-05,cardiology,cardiology,cardiology,emergency,False,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00055,P019801,2026-09-23,2026-08-10,oncology,oncology,oncology,emergency,False,False,False,5,ASSIGNED,B0221,oncology,isolation,available,True,Safe compatible bed assigned by CP-SAT.,0
+REQ_00056,P009928,2026-09-23,2026-08-14,icu,icu,icu,emergency,False,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00057,P018994,2026-09-23,2026-08-22,oncology,oncology,oncology,emergency,False,False,False,5,ASSIGNED,B0223,oncology,isolation,available,True,Safe compatible bed assigned by CP-SAT.,0
+REQ_00058,P028756,2026-09-23,2026-08-17,general medicine,general medicine,icu,emergency,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00059,P016375,2026-09-23,2026-08-05,surgery,surgery,surgery,emergency,False,False,False,5,ASSIGNED,B0148,surgery,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00060,P044223,2026-09-23,2026-07-30,cardiology,cardiology,icu,elective,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00061,P024004,2026-09-23,2026-07-25,oncology,oncology,oncology,emergency,False,False,False,5,ASSIGNED,B0230,oncology,isolation,available,True,Safe compatible bed assigned by CP-SAT.,0
+REQ_00062,P005120,2026-09-23,2026-08-18,general medicine,general medicine,icu,emergency,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00063,P036939,2026-09-23,2026-08-20,cardiology,cardiology,cardiology,emergency,False,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00064,P048869,2026-09-23,2026-07-27,emergency,emergency,emergency,elective,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00065,P019903,2026-09-23,2026-08-23,emergency,emergency,emergency,emergency,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00066,P044708,2026-09-23,2026-08-12,emergency,emergency,emergency,transfer,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00067,P004110,2026-09-23,2026-08-02,icu,icu,icu,emergency,False,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00068,P023289,2026-09-23,2026-08-09,pediatrics,pediatrics,icu,elective,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00069,P006868,2026-09-23,2026-08-09,neurology,neurology,neurology,emergency,False,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00070,P009005,2026-09-23,2026-08-11,emergency,emergency,emergency,urgent,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00071,P037555,2026-09-23,2026-08-07,emergency,emergency,icu,elective,True,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00072,P013868,2026-09-23,2026-07-29,surgery,surgery,surgery,emergency,False,False,False,5,ASSIGNED,B0147,surgery,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00073,P039613,2026-09-23,2026-08-08,pediatrics,pediatrics,icu,emergency,True,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00074,P026446,2026-09-23,2026-08-23,emergency,emergency,emergency,elective,False,True,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00075,P036567,2026-09-23,2026-07-26,general medicine,general medicine,general,emergency,False,False,False,5,ASSIGNED,B0100,general medicine,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00076,P002464,2026-09-23,2026-08-04,orthopedics,orthopedics,orthopedics,emergency,False,False,False,5,ASSIGNED,B0194,orthopedics,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00077,P047428,2026-09-23,2026-08-03,neurology,neurology,neurology,emergency,False,False,False,5,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00078,P025403,2026-09-23,2026-08-21,surgery,surgery,surgery,urgent,False,False,False,4,ASSIGNED,B0142,surgery,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00079,P039679,2026-09-23,2026-08-13,general medicine,general medicine,general,urgent,False,False,False,4,ASSIGNED,B0097,general medicine,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00080,P030718,2026-09-23,2026-08-10,cardiology,cardiology,cardiology,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00081,P028063,2026-09-23,2026-08-07,orthopedics,orthopedics,orthopedics,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00082,P012118,2026-09-23,2026-08-16,icu,icu,icu,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00083,P025670,2026-09-23,2026-08-20,orthopedics,orthopedics,orthopedics,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00084,P017744,2026-09-23,2026-08-13,cardiology,cardiology,cardiology,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00085,P011681,2026-09-23,2026-08-02,oncology,oncology,oncology,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00086,P027515,2026-09-23,2026-07-31,orthopedics,orthopedics,orthopedics,urgent,False,False,False,4,ASSIGNED,B0192,orthopedics,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00087,P040900,2026-09-23,2026-08-05,surgery,surgery,surgery,urgent,False,False,False,4,ASSIGNED,B0137,surgery,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00088,P014895,2026-09-23,2026-07-30,pediatrics,pediatrics,pediatrics,urgent,False,False,False,4,ASSIGNED,B0206,pediatrics,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00089,P023800,2026-09-23,2026-08-02,neurology,neurology,neurology,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00090,P049106,2026-09-23,2026-07-30,pediatrics,pediatrics,pediatrics,urgent,False,False,False,4,ASSIGNED,B0217,pediatrics,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00091,P006920,2026-09-23,2026-08-01,orthopedics,orthopedics,orthopedics,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00092,P024765,2026-09-23,2026-08-03,icu,icu,icu,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00093,P039163,2026-09-23,2026-08-15,surgery,surgery,surgery,urgent,False,False,False,4,ASSIGNED,B0136,surgery,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00094,P032012,2026-09-23,2026-07-26,surgery,surgery,surgery,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00095,P014018,2026-09-23,2026-08-03,orthopedics,orthopedics,orthopedics,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00096,P041880,2026-09-23,2026-08-11,icu,icu,icu,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00097,P001775,2026-09-23,2026-08-15,icu,icu,icu,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00098,P021841,2026-09-23,2026-07-29,neurology,neurology,neurology,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00099,P034239,2026-09-23,2026-08-06,oncology,oncology,oncology,urgent,False,False,False,4,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00100,P043730,2026-09-23,2026-08-22,general medicine,general medicine,general,transfer,False,False,False,3,ASSIGNED,B0093,general medicine,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00101,P019492,2026-09-23,2026-08-20,orthopedics,orthopedics,orthopedics,transfer,False,False,False,3,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00102,P003382,2026-09-23,2026-08-03,oncology,oncology,oncology,transfer,False,False,False,3,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00103,P015880,2026-09-23,2026-08-06,orthopedics,orthopedics,orthopedics,transfer,False,False,False,3,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00104,P029979,2026-09-23,2026-07-31,neurology,neurology,neurology,transfer,False,False,False,3,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00105,P022526,2026-09-23,2026-08-09,oncology,oncology,oncology,transfer,False,False,False,3,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00106,P005144,2026-09-23,2026-08-21,icu,icu,icu,transfer,False,False,False,3,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00107,P032541,2026-09-23,2026-08-19,neurology,neurology,neurology,transfer,False,False,False,3,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00108,P007820,2026-09-23,2026-08-01,icu,icu,icu,transfer,False,False,False,3,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00109,P015046,2026-09-23,2026-08-10,icu,icu,icu,transfer,False,False,False,3,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00110,P004271,2026-09-23,2026-08-19,neurology,neurology,neurology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00111,P021538,2026-09-23,2026-08-05,pediatrics,pediatrics,pediatrics,elective,False,False,False,1,ASSIGNED,B0207,pediatrics,general,available,False,Safe compatible bed assigned by CP-SAT.,0
+REQ_00112,P031624,2026-09-23,2026-08-09,orthopedics,orthopedics,orthopedics,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00113,P031704,2026-09-23,2026-07-29,surgery,surgery,surgery,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00114,P032812,2026-09-23,2026-08-12,orthopedics,orthopedics,orthopedics,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00115,P046583,2026-09-23,2026-07-31,oncology,oncology,oncology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00116,P018777,2026-09-23,2026-07-24,cardiology,cardiology,cardiology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00117,P038292,2026-09-23,2026-07-28,oncology,oncology,oncology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00118,P038910,2026-09-23,2026-08-05,cardiology,cardiology,cardiology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00119,P023466,2026-09-23,2026-08-17,neurology,neurology,neurology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00120,P035650,2026-09-23,2026-08-13,general medicine,general medicine,general,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00121,P021623,2026-09-23,2026-07-25,surgery,surgery,surgery,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00122,P043241,2026-09-23,2026-08-01,oncology,oncology,oncology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00123,P029815,2026-09-23,2026-08-04,oncology,oncology,oncology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00124,P022037,2026-09-23,2026-08-20,surgery,surgery,surgery,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00125,P036053,2026-09-23,2026-08-14,general medicine,general medicine,general,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00126,P044210,2026-09-23,2026-08-02,icu,icu,icu,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00127,P046536,2026-09-23,2026-08-01,orthopedics,orthopedics,orthopedics,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00128,P026305,2026-09-23,2026-07-28,orthopedics,orthopedics,orthopedics,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00129,P033294,2026-09-23,2026-08-20,pediatrics,pediatrics,pediatrics,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00130,P044522,2026-09-23,2026-08-10,cardiology,cardiology,cardiology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00131,P034134,2026-09-23,2026-08-11,icu,icu,icu,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00132,P041323,2026-09-23,2026-07-26,cardiology,cardiology,cardiology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00133,P002935,2026-09-23,2026-08-05,cardiology,cardiology,cardiology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00134,P034447,2026-09-23,2026-08-15,oncology,oncology,oncology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00135,P007802,2026-09-23,2026-07-30,general medicine,general medicine,general,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00136,P034840,2026-09-23,2026-08-22,surgery,surgery,surgery,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00137,P003796,2026-09-23,2026-08-18,oncology,oncology,oncology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00138,P017072,2026-09-23,2026-08-10,icu,icu,icu,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00139,P006659,2026-09-23,2026-08-05,general medicine,general medicine,general,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00140,P045898,2026-09-23,2026-08-04,cardiology,cardiology,cardiology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00141,P007071,2026-09-23,2026-08-17,oncology,oncology,oncology,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00142,P005478,2026-09-23,2026-08-17,surgery,surgery,surgery,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00143,P027867,2026-09-23,2026-08-14,general medicine,general medicine,general,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00144,P029160,2026-09-23,2026-08-02,general medicine,general medicine,general,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00145,P008852,2026-09-23,2026-08-22,surgery,surgery,surgery,elective,False,False,False,1,UNASSIGNED,,,,,False,No safe compatible bed was available under the optimization constraints.,1000000
+REQ_00146,P043300,2026-09-23,2026-07-30,pediatrics,pediatrics,pediatrics,elective,False,False,False,1,ASSIGNED,B0209,pediatrics,general,available,False,Safe compatible bed assigned by CP-SAT.,0

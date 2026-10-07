@@ -1,0 +1,6 @@
+week_start,forecast_mean_icu_demand,forecast_max_icu_demand,forecast_min_icu_demand,forecast_target_unit,capacity_risk
+2026-10-05,0.7116666666666668,0.8,0.67,admissions_per_day,NOT_ESTIMATED_CENSUS_UNAVAILABLE
+2026-10-12,0.7385714285714285,0.85,0.63,admissions_per_day,NOT_ESTIMATED_CENSUS_UNAVAILABLE
+2026-10-19,0.5814285714285715,0.76,0.43,admissions_per_day,NOT_ESTIMATED_CENSUS_UNAVAILABLE
+2026-10-26,0.5228571428571429,0.7,0.4,admissions_per_day,NOT_ESTIMATED_CENSUS_UNAVAILABLE
+2026-11-02,0.42,0.56,0.33,admissions_per_day,NOT_ESTIMATED_CENSUS_UNAVAILABLE

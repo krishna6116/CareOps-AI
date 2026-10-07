@@ -1,0 +1,15 @@
+file,purpose,important_features
+patient_features.csv,Patient-level features,"LOS, ICU, severity, age, comorbidity, procedure, temporal features"
+admission_features.csv,Admission-level features,"Admission demand, LOS, severity, ICU, emergency, department"
+daily_demand_features.csv,Daily demand forecasting,"Admissions, discharges, emergency, ICU, occupancy, lag and rolling features"
+occupancy_features.csv,Occupancy forecasting/risk,"Occupancy rate, thresholds, capacity pressure"
+los_prediction_features.csv,LOS prediction,"Age, department, severity, admission type, procedure, comorbidities, ICU"
+bed_features.csv,Bed optimization,"Bed type, department, status, isolation, emergency reserve, availability"
+bed_capacity_summary.csv,Bed capacity,"Total, occupied, available, isolation and emergency capacity"
+staff_features.csv,Staff scheduling,"Role, specialty, department, availability, max hours"
+shift_features.csv,Shift scheduling,"Date, shift, hours, assignment, rest violations, workload"
+staff_workload_features.csv,Staff workload,"Daily staff hours, assigned hours, rest violations"
+appointment_features.csv,Appointment optimization,"Time, duration, priority, doctor, patient and historical attendance"
+no_show_features.csv,No-show prediction,Historical attendance/no-show behavior and appointment features
+emergency_capacity_features.csv,Emergency capacity,"Emergency pressure, ICU pressure and capacity risk"
+hospital_daily_features.csv,Hospital-wide KPIs,"Daily hospital demand, occupancy and time-series features"

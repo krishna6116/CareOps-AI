@@ -1,0 +1,88 @@
+CAREOPS-AI BED ALLOCATION OPTIMIZATION REPORT
+============================================================
+
+PROJECT PURPOSE
+Compare a department-first baseline with an OR-Tools compatible-bed reallocation model.
+
+IMPORTANT SAFETY NOTE
+This is a synthetic-data portfolio model. Recommendations are for human review and are not autonomous clinical decisions.
+
+CURRENT HOSPITAL CAPACITY
+total_beds: 230
+available_beds: 31
+icu_total: 20
+icu_available: 2
+emergency_reserve_total: 30
+emergency_reserve_available: 3
+
+OPTIMIZATION RESULTS
+Forecast days: 14
+Baseline unmet demand: 1925
+Optimized unmet demand: 1894
+Unmet-demand reduction: 1.61%
+Baseline transfer pressure: 0
+Optimized transfer pressure: 5
+Transfer-pressure reduction: 0.00%
+Baseline unused capacity: 3
+Optimized unused capacity: 1008
+Unused-capacity reduction: -33500.00%
+Successful optimization days: 14/14
+Runtime seconds: 1.99
+
+DEPARTMENT RESULTS
+------------------------------------------------------------
+Cardiology: baseline unmet=136, optimized unmet=136, allocation change=0
+Emergency: baseline unmet=823, optimized unmet=809, allocation change=14
+General Medicine: baseline unmet=211, optimized unmet=211, allocation change=0
+ICU: baseline unmet=92, optimized unmet=78, allocation change=14
+Neurology: baseline unmet=93, optimized unmet=93, allocation change=0
+Oncology: baseline unmet=125, optimized unmet=124, allocation change=1
+Orthopedics: baseline unmet=170, optimized unmet=169, allocation change=1
+Pediatrics: baseline unmet=131, optimized unmet=130, allocation change=1
+Surgery: baseline unmet=144, optimized unmet=144, allocation change=0
+
+RECOMMENDATIONS
+------------------------------------------------------------
+
+Cardiology
+Recommendation: Cardiology retains 136 unmet bed-demand units after optimization.
+Action: Review discharges, staffing, compatible capacity, transfers, and emergency reserve.
+
+Emergency
+Recommendation: Optimization allocated 14 additional bed-days to Emergency, reducing unmet demand from 823 to 809.
+Action: Review compatible-bed reallocation and staffing feasibility.
+
+General Medicine
+Recommendation: General Medicine retains 211 unmet bed-demand units after optimization.
+Action: Review discharges, staffing, compatible capacity, transfers, and emergency reserve.
+
+ICU
+Recommendation: Optimization allocated 14 additional bed-days to ICU, reducing unmet demand from 92 to 78.
+Action: Review compatible-bed reallocation and staffing feasibility.
+
+Neurology
+Recommendation: Neurology retains 93 unmet bed-demand units after optimization.
+Action: Review discharges, staffing, compatible capacity, transfers, and emergency reserve.
+
+Oncology
+Recommendation: Optimization allocated 1 additional bed-days to Oncology, reducing unmet demand from 125 to 124.
+Action: Review compatible-bed reallocation and staffing feasibility.
+
+Orthopedics
+Recommendation: Optimization allocated 1 additional bed-days to Orthopedics, reducing unmet demand from 170 to 169.
+Action: Review compatible-bed reallocation and staffing feasibility.
+
+Pediatrics
+Recommendation: Optimization allocated 1 additional bed-days to Pediatrics, reducing unmet demand from 131 to 130.
+Action: Review compatible-bed reallocation and staffing feasibility.
+
+Surgery
+Recommendation: Surgery retains 144 unmet bed-demand units after optimization.
+Action: Review discharges, staffing, compatible capacity, transfers, and emergency reserve.
+
+MODEL LIMITATIONS
+1. Data are synthetic.
+2. Bed compatibility rules are configurable portfolio assumptions.
+3. Staffing capacity uses an explicit bed-service-hour approximation.
+4. Real hospitals require validated clinical and operational policies.
+5. Results should be reviewed by qualified hospital operations personnel before any real-world interpretation.

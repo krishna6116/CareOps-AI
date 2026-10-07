@@ -1,0 +1,28 @@
+{
+  "project": "CareOps-AI",
+  "module": "No-Show Prediction",
+  "model_version": "Enhanced Behavioral V2",
+  "source_file": "C:\\Users\\krish\\Documents\\CareOps-AI\\data\\synthetic\\appointments.csv",
+  "source_rows": 120000,
+  "feature_count": 77,
+  "train_rows": 78000,
+  "validation_rows": 18000,
+  "test_rows": 24000,
+  "selected_threshold": 0.2,
+  "training_seconds": 15.546573600033298,
+  "scale_pos_weight": 5.641123882503193,
+  "probability_calibration": {
+    "method": "Platt scaling fitted on validation predictions only",
+    "scale": 0.8921891109736342,
+    "offset": -1.6766192672600457
+  },
+  "chronological_split": {
+    "train": 0.65,
+    "validation": 0.15,
+    "test": 0.2
+  },
+  "historical_features_are_leakage_safe": true,
+  "source_data_regenerated": false,
+  "source_data_modified": false,
+  "random_seed": 42
+}

@@ -1,0 +1,10 @@
+ward,occupied,available,maintenance,total_beds,operational_beds,utilization_rate
+Cardiology,5,14,1,20,19,0.2631578947368421
+Emergency,6,4,0,10,10,0.6
+General,66,30,4,100,96,0.6875
+ICU,14,5,1,20,19,0.7368421052631579
+Neurology,7,7,1,15,14,0.5
+Oncology,2,8,0,10,10,0.2
+Orthopedics,15,0,0,15,15,1.0
+Pediatrics,12,2,1,15,14,0.8571428571428571
+Surgery,17,7,1,25,24,0.7083333333333334

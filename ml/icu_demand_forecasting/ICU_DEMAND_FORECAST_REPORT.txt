@@ -1,0 +1,130 @@
+CAREOPS-AI ICU DEMAND FORECASTING REPORT
+============================================================
+
+DATA SOURCE
+------------------------------------------------------------
+C:\Users\krish\Documents\CareOps-AI\data\synthetic\daily_operations.csv
+
+DATASET
+------------------------------------------------------------
+Raw rows: 9081
+Modeling rows: 981
+Date range: 2024-01-01 -> 2026-10-05
+
+MODEL
+------------------------------------------------------------
+Native XGBoost API: xgb.train
+scikit-learn: NOT USED
+SciPy: NOT USED
+Matplotlib: NOT USED
+Number of features: 54
+Boosting rounds configured: 700
+Best iteration: 30
+
+DATA SPLIT
+------------------------------------------------------------
+Training rows: 686
+Validation rows: 147
+Test rows: 148
+
+XGBOOST TEST METRICS
+------------------------------------------------------------
+MAE: 0.7281378660653088
+RMSE: 0.9267583030674812
+R2: 0.052674939358570816
+MAPE_percent: 39.55649879905913
+
+7-DAY NAIVE BASELINE
+------------------------------------------------------------
+MAE: 1.0067567567567568
+RMSE: 1.3779146013627437
+R2: -1.0941638551790116
+MAPE_percent: 65.48148148148147
+
+CAPACITY LIMITATION
+------------------------------------------------------------
+Forecast bed utilization is not estimated because a validated ICU census series is unavailable.
+Capacity risk is deliberately not inferred from daily admissions.
+
+FUTURE FORECAST
+------------------------------------------------------------
+Forecast horizon: 30 days
+Forecast start: 2026-10-06
+Forecast end: 2026-11-04
+Maximum predicted ICU admissions per day: 0.85
+Capacity risk counts (census unavailable): {'NOT_ESTIMATED_CENSUS_UNAVAILABLE': 30}
+
+FEATURES
+------------------------------------------------------------
+- admissions
+- discharges
+- emergency_cases
+- occupancy
+- day_of_week
+- day_of_month
+- week_of_year
+- month
+- quarter
+- year
+- day_of_year
+- dow_sin
+- dow_cos
+- month_sin
+- month_cos
+- day_of_year_sin
+- day_of_year_cos
+- icu_lag_1
+- icu_lag_2
+- icu_lag_3
+- icu_lag_7
+- icu_lag_14
+- icu_lag_21
+- icu_lag_28
+- icu_roll_mean_3
+- icu_roll_std_3
+- icu_roll_min_3
+- icu_roll_max_3
+- icu_roll_mean_7
+- icu_roll_std_7
+- icu_roll_min_7
+- icu_roll_max_7
+- icu_roll_mean_14
+- icu_roll_std_14
+- icu_roll_min_14
+- icu_roll_max_14
+- icu_roll_mean_28
+- icu_roll_std_28
+- icu_roll_min_28
+- icu_roll_max_28
+- admissions_lag_1
+- admissions_lag_7
+- admissions_roll_mean_7
+- discharges_lag_1
+- discharges_lag_7
+- discharges_roll_mean_7
+- emergency_cases_lag_1
+- emergency_cases_lag_7
+- emergency_cases_roll_mean_7
+- occupancy_lag_1
+- occupancy_lag_7
+- occupancy_roll_mean_7
+- icu_change_1
+- icu_change_7
+
+OUTPUT FILES
+------------------------------------------------------------
+- icu_xgboost_model.json
+- icu_xgboost_model.joblib
+- icu_demand_test_predictions.csv
+- icu_future_forecast.csv
+- icu_weekly_forecast.csv
+- icu_capacity_risk_forecast.csv
+- icu_feature_importance.csv
+- icu_demand_metrics.json
+- icu_demand_model_metadata.json
+- icu_data_quality.csv
+- icu_training_summary.csv
+- icu_actual_vs_predicted.png
+- icu_future_forecast.png
+- icu_feature_importance.png
+- ICU_DEMAND_FORECAST_REPORT.txt

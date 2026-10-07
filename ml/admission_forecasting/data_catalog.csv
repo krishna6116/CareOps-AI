@@ -1,0 +1,9 @@
+file_name,full_path,rows,columns,column_names
+admissions.csv,C:\Users\krish\Documents\CareOps-AI\data\synthetic\admissions.csv,11640,15,"admission_id, patient_id, patient_name, department, diagnosis_category, severity, admission_type, admission_date, discharge_date, ICU_required, LOS, procedure_indicator, comorbidity_count, assigned_bed_id, stay_status"
+appointments.csv,C:\Users\krish\Documents\CareOps-AI\data\synthetic\appointments.csv,120000,16,"appointment_id, patient_id, patient_name, doctor_id, doctor_name, department, date, time, lead_time_days, reminder_sent, duration, priority, attended, no_show, patient_age, patient_severity"
+beds.csv,C:\Users\krish\Documents\CareOps-AI\data\synthetic\beds.csv,230,9,"bed_id, ward, bed_type, status, floor, department, isolation_capable, emergency_reserve, available_for_emergency"
+daily_operations.csv,C:\Users\krish\Documents\CareOps-AI\data\synthetic\daily_operations.csv,9081,13,"date, department, admissions, discharges, emergency_cases, ICU_admissions, occupancy, staff_demand, bed_demand, seasonal_multiplier, day_of_week, month, year"
+hospital_snapshot.csv,C:\Users\krish\Documents\CareOps-AI\data\synthetic\hospital_snapshot.csv,1,10,"snapshot_date, total_beds, occupied_beds, available_beds, maintenance_beds, total_icu_beds, occupied_icu_beds, available_icu_beds, overall_occupancy, icu_occupancy"
+patients.csv,C:\Users\krish\Documents\CareOps-AI\data\synthetic\patients.csv,50000,7,"patient_id, patient_name, age, gender, department, diagnosis_category, severity"
+shifts.csv,C:\Users\krish\Documents\CareOps-AI\data\synthetic\shifts.csv,166485,12,"shift_id, date, staff_id, staff_name, shift, department, hours, assigned, staff_role, specialty, max_hours, rest_violation"
+staff.csv,C:\Users\krish\Documents\CareOps-AI\data\synthetic\staff.csv,300,8,"staff_id, staff_name, role, specialty, department, availability, shift_preference, max_hours"

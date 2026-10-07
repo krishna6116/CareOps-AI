@@ -1,0 +1,127 @@
+date,department,predicted_bed_demand
+2026-09-12,Cardiology,4
+2026-09-12,Emergency,19
+2026-09-12,General Medicine,8
+2026-09-12,ICU,2
+2026-09-12,Neurology,3
+2026-09-12,Oncology,3
+2026-09-12,Orthopedics,4
+2026-09-12,Pediatrics,4
+2026-09-12,Surgery,5
+2026-09-13,Cardiology,6
+2026-09-13,Emergency,28
+2026-09-13,General Medicine,11
+2026-09-13,ICU,3
+2026-09-13,Neurology,5
+2026-09-13,Oncology,5
+2026-09-13,Orthopedics,6
+2026-09-13,Pediatrics,6
+2026-09-13,Surgery,8
+2026-09-14,Cardiology,8
+2026-09-14,Emergency,35
+2026-09-14,General Medicine,14
+2026-09-14,ICU,4
+2026-09-14,Neurology,6
+2026-09-14,Oncology,6
+2026-09-14,Orthopedics,7
+2026-09-14,Pediatrics,7
+2026-09-14,Surgery,10
+2026-09-15,Cardiology,10
+2026-09-15,Emergency,41
+2026-09-15,General Medicine,17
+2026-09-15,ICU,5
+2026-09-15,Neurology,7
+2026-09-15,Oncology,8
+2026-09-15,Orthopedics,8
+2026-09-15,Pediatrics,9
+2026-09-15,Surgery,11
+2026-09-16,Cardiology,11
+2026-09-16,Emergency,46
+2026-09-16,General Medicine,19
+2026-09-16,ICU,5
+2026-09-16,Neurology,8
+2026-09-16,Oncology,9
+2026-09-16,Orthopedics,10
+2026-09-16,Pediatrics,10
+2026-09-16,Surgery,13
+2026-09-17,Cardiology,12
+2026-09-17,Emergency,52
+2026-09-17,General Medicine,21
+2026-09-17,ICU,6
+2026-09-17,Neurology,9
+2026-09-17,Oncology,10
+2026-09-17,Orthopedics,11
+2026-09-17,Pediatrics,11
+2026-09-17,Surgery,14
+2026-09-18,Cardiology,13
+2026-09-18,Emergency,57
+2026-09-18,General Medicine,23
+2026-09-18,ICU,6
+2026-09-18,Neurology,10
+2026-09-18,Oncology,11
+2026-09-18,Orthopedics,12
+2026-09-18,Pediatrics,12
+2026-09-18,Surgery,16
+2026-09-19,Cardiology,15
+2026-09-19,Emergency,63
+2026-09-19,General Medicine,26
+2026-09-19,ICU,7
+2026-09-19,Neurology,11
+2026-09-19,Oncology,12
+2026-09-19,Orthopedics,13
+2026-09-19,Pediatrics,13
+2026-09-19,Surgery,17
+2026-09-20,Cardiology,16
+2026-09-20,Emergency,69
+2026-09-20,General Medicine,28
+2026-09-20,ICU,8
+2026-09-20,Neurology,13
+2026-09-20,Oncology,13
+2026-09-20,Orthopedics,14
+2026-09-20,Pediatrics,14
+2026-09-20,Surgery,19
+2026-09-21,Cardiology,18
+2026-09-21,Emergency,75
+2026-09-21,General Medicine,31
+2026-09-21,ICU,8
+2026-09-21,Neurology,14
+2026-09-21,Oncology,14
+2026-09-21,Orthopedics,15
+2026-09-21,Pediatrics,16
+2026-09-21,Surgery,21
+2026-09-22,Cardiology,19
+2026-09-22,Emergency,80
+2026-09-22,General Medicine,33
+2026-09-22,ICU,9
+2026-09-22,Neurology,15
+2026-09-22,Oncology,15
+2026-09-22,Orthopedics,17
+2026-09-22,Pediatrics,17
+2026-09-22,Surgery,22
+2026-09-23,Cardiology,19
+2026-09-23,Emergency,83
+2026-09-23,General Medicine,34
+2026-09-23,ICU,9
+2026-09-23,Neurology,15
+2026-09-23,Oncology,15
+2026-09-23,Orthopedics,17
+2026-09-23,Pediatrics,17
+2026-09-23,Surgery,23
+2026-09-24,Cardiology,20
+2026-09-24,Emergency,86
+2026-09-24,General Medicine,35
+2026-09-24,ICU,10
+2026-09-24,Neurology,16
+2026-09-24,Oncology,16
+2026-09-24,Orthopedics,18
+2026-09-24,Pediatrics,18
+2026-09-24,Surgery,24
+2026-09-25,Cardiology,21
+2026-09-25,Emergency,89
+2026-09-25,General Medicine,36
+2026-09-25,ICU,10
+2026-09-25,Neurology,16
+2026-09-25,Oncology,16
+2026-09-25,Orthopedics,18
+2026-09-25,Pediatrics,19
+2026-09-25,Surgery,24

@@ -1,0 +1,147 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Regenerate synthetic data",
+			"type": "shell",
+			"command": "python data/synthetic/generate_data.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Train no-show model",
+			"type": "shell",
+			"command": "python ml/no_show_prediction/no_show_prediction.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install XGBoost",
+			"type": "shell",
+			"command": "python -m pip install xgboost",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Train no-show model",
+			"type": "shell",
+			"command": "python ml/no_show_prediction/no_show_prediction.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Assess no-show signal",
+			"type": "shell",
+			"command": "python -c \"import pandas as pd; df=pd.read_csv('data/processed/appointments.csv'); print('overall_no_show_rate=', round(df['no_show'].mean(),4)); print(df.groupby('priority')['no_show'].mean().round(4).to_dict()); print(df.groupby('patient_severity')['no_show'].mean().round(4).to_dict()); print(df.groupby('patient_age').agg(no_show_rate=('no_show','mean')).sort_values('no_show_rate').head().to_dict());\"",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Assess no-show signal",
+			"type": "shell",
+			"command": "python -c 'import pandas as pd; df = pd.read_csv(\"data/processed/appointments.csv\"); print(\"overall_no_show_rate=\", round(df[\"no_show\"].mean(), 4)); print(df.groupby(\"priority\")[\"no_show\"].mean().round(4).to_dict()); print(df.groupby(\"patient_severity\")[\"no_show\"].mean().round(4).to_dict())'",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Train ICU model",
+			"type": "shell",
+			"command": "python ml/icu_demand_forecasting/icu_demand_forecasting.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install joblib",
+			"type": "shell",
+			"command": "python -m pip install joblib",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Train ICU model",
+			"type": "shell",
+			"command": "python ml/icu_demand_forecasting/icu_demand_forecasting.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Refresh processed data",
+			"type": "shell",
+			"command": "python data/data_cleaning.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check processed no-show rate",
+			"type": "shell",
+			"command": "python -c \"import pandas as pd; df=pd.read_csv('data/processed/appointments.csv'); print('overall_no_show_rate=', round(df['no_show'].mean(), 4)); print('mean_by_priority=', df.groupby('priority')['no_show'].mean().round(4).to_dict())\"",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check processed no-show rate",
+			"type": "shell",
+			"command": "py -c \"import pandas as pd; df = pd.read_csv(\\\"data/processed/appointments.csv\\\"); print(round(df['no_show'].mean(), 4))\"",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Retrain no-show model after refresh",
+			"type": "shell",
+			"command": "python ml/no_show_prediction/no_show_prediction.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Regenerate synthetic healthcare datasets",
+			"type": "shell",
+			"command": "python data/synthetic/generate_data.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Clean processed data from the refreshed generator",
+			"type": "shell",
+			"command": "python data/data_cleaning.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Retrain no-show model",
+			"type": "shell",
+			"command": "python ml/no_show_prediction/no_show_prediction.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Refresh no-show report",
+			"type": "shell",
+			"command": "python ml/no_show_prediction/no_show_prediction.py",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Generate final no-show log",
+			"type": "shell",
+			"command": "python -u ml/no_show_prediction/no_show_prediction.py > no_show_run.log 2>&1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Decode no-show log",
+			"type": "shell",
+			"command": "python -c \"from pathlib import Path; text = Path('no_show_run.log').read_text(encoding='utf-16'); print(text[:4000])\"",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run CareOps dashboard",
+			"type": "shell",
+			"command": "cd \"c:\\Users\\krish\\Documents\\CareOps-AI\\frontend\" && \"c:\\Users\\krish\\Documents\\CareOps-AI\\tools\\node-v24.19.0\\node-v24.19.0-win-x64\\npm.cmd\" run dev -- --host 0.0.0.0",
+			"args": [],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

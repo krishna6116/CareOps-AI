@@ -1,0 +1,1371 @@
+department,bed_id,compatible
+Cardiology,B0001,True
+Cardiology,B0002,True
+Cardiology,B0003,True
+Cardiology,B0004,True
+Cardiology,B0005,True
+Cardiology,B0006,True
+Cardiology,B0007,True
+Cardiology,B0008,True
+Cardiology,B0009,True
+Cardiology,B0010,True
+Cardiology,B0011,True
+Cardiology,B0012,True
+Cardiology,B0013,True
+Cardiology,B0014,True
+Cardiology,B0015,True
+Cardiology,B0016,True
+Cardiology,B0017,True
+Cardiology,B0018,True
+Cardiology,B0019,True
+Cardiology,B0020,True
+Cardiology,B0021,True
+Cardiology,B0022,True
+Cardiology,B0023,True
+Cardiology,B0024,True
+Cardiology,B0025,True
+Cardiology,B0026,True
+Cardiology,B0027,True
+Cardiology,B0028,True
+Cardiology,B0029,True
+Cardiology,B0030,True
+Cardiology,B0031,True
+Cardiology,B0032,True
+Cardiology,B0033,True
+Cardiology,B0034,True
+Cardiology,B0035,True
+Cardiology,B0036,True
+Cardiology,B0037,True
+Cardiology,B0038,True
+Cardiology,B0039,True
+Cardiology,B0040,True
+Cardiology,B0041,True
+Cardiology,B0042,True
+Cardiology,B0043,True
+Cardiology,B0044,True
+Cardiology,B0045,True
+Cardiology,B0046,True
+Cardiology,B0047,True
+Cardiology,B0048,True
+Cardiology,B0049,True
+Cardiology,B0050,True
+Cardiology,B0051,True
+Cardiology,B0052,True
+Cardiology,B0053,True
+Cardiology,B0054,True
+Cardiology,B0055,True
+Cardiology,B0056,True
+Cardiology,B0057,True
+Cardiology,B0058,True
+Cardiology,B0059,True
+Cardiology,B0060,True
+Cardiology,B0061,True
+Cardiology,B0062,True
+Cardiology,B0063,True
+Cardiology,B0064,True
+Cardiology,B0065,True
+Cardiology,B0066,True
+Cardiology,B0067,True
+Cardiology,B0068,True
+Cardiology,B0069,True
+Cardiology,B0070,True
+Cardiology,B0071,True
+Cardiology,B0072,True
+Cardiology,B0073,True
+Cardiology,B0074,True
+Cardiology,B0075,True
+Cardiology,B0076,True
+Cardiology,B0077,True
+Cardiology,B0078,True
+Cardiology,B0079,True
+Cardiology,B0080,True
+Cardiology,B0081,True
+Cardiology,B0082,True
+Cardiology,B0083,True
+Cardiology,B0084,True
+Cardiology,B0085,True
+Cardiology,B0086,True
+Cardiology,B0087,True
+Cardiology,B0088,True
+Cardiology,B0089,True
+Cardiology,B0090,True
+Cardiology,B0091,True
+Cardiology,B0092,True
+Cardiology,B0093,True
+Cardiology,B0094,True
+Cardiology,B0095,True
+Cardiology,B0096,True
+Cardiology,B0097,True
+Cardiology,B0098,True
+Cardiology,B0099,True
+Cardiology,B0100,True
+Cardiology,B0131,True
+Cardiology,B0132,True
+Cardiology,B0133,True
+Cardiology,B0134,True
+Cardiology,B0135,True
+Cardiology,B0136,True
+Cardiology,B0137,True
+Cardiology,B0138,True
+Cardiology,B0139,True
+Cardiology,B0140,True
+Cardiology,B0141,True
+Cardiology,B0142,True
+Cardiology,B0143,True
+Cardiology,B0144,True
+Cardiology,B0145,True
+Cardiology,B0146,True
+Cardiology,B0147,True
+Cardiology,B0148,True
+Cardiology,B0149,True
+Cardiology,B0150,True
+Cardiology,B0151,True
+Cardiology,B0152,True
+Cardiology,B0153,True
+Cardiology,B0154,True
+Cardiology,B0155,True
+Cardiology,B0156,True
+Cardiology,B0157,True
+Cardiology,B0158,True
+Cardiology,B0159,True
+Cardiology,B0160,True
+Cardiology,B0161,True
+Cardiology,B0162,True
+Cardiology,B0163,True
+Cardiology,B0164,True
+Cardiology,B0165,True
+Cardiology,B0166,True
+Cardiology,B0167,True
+Cardiology,B0168,True
+Cardiology,B0169,True
+Cardiology,B0170,True
+Cardiology,B0171,True
+Cardiology,B0172,True
+Cardiology,B0173,True
+Cardiology,B0174,True
+Cardiology,B0175,True
+Cardiology,B0176,True
+Cardiology,B0177,True
+Cardiology,B0178,True
+Cardiology,B0179,True
+Cardiology,B0180,True
+Cardiology,B0181,True
+Cardiology,B0182,True
+Cardiology,B0183,True
+Cardiology,B0184,True
+Cardiology,B0185,True
+Cardiology,B0186,True
+Cardiology,B0187,True
+Cardiology,B0188,True
+Cardiology,B0189,True
+Cardiology,B0190,True
+Cardiology,B0191,True
+Cardiology,B0192,True
+Cardiology,B0193,True
+Cardiology,B0194,True
+Cardiology,B0195,True
+Cardiology,B0196,True
+Cardiology,B0197,True
+Cardiology,B0198,True
+Cardiology,B0199,True
+Cardiology,B0200,True
+Cardiology,B0201,True
+Cardiology,B0202,True
+Cardiology,B0203,True
+Cardiology,B0204,True
+Cardiology,B0205,True
+Cardiology,B0206,True
+Cardiology,B0207,True
+Cardiology,B0208,True
+Cardiology,B0209,True
+Cardiology,B0210,True
+Cardiology,B0211,True
+Cardiology,B0212,True
+Cardiology,B0213,True
+Cardiology,B0214,True
+Cardiology,B0215,True
+Cardiology,B0216,True
+Cardiology,B0217,True
+Cardiology,B0218,True
+Cardiology,B0219,True
+Cardiology,B0220,True
+Emergency,B0121,True
+Emergency,B0122,True
+Emergency,B0123,True
+Emergency,B0124,True
+Emergency,B0125,True
+Emergency,B0126,True
+Emergency,B0127,True
+Emergency,B0128,True
+Emergency,B0129,True
+Emergency,B0130,True
+General Medicine,B0001,True
+General Medicine,B0002,True
+General Medicine,B0003,True
+General Medicine,B0004,True
+General Medicine,B0005,True
+General Medicine,B0006,True
+General Medicine,B0007,True
+General Medicine,B0008,True
+General Medicine,B0009,True
+General Medicine,B0010,True
+General Medicine,B0011,True
+General Medicine,B0012,True
+General Medicine,B0013,True
+General Medicine,B0014,True
+General Medicine,B0015,True
+General Medicine,B0016,True
+General Medicine,B0017,True
+General Medicine,B0018,True
+General Medicine,B0019,True
+General Medicine,B0020,True
+General Medicine,B0021,True
+General Medicine,B0022,True
+General Medicine,B0023,True
+General Medicine,B0024,True
+General Medicine,B0025,True
+General Medicine,B0026,True
+General Medicine,B0027,True
+General Medicine,B0028,True
+General Medicine,B0029,True
+General Medicine,B0030,True
+General Medicine,B0031,True
+General Medicine,B0032,True
+General Medicine,B0033,True
+General Medicine,B0034,True
+General Medicine,B0035,True
+General Medicine,B0036,True
+General Medicine,B0037,True
+General Medicine,B0038,True
+General Medicine,B0039,True
+General Medicine,B0040,True
+General Medicine,B0041,True
+General Medicine,B0042,True
+General Medicine,B0043,True
+General Medicine,B0044,True
+General Medicine,B0045,True
+General Medicine,B0046,True
+General Medicine,B0047,True
+General Medicine,B0048,True
+General Medicine,B0049,True
+General Medicine,B0050,True
+General Medicine,B0051,True
+General Medicine,B0052,True
+General Medicine,B0053,True
+General Medicine,B0054,True
+General Medicine,B0055,True
+General Medicine,B0056,True
+General Medicine,B0057,True
+General Medicine,B0058,True
+General Medicine,B0059,True
+General Medicine,B0060,True
+General Medicine,B0061,True
+General Medicine,B0062,True
+General Medicine,B0063,True
+General Medicine,B0064,True
+General Medicine,B0065,True
+General Medicine,B0066,True
+General Medicine,B0067,True
+General Medicine,B0068,True
+General Medicine,B0069,True
+General Medicine,B0070,True
+General Medicine,B0071,True
+General Medicine,B0072,True
+General Medicine,B0073,True
+General Medicine,B0074,True
+General Medicine,B0075,True
+General Medicine,B0076,True
+General Medicine,B0077,True
+General Medicine,B0078,True
+General Medicine,B0079,True
+General Medicine,B0080,True
+General Medicine,B0081,True
+General Medicine,B0082,True
+General Medicine,B0083,True
+General Medicine,B0084,True
+General Medicine,B0085,True
+General Medicine,B0086,True
+General Medicine,B0087,True
+General Medicine,B0088,True
+General Medicine,B0089,True
+General Medicine,B0090,True
+General Medicine,B0091,True
+General Medicine,B0092,True
+General Medicine,B0093,True
+General Medicine,B0094,True
+General Medicine,B0095,True
+General Medicine,B0096,True
+General Medicine,B0097,True
+General Medicine,B0098,True
+General Medicine,B0099,True
+General Medicine,B0100,True
+General Medicine,B0131,True
+General Medicine,B0132,True
+General Medicine,B0133,True
+General Medicine,B0134,True
+General Medicine,B0135,True
+General Medicine,B0136,True
+General Medicine,B0137,True
+General Medicine,B0138,True
+General Medicine,B0139,True
+General Medicine,B0140,True
+General Medicine,B0141,True
+General Medicine,B0142,True
+General Medicine,B0143,True
+General Medicine,B0144,True
+General Medicine,B0145,True
+General Medicine,B0146,True
+General Medicine,B0147,True
+General Medicine,B0148,True
+General Medicine,B0149,True
+General Medicine,B0150,True
+General Medicine,B0151,True
+General Medicine,B0152,True
+General Medicine,B0153,True
+General Medicine,B0154,True
+General Medicine,B0155,True
+General Medicine,B0156,True
+General Medicine,B0157,True
+General Medicine,B0158,True
+General Medicine,B0159,True
+General Medicine,B0160,True
+General Medicine,B0161,True
+General Medicine,B0162,True
+General Medicine,B0163,True
+General Medicine,B0164,True
+General Medicine,B0165,True
+General Medicine,B0166,True
+General Medicine,B0167,True
+General Medicine,B0168,True
+General Medicine,B0169,True
+General Medicine,B0170,True
+General Medicine,B0171,True
+General Medicine,B0172,True
+General Medicine,B0173,True
+General Medicine,B0174,True
+General Medicine,B0175,True
+General Medicine,B0176,True
+General Medicine,B0177,True
+General Medicine,B0178,True
+General Medicine,B0179,True
+General Medicine,B0180,True
+General Medicine,B0181,True
+General Medicine,B0182,True
+General Medicine,B0183,True
+General Medicine,B0184,True
+General Medicine,B0185,True
+General Medicine,B0186,True
+General Medicine,B0187,True
+General Medicine,B0188,True
+General Medicine,B0189,True
+General Medicine,B0190,True
+General Medicine,B0191,True
+General Medicine,B0192,True
+General Medicine,B0193,True
+General Medicine,B0194,True
+General Medicine,B0195,True
+General Medicine,B0196,True
+General Medicine,B0197,True
+General Medicine,B0198,True
+General Medicine,B0199,True
+General Medicine,B0200,True
+General Medicine,B0201,True
+General Medicine,B0202,True
+General Medicine,B0203,True
+General Medicine,B0204,True
+General Medicine,B0205,True
+General Medicine,B0206,True
+General Medicine,B0207,True
+General Medicine,B0208,True
+General Medicine,B0209,True
+General Medicine,B0210,True
+General Medicine,B0211,True
+General Medicine,B0212,True
+General Medicine,B0213,True
+General Medicine,B0214,True
+General Medicine,B0215,True
+General Medicine,B0216,True
+General Medicine,B0217,True
+General Medicine,B0218,True
+General Medicine,B0219,True
+General Medicine,B0220,True
+ICU,B0101,True
+ICU,B0102,True
+ICU,B0103,True
+ICU,B0104,True
+ICU,B0105,True
+ICU,B0106,True
+ICU,B0107,True
+ICU,B0108,True
+ICU,B0109,True
+ICU,B0110,True
+ICU,B0111,True
+ICU,B0112,True
+ICU,B0113,True
+ICU,B0114,True
+ICU,B0115,True
+ICU,B0116,True
+ICU,B0117,True
+ICU,B0118,True
+ICU,B0119,True
+ICU,B0120,True
+Neurology,B0001,True
+Neurology,B0002,True
+Neurology,B0003,True
+Neurology,B0004,True
+Neurology,B0005,True
+Neurology,B0006,True
+Neurology,B0007,True
+Neurology,B0008,True
+Neurology,B0009,True
+Neurology,B0010,True
+Neurology,B0011,True
+Neurology,B0012,True
+Neurology,B0013,True
+Neurology,B0014,True
+Neurology,B0015,True
+Neurology,B0016,True
+Neurology,B0017,True
+Neurology,B0018,True
+Neurology,B0019,True
+Neurology,B0020,True
+Neurology,B0021,True
+Neurology,B0022,True
+Neurology,B0023,True
+Neurology,B0024,True
+Neurology,B0025,True
+Neurology,B0026,True
+Neurology,B0027,True
+Neurology,B0028,True
+Neurology,B0029,True
+Neurology,B0030,True
+Neurology,B0031,True
+Neurology,B0032,True
+Neurology,B0033,True
+Neurology,B0034,True
+Neurology,B0035,True
+Neurology,B0036,True
+Neurology,B0037,True
+Neurology,B0038,True
+Neurology,B0039,True
+Neurology,B0040,True
+Neurology,B0041,True
+Neurology,B0042,True
+Neurology,B0043,True
+Neurology,B0044,True
+Neurology,B0045,True
+Neurology,B0046,True
+Neurology,B0047,True
+Neurology,B0048,True
+Neurology,B0049,True
+Neurology,B0050,True
+Neurology,B0051,True
+Neurology,B0052,True
+Neurology,B0053,True
+Neurology,B0054,True
+Neurology,B0055,True
+Neurology,B0056,True
+Neurology,B0057,True
+Neurology,B0058,True
+Neurology,B0059,True
+Neurology,B0060,True
+Neurology,B0061,True
+Neurology,B0062,True
+Neurology,B0063,True
+Neurology,B0064,True
+Neurology,B0065,True
+Neurology,B0066,True
+Neurology,B0067,True
+Neurology,B0068,True
+Neurology,B0069,True
+Neurology,B0070,True
+Neurology,B0071,True
+Neurology,B0072,True
+Neurology,B0073,True
+Neurology,B0074,True
+Neurology,B0075,True
+Neurology,B0076,True
+Neurology,B0077,True
+Neurology,B0078,True
+Neurology,B0079,True
+Neurology,B0080,True
+Neurology,B0081,True
+Neurology,B0082,True
+Neurology,B0083,True
+Neurology,B0084,True
+Neurology,B0085,True
+Neurology,B0086,True
+Neurology,B0087,True
+Neurology,B0088,True
+Neurology,B0089,True
+Neurology,B0090,True
+Neurology,B0091,True
+Neurology,B0092,True
+Neurology,B0093,True
+Neurology,B0094,True
+Neurology,B0095,True
+Neurology,B0096,True
+Neurology,B0097,True
+Neurology,B0098,True
+Neurology,B0099,True
+Neurology,B0100,True
+Neurology,B0131,True
+Neurology,B0132,True
+Neurology,B0133,True
+Neurology,B0134,True
+Neurology,B0135,True
+Neurology,B0136,True
+Neurology,B0137,True
+Neurology,B0138,True
+Neurology,B0139,True
+Neurology,B0140,True
+Neurology,B0141,True
+Neurology,B0142,True
+Neurology,B0143,True
+Neurology,B0144,True
+Neurology,B0145,True
+Neurology,B0146,True
+Neurology,B0147,True
+Neurology,B0148,True
+Neurology,B0149,True
+Neurology,B0150,True
+Neurology,B0151,True
+Neurology,B0152,True
+Neurology,B0153,True
+Neurology,B0154,True
+Neurology,B0155,True
+Neurology,B0156,True
+Neurology,B0157,True
+Neurology,B0158,True
+Neurology,B0159,True
+Neurology,B0160,True
+Neurology,B0161,True
+Neurology,B0162,True
+Neurology,B0163,True
+Neurology,B0164,True
+Neurology,B0165,True
+Neurology,B0166,True
+Neurology,B0167,True
+Neurology,B0168,True
+Neurology,B0169,True
+Neurology,B0170,True
+Neurology,B0171,True
+Neurology,B0172,True
+Neurology,B0173,True
+Neurology,B0174,True
+Neurology,B0175,True
+Neurology,B0176,True
+Neurology,B0177,True
+Neurology,B0178,True
+Neurology,B0179,True
+Neurology,B0180,True
+Neurology,B0181,True
+Neurology,B0182,True
+Neurology,B0183,True
+Neurology,B0184,True
+Neurology,B0185,True
+Neurology,B0186,True
+Neurology,B0187,True
+Neurology,B0188,True
+Neurology,B0189,True
+Neurology,B0190,True
+Neurology,B0191,True
+Neurology,B0192,True
+Neurology,B0193,True
+Neurology,B0194,True
+Neurology,B0195,True
+Neurology,B0196,True
+Neurology,B0197,True
+Neurology,B0198,True
+Neurology,B0199,True
+Neurology,B0200,True
+Neurology,B0201,True
+Neurology,B0202,True
+Neurology,B0203,True
+Neurology,B0204,True
+Neurology,B0205,True
+Neurology,B0206,True
+Neurology,B0207,True
+Neurology,B0208,True
+Neurology,B0209,True
+Neurology,B0210,True
+Neurology,B0211,True
+Neurology,B0212,True
+Neurology,B0213,True
+Neurology,B0214,True
+Neurology,B0215,True
+Neurology,B0216,True
+Neurology,B0217,True
+Neurology,B0218,True
+Neurology,B0219,True
+Neurology,B0220,True
+Oncology,B0001,True
+Oncology,B0002,True
+Oncology,B0003,True
+Oncology,B0004,True
+Oncology,B0005,True
+Oncology,B0006,True
+Oncology,B0007,True
+Oncology,B0008,True
+Oncology,B0009,True
+Oncology,B0010,True
+Oncology,B0011,True
+Oncology,B0012,True
+Oncology,B0013,True
+Oncology,B0014,True
+Oncology,B0015,True
+Oncology,B0016,True
+Oncology,B0017,True
+Oncology,B0018,True
+Oncology,B0019,True
+Oncology,B0020,True
+Oncology,B0021,True
+Oncology,B0022,True
+Oncology,B0023,True
+Oncology,B0024,True
+Oncology,B0025,True
+Oncology,B0026,True
+Oncology,B0027,True
+Oncology,B0028,True
+Oncology,B0029,True
+Oncology,B0030,True
+Oncology,B0031,True
+Oncology,B0032,True
+Oncology,B0033,True
+Oncology,B0034,True
+Oncology,B0035,True
+Oncology,B0036,True
+Oncology,B0037,True
+Oncology,B0038,True
+Oncology,B0039,True
+Oncology,B0040,True
+Oncology,B0041,True
+Oncology,B0042,True
+Oncology,B0043,True
+Oncology,B0044,True
+Oncology,B0045,True
+Oncology,B0046,True
+Oncology,B0047,True
+Oncology,B0048,True
+Oncology,B0049,True
+Oncology,B0050,True
+Oncology,B0051,True
+Oncology,B0052,True
+Oncology,B0053,True
+Oncology,B0054,True
+Oncology,B0055,True
+Oncology,B0056,True
+Oncology,B0057,True
+Oncology,B0058,True
+Oncology,B0059,True
+Oncology,B0060,True
+Oncology,B0061,True
+Oncology,B0062,True
+Oncology,B0063,True
+Oncology,B0064,True
+Oncology,B0065,True
+Oncology,B0066,True
+Oncology,B0067,True
+Oncology,B0068,True
+Oncology,B0069,True
+Oncology,B0070,True
+Oncology,B0071,True
+Oncology,B0072,True
+Oncology,B0073,True
+Oncology,B0074,True
+Oncology,B0075,True
+Oncology,B0076,True
+Oncology,B0077,True
+Oncology,B0078,True
+Oncology,B0079,True
+Oncology,B0080,True
+Oncology,B0081,True
+Oncology,B0082,True
+Oncology,B0083,True
+Oncology,B0084,True
+Oncology,B0085,True
+Oncology,B0086,True
+Oncology,B0087,True
+Oncology,B0088,True
+Oncology,B0089,True
+Oncology,B0090,True
+Oncology,B0091,True
+Oncology,B0092,True
+Oncology,B0093,True
+Oncology,B0094,True
+Oncology,B0095,True
+Oncology,B0096,True
+Oncology,B0097,True
+Oncology,B0098,True
+Oncology,B0099,True
+Oncology,B0100,True
+Oncology,B0131,True
+Oncology,B0132,True
+Oncology,B0133,True
+Oncology,B0134,True
+Oncology,B0135,True
+Oncology,B0136,True
+Oncology,B0137,True
+Oncology,B0138,True
+Oncology,B0139,True
+Oncology,B0140,True
+Oncology,B0141,True
+Oncology,B0142,True
+Oncology,B0143,True
+Oncology,B0144,True
+Oncology,B0145,True
+Oncology,B0146,True
+Oncology,B0147,True
+Oncology,B0148,True
+Oncology,B0149,True
+Oncology,B0150,True
+Oncology,B0151,True
+Oncology,B0152,True
+Oncology,B0153,True
+Oncology,B0154,True
+Oncology,B0155,True
+Oncology,B0156,True
+Oncology,B0157,True
+Oncology,B0158,True
+Oncology,B0159,True
+Oncology,B0160,True
+Oncology,B0161,True
+Oncology,B0162,True
+Oncology,B0163,True
+Oncology,B0164,True
+Oncology,B0165,True
+Oncology,B0166,True
+Oncology,B0167,True
+Oncology,B0168,True
+Oncology,B0169,True
+Oncology,B0170,True
+Oncology,B0171,True
+Oncology,B0172,True
+Oncology,B0173,True
+Oncology,B0174,True
+Oncology,B0175,True
+Oncology,B0176,True
+Oncology,B0177,True
+Oncology,B0178,True
+Oncology,B0179,True
+Oncology,B0180,True
+Oncology,B0181,True
+Oncology,B0182,True
+Oncology,B0183,True
+Oncology,B0184,True
+Oncology,B0185,True
+Oncology,B0186,True
+Oncology,B0187,True
+Oncology,B0188,True
+Oncology,B0189,True
+Oncology,B0190,True
+Oncology,B0191,True
+Oncology,B0192,True
+Oncology,B0193,True
+Oncology,B0194,True
+Oncology,B0195,True
+Oncology,B0196,True
+Oncology,B0197,True
+Oncology,B0198,True
+Oncology,B0199,True
+Oncology,B0200,True
+Oncology,B0201,True
+Oncology,B0202,True
+Oncology,B0203,True
+Oncology,B0204,True
+Oncology,B0205,True
+Oncology,B0206,True
+Oncology,B0207,True
+Oncology,B0208,True
+Oncology,B0209,True
+Oncology,B0210,True
+Oncology,B0211,True
+Oncology,B0212,True
+Oncology,B0213,True
+Oncology,B0214,True
+Oncology,B0215,True
+Oncology,B0216,True
+Oncology,B0217,True
+Oncology,B0218,True
+Oncology,B0219,True
+Oncology,B0220,True
+Oncology,B0221,True
+Oncology,B0222,True
+Oncology,B0223,True
+Oncology,B0224,True
+Oncology,B0225,True
+Oncology,B0226,True
+Oncology,B0227,True
+Oncology,B0228,True
+Oncology,B0229,True
+Oncology,B0230,True
+Orthopedics,B0001,True
+Orthopedics,B0002,True
+Orthopedics,B0003,True
+Orthopedics,B0004,True
+Orthopedics,B0005,True
+Orthopedics,B0006,True
+Orthopedics,B0007,True
+Orthopedics,B0008,True
+Orthopedics,B0009,True
+Orthopedics,B0010,True
+Orthopedics,B0011,True
+Orthopedics,B0012,True
+Orthopedics,B0013,True
+Orthopedics,B0014,True
+Orthopedics,B0015,True
+Orthopedics,B0016,True
+Orthopedics,B0017,True
+Orthopedics,B0018,True
+Orthopedics,B0019,True
+Orthopedics,B0020,True
+Orthopedics,B0021,True
+Orthopedics,B0022,True
+Orthopedics,B0023,True
+Orthopedics,B0024,True
+Orthopedics,B0025,True
+Orthopedics,B0026,True
+Orthopedics,B0027,True
+Orthopedics,B0028,True
+Orthopedics,B0029,True
+Orthopedics,B0030,True
+Orthopedics,B0031,True
+Orthopedics,B0032,True
+Orthopedics,B0033,True
+Orthopedics,B0034,True
+Orthopedics,B0035,True
+Orthopedics,B0036,True
+Orthopedics,B0037,True
+Orthopedics,B0038,True
+Orthopedics,B0039,True
+Orthopedics,B0040,True
+Orthopedics,B0041,True
+Orthopedics,B0042,True
+Orthopedics,B0043,True
+Orthopedics,B0044,True
+Orthopedics,B0045,True
+Orthopedics,B0046,True
+Orthopedics,B0047,True
+Orthopedics,B0048,True
+Orthopedics,B0049,True
+Orthopedics,B0050,True
+Orthopedics,B0051,True
+Orthopedics,B0052,True
+Orthopedics,B0053,True
+Orthopedics,B0054,True
+Orthopedics,B0055,True
+Orthopedics,B0056,True
+Orthopedics,B0057,True
+Orthopedics,B0058,True
+Orthopedics,B0059,True
+Orthopedics,B0060,True
+Orthopedics,B0061,True
+Orthopedics,B0062,True
+Orthopedics,B0063,True
+Orthopedics,B0064,True
+Orthopedics,B0065,True
+Orthopedics,B0066,True
+Orthopedics,B0067,True
+Orthopedics,B0068,True
+Orthopedics,B0069,True
+Orthopedics,B0070,True
+Orthopedics,B0071,True
+Orthopedics,B0072,True
+Orthopedics,B0073,True
+Orthopedics,B0074,True
+Orthopedics,B0075,True
+Orthopedics,B0076,True
+Orthopedics,B0077,True
+Orthopedics,B0078,True
+Orthopedics,B0079,True
+Orthopedics,B0080,True
+Orthopedics,B0081,True
+Orthopedics,B0082,True
+Orthopedics,B0083,True
+Orthopedics,B0084,True
+Orthopedics,B0085,True
+Orthopedics,B0086,True
+Orthopedics,B0087,True
+Orthopedics,B0088,True
+Orthopedics,B0089,True
+Orthopedics,B0090,True
+Orthopedics,B0091,True
+Orthopedics,B0092,True
+Orthopedics,B0093,True
+Orthopedics,B0094,True
+Orthopedics,B0095,True
+Orthopedics,B0096,True
+Orthopedics,B0097,True
+Orthopedics,B0098,True
+Orthopedics,B0099,True
+Orthopedics,B0100,True
+Orthopedics,B0131,True
+Orthopedics,B0132,True
+Orthopedics,B0133,True
+Orthopedics,B0134,True
+Orthopedics,B0135,True
+Orthopedics,B0136,True
+Orthopedics,B0137,True
+Orthopedics,B0138,True
+Orthopedics,B0139,True
+Orthopedics,B0140,True
+Orthopedics,B0141,True
+Orthopedics,B0142,True
+Orthopedics,B0143,True
+Orthopedics,B0144,True
+Orthopedics,B0145,True
+Orthopedics,B0146,True
+Orthopedics,B0147,True
+Orthopedics,B0148,True
+Orthopedics,B0149,True
+Orthopedics,B0150,True
+Orthopedics,B0151,True
+Orthopedics,B0152,True
+Orthopedics,B0153,True
+Orthopedics,B0154,True
+Orthopedics,B0155,True
+Orthopedics,B0156,True
+Orthopedics,B0157,True
+Orthopedics,B0158,True
+Orthopedics,B0159,True
+Orthopedics,B0160,True
+Orthopedics,B0161,True
+Orthopedics,B0162,True
+Orthopedics,B0163,True
+Orthopedics,B0164,True
+Orthopedics,B0165,True
+Orthopedics,B0166,True
+Orthopedics,B0167,True
+Orthopedics,B0168,True
+Orthopedics,B0169,True
+Orthopedics,B0170,True
+Orthopedics,B0171,True
+Orthopedics,B0172,True
+Orthopedics,B0173,True
+Orthopedics,B0174,True
+Orthopedics,B0175,True
+Orthopedics,B0176,True
+Orthopedics,B0177,True
+Orthopedics,B0178,True
+Orthopedics,B0179,True
+Orthopedics,B0180,True
+Orthopedics,B0181,True
+Orthopedics,B0182,True
+Orthopedics,B0183,True
+Orthopedics,B0184,True
+Orthopedics,B0185,True
+Orthopedics,B0186,True
+Orthopedics,B0187,True
+Orthopedics,B0188,True
+Orthopedics,B0189,True
+Orthopedics,B0190,True
+Orthopedics,B0191,True
+Orthopedics,B0192,True
+Orthopedics,B0193,True
+Orthopedics,B0194,True
+Orthopedics,B0195,True
+Orthopedics,B0196,True
+Orthopedics,B0197,True
+Orthopedics,B0198,True
+Orthopedics,B0199,True
+Orthopedics,B0200,True
+Orthopedics,B0201,True
+Orthopedics,B0202,True
+Orthopedics,B0203,True
+Orthopedics,B0204,True
+Orthopedics,B0205,True
+Orthopedics,B0206,True
+Orthopedics,B0207,True
+Orthopedics,B0208,True
+Orthopedics,B0209,True
+Orthopedics,B0210,True
+Orthopedics,B0211,True
+Orthopedics,B0212,True
+Orthopedics,B0213,True
+Orthopedics,B0214,True
+Orthopedics,B0215,True
+Orthopedics,B0216,True
+Orthopedics,B0217,True
+Orthopedics,B0218,True
+Orthopedics,B0219,True
+Orthopedics,B0220,True
+Pediatrics,B0001,True
+Pediatrics,B0002,True
+Pediatrics,B0003,True
+Pediatrics,B0004,True
+Pediatrics,B0005,True
+Pediatrics,B0006,True
+Pediatrics,B0007,True
+Pediatrics,B0008,True
+Pediatrics,B0009,True
+Pediatrics,B0010,True
+Pediatrics,B0011,True
+Pediatrics,B0012,True
+Pediatrics,B0013,True
+Pediatrics,B0014,True
+Pediatrics,B0015,True
+Pediatrics,B0016,True
+Pediatrics,B0017,True
+Pediatrics,B0018,True
+Pediatrics,B0019,True
+Pediatrics,B0020,True
+Pediatrics,B0021,True
+Pediatrics,B0022,True
+Pediatrics,B0023,True
+Pediatrics,B0024,True
+Pediatrics,B0025,True
+Pediatrics,B0026,True
+Pediatrics,B0027,True
+Pediatrics,B0028,True
+Pediatrics,B0029,True
+Pediatrics,B0030,True
+Pediatrics,B0031,True
+Pediatrics,B0032,True
+Pediatrics,B0033,True
+Pediatrics,B0034,True
+Pediatrics,B0035,True
+Pediatrics,B0036,True
+Pediatrics,B0037,True
+Pediatrics,B0038,True
+Pediatrics,B0039,True
+Pediatrics,B0040,True
+Pediatrics,B0041,True
+Pediatrics,B0042,True
+Pediatrics,B0043,True
+Pediatrics,B0044,True
+Pediatrics,B0045,True
+Pediatrics,B0046,True
+Pediatrics,B0047,True
+Pediatrics,B0048,True
+Pediatrics,B0049,True
+Pediatrics,B0050,True
+Pediatrics,B0051,True
+Pediatrics,B0052,True
+Pediatrics,B0053,True
+Pediatrics,B0054,True
+Pediatrics,B0055,True
+Pediatrics,B0056,True
+Pediatrics,B0057,True
+Pediatrics,B0058,True
+Pediatrics,B0059,True
+Pediatrics,B0060,True
+Pediatrics,B0061,True
+Pediatrics,B0062,True
+Pediatrics,B0063,True
+Pediatrics,B0064,True
+Pediatrics,B0065,True
+Pediatrics,B0066,True
+Pediatrics,B0067,True
+Pediatrics,B0068,True
+Pediatrics,B0069,True
+Pediatrics,B0070,True
+Pediatrics,B0071,True
+Pediatrics,B0072,True
+Pediatrics,B0073,True
+Pediatrics,B0074,True
+Pediatrics,B0075,True
+Pediatrics,B0076,True
+Pediatrics,B0077,True
+Pediatrics,B0078,True
+Pediatrics,B0079,True
+Pediatrics,B0080,True
+Pediatrics,B0081,True
+Pediatrics,B0082,True
+Pediatrics,B0083,True
+Pediatrics,B0084,True
+Pediatrics,B0085,True
+Pediatrics,B0086,True
+Pediatrics,B0087,True
+Pediatrics,B0088,True
+Pediatrics,B0089,True
+Pediatrics,B0090,True
+Pediatrics,B0091,True
+Pediatrics,B0092,True
+Pediatrics,B0093,True
+Pediatrics,B0094,True
+Pediatrics,B0095,True
+Pediatrics,B0096,True
+Pediatrics,B0097,True
+Pediatrics,B0098,True
+Pediatrics,B0099,True
+Pediatrics,B0100,True
+Pediatrics,B0131,True
+Pediatrics,B0132,True
+Pediatrics,B0133,True
+Pediatrics,B0134,True
+Pediatrics,B0135,True
+Pediatrics,B0136,True
+Pediatrics,B0137,True
+Pediatrics,B0138,True
+Pediatrics,B0139,True
+Pediatrics,B0140,True
+Pediatrics,B0141,True
+Pediatrics,B0142,True
+Pediatrics,B0143,True
+Pediatrics,B0144,True
+Pediatrics,B0145,True
+Pediatrics,B0146,True
+Pediatrics,B0147,True
+Pediatrics,B0148,True
+Pediatrics,B0149,True
+Pediatrics,B0150,True
+Pediatrics,B0151,True
+Pediatrics,B0152,True
+Pediatrics,B0153,True
+Pediatrics,B0154,True
+Pediatrics,B0155,True
+Pediatrics,B0156,True
+Pediatrics,B0157,True
+Pediatrics,B0158,True
+Pediatrics,B0159,True
+Pediatrics,B0160,True
+Pediatrics,B0161,True
+Pediatrics,B0162,True
+Pediatrics,B0163,True
+Pediatrics,B0164,True
+Pediatrics,B0165,True
+Pediatrics,B0166,True
+Pediatrics,B0167,True
+Pediatrics,B0168,True
+Pediatrics,B0169,True
+Pediatrics,B0170,True
+Pediatrics,B0171,True
+Pediatrics,B0172,True
+Pediatrics,B0173,True
+Pediatrics,B0174,True
+Pediatrics,B0175,True
+Pediatrics,B0176,True
+Pediatrics,B0177,True
+Pediatrics,B0178,True
+Pediatrics,B0179,True
+Pediatrics,B0180,True
+Pediatrics,B0181,True
+Pediatrics,B0182,True
+Pediatrics,B0183,True
+Pediatrics,B0184,True
+Pediatrics,B0185,True
+Pediatrics,B0186,True
+Pediatrics,B0187,True
+Pediatrics,B0188,True
+Pediatrics,B0189,True
+Pediatrics,B0190,True
+Pediatrics,B0191,True
+Pediatrics,B0192,True
+Pediatrics,B0193,True
+Pediatrics,B0194,True
+Pediatrics,B0195,True
+Pediatrics,B0196,True
+Pediatrics,B0197,True
+Pediatrics,B0198,True
+Pediatrics,B0199,True
+Pediatrics,B0200,True
+Pediatrics,B0201,True
+Pediatrics,B0202,True
+Pediatrics,B0203,True
+Pediatrics,B0204,True
+Pediatrics,B0205,True
+Pediatrics,B0206,True
+Pediatrics,B0207,True
+Pediatrics,B0208,True
+Pediatrics,B0209,True
+Pediatrics,B0210,True
+Pediatrics,B0211,True
+Pediatrics,B0212,True
+Pediatrics,B0213,True
+Pediatrics,B0214,True
+Pediatrics,B0215,True
+Pediatrics,B0216,True
+Pediatrics,B0217,True
+Pediatrics,B0218,True
+Pediatrics,B0219,True
+Pediatrics,B0220,True
+Surgery,B0001,True
+Surgery,B0002,True
+Surgery,B0003,True
+Surgery,B0004,True
+Surgery,B0005,True
+Surgery,B0006,True
+Surgery,B0007,True
+Surgery,B0008,True
+Surgery,B0009,True
+Surgery,B0010,True
+Surgery,B0011,True
+Surgery,B0012,True
+Surgery,B0013,True
+Surgery,B0014,True
+Surgery,B0015,True
+Surgery,B0016,True
+Surgery,B0017,True
+Surgery,B0018,True
+Surgery,B0019,True
+Surgery,B0020,True
+Surgery,B0021,True
+Surgery,B0022,True
+Surgery,B0023,True
+Surgery,B0024,True
+Surgery,B0025,True
+Surgery,B0026,True
+Surgery,B0027,True
+Surgery,B0028,True
+Surgery,B0029,True
+Surgery,B0030,True
+Surgery,B0031,True
+Surgery,B0032,True
+Surgery,B0033,True
+Surgery,B0034,True
+Surgery,B0035,True
+Surgery,B0036,True
+Surgery,B0037,True
+Surgery,B0038,True
+Surgery,B0039,True
+Surgery,B0040,True
+Surgery,B0041,True
+Surgery,B0042,True
+Surgery,B0043,True
+Surgery,B0044,True
+Surgery,B0045,True
+Surgery,B0046,True
+Surgery,B0047,True
+Surgery,B0048,True
+Surgery,B0049,True
+Surgery,B0050,True
+Surgery,B0051,True
+Surgery,B0052,True
+Surgery,B0053,True
+Surgery,B0054,True
+Surgery,B0055,True
+Surgery,B0056,True
+Surgery,B0057,True
+Surgery,B0058,True
+Surgery,B0059,True
+Surgery,B0060,True
+Surgery,B0061,True
+Surgery,B0062,True
+Surgery,B0063,True
+Surgery,B0064,True
+Surgery,B0065,True
+Surgery,B0066,True
+Surgery,B0067,True
+Surgery,B0068,True
+Surgery,B0069,True
+Surgery,B0070,True
+Surgery,B0071,True
+Surgery,B0072,True
+Surgery,B0073,True
+Surgery,B0074,True
+Surgery,B0075,True
+Surgery,B0076,True
+Surgery,B0077,True
+Surgery,B0078,True
+Surgery,B0079,True
+Surgery,B0080,True
+Surgery,B0081,True
+Surgery,B0082,True
+Surgery,B0083,True
+Surgery,B0084,True
+Surgery,B0085,True
+Surgery,B0086,True
+Surgery,B0087,True
+Surgery,B0088,True
+Surgery,B0089,True
+Surgery,B0090,True
+Surgery,B0091,True
+Surgery,B0092,True
+Surgery,B0093,True
+Surgery,B0094,True
+Surgery,B0095,True
+Surgery,B0096,True
+Surgery,B0097,True
+Surgery,B0098,True
+Surgery,B0099,True
+Surgery,B0100,True
+Surgery,B0131,True
+Surgery,B0132,True
+Surgery,B0133,True
+Surgery,B0134,True
+Surgery,B0135,True
+Surgery,B0136,True
+Surgery,B0137,True
+Surgery,B0138,True
+Surgery,B0139,True
+Surgery,B0140,True
+Surgery,B0141,True
+Surgery,B0142,True
+Surgery,B0143,True
+Surgery,B0144,True
+Surgery,B0145,True
+Surgery,B0146,True
+Surgery,B0147,True
+Surgery,B0148,True
+Surgery,B0149,True
+Surgery,B0150,True
+Surgery,B0151,True
+Surgery,B0152,True
+Surgery,B0153,True
+Surgery,B0154,True
+Surgery,B0155,True
+Surgery,B0156,True
+Surgery,B0157,True
+Surgery,B0158,True
+Surgery,B0159,True
+Surgery,B0160,True
+Surgery,B0161,True
+Surgery,B0162,True
+Surgery,B0163,True
+Surgery,B0164,True
+Surgery,B0165,True
+Surgery,B0166,True
+Surgery,B0167,True
+Surgery,B0168,True
+Surgery,B0169,True
+Surgery,B0170,True
+Surgery,B0171,True
+Surgery,B0172,True
+Surgery,B0173,True
+Surgery,B0174,True
+Surgery,B0175,True
+Surgery,B0176,True
+Surgery,B0177,True
+Surgery,B0178,True
+Surgery,B0179,True
+Surgery,B0180,True
+Surgery,B0181,True
+Surgery,B0182,True
+Surgery,B0183,True
+Surgery,B0184,True
+Surgery,B0185,True
+Surgery,B0186,True
+Surgery,B0187,True
+Surgery,B0188,True
+Surgery,B0189,True
+Surgery,B0190,True
+Surgery,B0191,True
+Surgery,B0192,True
+Surgery,B0193,True
+Surgery,B0194,True
+Surgery,B0195,True
+Surgery,B0196,True
+Surgery,B0197,True
+Surgery,B0198,True
+Surgery,B0199,True
+Surgery,B0200,True
+Surgery,B0201,True
+Surgery,B0202,True
+Surgery,B0203,True
+Surgery,B0204,True
+Surgery,B0205,True
+Surgery,B0206,True
+Surgery,B0207,True
+Surgery,B0208,True
+Surgery,B0209,True
+Surgery,B0210,True
+Surgery,B0211,True
+Surgery,B0212,True
+Surgery,B0213,True
+Surgery,B0214,True
+Surgery,B0215,True
+Surgery,B0216,True
+Surgery,B0217,True
+Surgery,B0218,True
+Surgery,B0219,True
+Surgery,B0220,True

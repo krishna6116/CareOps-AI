@@ -1,0 +1,231 @@
+bed_id,ward,bed_type,status,floor,department,isolation_capable,emergency_reserve,available_for_emergency,as_of_date,data_provenance
+B0001,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0002,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0003,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0004,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0005,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0006,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0007,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0008,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0009,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0010,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0011,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0012,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0013,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0014,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0015,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0016,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0017,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0018,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0019,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0020,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0021,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0022,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0023,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0024,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0025,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0026,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0027,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0028,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0029,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0030,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0031,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0032,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0033,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0034,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0035,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0036,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0037,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0038,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0039,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0040,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0041,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0042,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0043,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0044,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0045,General,General,Maintenance,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0046,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0047,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0048,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0049,General,General,Maintenance,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0050,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0051,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0052,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0053,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0054,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0055,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0056,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0057,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0058,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0059,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0060,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0061,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0062,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0063,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0064,General,General,Maintenance,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0065,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0066,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0067,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0068,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0069,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0070,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0071,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0072,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0073,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0074,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0075,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0076,General,General,Maintenance,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0077,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0078,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0079,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0080,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0081,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0082,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0083,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0084,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0085,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0086,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0087,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0088,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0089,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0090,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0091,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0092,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0093,General,General,Available,2,General Medicine,False,False,True,2026-10-04,synthetic_assumed_inventory_snapshot
+B0094,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0095,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0096,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0097,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0098,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0099,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0100,General,General,Occupied,2,General Medicine,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0101,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0102,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0103,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0104,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0105,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0106,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0107,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0108,ICU,ICU,Available,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0109,ICU,ICU,Available,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0110,ICU,ICU,Maintenance,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0111,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0112,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0113,ICU,ICU,Available,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0114,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0115,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0116,ICU,ICU,Available,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0117,ICU,ICU,Available,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0118,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0119,ICU,ICU,Occupied,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0120,ICU,ICU,Available,3,ICU,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0121,Emergency,Emergency,Available,1,Emergency,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0122,Emergency,Emergency,Available,1,Emergency,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0123,Emergency,Emergency,Occupied,1,Emergency,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0124,Emergency,Emergency,Occupied,1,Emergency,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0125,Emergency,Emergency,Occupied,1,Emergency,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0126,Emergency,Emergency,Occupied,1,Emergency,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0127,Emergency,Emergency,Available,1,Emergency,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0128,Emergency,Emergency,Occupied,1,Emergency,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0129,Emergency,Emergency,Occupied,1,Emergency,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0130,Emergency,Emergency,Occupied,1,Emergency,True,True,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0131,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0132,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0133,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0134,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0135,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0136,Surgery,General,Available,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0137,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0138,Surgery,General,Available,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0139,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0140,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0141,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0142,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0143,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0144,Surgery,General,Maintenance,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0145,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0146,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0147,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0148,Surgery,General,Available,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0149,Surgery,General,Available,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0150,Surgery,General,Available,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0151,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0152,Surgery,General,Available,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0153,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0154,Surgery,General,Occupied,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0155,Surgery,General,Available,2,Surgery,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0156,Cardiology,General,Occupied,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0157,Cardiology,General,Occupied,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0158,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0159,Cardiology,General,Occupied,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0160,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0161,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0162,Cardiology,General,Maintenance,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0163,Cardiology,General,Occupied,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0164,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0165,Cardiology,General,Occupied,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0166,Cardiology,General,Occupied,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0167,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0168,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0169,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0170,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0171,Cardiology,General,Occupied,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0172,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0173,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0174,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0175,Cardiology,General,Available,2,Cardiology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0176,Neurology,General,Available,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0177,Neurology,General,Available,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0178,Neurology,General,Maintenance,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0179,Neurology,General,Occupied,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0180,Neurology,General,Available,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0181,Neurology,General,Available,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0182,Neurology,General,Available,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0183,Neurology,General,Occupied,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0184,Neurology,General,Occupied,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0185,Neurology,General,Available,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0186,Neurology,General,Occupied,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0187,Neurology,General,Occupied,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0188,Neurology,General,Available,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0189,Neurology,General,Occupied,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0190,Neurology,General,Available,2,Neurology,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0191,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0192,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0193,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0194,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0195,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0196,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0197,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0198,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0199,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0200,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0201,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0202,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0203,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0204,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0205,Orthopedics,General,Occupied,2,Orthopedics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0206,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0207,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0208,Pediatrics,General,Available,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0209,Pediatrics,General,Available,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0210,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0211,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0212,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0213,Pediatrics,General,Maintenance,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0214,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0215,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0216,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0217,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0218,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0219,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0220,Pediatrics,General,Occupied,2,Pediatrics,False,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0221,Oncology,Isolation,Available,2,Oncology,True,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0222,Oncology,Isolation,Available,2,Oncology,True,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0223,Oncology,Isolation,Occupied,2,Oncology,True,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0224,Oncology,Isolation,Available,2,Oncology,True,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0225,Oncology,Isolation,Occupied,2,Oncology,True,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0226,Oncology,Isolation,Available,2,Oncology,True,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0227,Oncology,Isolation,Available,2,Oncology,True,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0228,Oncology,Isolation,Available,2,Oncology,True,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0229,Oncology,Isolation,Available,2,Oncology,True,False,False,2026-10-04,synthetic_assumed_inventory_snapshot
+B0230,Oncology,Isolation,Available,2,Oncology,True,False,False,2026-10-04,synthetic_assumed_inventory_snapshot

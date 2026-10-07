@@ -1,0 +1,421 @@
+date,bed_id,bed_type,source_department,allocated_department,is_transfer,emergency_reserve
+2026-09-12,B0092,General,General Medicine,Pediatrics,True,False
+2026-09-12,B0093,General,General Medicine,Orthopedics,True,False
+2026-09-12,B0094,General,General Medicine,Oncology,True,False
+2026-09-12,B0095,General,General Medicine,General Medicine,False,False
+2026-09-12,B0096,General,General Medicine,General Medicine,False,False
+2026-09-12,B0097,General,General Medicine,General Medicine,False,False
+2026-09-12,B0098,General,General Medicine,General Medicine,False,False
+2026-09-12,B0099,General,General Medicine,General Medicine,False,False
+2026-09-12,B0100,General,General Medicine,General Medicine,False,False
+2026-09-12,B0120,ICU,ICU,ICU,False,True
+2026-09-12,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-12,B0133,General,Surgery,Surgery,False,False
+2026-09-12,B0134,General,Surgery,Surgery,False,False
+2026-09-12,B0140,General,Surgery,Surgery,False,False
+2026-09-12,B0149,General,Surgery,Surgery,False,False
+2026-09-12,B0150,General,Surgery,Surgery,False,False
+2026-09-12,B0153,General,Surgery,General Medicine,True,False
+2026-09-12,B0160,General,Cardiology,Cardiology,False,False
+2026-09-12,B0161,General,Cardiology,Cardiology,False,False
+2026-09-12,B0169,General,Cardiology,Cardiology,False,False
+2026-09-12,B0175,General,Cardiology,Cardiology,False,False
+2026-09-12,B0179,General,Neurology,General Medicine,True,False
+2026-09-12,B0183,General,Neurology,Neurology,False,False
+2026-09-12,B0185,General,Neurology,Neurology,False,False
+2026-09-12,B0186,General,Neurology,Neurology,False,False
+2026-09-12,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-12,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-12,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-12,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-12,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-13,B0092,General,General Medicine,General Medicine,False,False
+2026-09-13,B0093,General,General Medicine,General Medicine,False,False
+2026-09-13,B0094,General,General Medicine,General Medicine,False,False
+2026-09-13,B0095,General,General Medicine,General Medicine,False,False
+2026-09-13,B0096,General,General Medicine,General Medicine,False,False
+2026-09-13,B0097,General,General Medicine,General Medicine,False,False
+2026-09-13,B0098,General,General Medicine,General Medicine,False,False
+2026-09-13,B0099,General,General Medicine,General Medicine,False,False
+2026-09-13,B0100,General,General Medicine,General Medicine,False,False
+2026-09-13,B0120,ICU,ICU,ICU,False,True
+2026-09-13,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-13,B0133,General,Surgery,Surgery,False,False
+2026-09-13,B0134,General,Surgery,Surgery,False,False
+2026-09-13,B0140,General,Surgery,Surgery,False,False
+2026-09-13,B0149,General,Surgery,Surgery,False,False
+2026-09-13,B0150,General,Surgery,Surgery,False,False
+2026-09-13,B0153,General,Surgery,Surgery,False,False
+2026-09-13,B0160,General,Cardiology,Cardiology,False,False
+2026-09-13,B0161,General,Cardiology,Cardiology,False,False
+2026-09-13,B0169,General,Cardiology,Cardiology,False,False
+2026-09-13,B0175,General,Cardiology,Cardiology,False,False
+2026-09-13,B0179,General,Neurology,Neurology,False,False
+2026-09-13,B0183,General,Neurology,Neurology,False,False
+2026-09-13,B0185,General,Neurology,Neurology,False,False
+2026-09-13,B0186,General,Neurology,Neurology,False,False
+2026-09-13,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-13,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-13,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-13,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-13,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-14,B0092,General,General Medicine,General Medicine,False,False
+2026-09-14,B0093,General,General Medicine,General Medicine,False,False
+2026-09-14,B0094,General,General Medicine,General Medicine,False,False
+2026-09-14,B0095,General,General Medicine,General Medicine,False,False
+2026-09-14,B0096,General,General Medicine,General Medicine,False,False
+2026-09-14,B0097,General,General Medicine,General Medicine,False,False
+2026-09-14,B0098,General,General Medicine,General Medicine,False,False
+2026-09-14,B0099,General,General Medicine,General Medicine,False,False
+2026-09-14,B0100,General,General Medicine,General Medicine,False,False
+2026-09-14,B0120,ICU,ICU,ICU,False,True
+2026-09-14,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-14,B0133,General,Surgery,Surgery,False,False
+2026-09-14,B0134,General,Surgery,Surgery,False,False
+2026-09-14,B0140,General,Surgery,Surgery,False,False
+2026-09-14,B0149,General,Surgery,Surgery,False,False
+2026-09-14,B0150,General,Surgery,Surgery,False,False
+2026-09-14,B0153,General,Surgery,Surgery,False,False
+2026-09-14,B0160,General,Cardiology,Cardiology,False,False
+2026-09-14,B0161,General,Cardiology,Cardiology,False,False
+2026-09-14,B0169,General,Cardiology,Cardiology,False,False
+2026-09-14,B0175,General,Cardiology,Cardiology,False,False
+2026-09-14,B0179,General,Neurology,Neurology,False,False
+2026-09-14,B0183,General,Neurology,Neurology,False,False
+2026-09-14,B0185,General,Neurology,Neurology,False,False
+2026-09-14,B0186,General,Neurology,Neurology,False,False
+2026-09-14,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-14,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-14,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-14,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-14,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-15,B0092,General,General Medicine,General Medicine,False,False
+2026-09-15,B0093,General,General Medicine,General Medicine,False,False
+2026-09-15,B0094,General,General Medicine,General Medicine,False,False
+2026-09-15,B0095,General,General Medicine,General Medicine,False,False
+2026-09-15,B0096,General,General Medicine,General Medicine,False,False
+2026-09-15,B0097,General,General Medicine,General Medicine,False,False
+2026-09-15,B0098,General,General Medicine,General Medicine,False,False
+2026-09-15,B0099,General,General Medicine,General Medicine,False,False
+2026-09-15,B0100,General,General Medicine,General Medicine,False,False
+2026-09-15,B0120,ICU,ICU,ICU,False,True
+2026-09-15,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-15,B0133,General,Surgery,Surgery,False,False
+2026-09-15,B0134,General,Surgery,Surgery,False,False
+2026-09-15,B0140,General,Surgery,Surgery,False,False
+2026-09-15,B0149,General,Surgery,Surgery,False,False
+2026-09-15,B0150,General,Surgery,Surgery,False,False
+2026-09-15,B0153,General,Surgery,Surgery,False,False
+2026-09-15,B0160,General,Cardiology,Cardiology,False,False
+2026-09-15,B0161,General,Cardiology,Cardiology,False,False
+2026-09-15,B0169,General,Cardiology,Cardiology,False,False
+2026-09-15,B0175,General,Cardiology,Cardiology,False,False
+2026-09-15,B0179,General,Neurology,Neurology,False,False
+2026-09-15,B0183,General,Neurology,Neurology,False,False
+2026-09-15,B0185,General,Neurology,Neurology,False,False
+2026-09-15,B0186,General,Neurology,Neurology,False,False
+2026-09-15,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-15,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-15,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-15,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-15,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-16,B0092,General,General Medicine,General Medicine,False,False
+2026-09-16,B0093,General,General Medicine,General Medicine,False,False
+2026-09-16,B0094,General,General Medicine,General Medicine,False,False
+2026-09-16,B0095,General,General Medicine,General Medicine,False,False
+2026-09-16,B0096,General,General Medicine,General Medicine,False,False
+2026-09-16,B0097,General,General Medicine,General Medicine,False,False
+2026-09-16,B0098,General,General Medicine,General Medicine,False,False
+2026-09-16,B0099,General,General Medicine,General Medicine,False,False
+2026-09-16,B0100,General,General Medicine,General Medicine,False,False
+2026-09-16,B0120,ICU,ICU,ICU,False,True
+2026-09-16,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-16,B0133,General,Surgery,Surgery,False,False
+2026-09-16,B0134,General,Surgery,Surgery,False,False
+2026-09-16,B0140,General,Surgery,Surgery,False,False
+2026-09-16,B0149,General,Surgery,Surgery,False,False
+2026-09-16,B0150,General,Surgery,Surgery,False,False
+2026-09-16,B0153,General,Surgery,Surgery,False,False
+2026-09-16,B0160,General,Cardiology,Cardiology,False,False
+2026-09-16,B0161,General,Cardiology,Cardiology,False,False
+2026-09-16,B0169,General,Cardiology,Cardiology,False,False
+2026-09-16,B0175,General,Cardiology,Cardiology,False,False
+2026-09-16,B0179,General,Neurology,Neurology,False,False
+2026-09-16,B0183,General,Neurology,Neurology,False,False
+2026-09-16,B0185,General,Neurology,Neurology,False,False
+2026-09-16,B0186,General,Neurology,Neurology,False,False
+2026-09-16,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-16,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-16,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-16,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-16,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-17,B0092,General,General Medicine,General Medicine,False,False
+2026-09-17,B0093,General,General Medicine,General Medicine,False,False
+2026-09-17,B0094,General,General Medicine,General Medicine,False,False
+2026-09-17,B0095,General,General Medicine,General Medicine,False,False
+2026-09-17,B0096,General,General Medicine,General Medicine,False,False
+2026-09-17,B0097,General,General Medicine,General Medicine,False,False
+2026-09-17,B0098,General,General Medicine,General Medicine,False,False
+2026-09-17,B0099,General,General Medicine,General Medicine,False,False
+2026-09-17,B0100,General,General Medicine,General Medicine,False,False
+2026-09-17,B0120,ICU,ICU,ICU,False,True
+2026-09-17,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-17,B0133,General,Surgery,Surgery,False,False
+2026-09-17,B0134,General,Surgery,Surgery,False,False
+2026-09-17,B0140,General,Surgery,Surgery,False,False
+2026-09-17,B0149,General,Surgery,Surgery,False,False
+2026-09-17,B0150,General,Surgery,Surgery,False,False
+2026-09-17,B0153,General,Surgery,Surgery,False,False
+2026-09-17,B0160,General,Cardiology,Cardiology,False,False
+2026-09-17,B0161,General,Cardiology,Cardiology,False,False
+2026-09-17,B0169,General,Cardiology,Cardiology,False,False
+2026-09-17,B0175,General,Cardiology,Cardiology,False,False
+2026-09-17,B0179,General,Neurology,Neurology,False,False
+2026-09-17,B0183,General,Neurology,Neurology,False,False
+2026-09-17,B0185,General,Neurology,Neurology,False,False
+2026-09-17,B0186,General,Neurology,Neurology,False,False
+2026-09-17,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-17,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-17,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-17,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-17,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-18,B0092,General,General Medicine,General Medicine,False,False
+2026-09-18,B0093,General,General Medicine,General Medicine,False,False
+2026-09-18,B0094,General,General Medicine,General Medicine,False,False
+2026-09-18,B0095,General,General Medicine,General Medicine,False,False
+2026-09-18,B0096,General,General Medicine,General Medicine,False,False
+2026-09-18,B0097,General,General Medicine,General Medicine,False,False
+2026-09-18,B0098,General,General Medicine,General Medicine,False,False
+2026-09-18,B0099,General,General Medicine,General Medicine,False,False
+2026-09-18,B0100,General,General Medicine,General Medicine,False,False
+2026-09-18,B0120,ICU,ICU,ICU,False,True
+2026-09-18,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-18,B0133,General,Surgery,Surgery,False,False
+2026-09-18,B0134,General,Surgery,Surgery,False,False
+2026-09-18,B0140,General,Surgery,Surgery,False,False
+2026-09-18,B0149,General,Surgery,Surgery,False,False
+2026-09-18,B0150,General,Surgery,Surgery,False,False
+2026-09-18,B0153,General,Surgery,Surgery,False,False
+2026-09-18,B0160,General,Cardiology,Cardiology,False,False
+2026-09-18,B0161,General,Cardiology,Cardiology,False,False
+2026-09-18,B0169,General,Cardiology,Cardiology,False,False
+2026-09-18,B0175,General,Cardiology,Cardiology,False,False
+2026-09-18,B0179,General,Neurology,Neurology,False,False
+2026-09-18,B0183,General,Neurology,Neurology,False,False
+2026-09-18,B0185,General,Neurology,Neurology,False,False
+2026-09-18,B0186,General,Neurology,Neurology,False,False
+2026-09-18,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-18,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-18,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-18,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-18,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-19,B0092,General,General Medicine,General Medicine,False,False
+2026-09-19,B0093,General,General Medicine,General Medicine,False,False
+2026-09-19,B0094,General,General Medicine,General Medicine,False,False
+2026-09-19,B0095,General,General Medicine,General Medicine,False,False
+2026-09-19,B0096,General,General Medicine,General Medicine,False,False
+2026-09-19,B0097,General,General Medicine,General Medicine,False,False
+2026-09-19,B0098,General,General Medicine,General Medicine,False,False
+2026-09-19,B0099,General,General Medicine,General Medicine,False,False
+2026-09-19,B0100,General,General Medicine,General Medicine,False,False
+2026-09-19,B0120,ICU,ICU,ICU,False,True
+2026-09-19,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-19,B0133,General,Surgery,Surgery,False,False
+2026-09-19,B0134,General,Surgery,Surgery,False,False
+2026-09-19,B0140,General,Surgery,Surgery,False,False
+2026-09-19,B0149,General,Surgery,Surgery,False,False
+2026-09-19,B0150,General,Surgery,Surgery,False,False
+2026-09-19,B0153,General,Surgery,Surgery,False,False
+2026-09-19,B0160,General,Cardiology,Cardiology,False,False
+2026-09-19,B0161,General,Cardiology,Cardiology,False,False
+2026-09-19,B0169,General,Cardiology,Cardiology,False,False
+2026-09-19,B0175,General,Cardiology,Cardiology,False,False
+2026-09-19,B0179,General,Neurology,Neurology,False,False
+2026-09-19,B0183,General,Neurology,Neurology,False,False
+2026-09-19,B0185,General,Neurology,Neurology,False,False
+2026-09-19,B0186,General,Neurology,Neurology,False,False
+2026-09-19,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-19,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-19,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-19,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-19,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-20,B0092,General,General Medicine,General Medicine,False,False
+2026-09-20,B0093,General,General Medicine,General Medicine,False,False
+2026-09-20,B0094,General,General Medicine,General Medicine,False,False
+2026-09-20,B0095,General,General Medicine,General Medicine,False,False
+2026-09-20,B0096,General,General Medicine,General Medicine,False,False
+2026-09-20,B0097,General,General Medicine,General Medicine,False,False
+2026-09-20,B0098,General,General Medicine,General Medicine,False,False
+2026-09-20,B0099,General,General Medicine,General Medicine,False,False
+2026-09-20,B0100,General,General Medicine,General Medicine,False,False
+2026-09-20,B0120,ICU,ICU,ICU,False,True
+2026-09-20,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-20,B0133,General,Surgery,Surgery,False,False
+2026-09-20,B0134,General,Surgery,Surgery,False,False
+2026-09-20,B0140,General,Surgery,Surgery,False,False
+2026-09-20,B0149,General,Surgery,Surgery,False,False
+2026-09-20,B0150,General,Surgery,Surgery,False,False
+2026-09-20,B0153,General,Surgery,Surgery,False,False
+2026-09-20,B0160,General,Cardiology,Cardiology,False,False
+2026-09-20,B0161,General,Cardiology,Cardiology,False,False
+2026-09-20,B0169,General,Cardiology,Cardiology,False,False
+2026-09-20,B0175,General,Cardiology,Cardiology,False,False
+2026-09-20,B0179,General,Neurology,Neurology,False,False
+2026-09-20,B0183,General,Neurology,Neurology,False,False
+2026-09-20,B0185,General,Neurology,Neurology,False,False
+2026-09-20,B0186,General,Neurology,Neurology,False,False
+2026-09-20,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-20,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-20,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-20,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-20,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-21,B0092,General,General Medicine,General Medicine,False,False
+2026-09-21,B0093,General,General Medicine,General Medicine,False,False
+2026-09-21,B0094,General,General Medicine,General Medicine,False,False
+2026-09-21,B0095,General,General Medicine,General Medicine,False,False
+2026-09-21,B0096,General,General Medicine,General Medicine,False,False
+2026-09-21,B0097,General,General Medicine,General Medicine,False,False
+2026-09-21,B0098,General,General Medicine,General Medicine,False,False
+2026-09-21,B0099,General,General Medicine,General Medicine,False,False
+2026-09-21,B0100,General,General Medicine,General Medicine,False,False
+2026-09-21,B0120,ICU,ICU,ICU,False,True
+2026-09-21,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-21,B0133,General,Surgery,Surgery,False,False
+2026-09-21,B0134,General,Surgery,Surgery,False,False
+2026-09-21,B0140,General,Surgery,Surgery,False,False
+2026-09-21,B0149,General,Surgery,Surgery,False,False
+2026-09-21,B0150,General,Surgery,Surgery,False,False
+2026-09-21,B0153,General,Surgery,Surgery,False,False
+2026-09-21,B0160,General,Cardiology,Cardiology,False,False
+2026-09-21,B0161,General,Cardiology,Cardiology,False,False
+2026-09-21,B0169,General,Cardiology,Cardiology,False,False
+2026-09-21,B0175,General,Cardiology,Cardiology,False,False
+2026-09-21,B0179,General,Neurology,Neurology,False,False
+2026-09-21,B0183,General,Neurology,Neurology,False,False
+2026-09-21,B0185,General,Neurology,Neurology,False,False
+2026-09-21,B0186,General,Neurology,Neurology,False,False
+2026-09-21,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-21,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-21,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-21,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-21,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-22,B0092,General,General Medicine,General Medicine,False,False
+2026-09-22,B0093,General,General Medicine,General Medicine,False,False
+2026-09-22,B0094,General,General Medicine,General Medicine,False,False
+2026-09-22,B0095,General,General Medicine,General Medicine,False,False
+2026-09-22,B0096,General,General Medicine,General Medicine,False,False
+2026-09-22,B0097,General,General Medicine,General Medicine,False,False
+2026-09-22,B0098,General,General Medicine,General Medicine,False,False
+2026-09-22,B0099,General,General Medicine,General Medicine,False,False
+2026-09-22,B0100,General,General Medicine,General Medicine,False,False
+2026-09-22,B0120,ICU,ICU,ICU,False,True
+2026-09-22,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-22,B0133,General,Surgery,Surgery,False,False
+2026-09-22,B0134,General,Surgery,Surgery,False,False
+2026-09-22,B0140,General,Surgery,Surgery,False,False
+2026-09-22,B0149,General,Surgery,Surgery,False,False
+2026-09-22,B0150,General,Surgery,Surgery,False,False
+2026-09-22,B0153,General,Surgery,Surgery,False,False
+2026-09-22,B0160,General,Cardiology,Cardiology,False,False
+2026-09-22,B0161,General,Cardiology,Cardiology,False,False
+2026-09-22,B0169,General,Cardiology,Cardiology,False,False
+2026-09-22,B0175,General,Cardiology,Cardiology,False,False
+2026-09-22,B0179,General,Neurology,Neurology,False,False
+2026-09-22,B0183,General,Neurology,Neurology,False,False
+2026-09-22,B0185,General,Neurology,Neurology,False,False
+2026-09-22,B0186,General,Neurology,Neurology,False,False
+2026-09-22,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-22,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-22,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-22,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-22,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-23,B0092,General,General Medicine,General Medicine,False,False
+2026-09-23,B0093,General,General Medicine,General Medicine,False,False
+2026-09-23,B0094,General,General Medicine,General Medicine,False,False
+2026-09-23,B0095,General,General Medicine,General Medicine,False,False
+2026-09-23,B0096,General,General Medicine,General Medicine,False,False
+2026-09-23,B0097,General,General Medicine,General Medicine,False,False
+2026-09-23,B0098,General,General Medicine,General Medicine,False,False
+2026-09-23,B0099,General,General Medicine,General Medicine,False,False
+2026-09-23,B0100,General,General Medicine,General Medicine,False,False
+2026-09-23,B0120,ICU,ICU,ICU,False,True
+2026-09-23,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-23,B0133,General,Surgery,Surgery,False,False
+2026-09-23,B0134,General,Surgery,Surgery,False,False
+2026-09-23,B0140,General,Surgery,Surgery,False,False
+2026-09-23,B0149,General,Surgery,Surgery,False,False
+2026-09-23,B0150,General,Surgery,Surgery,False,False
+2026-09-23,B0153,General,Surgery,Surgery,False,False
+2026-09-23,B0160,General,Cardiology,Cardiology,False,False
+2026-09-23,B0161,General,Cardiology,Cardiology,False,False
+2026-09-23,B0169,General,Cardiology,Cardiology,False,False
+2026-09-23,B0175,General,Cardiology,Cardiology,False,False
+2026-09-23,B0179,General,Neurology,Neurology,False,False
+2026-09-23,B0183,General,Neurology,Neurology,False,False
+2026-09-23,B0185,General,Neurology,Neurology,False,False
+2026-09-23,B0186,General,Neurology,Neurology,False,False
+2026-09-23,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-23,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-23,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-23,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-23,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-24,B0092,General,General Medicine,General Medicine,False,False
+2026-09-24,B0093,General,General Medicine,General Medicine,False,False
+2026-09-24,B0094,General,General Medicine,General Medicine,False,False
+2026-09-24,B0095,General,General Medicine,General Medicine,False,False
+2026-09-24,B0096,General,General Medicine,General Medicine,False,False
+2026-09-24,B0097,General,General Medicine,General Medicine,False,False
+2026-09-24,B0098,General,General Medicine,General Medicine,False,False
+2026-09-24,B0099,General,General Medicine,General Medicine,False,False
+2026-09-24,B0100,General,General Medicine,General Medicine,False,False
+2026-09-24,B0120,ICU,ICU,ICU,False,True
+2026-09-24,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-24,B0133,General,Surgery,Surgery,False,False
+2026-09-24,B0134,General,Surgery,Surgery,False,False
+2026-09-24,B0140,General,Surgery,Surgery,False,False
+2026-09-24,B0149,General,Surgery,Surgery,False,False
+2026-09-24,B0150,General,Surgery,Surgery,False,False
+2026-09-24,B0153,General,Surgery,Surgery,False,False
+2026-09-24,B0160,General,Cardiology,Cardiology,False,False
+2026-09-24,B0161,General,Cardiology,Cardiology,False,False
+2026-09-24,B0169,General,Cardiology,Cardiology,False,False
+2026-09-24,B0175,General,Cardiology,Cardiology,False,False
+2026-09-24,B0179,General,Neurology,Neurology,False,False
+2026-09-24,B0183,General,Neurology,Neurology,False,False
+2026-09-24,B0185,General,Neurology,Neurology,False,False
+2026-09-24,B0186,General,Neurology,Neurology,False,False
+2026-09-24,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-24,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-24,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-24,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-24,B0230,Isolation,Oncology,Oncology,False,False
+2026-09-25,B0092,General,General Medicine,General Medicine,False,False
+2026-09-25,B0093,General,General Medicine,General Medicine,False,False
+2026-09-25,B0094,General,General Medicine,General Medicine,False,False
+2026-09-25,B0095,General,General Medicine,General Medicine,False,False
+2026-09-25,B0096,General,General Medicine,General Medicine,False,False
+2026-09-25,B0097,General,General Medicine,General Medicine,False,False
+2026-09-25,B0098,General,General Medicine,General Medicine,False,False
+2026-09-25,B0099,General,General Medicine,General Medicine,False,False
+2026-09-25,B0100,General,General Medicine,General Medicine,False,False
+2026-09-25,B0120,ICU,ICU,ICU,False,True
+2026-09-25,B0130,Emergency,Emergency,Emergency,False,True
+2026-09-25,B0133,General,Surgery,Surgery,False,False
+2026-09-25,B0134,General,Surgery,Surgery,False,False
+2026-09-25,B0140,General,Surgery,Surgery,False,False
+2026-09-25,B0149,General,Surgery,Surgery,False,False
+2026-09-25,B0150,General,Surgery,Surgery,False,False
+2026-09-25,B0153,General,Surgery,Surgery,False,False
+2026-09-25,B0160,General,Cardiology,Cardiology,False,False
+2026-09-25,B0161,General,Cardiology,Cardiology,False,False
+2026-09-25,B0169,General,Cardiology,Cardiology,False,False
+2026-09-25,B0175,General,Cardiology,Cardiology,False,False
+2026-09-25,B0179,General,Neurology,Neurology,False,False
+2026-09-25,B0183,General,Neurology,Neurology,False,False
+2026-09-25,B0185,General,Neurology,Neurology,False,False
+2026-09-25,B0186,General,Neurology,Neurology,False,False
+2026-09-25,B0206,General,Pediatrics,Pediatrics,False,False
+2026-09-25,B0208,General,Pediatrics,Pediatrics,False,False
+2026-09-25,B0219,General,Pediatrics,Pediatrics,False,False
+2026-09-25,B0222,Isolation,Oncology,Oncology,False,False
+2026-09-25,B0230,Isolation,Oncology,Oncology,False,False

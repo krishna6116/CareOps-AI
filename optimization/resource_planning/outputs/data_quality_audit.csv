@@ -1,0 +1,52 @@
+check,status,value,details
+beds_not_empty,PASS,230,Input contains rows.
+staff_not_empty,PASS,300,Input contains rows.
+shifts_not_empty,PASS,166320,Input contains rows.
+appointments_not_empty,PASS,120000,Input contains rows.
+admissions_not_empty,PASS,11630,Input contains rows.
+isolation_labels_not_empty,PASS,11630,Input contains rows.
+isolation_forecast_not_empty,PASS,300,Input contains rows.
+daily_operations_not_empty,PASS,9072,Input contains rows.
+admission_forecast_not_empty,PASS,300,Input contains rows.
+los_predictions_not_empty,PASS,2298,Input contains rows.
+icu_forecast_not_empty,PASS,30,Input contains rows.
+occupancy_forecast_not_empty,PASS,30,Input contains rows.
+no_show_predictions_not_empty,PASS,24000,Input contains rows.
+no_show_prediction_duplicate_ids,PASS,0,No-show prediction IDs are unique.
+no_show_prediction_probability_bounds,PASS,0,No-show probabilities are finite and bounded.
+data_scope,WARN,synthetic/historical,Bundled data is synthetic and historical; results do not establish live-site performance.
+beds_duplicate_bed_id,PASS,0,Identifiers are unique.
+staff_duplicate_staff_id,PASS,0,Identifiers are unique.
+shifts_duplicate_shift_id,PASS,0,Identifiers are unique.
+appointments_duplicate_appointment_id,PASS,0,Identifiers are unique.
+admissions_duplicate_admission_id,PASS,0,Identifiers are unique.
+isolation_labels_duplicate_admission_id,PASS,0,Identifiers are unique.
+daily_operations_duplicate_grain,PASS,0,"Rows are unique at expected grain ['date', 'department']."
+admission_forecast_duplicate_grain,PASS,0,"Rows are unique at expected grain ['date', 'department']."
+occupancy_forecast_duplicate_grain,PASS,0,Rows are unique at expected grain ['date'].
+icu_forecast_duplicate_grain,PASS,0,Rows are unique at expected grain ['date'].
+isolation_forecast_duplicate_grain,PASS,0,"Rows are unique at expected grain ['date', 'department']."
+latest_observed_operations_age_days,PASS,0,Operational history ends 2026-10-04.
+operations_calendar_gaps,PASS,0,Operational history has no missing calendar dates.
+operations_department_day_coverage,PASS,0,Each operational date has all listed departments.
+forecast_start_age_days,PASS,-1,Forecast window is 2026-10-05 through 2026-11-03.
+admission_forecast_department_coverage,PASS,9,Detailed department count is consistent across forecast dates.
+forecast_origin_alignment,PASS,0,Forecast begins the day after latest operational history.
+admission_forecast_calendar_gaps,PASS,0,Admission forecast dates are continuous.
+icu_forecast_horizon_alignment,PASS,0 missing / 0 extra,ICU admissions forecast covers the exact admission forecast horizon.
+icu_forecast_target_semantics,PASS,admissions_per_day,"ICU model target is explicitly daily admissions, not occupied beds."
+occupancy_forecast_horizon_alignment,PASS,0 missing / 0 extra,Occupancy forecast covers the exact admission forecast horizon.
+occupancy_forecast_capacity_basis,WARN,221 operational / 230 physical; max rate-to-count difference 0.00 beds,"Occupancy forecast uses the full physical inventory, while allocation excludes non-operational beds; interpret the two denominators separately."
+bed_inventory_snapshot_date,WARN,2026-10-04,Snapshot age 0 day(s); provenance: synthetic_assumed_inventory_snapshot. Synthetic/assumed snapshots are not live data.
+staff_availability_snapshot_date,WARN,2026-10-04,Snapshot age 0 day(s); provenance: synthetic_static_staff_availability_assumption. Synthetic/assumed snapshots are not live data.
+staff_availability_values,PASS,0,Availability labels are recognized.
+latest_appointment_data_age_days,PASS,0,Appointment input is current.
+admission_forecast_numeric_values,PASS,0,Forecast values are finite and non-negative.
+isolation_forecast_numeric_values,PASS,0,Forecast values are finite and non-negative.
+occupancy_forecast_numeric_values,PASS,0,Forecast values are finite and non-negative.
+icu_forecast_numeric_values,PASS,0,Forecast values are finite and non-negative.
+isolation_label_integrity,PASS,0,Isolation labels are binary and carry source metadata.
+isolation_label_provenance,WARN,synthetic_scenario_probability_not_clinical,"Isolation labels are synthetic scenario values, not clinical determinations."
+isolation_forecast_bounds,PASS,0,Isolation scenario rates/arrivals are bounded by total arrivals.
+admission_stay_date_integrity,PASS,0,Admission and discharge dates are valid.
+emergency_reserve_flag_semantics,WARN,30,"Bed inventory labels reserve-capable beds, but the meaning and protected count are not documented; scenario reserve values are configured separately."
