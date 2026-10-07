@@ -134,6 +134,17 @@ Run focused tests:
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -p test_*.py -v
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+`pytest.ini` configures the repository root on pytest's import path, so both
+`pytest` and `python -m pytest` can resolve the project modules when launched
+from the repository root. The API tests also read generated scenario artifacts.
+If no completed run is available, generate the scenario they expect before
+running the full suite:
+
+```powershell
+.\.venv\Scripts\python.exe run_portfolio.py --as-of-date 2026-10-04
 ```
 
 The end-to-end run also writes
