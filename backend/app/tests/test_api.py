@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 from urllib.error import URLError
 
 import pytest
@@ -133,6 +134,41 @@ def test_forecast_endpoints() -> None:
     assert unexpected.status_code == 422
 
 
+def test_count_forecasts_are_whole_non_negative_and_within_capacity() -> None:
+    admissions = client.get("/forecast/admissions").json()
+    occupancy = client.get("/forecast/occupancy").json()
+    icu = client.get("/forecast/icu").json()
+    beds = client.get("/dashboard/beds").json()
+    summary = client.get("/dashboard/overview").json()
+
+    def assert_counts(rows: list[dict], fields: tuple[str, ...]) -> None:
+        for row in rows:
+            for field in fields:
+                value = row[field]
+                if value is None:
+                    continue
+                assert float(value) == int(float(value)), (field, value)
+                assert float(value) >= 0, (field, value)
+
+    assert_counts(admissions, ("predicted_admissions", "lower_80", "upper_80", "lower_95", "upper_95"))
+    assert_counts(occupancy, ("forecast_occupied_beds", "forecast_available_beds"))
+    assert_counts(icu, ("predicted_icu_admissions",))
+    assert_counts(beds, ("projected_occupied_beds", "incoming_admissions", "expected_discharges", "forecast_available_beds"))
+    assert all(row["forecast_occupied_beds"] <= summary["total_beds"] for row in occupancy)
+
+    # The overview total counts each department once, not the hospital row as well.
+    department_total = sum(
+        row["predicted_admissions"] for row in admissions
+        if row["department"].casefold() != "all departments"
+    )
+    hospital_total = sum(
+        row["predicted_admissions"] for row in admissions
+        if row["department"].casefold() == "all departments"
+    )
+    assert summary["predicted_admissions"] == department_total == hospital_total
+    assert isinstance(summary["predicted_admissions"], int)
+
+
 def test_los_endpoint_filters_saved_predictions() -> None:
     response = client.post("/los/predict", json={"department": "Cardiology"})
     assert response.status_code == 200
@@ -192,7 +228,11 @@ def test_assistant_uses_actual_model_scope(monkeypatch: pytest.MonkeyPatch) -> N
     )
     assert response.status_code == 200
     payload = response.json()
-    assert payload["source_run_id"] == "2026-10-04"
+    manifest = json.loads(
+        (Path(__file__).resolve().parents[3] / "optimization" / "resource_planning"
+         / "outputs" / "portfolio_run_manifest.json").read_text(encoding="utf-8")
+    )
+    assert payload["source_run_id"] == manifest["scenario_as_of_date"]
     assert "not a bed census forecast" in payload["answer"]
     assert payload["llm_configured"] is False
     assert payload["assistant_provider"] == "demo"

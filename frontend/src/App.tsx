@@ -138,7 +138,7 @@ function OverviewPage() {
   }
   if (error || !overview.data) return <RequestError message={error ?? 'Dashboard data unavailable'} />;
 
-  const admissionsByDate = sumByDate(admissions.data ?? [], 'predicted_admissions');
+  const admissionsByDate = sumByDate(departmentRows(admissions.data ?? []), 'predicted_admissions');
   const occupancyForecast = (occupancy.data ?? []).map((row) => number(row.forecast_occupied_beds));
   const icuForecast = (icu.data ?? []).map((row) => number(row.predicted_icu_admissions));
   const summary = overview.data;
@@ -198,7 +198,7 @@ function ForecastingPage() {
 
   const historyRows = history.data ?? [];
   const admissionHistory = historyRows.map((row) => number(row.admissions));
-  const dailyAdmissionForecast = sumByDate(admissions.data ?? [], 'predicted_admissions');
+  const dailyAdmissionForecast = sumByDate(departmentRows(admissions.data ?? []), 'predicted_admissions');
   const admissionLabels = [...historyRows.map((row) => String(row.date ?? '')), ...dailyAdmissionForecast.labels];
   const admissionActual = [...admissionHistory, ...dailyAdmissionForecast.labels.map(() => null)];
   const admissionPredicted = [...historyRows.map(() => null), ...dailyAdmissionForecast.values];
@@ -710,6 +710,11 @@ function RequestError({ message }: { message: string }) {
 
 function Empty({ children }: { children: React.ReactNode }) {
   return <p className="empty-state">{children}</p>;
+}
+
+// Admission forecasts include an "All Departments" total row per day; sum departments only.
+function departmentRows(rows: Row[]): Row[] {
+  return rows.filter((row) => String(row.department ?? '').toLowerCase() !== 'all departments');
 }
 
 function sumByDate(rows: Row[], field: string) {

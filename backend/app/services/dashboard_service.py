@@ -34,9 +34,18 @@ def get_overview() -> dict[str, object]:
     occupancy = _read_csv(ML_DIR / "occupancy_forecasting" / "occupancy_future_forecast.csv")
     icu_beds = beds[beds["bed_type"].astype(str).str.casefold().eq("icu")] if not beds.empty else pd.DataFrame()
     emergency_beds = beds[beds["bed_type"].astype(str).str.casefold().eq("emergency")] if not beds.empty else pd.DataFrame()
-    admissions = float(forecast["predicted_admissions"].sum()) if not forecast.empty else 0.0
+    # The forecast file carries department rows plus an "All Departments"
+    # total row per day; count department rows only.
+    department_forecast = (
+        forecast[forecast["department"].astype(str).str.casefold() != "all departments"]
+        if not forecast.empty else forecast
+    )
+    admissions = (
+        int(pd.to_numeric(department_forecast["predicted_admissions"], errors="coerce").fillna(0).sum())
+        if not department_forecast.empty else 0
+    )
     predicted_occupancy = (
-        float(pd.to_numeric(occupancy["forecast_occupied_beds"], errors="coerce").iloc[-1])
+        int(pd.to_numeric(occupancy["forecast_occupied_beds"], errors="coerce").iloc[-1])
         if not occupancy.empty else None
     )
     forecast_dates = (
