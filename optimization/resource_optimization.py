@@ -23,6 +23,9 @@ if __package__:
     from .resource_validation import audit_resource_inputs, build_forecast_backtest
 else:
     from resource_validation import audit_resource_inputs, build_forecast_backtest
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from ml.count_outputs import apportion_to_total, flow_counts_by_group
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -469,7 +472,44 @@ def build_bed_forecast(inputs: dict[str, pd.DataFrame]) -> pd.DataFrame:
             })
             occupancy[department] = projected
             isolation_occupancy[department] = item["projected_isolation"]
-    return pd.DataFrame(rows)
+    return publish_whole_bed_counts(pd.DataFrame(rows))
+
+
+def publish_whole_bed_counts(forecast: pd.DataFrame) -> pd.DataFrame:
+    """Express the bed projection in whole patients and beds.
+
+    The projection carries expected values from day to day internally.
+    Published bed stocks use largest-remainder rounding within each day,
+    so department beds add up to the rounded hospital total (the same
+    rounding the allocator already applies). Daily flows use cumulative
+    rounding per department. Isolation demand is rounded up, as the
+    allocator already did, so isolation needs are never rounded away.
+    """
+    result = forecast.copy()
+    by_date = result.groupby("date", sort=False)
+    for column in (
+        "current_occupied",
+        "unconstrained_projected_occupied_beds",
+        "admission_los_projected_occupied_beds",
+        "icu_demand_not_in_occupancy_forecast",
+        "projected_occupied_beds",
+    ):
+        result[column] = by_date[column].transform(
+            lambda values: pd.Series(apportion_to_total(values), index=values.index)
+        ).astype("int64")
+    for column in ("predicted_admissions", "predicted_isolation_admissions", "expected_discharges"):
+        result[column] = flow_counts_by_group(result, column, "department")
+    result["projected_isolation_bed_demand"] = (
+        pd.to_numeric(result["projected_isolation_bed_demand"]).clip(lower=0)
+        .round(6).map(math.ceil).astype("int64")
+    )
+    result["projected_isolation_bed_demand"] = result[
+        ["projected_isolation_bed_demand", "projected_occupied_beds"]
+    ].min(axis=1)
+    result["forecast_available_beds"] = (
+        result["operational_bed_capacity"] - result["projected_occupied_beds"]
+    ).clip(lower=0).astype("int64")
+    return result
 
 
 def _shift_interval(day: date, shift_name: str, hours: float) -> tuple[datetime, datetime]:
@@ -1275,17 +1315,8 @@ def optimize_bed_allocations(
         return 0
 
     def round_daily_census(daily: pd.DataFrame) -> dict[str, int]:
-        raw = {
-            str(row["department"]): max(0.0, float(row["projected_occupied_beds"]))
-            for _, row in daily.iterrows()
-        }
-        rounded_total = int(math.floor(sum(raw.values()) + 0.5))
-        counts = {department: int(math.floor(value)) for department, value in raw.items()}
-        remainder = rounded_total - sum(counts.values())
-        order = sorted(raw, key=lambda department: raw[department] - counts[department], reverse=True)
-        for department in order[:remainder]:
-            counts[department] += 1
-        return counts
+        counts = apportion_to_total(pd.to_numeric(daily["projected_occupied_beds"]))
+        return dict(zip(daily["department"].astype(str), counts.tolist()))
 
     def staffing_capacity_for_day(day: str) -> dict[str, int]:
         return {

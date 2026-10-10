@@ -60,9 +60,11 @@ class BedForecastTests(unittest.TestCase):
         }
         result = build_bed_forecast(inputs).iloc[0]
         self.assertEqual(result["current_occupied"], 2)
-        self.assertEqual(result["expected_discharges"], 0.5)
-        self.assertEqual(result["unconstrained_projected_occupied_beds"], 3.5)
+        # Expected values 0.5 discharges and 3.5 beds publish as whole counts.
+        self.assertEqual(result["expected_discharges"], 1)
+        self.assertEqual(result["unconstrained_projected_occupied_beds"], 4)
         self.assertEqual(result["projected_occupied_beds"], 3)
+        self.assertEqual(result["projected_isolation_bed_demand"], 1)
         self.assertEqual(result["operational_bed_capacity"], 3)
         self.assertAlmostEqual(result["isolation_scenario_rate"], 0.1)
         self.assertEqual(result["isolation_source_type"], "synthetic_scenario")
@@ -89,7 +91,46 @@ class BedForecastTests(unittest.TestCase):
         }
         result = build_bed_forecast(inputs).iloc[0]
         self.assertEqual(result["predicted_icu_admissions_per_day"], 30.0)
-        self.assertEqual(result["projected_occupied_beds"], 3.5)
+        self.assertEqual(result["projected_occupied_beds"], 4)
+
+    def test_published_bed_forecast_uses_whole_non_negative_counts(self):
+        inputs = {
+            "beds": pd.DataFrame([
+                {"bed_id": f"{department[:2]}{i}", "department": department,
+                 "bed_type": "General", "status": "Occupied" if i < occupied else "Available"}
+                for department, occupied in (("General Medicine", 7), ("Surgery", 3))
+                for i in range(10)
+            ]),
+            "los_predictions": pd.DataFrame([
+                {"department": "General Medicine", "predicted_los_days": 3.0},
+                {"department": "Surgery", "predicted_los_days": 7.0},
+            ]),
+            "admission_forecast": pd.DataFrame([
+                {"date": f"2026-09-{day}", "department": department, "predicted_admissions": admissions}
+                for day in (23, 24, 25)
+                for department, admissions in (("General Medicine", 2), ("Surgery", 1))
+            ]),
+            "occupancy_forecast": pd.DataFrame([
+                {"date": f"2026-09-{day}", "forecast_occupied_beds": 11} for day in (23, 24, 25)
+            ]),
+        }
+
+        forecast = build_bed_forecast(inputs)
+
+        count_columns = [
+            "current_occupied", "predicted_admissions", "expected_discharges",
+            "unconstrained_projected_occupied_beds", "projected_occupied_beds",
+            "forecast_available_beds", "projected_isolation_bed_demand",
+        ]
+        for column in count_columns:
+            values = pd.to_numeric(forecast[column])
+            self.assertTrue((values % 1 == 0).all(), column)
+            self.assertTrue((values >= 0).all(), column)
+        self.assertTrue((forecast.groupby("date")["projected_occupied_beds"].sum() == 11).all())
+        self.assertTrue(
+            (forecast["forecast_available_beds"]
+             == (forecast["operational_bed_capacity"] - forecast["projected_occupied_beds"]).clip(lower=0)).all()
+        )
 
     def test_bed_allocator_respects_staffing_capacity(self):
         forecast = pd.DataFrame([

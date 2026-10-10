@@ -38,6 +38,7 @@ import json
 import math
 import os
 import struct
+import sys
 import time
 import traceback
 import zlib
@@ -48,6 +49,9 @@ import joblib
 import numpy as np
 import pandas as pd
 import xgboost as xgb
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from count_outputs import assert_count_column, to_flow_counts
 
 
 # ============================================================================
@@ -1204,6 +1208,21 @@ def create_future_forecast(
         forecast_rows
     )
 
+    # Published ICU admissions and hospital flows are whole counts;
+    # the recursion above keeps expected values internally.
+    forecast["predicted_icu_admissions"] = to_flow_counts(
+        forecast["predicted_icu_admissions"]
+    )
+    forecast["predicted_icu_demand"] = forecast["predicted_icu_admissions"]
+    for column in [
+        "forecast_admissions",
+        "forecast_discharges",
+        "forecast_emergency_cases",
+    ]:
+        forecast[column] = to_flow_counts(forecast[column])
+        assert_count_column(forecast, column)
+    assert_count_column(forecast, "predicted_icu_admissions")
+
     print(
         f"Future forecast created for "
         f"{len(forecast)} days."
@@ -1434,6 +1453,10 @@ def create_weekly_forecast(
             as_index=False,
         )
         .agg(
+            forecast_total_icu_admissions=(
+                "predicted_icu_admissions",
+                "sum",
+            ),
             forecast_mean_icu_demand=(
                 "predicted_icu_admissions",
                 "mean",
@@ -1449,6 +1472,10 @@ def create_weekly_forecast(
         )
     )
 
+    # The weekly mean is an average of whole daily counts, not a count.
+    result["forecast_mean_icu_demand"] = (
+        result["forecast_mean_icu_demand"].round(2)
+    )
     result["forecast_target_unit"] = "admissions_per_day"
     result["capacity_risk"] = "NOT_ESTIMATED_CENSUS_UNAVAILABLE"
 
@@ -2169,7 +2196,7 @@ def create_report(
 
     lines.append(
         f"Maximum predicted ICU admissions per day: "
-        f"{future_forecast['predicted_icu_admissions'].max():.2f}"
+        f"{future_forecast['predicted_icu_admissions'].max():.0f}"
     )
 
     risk_counts = (
@@ -2681,7 +2708,7 @@ def main():
 
     print(
         f"Maximum predicted demand: "
-        f"{future_forecast['predicted_icu_demand'].max():.2f}"
+        f"{future_forecast['predicted_icu_demand'].max():.0f}"
     )
 
     print("ICU bed-capacity risk: not estimated (validated census unavailable)")
