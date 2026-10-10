@@ -84,6 +84,21 @@ except ImportError:
 
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from count_outputs import assert_count_column, reconcile_flow_counts
+from forecast_evaluation import (
+    NAIVE_BASELINES,
+    conformal_intervals,
+    forecast_sanity,
+    horizon_bucket,
+    residual_diagnostics,
+    rolling_origin_backtest,
+    rolling_origins,
+    seasonal_mase_scale,
+    select_champion,
+    summarize_backtest,
+)
+
 # Joblib is normally installed with scikit-learn
 try:
     import joblib
@@ -2187,38 +2202,202 @@ for department in sorted(
     )
 
 
-FUTURE_FORECAST = pd.concat(
+XGB_FUTURE_FORECAST = pd.concat(
     future_forecast_frames,
     ignore_index=True
 )
 
 
 # ============================================================
-# 33. HOSPITAL-WIDE FUTURE FORECAST
+# 32b. ROLLING-ORIGIN BACKTEST AND CHAMPION SELECTION
+#
+# The holdout above scores one-step-ahead predictions, but the
+# published forecast is 30 days ahead. Every candidate is scored
+# here on recursive 30-day forecasts from origins inside the
+# holdout window. Saved XGBoost models stop at the training cut,
+# so these origins are out of sample for every candidate.
 # ============================================================
 
-hospital_future_forecast = (
-    FUTURE_FORECAST
-    .groupby("date", as_index=False)[
-        "predicted_admissions"
-    ]
+BACKTEST_STEP_DAYS = 14
+XGB_CANDIDATE = "xgboost_recursive"
+
+
+def xgboost_forecaster(department):
+
+    model = trained_models[department]["model"]
+
+    def forecast(history, horizon):
+        current_history = pd.DataFrame({
+            "date": history.index,
+            "admissions": history.to_numpy(dtype=float),
+        })
+        values = []
+        for step in range(1, horizon + 1):
+            future_date = history.index.max() + pd.Timedelta(days=step)
+            prediction = max(0.0, float(model.predict(
+                build_future_feature_row(current_history, future_date)[FEATURE_COLUMNS]
+            )[0]))
+            values.append(prediction)
+            current_history.loc[len(current_history)] = [future_date, prediction]
+        return np.array(values)
+
+    return forecast
+
+
+first_test_date = TEST_PREDICTIONS["date"].min()
+department_series = {
+    department: (
+        COMPLETE_SERIES[COMPLETE_SERIES["department"] == department]
+        .set_index("date")["admissions"].astype(float).sort_index()
+    )
+    for department in sorted(trained_models)
+}
+backtest_origins = rolling_origins(
+    next(iter(department_series.values())).index,
+    first_test_date - pd.Timedelta(days=1),
+    FORECAST_DAYS,
+    BACKTEST_STEP_DAYS,
+)
+print(f"\nRolling-origin backtest: {len(backtest_origins)} origins x {FORECAST_DAYS} days")
+
+backtest_frames = []
+for department, series in department_series.items():
+    forecasters = {**NAIVE_BASELINES, XGB_CANDIDATE: xgboost_forecaster(department)}
+    frame = rolling_origin_backtest(series, forecasters, backtest_origins, FORECAST_DAYS)
+    frame["department"] = department
+    backtest_frames.append(frame)
+
+BACKTEST = pd.concat(backtest_frames, ignore_index=True)
+HOSPITAL_BACKTEST = (
+    BACKTEST.groupby(["origin", "date", "horizon", "model"], as_index=False)[["actual", "predicted"]]
     .sum()
+    .assign(department="All Departments")
 )
+BACKTEST = pd.concat([BACKTEST, HOSPITAL_BACKTEST], ignore_index=True)
 
-hospital_future_forecast[
-    "department"
-] = "All Departments"
+train_cut = first_test_date - pd.Timedelta(days=1)
+backtest_summaries = []
+for department, group in BACKTEST.groupby("department"):
+    if department == "All Departments":
+        training = sum(series[series.index <= train_cut] for series in department_series.values())
+    else:
+        training = department_series[department][department_series[department].index <= train_cut]
+    summary = summarize_backtest(group, seasonal_mase_scale(training))
+    summary.insert(0, "department", department)
+    backtest_summaries.append(summary)
+BACKTEST_SUMMARY = pd.concat(backtest_summaries, ignore_index=True)
 
+hospital_summary = BACKTEST_SUMMARY[BACKTEST_SUMMARY["department"] == "All Departments"]
+CHAMPION = select_champion(hospital_summary)
+INTERVAL_WIDTHS, INTERVAL_COVERAGE = conformal_intervals(
+    BACKTEST[BACKTEST["department"] == "All Departments"], CHAMPION
+)
+department_widths = []
+for department in department_series:
+    widths, _ = conformal_intervals(BACKTEST[BACKTEST["department"] == department], CHAMPION)
+    department_widths.append(widths.assign(department=department))
+DEPARTMENT_INTERVAL_WIDTHS = pd.concat(department_widths, ignore_index=True)
+
+BACKTEST.to_csv(OUTPUT_DIR / "admission_backtest_predictions.csv", index=False)
+BACKTEST_SUMMARY.to_csv(OUTPUT_DIR / "admission_backtest_summary.csv", index=False)
+INTERVAL_COVERAGE.to_csv(OUTPUT_DIR / "admission_interval_coverage.csv", index=False)
+
+print("\nHospital-total 30-day backtest (lower MAE is better):")
+print(hospital_summary[["model", "MAE", "RMSE", "sMAPE_percent", "MASE", "bias"]].round(3).to_string(index=False))
+print(f"Champion by backtest MAE: {CHAMPION}")
+if CHAMPION != XGB_CANDIDATE:
+    print("XGBoost did not beat the best naive baseline; the baseline is published.")
+
+
+# ============================================================
+# 33. PUBLISHED 30-DAY FORECAST (CHAMPION, WHOLE NUMBERS)
+#
+# expected_admissions stays internal; published admissions are
+# whole, non-negative counts. The hospital total is rounded first
+# (cumulative rounding, so no rounding noise), then each day's units
+# go to the departments furthest behind their expected running total.
+# The hospital row is the sum of department rows.
+# ============================================================
+
+if CHAMPION == XGB_CANDIDATE:
+    expected_frame = XGB_FUTURE_FORECAST.rename(columns={"predicted_admissions": "expected_admissions"})
+else:
+    expected_frame = pd.concat([
+        pd.DataFrame({
+            "date": pd.date_range(series.index.max() + pd.Timedelta(days=1), periods=FORECAST_DAYS),
+            "department": department,
+            "expected_admissions": NAIVE_BASELINES[CHAMPION](series, FORECAST_DAYS),
+        })
+        for department, series in department_series.items()
+    ], ignore_index=True)
+
+expected_frame["horizon"] = (
+    expected_frame.groupby("department")["date"].rank(method="first").astype(int)
+)
+expected_frame["bucket"] = horizon_bucket(expected_frame["horizon"])
+
+
+def add_interval_columns(frame, widths, keys):
+    for level in sorted(widths["level"].unique()):
+        label = int(round(level * 100))
+        level_widths = widths[widths["level"] == level][keys + ["half_width"]]
+        merged = frame[keys].merge(level_widths, on=keys, how="left")
+        half_width = merged["half_width"].to_numpy()
+        lower = np.floor(np.clip(frame["expected_admissions"] - half_width, 0, None))
+        upper = np.ceil(frame["expected_admissions"] + half_width)
+        # Whole-number rounding can move the point by up to one unit;
+        # keep it inside its own interval.
+        frame[f"lower_{label}"] = np.minimum(lower, frame["predicted_admissions"]).astype(int)
+        frame[f"upper_{label}"] = np.maximum(upper, frame["predicted_admissions"]).astype(int)
+    return frame
+
+
+FUTURE_FORECAST = expected_frame.copy()
+whole_admissions = reconcile_flow_counts(
+    FUTURE_FORECAST.pivot(index="date", columns="department", values="expected_admissions")
+)
+FUTURE_FORECAST["predicted_admissions"] = (
+    whole_admissions.stack()
+    .rename("predicted_admissions")
+    .reindex(pd.MultiIndex.from_frame(FUTURE_FORECAST[["date", "department"]]))
+    .to_numpy()
+)
+FUTURE_FORECAST = add_interval_columns(FUTURE_FORECAST, DEPARTMENT_INTERVAL_WIDTHS, ["department", "bucket"])
 
 hospital_future_forecast = (
-    hospital_future_forecast[
-        [
-            "date",
-            "department",
-            "predicted_admissions"
-        ]
-    ]
+    FUTURE_FORECAST.groupby(["date", "horizon", "bucket"], as_index=False)[
+        ["expected_admissions", "predicted_admissions"]
+    ].sum()
 )
+hospital_future_forecast = add_interval_columns(hospital_future_forecast, INTERVAL_WIDTHS, ["bucket"])
+hospital_future_forecast["department"] = "All Departments"
+
+PUBLISHED_COLUMNS = ["date", "department", "predicted_admissions", "lower_80", "upper_80", "lower_95", "upper_95"]
+for frame in (FUTURE_FORECAST, hospital_future_forecast):
+    frame["model"] = CHAMPION
+    for column in PUBLISHED_COLUMNS[2:]:
+        assert_count_column(frame, column)
+    if not (
+        (frame["lower_95"] <= frame["lower_80"]).all()
+        and (frame["lower_80"] <= frame["predicted_admissions"]).all()
+        and (frame["predicted_admissions"] <= frame["upper_80"]).all()
+        and (frame["upper_80"] <= frame["upper_95"]).all()
+    ):
+        raise RuntimeError("Published admission intervals are not nested around the forecast.")
+
+PUBLISHED_COLUMNS.append("model")
+FORECAST_SANITY = forecast_sanity(
+    hospital_future_forecast["predicted_admissions"],
+    sum(department_series.values()).to_numpy(),
+)
+if FORECAST_SANITY["has_negative"] or not FORECAST_SANITY["all_whole_numbers"]:
+    raise RuntimeError(f"Published admission forecast failed sanity checks: {FORECAST_SANITY}")
+
+hospital_test = TEST_PREDICTIONS.groupby("date")[["actual_admissions", "ml_prediction"]].sum()
+RESIDUALS = residual_diagnostics(hospital_test["actual_admissions"], hospital_test["ml_prediction"])
+
+hospital_future_forecast = hospital_future_forecast[PUBLISHED_COLUMNS]
+FUTURE_FORECAST = FUTURE_FORECAST[PUBLISHED_COLUMNS]
 
 
 FUTURE_FORECAST_WITH_TOTAL = pd.concat(
@@ -2253,6 +2432,10 @@ forecast_summary = (
         minimum_daily_admissions="min"
     )
     .reset_index()
+)
+
+forecast_summary["average_daily_admissions"] = (
+    forecast_summary["average_daily_admissions"].round(2)
 )
 
 
@@ -2480,17 +2663,48 @@ plt.figure(
     figsize=(14, 6)
 )
 
-plt.plot(
+recent_history = hospital_history.tail(60)
+
+plt.step(
+    recent_history["date"],
+    recent_history["admissions"],
+    where="mid",
+    color="0.4",
+    label="Actual (last 60 days)"
+)
+
+plt.fill_between(
+    hospital_future_forecast["date"],
+    hospital_future_forecast["lower_95"],
+    hospital_future_forecast["upper_95"],
+    step="mid",
+    alpha=0.15,
+    label="95% interval"
+)
+
+plt.fill_between(
+    hospital_future_forecast["date"],
+    hospital_future_forecast["lower_80"],
+    hospital_future_forecast["upper_80"],
+    step="mid",
+    alpha=0.3,
+    label="80% interval"
+)
+
+plt.step(
     hospital_future_forecast["date"],
     hospital_future_forecast[
         "predicted_admissions"
     ],
+    where="mid",
     marker="o",
-    label="30-day forecast"
+    label=f"30-day forecast ({CHAMPION})"
 )
 
+plt.gca().yaxis.get_major_locator().set_params(integer=True)
+
 plt.title(
-    "CareOps AI - 30-Day Hospital Admission Forecast"
+    "CareOps AI - 30-Day Hospital Admission Forecast (whole admissions)"
 )
 
 plt.xlabel(
@@ -2665,6 +2879,50 @@ plt.close()
 
 
 # ============================================================
+# 42b. CHART 7 - BACKTEST MAE BY MODEL AND HORIZON
+# ============================================================
+
+horizon_columns = ["MAE_h1-7", "MAE_h8-14", "MAE_h15-30"]
+chart_summary = hospital_summary.set_index("model")[horizon_columns]
+
+chart_summary.plot(
+    kind="bar",
+    figsize=(12, 6)
+)
+
+plt.title(
+    "CareOps AI - Hospital Admissions 30-Day Rolling-Origin Backtest MAE"
+)
+
+plt.xlabel(
+    "Model"
+)
+
+plt.ylabel(
+    "MAE (admissions per day)"
+)
+
+plt.xticks(
+    rotation=20,
+    ha="right"
+)
+
+plt.legend(
+    ["Days 1-7", "Days 8-14", "Days 15-30"]
+)
+
+plt.tight_layout()
+
+plt.savefig(
+    CHART_DIR
+    / "07_backtest_mae_by_model.png",
+    dpi=150
+)
+
+plt.close()
+
+
+# ============================================================
 # 43. CREATE JSON MODEL SUMMARY
 # ============================================================
 
@@ -2702,8 +2960,37 @@ model_summary = {
 
     "model": MODEL_NAME,
 
+    "published_forecast_model": CHAMPION,
+
+    "xgboost_beats_best_baseline": CHAMPION == XGB_CANDIDATE,
+
     "baseline": (
         "7-Day Seasonal Naive"
+    ),
+
+    "rolling_origin_backtest": {
+        "method": (
+            "Recursive 30-day forecasts from origins inside the holdout; "
+            "champion = lowest hospital-total MAE"
+        ),
+        "origins": [str(origin.date()) for origin in backtest_origins],
+        "step_days": BACKTEST_STEP_DAYS,
+        "hospital_total": hospital_summary.drop(columns="department").to_dict(orient="records"),
+        "interval_method": (
+            "Split-conformal absolute-error quantiles by horizon bucket; "
+            "earlier origins calibrate, later origins measure coverage"
+        ),
+        "interval_coverage": INTERVAL_COVERAGE.to_dict(orient="records"),
+    },
+
+    "one_step_residual_diagnostics_hospital": RESIDUALS,
+
+    "published_forecast_sanity": FORECAST_SANITY,
+
+    "output_rules": (
+        "Published admissions and interval bounds are whole, non-negative "
+        "counts; the hospital total is rounded cumulatively and departments "
+        "are reconciled to it, so the hospital row is the sum of departments."
     ),
 
     "forecast_horizon_days": FORECAST_DAYS,
@@ -2716,7 +3003,10 @@ model_summary = {
 
     "rolling_windows": ROLLING_WINDOWS,
 
-    "model_parameters": XGB_CONFIG,
+    "model_parameters_by_department": {
+        department: model_data["model_config"]
+        for department, model_data in trained_models.items()
+    },
 
     "model_selection": {
         "method": "Per-department chronological validation-tail MAE",
@@ -3036,7 +3326,46 @@ with open(
     )
 
     report.write(
-        "DEPARTMENT MODEL PERFORMANCE\n"
+        "The comparison above is one-step-ahead against the 7-day "
+        "seasonal naive baseline only.\n\n"
+    )
+
+    report.write(
+        "30-DAY ROLLING-ORIGIN BACKTEST (HOSPITAL TOTAL)\n"
+    )
+
+    report.write(
+        "-" * 80 + "\n"
+    )
+
+    report.write(
+        f"Origins: {len(backtest_origins)} every {BACKTEST_STEP_DAYS} days "
+        f"from {backtest_origins.min().date()} to {backtest_origins.max().date()}\n"
+    )
+
+    report.write(
+        hospital_summary[
+            ["model", "MAE", "RMSE", "sMAPE_percent", "MASE", "bias"]
+        ].round(3).to_string(index=False) + "\n"
+    )
+
+    report.write(
+        f"\nPublished forecast model: {CHAMPION}\n"
+    )
+
+    if CHAMPION != XGB_CANDIDATE:
+        report.write(
+            "XGBoost does not beat the best naive baseline on the 30-day "
+            "backtest, so the baseline forecast is published.\n"
+        )
+
+    report.write(
+        "\nInterval coverage on later backtest origins:\n"
+        + INTERVAL_COVERAGE.round(3).to_string(index=False) + "\n\n"
+    )
+
+    report.write(
+        "DEPARTMENT MODEL PERFORMANCE (XGBOOST, ONE-STEP HOLDOUT)\n"
     )
 
     report.write(
@@ -3097,7 +3426,7 @@ with open(
 
     report.write(
         f"Total forecasted admissions: "
-        f"{total_future_admissions:,.2f}\n\n"
+        f"{total_future_admissions:,.0f}\n\n"
     )
 
     report.write(
@@ -3108,7 +3437,7 @@ with open(
 
         report.write(
             f" - {row['department']}: "
-            f"{row['total_forecast_admissions']:,.2f}\n"
+            f"{row['total_forecast_admissions']:,.0f}\n"
         )
 
     report.write(
@@ -3282,7 +3611,8 @@ if not np.isnan(
 
 print(
     f"\n30-day predicted hospital admissions: "
-    f"{hospital_future_forecast['predicted_admissions'].sum():,.2f}"
+    f"{hospital_future_forecast['predicted_admissions'].sum():,.0f}"
+    f" ({CHAMPION})"
 )
 
 print(
