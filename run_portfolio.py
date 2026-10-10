@@ -7,6 +7,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 from datetime import date
 from pathlib import Path
 
@@ -496,11 +497,17 @@ def run_pipeline(as_of: date, postgres: bool = False, exploratory: bool = False)
         steps[1:1] = EXPLORATORY
     for index, script in enumerate(steps, start=1):
         print(f"\n[{index}/{len(steps)}] Running {script.relative_to(ROOT)}", flush=True)
+        started = time.perf_counter()
         subprocess.run(
             [sys.executable, str(script)],
             cwd=ROOT,
             env=environment,
             check=True,
+        )
+        print(
+            f"[{index}/{len(steps)}] {script.name} finished in "
+            f"{time.perf_counter() - started:.0f}s",
+            flush=True,
         )
         if script.name == "generate_data.py":
             row_counts = validate_source_data(as_of)
@@ -648,6 +655,23 @@ def run_pipeline(as_of: date, postgres: bool = False, exploratory: bool = False)
     )
 
 
+def default_as_of_date(source_dir: Path | None = None) -> date:
+    """Last date in the existing synthetic daily operations.
+
+    Rerunning without a date then reproduces the committed scenario instead
+    of silently moving the cutoff to today.
+    """
+    path = (source_dir or SYNTHETIC_DATA) / "daily_operations.csv"
+    if not path.is_file():
+        raise SystemExit(
+            f"No synthetic data at {path}; pass --as-of-date YYYY-MM-DD to generate a scenario."
+        )
+    dates = pd.to_datetime(pd.read_csv(path, usecols=["date"])["date"], errors="coerce")
+    if dates.isna().all():
+        raise SystemExit(f"{path} has no valid dates; pass --as-of-date explicitly.")
+    return dates.max().date()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Regenerate the synthetic dataset, train all forecasts, and optimize resources."
@@ -655,8 +679,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--as-of-date",
         type=date.fromisoformat,
-        default=date.today(),
-        help="Scenario cutoff in YYYY-MM-DD format (default: today).",
+        default=None,
+        help=(
+            "Scenario cutoff in YYYY-MM-DD format (default: the last date in "
+            "data/synthetic/daily_operations.csv)."
+        ),
     )
     parser.add_argument(
         "--postgres",
@@ -679,6 +706,9 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+    if args.as_of_date is None:
+        args.as_of_date = default_as_of_date()
+        print(f"Scenario cutoff (last date in existing data): {args.as_of_date}", flush=True)
     run_pipeline(args.as_of_date, postgres=args.postgres, exploratory=args.exploratory)
     manifest = json.loads(
         (OUTPUT / "portfolio_run_manifest.json").read_text(encoding="utf-8")

@@ -9,6 +9,7 @@ import pandas as pd
 from run_portfolio import (
     SOURCE_FILES,
     build_pipeline_readiness,
+    default_as_of_date,
     validate_appointment_schedule,
     validate_forecast_artifacts,
     validate_source_data,
@@ -262,6 +263,22 @@ class PortfolioSourceValidationTests(unittest.TestCase):
         self.assertEqual(len(ARTIFACTS), len(set(ARTIFACTS)))
         self.assertTrue(all(name.replace("_", "").isalnum() for name in ARTIFACTS))
         self.assertTrue(all(not Path(path).is_absolute() for path in ARTIFACTS.values()))
+
+
+class DefaultAsOfDateTests(unittest.TestCase):
+    def test_default_is_the_last_date_in_existing_data(self):
+        with tempfile.TemporaryDirectory() as directory:
+            pd.DataFrame({
+                "date": ["2026-10-03", "2026-10-05", "2026-10-04"],
+                "department": ["ICU", "ICU", "ICU"],
+            }).to_csv(Path(directory) / "daily_operations.csv", index=False)
+
+            self.assertEqual(default_as_of_date(Path(directory)), date(2026, 10, 5))
+
+    def test_missing_data_requires_an_explicit_date(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaises(SystemExit):
+                default_as_of_date(Path(directory))
 
 
 if __name__ == "__main__":
