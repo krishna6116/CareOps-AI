@@ -9,4 +9,4 @@ model_mae_days,2.590747502886731
 model_rmse_days,3.2264659634484394
 model_r2,0.6876568479099235
 model_mape_percent,26.377018074282184
-training_time_seconds,0.3887059688568115
+training_time_seconds,0.5512528419494629

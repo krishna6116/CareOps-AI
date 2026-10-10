@@ -6,66 +6,66 @@ Features: 77
 
 TARGET
 ----------------------------------------------------------------------
-No-show rate: 14.9008%
+No-show rate: 15.1308%
 
 BASELINE
 ----------------------------------------------------------------------
-Baseline ROC-AUC: 0.5016
-Baseline PR-AUC: 0.1486
+Baseline ROC-AUC: 0.4997
+Baseline PR-AUC: 0.1528
 
 VALIDATION
 ----------------------------------------------------------------------
-accuracy: 0.7841111111111111
-precision: 0.3375921375921376
-recall: 0.5358814352574103
-f1: 0.414229725655713
-roc_auc: 0.7249903127765432
-pr_auc: 0.305603045178727
-threshold: 0.2
-tn: 12740
-fp: 2696
-fn: 1190
-tp: 1374
+accuracy: 0.7926111111111112
+precision: 0.3564908722109533
+recall: 0.540561322568243
+f1: 0.4296409472880061
+roc_auc: 0.7391782282182077
+pr_auc: 0.32540623610353947
+threshold: 0.21000000000000002
+tn: 12861
+fp: 2538
+fn: 1195
+tp: 1406
 
 TEST
 ----------------------------------------------------------------------
-accuracy: 0.7805
-precision: 0.34985835694050993
-recall: 0.5531914893617021
-f1: 0.42863340563991326
-roc_auc: 0.7327951847265823
-pr_auc: 0.3170994348063132
-threshold: 0.2
-tn: 16756
-fp: 3672
-fn: 1596
-tp: 1976
+accuracy: 0.7837083333333333
+precision: 0.36232648040766124
+recall: 0.5689845474613686
+f1: 0.44272678475577026
+roc_auc: 0.7413651091272163
+pr_auc: 0.3227486788497659
+threshold: 0.21000000000000002
+tn: 16747
+fp: 3629
+fn: 1562
+tp: 2062
 
 MODEL CONFIGURATION
 ----------------------------------------------------------------------
 Algorithm: XGBoost binary classification
 Chronological split: 65% / 15% / 20%
 Historical features: leakage-safe
-scale_pos_weight: 5.641124
-Training time: 15.55 seconds
+scale_pos_weight: 5.537043
+Training time: 6.23 seconds
 
 TOP FEATURES
 ----------------------------------------------------------------------
-patient_department_no_show_rate: 29.1234%
-patient_previous_no_shows: 17.3095%
-patient_historical_no_show_rate: 12.1354%
-patient_previous_appointments: 6.5887%
-reminder_sent: 2.5398%
-priority_Routine: 1.3109%
-priority_High: 0.8942%
-patient_days_since_previous: 0.8694%
-duration: 0.7384%
-patient_department_previous: 0.6522%
-priority_severity_no_show_rate: 0.6039%
-is_weekend: 0.5852%
-lead_time_days: 0.5421%
-department_Pediatrics: 0.5269%
-patient_severity_Low: 0.5153%
+patient_department_no_show_rate: 30.5897%
+patient_historical_no_show_rate: 19.8866%
+patient_previous_no_shows: 10.8337%
+reminder_sent: 3.2322%
+priority_Routine: 1.1612%
+duration: 1.0486%
+patient_days_since_previous: 1.0370%
+priority_severity_no_show_rate: 0.8722%
+lead_time_days: 0.7785%
+patient_previous_attended: 0.6600%
+age_group_51_60: 0.6427%
+patient_age: 0.6385%
+age_group_31_40: 0.6358%
+patient_severity_Low: 0.6274%
+appointment_hour: 0.6270%
 
 INTERPRETATION
 ----------------------------------------------------------------------

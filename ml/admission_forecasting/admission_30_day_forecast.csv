@@ -1,301 +1,301 @@
-date,department,predicted_admissions
-2026-10-06,Cardiology,1.8433595895767212
-2026-10-07,Cardiology,1.6881990432739258
-2026-10-08,Cardiology,1.6890467405319214
-2026-10-09,Cardiology,1.6822388172149658
-2026-10-10,Cardiology,1.6890467405319214
-2026-10-11,Cardiology,1.698437213897705
-2026-10-12,Cardiology,1.6824421882629395
-2026-10-13,Cardiology,1.6715028285980225
-2026-10-14,Cardiology,1.6567965745925903
-2026-10-15,Cardiology,1.3884074687957764
-2026-10-16,Cardiology,1.3890559673309326
-2026-10-17,Cardiology,1.3070939779281616
-2026-10-18,Cardiology,1.3951244354248047
-2026-10-19,Cardiology,1.377021312713623
-2026-10-20,Cardiology,1.3610605001449585
-2026-10-21,Cardiology,1.2960888147354126
-2026-10-22,Cardiology,1.2901285886764526
-2026-10-23,Cardiology,1.2101622819900513
-2026-10-24,Cardiology,1.2101622819900513
-2026-10-25,Cardiology,1.23822021484375
-2026-10-26,Cardiology,1.2370824813842773
-2026-10-27,Cardiology,1.23822021484375
-2026-10-28,Cardiology,1.2449198961257935
-2026-10-29,Cardiology,1.153727412223816
-2026-10-30,Cardiology,1.2294042110443115
-2026-10-31,Cardiology,1.314636468887329
-2026-11-01,Cardiology,1.2269350290298462
-2026-11-02,Cardiology,1.2162296772003174
-2026-11-03,Cardiology,1.2555198669433594
-2026-11-04,Cardiology,1.2622195482254028
-2026-10-06,Emergency,0.6478724479675293
-2026-10-07,Emergency,0.6935176253318787
-2026-10-08,Emergency,0.6446226239204407
-2026-10-09,Emergency,0.633948802947998
-2026-10-10,Emergency,0.6954112648963928
-2026-10-11,Emergency,0.6954112648963928
-2026-10-12,Emergency,0.7130265831947327
-2026-10-13,Emergency,0.6442700028419495
-2026-10-14,Emergency,0.689588189125061
-2026-10-15,Emergency,0.6442700028419495
-2026-10-16,Emergency,0.6518255472183228
-2026-10-17,Emergency,0.6518255472183228
-2026-10-18,Emergency,0.7441396117210388
-2026-10-19,Emergency,1.3630309104919434
-2026-10-20,Emergency,1.25649094581604
-2026-10-21,Emergency,0.7527651190757751
-2026-10-22,Emergency,1.2359137535095215
-2026-10-23,Emergency,1.2506208419799805
-2026-10-24,Emergency,1.2591803073883057
-2026-10-25,Emergency,1.2457047700881958
-2026-10-26,Emergency,1.2804150581359863
-2026-10-27,Emergency,1.2030119895935059
-2026-10-28,Emergency,1.066249966621399
-2026-10-29,Emergency,1.0209314823150635
-2026-10-30,Emergency,1.0284870862960815
-2026-10-31,Emergency,1.0284870862960815
-2026-11-01,Emergency,0.9877963662147522
-2026-11-02,Emergency,1.0809484720230103
-2026-11-03,Emergency,1.0176700353622437
-2026-11-04,Emergency,1.0714703798294067
-2026-10-06,General Medicine,5.566967010498047
-2026-10-07,General Medicine,5.055118083953857
-2026-10-08,General Medicine,4.946048259735107
-2026-10-09,General Medicine,4.955660343170166
-2026-10-10,General Medicine,4.453174114227295
-2026-10-11,General Medicine,4.468714714050293
-2026-10-12,General Medicine,5.731821537017822
-2026-10-13,General Medicine,5.721567153930664
-2026-10-14,General Medicine,5.243296146392822
-2026-10-15,General Medicine,5.218900680541992
-2026-10-16,General Medicine,5.1879706382751465
-2026-10-17,General Medicine,4.724822044372559
-2026-10-18,General Medicine,4.6279520988464355
-2026-10-19,General Medicine,5.695389747619629
-2026-10-20,General Medicine,5.398767471313477
-2026-10-21,General Medicine,5.138047695159912
-2026-10-22,General Medicine,5.133508682250977
-2026-10-23,General Medicine,5.118412017822266
-2026-10-24,General Medicine,4.646575927734375
-2026-10-25,General Medicine,4.633261203765869
-2026-10-26,General Medicine,5.444190502166748
-2026-10-27,General Medicine,5.4138641357421875
-2026-10-28,General Medicine,5.173737525939941
-2026-10-29,General Medicine,5.118412017822266
-2026-10-30,General Medicine,5.133508682250977
-2026-10-31,General Medicine,4.646575927734375
-2026-11-01,General Medicine,4.593184947967529
-2026-11-02,General Medicine,5.438902378082275
-2026-11-03,General Medicine,5.423672676086426
-2026-11-04,General Medicine,5.168064117431641
-2026-10-06,ICU,0.47885340452194214
-2026-10-07,ICU,0.4905669689178467
-2026-10-08,ICU,0.5477808117866516
-2026-10-09,ICU,0.5352234840393066
-2026-10-10,ICU,0.45061010122299194
-2026-10-11,ICU,0.4731141924858093
-2026-10-12,ICU,0.533134400844574
-2026-10-13,ICU,0.4885886013507843
-2026-10-14,ICU,0.454674631357193
-2026-10-15,ICU,0.48073121905326843
-2026-10-16,ICU,0.5032351016998291
-2026-10-17,ICU,0.44112542271614075
-2026-10-18,ICU,0.44112542271614075
-2026-10-19,ICU,0.33838242292404175
-2026-10-20,ICU,0.6391399502754211
-2026-10-21,ICU,0.6505500674247742
-2026-10-22,ICU,0.6354572176933289
-2026-10-23,ICU,0.6216021776199341
-2026-10-24,ICU,0.5709028244018555
-2026-10-25,ICU,0.5594927072525024
-2026-10-26,ICU,0.5910022258758545
-2026-10-27,ICU,0.5910022258758545
-2026-10-28,ICU,0.5972757339477539
-2026-10-29,ICU,0.5879184007644653
-2026-10-30,ICU,0.5765084028244019
-2026-10-31,ICU,0.5143988132476807
-2026-11-01,ICU,0.5346195697784424
-2026-11-02,ICU,0.598918080329895
-2026-11-03,ICU,0.5829645395278931
-2026-11-04,ICU,0.587507963180542
-2026-10-06,Neurology,0.9541926980018616
-2026-10-07,Neurology,0.7711790204048157
-2026-10-08,Neurology,0.8292088508605957
-2026-10-09,Neurology,1.3175228834152222
-2026-10-10,Neurology,1.022073745727539
-2026-10-11,Neurology,0.9485737085342407
-2026-10-12,Neurology,1.3439021110534668
-2026-10-13,Neurology,0.7534313797950745
-2026-10-14,Neurology,0.7988156080245972
-2026-10-15,Neurology,0.816627025604248
-2026-10-16,Neurology,1.1321884393692017
-2026-10-17,Neurology,1.2020848989486694
-2026-10-18,Neurology,0.9475480318069458
-2026-10-19,Neurology,1.253087043762207
-2026-10-20,Neurology,1.0265262126922607
-2026-10-21,Neurology,0.8572964072227478
-2026-10-22,Neurology,1.1699628829956055
-2026-10-23,Neurology,1.464451789855957
-2026-10-24,Neurology,1.533676028251648
-2026-10-25,Neurology,1.092429280281067
-2026-10-26,Neurology,1.421169400215149
-2026-10-27,Neurology,0.9667322635650635
-2026-10-28,Neurology,1.2124428749084473
-2026-10-29,Neurology,0.9763363599777222
-2026-10-30,Neurology,1.351654291152954
-2026-10-31,Neurology,1.130983591079712
-2026-11-01,Neurology,1.231332540512085
-2026-11-02,Neurology,1.4265087842941284
-2026-11-03,Neurology,1.2052502632141113
-2026-11-04,Neurology,1.0987974405288696
-2026-10-06,Oncology,0.4840356111526489
-2026-10-07,Oncology,0.4351826608181
-2026-10-08,Oncology,0.45439255237579346
-2026-10-09,Oncology,0.44922569394111633
-2026-10-10,Oncology,0.42040014266967773
-2026-10-11,Oncology,0.40839287638664246
-2026-10-12,Oncology,0.5898633599281311
-2026-10-13,Oncology,0.5414637327194214
-2026-10-14,Oncology,0.5111492872238159
-2026-10-15,Oncology,0.5156389474868774
-2026-10-16,Oncology,0.5939798951148987
-2026-10-17,Oncology,0.5464773178100586
-2026-10-18,Oncology,0.5344701409339905
-2026-10-19,Oncology,0.5819748044013977
-2026-10-20,Oncology,0.5827629566192627
-2026-10-21,Oncology,0.5524484515190125
-2026-10-22,Oncology,0.5716583728790283
-2026-10-23,Oncology,0.5716583728790283
-2026-10-24,Oncology,0.5388759970664978
-2026-10-25,Oncology,0.5268688201904297
-2026-10-26,Oncology,0.5664925575256348
-2026-10-27,Oncology,0.5748821496963501
-2026-10-28,Oncology,0.4907277226448059
-2026-10-29,Oncology,0.4917769432067871
-2026-10-30,Oncology,0.5099376440048218
-2026-10-31,Oncology,0.4589948356151581
-2026-11-01,Oncology,0.4734068810939789
-2026-11-02,Oncology,0.5364241600036621
-2026-11-03,Oncology,0.5266531109809875
-2026-11-04,Oncology,0.49633872509002686
-2026-10-06,Orthopedics,0.569831132888794
-2026-10-07,Orthopedics,0.5608975291252136
-2026-10-08,Orthopedics,0.616133987903595
-2026-10-09,Orthopedics,0.5809041261672974
-2026-10-10,Orthopedics,0.6223776936531067
-2026-10-11,Orthopedics,0.6361361145973206
-2026-10-12,Orthopedics,0.6368553638458252
-2026-10-13,Orthopedics,0.6372644305229187
-2026-10-14,Orthopedics,0.736523449420929
-2026-10-15,Orthopedics,0.780705988407135
-2026-10-16,Orthopedics,0.803245484828949
-2026-10-17,Orthopedics,0.6963000297546387
-2026-10-18,Orthopedics,0.7857314348220825
-2026-10-19,Orthopedics,0.7963052988052368
-2026-10-20,Orthopedics,0.7963052988052368
-2026-10-21,Orthopedics,0.7491035461425781
-2026-10-22,Orthopedics,0.7491035461425781
-2026-10-23,Orthopedics,0.7439615726470947
-2026-10-24,Orthopedics,0.6814997792243958
-2026-10-25,Orthopedics,0.7160916328430176
-2026-10-26,Orthopedics,0.7270027995109558
-2026-10-27,Orthopedics,0.7270027995109558
-2026-10-28,Orthopedics,0.7305742502212524
-2026-10-29,Orthopedics,0.7172157168388367
-2026-10-30,Orthopedics,0.7720552682876587
-2026-10-31,Orthopedics,0.7487589716911316
-2026-11-01,Orthopedics,0.9494010210037231
-2026-11-02,Orthopedics,0.7687928080558777
-2026-11-03,Orthopedics,0.8276396989822388
-2026-11-04,Orthopedics,0.8282986879348755
-2026-10-06,Pediatrics,1.0960969924926758
-2026-10-07,Pediatrics,1.067571997642517
-2026-10-08,Pediatrics,1.3454105854034424
-2026-10-09,Pediatrics,1.336463212966919
-2026-10-10,Pediatrics,1.329688549041748
-2026-10-11,Pediatrics,1.2689311504364014
-2026-10-12,Pediatrics,1.3066365718841553
-2026-10-13,Pediatrics,1.314846396446228
-2026-10-14,Pediatrics,1.314846396446228
-2026-10-15,Pediatrics,1.3918709754943848
-2026-10-16,Pediatrics,1.3419948816299438
-2026-10-17,Pediatrics,1.3198333978652954
-2026-10-18,Pediatrics,1.3421297073364258
-2026-10-19,Pediatrics,1.358471393585205
-2026-10-20,Pediatrics,1.3005234003067017
-2026-10-21,Pediatrics,1.3005234003067017
-2026-10-22,Pediatrics,1.3049253225326538
-2026-10-23,Pediatrics,1.3017827272415161
-2026-10-24,Pediatrics,1.300559163093567
-2026-10-25,Pediatrics,1.1711629629135132
-2026-10-26,Pediatrics,1.3698272705078125
-2026-10-27,Pediatrics,1.311879277229309
-2026-10-28,Pediatrics,1.3162811994552612
-2026-10-29,Pediatrics,1.3538461923599243
-2026-10-30,Pediatrics,1.234175205230713
-2026-10-31,Pediatrics,1.2290383577346802
-2026-11-01,Pediatrics,1.2155264616012573
-2026-11-02,Pediatrics,1.2672706842422485
-2026-11-03,Pediatrics,1.2268465757369995
-2026-11-04,Pediatrics,1.2268465757369995
-2026-10-06,Surgery,1.2518175840377808
-2026-10-07,Surgery,1.2463234663009644
-2026-10-08,Surgery,1.2363239526748657
-2026-10-09,Surgery,1.152505874633789
-2026-10-10,Surgery,1.0395673513412476
-2026-10-11,Surgery,1.0235146284103394
-2026-10-12,Surgery,1.3441381454467773
-2026-10-13,Surgery,1.2894184589385986
-2026-10-14,Surgery,1.352372646331787
-2026-10-15,Surgery,1.3343541622161865
-2026-10-16,Surgery,1.240971565246582
-2026-10-17,Surgery,1.0447417497634888
-2026-10-18,Surgery,1.0775054693222046
-2026-10-19,Surgery,1.3806030750274658
-2026-10-20,Surgery,1.2751219272613525
-2026-10-21,Surgery,1.2751219272613525
-2026-10-22,Surgery,1.2812707424163818
-2026-10-23,Surgery,1.22536301612854
-2026-10-24,Surgery,1.0350123643875122
-2026-10-25,Surgery,1.0350123643875122
-2026-10-26,Surgery,1.303056001663208
-2026-10-27,Surgery,1.303056001663208
-2026-10-28,Surgery,1.303056001663208
-2026-10-29,Surgery,1.3267171382904053
-2026-10-30,Surgery,1.2721991539001465
-2026-10-31,Surgery,1.0586737394332886
-2026-11-01,Surgery,0.9563924670219421
-2026-11-02,Surgery,1.219421148300171
-2026-11-03,Surgery,1.2968218326568604
-2026-11-04,Surgery,1.3281545639038086
-2026-10-06,All Departments,12.893026471138
-2026-10-07,All Departments,12.00855639576912
-2026-10-08,All Departments,12.308968365192413
-2026-10-09,All Departments,12.64369323849678
-2026-10-10,All Departments,11.72234970331192
-2026-10-11,All Departments,11.621225863695145
-2026-10-12,All Departments,13.881820261478424
-2026-10-13,All Departments,13.062352985143661
-2026-10-14,All Departments,12.758062928915024
-2026-10-15,All Departments,12.571506470441818
-2026-10-16,All Departments,12.844467520713806
-2026-10-17,All Departments,11.934304386377335
-2026-10-18,All Departments,11.895726352930069
-2026-10-19,All Departments,14.14426600933075
-2026-10-20,All Departments,13.63669866323471
-2026-10-21,All Departments,12.571945428848267
-2026-10-22,All Departments,13.371929109096527
-2026-10-23,All Departments,13.508014798164368
-2026-10-24,All Departments,12.776444673538208
-2026-10-25,All Departments,12.218243956565857
-2026-10-26,All Departments,13.940238296985626
-2026-10-27,All Departments,13.329651057720184
-2026-10-28,All Departments,13.135265171527863
-2026-10-29,All Departments,12.746881663799286
-2026-10-30,All Departments,13.107929944992065
-2026-10-31,All Departments,12.130547791719437
-2026-11-01,All Departments,12.168595284223557
-2026-11-02,All Departments,13.553416192531586
-2026-11-03,All Departments,13.36303859949112
-2026-11-04,All Departments,13.067698001861572
+date,department,predicted_admissions,lower_80,upper_80,lower_95,upper_95,model
+2026-10-06,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-07,Cardiology,0,0,2,0,3,moving_average_28
+2026-10-08,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-09,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-10,Cardiology,0,0,2,0,3,moving_average_28
+2026-10-11,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-12,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-13,Cardiology,0,0,2,0,3,moving_average_28
+2026-10-14,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-15,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-16,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-17,Cardiology,0,0,2,0,3,moving_average_28
+2026-10-18,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-19,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-20,Cardiology,0,0,2,0,3,moving_average_28
+2026-10-21,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-22,Cardiology,0,0,2,0,3,moving_average_28
+2026-10-23,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-24,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-25,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-26,Cardiology,0,0,2,0,3,moving_average_28
+2026-10-27,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-28,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-29,Cardiology,0,0,2,0,3,moving_average_28
+2026-10-30,Cardiology,1,0,2,0,3,moving_average_28
+2026-10-31,Cardiology,1,0,2,0,3,moving_average_28
+2026-11-01,Cardiology,0,0,2,0,3,moving_average_28
+2026-11-02,Cardiology,1,0,2,0,3,moving_average_28
+2026-11-03,Cardiology,1,0,2,0,3,moving_average_28
+2026-11-04,Cardiology,0,0,2,0,3,moving_average_28
+2026-10-06,Emergency,0,0,2,0,2,moving_average_28
+2026-10-07,Emergency,1,0,2,0,2,moving_average_28
+2026-10-08,Emergency,0,0,2,0,2,moving_average_28
+2026-10-09,Emergency,1,0,2,0,2,moving_average_28
+2026-10-10,Emergency,0,0,2,0,2,moving_average_28
+2026-10-11,Emergency,1,0,2,0,2,moving_average_28
+2026-10-12,Emergency,0,0,2,0,2,moving_average_28
+2026-10-13,Emergency,1,0,2,0,2,moving_average_28
+2026-10-14,Emergency,0,0,2,0,2,moving_average_28
+2026-10-15,Emergency,1,0,2,0,2,moving_average_28
+2026-10-16,Emergency,0,0,2,0,2,moving_average_28
+2026-10-17,Emergency,1,0,2,0,2,moving_average_28
+2026-10-18,Emergency,0,0,2,0,2,moving_average_28
+2026-10-19,Emergency,1,0,2,0,2,moving_average_28
+2026-10-20,Emergency,0,0,2,0,2,moving_average_28
+2026-10-21,Emergency,0,0,2,0,2,moving_average_28
+2026-10-22,Emergency,1,0,2,0,2,moving_average_28
+2026-10-23,Emergency,0,0,2,0,2,moving_average_28
+2026-10-24,Emergency,1,0,2,0,2,moving_average_28
+2026-10-25,Emergency,0,0,2,0,2,moving_average_28
+2026-10-26,Emergency,1,0,2,0,2,moving_average_28
+2026-10-27,Emergency,0,0,2,0,2,moving_average_28
+2026-10-28,Emergency,1,0,2,0,2,moving_average_28
+2026-10-29,Emergency,0,0,2,0,2,moving_average_28
+2026-10-30,Emergency,1,0,2,0,2,moving_average_28
+2026-10-31,Emergency,0,0,2,0,2,moving_average_28
+2026-11-01,Emergency,1,0,2,0,2,moving_average_28
+2026-11-02,Emergency,0,0,2,0,2,moving_average_28
+2026-11-03,Emergency,0,0,2,0,2,moving_average_28
+2026-11-04,Emergency,1,0,2,0,2,moving_average_28
+2026-10-06,General Medicine,5,2,8,0,10,moving_average_28
+2026-10-07,General Medicine,6,2,8,0,10,moving_average_28
+2026-10-08,General Medicine,5,2,8,0,10,moving_average_28
+2026-10-09,General Medicine,5,2,8,0,10,moving_average_28
+2026-10-10,General Medicine,5,2,8,0,10,moving_average_28
+2026-10-11,General Medicine,6,2,8,0,10,moving_average_28
+2026-10-12,General Medicine,5,2,8,0,10,moving_average_28
+2026-10-13,General Medicine,5,1,9,0,11,moving_average_28
+2026-10-14,General Medicine,6,1,9,0,11,moving_average_28
+2026-10-15,General Medicine,5,1,9,0,11,moving_average_28
+2026-10-16,General Medicine,5,1,9,0,11,moving_average_28
+2026-10-17,General Medicine,5,1,9,0,11,moving_average_28
+2026-10-18,General Medicine,6,1,9,0,11,moving_average_28
+2026-10-19,General Medicine,5,1,9,0,11,moving_average_28
+2026-10-20,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-21,General Medicine,6,2,9,0,10,moving_average_28
+2026-10-22,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-23,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-24,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-25,General Medicine,6,2,9,0,10,moving_average_28
+2026-10-26,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-27,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-28,General Medicine,6,2,9,0,10,moving_average_28
+2026-10-29,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-30,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-31,General Medicine,5,2,9,0,10,moving_average_28
+2026-11-01,General Medicine,6,2,9,0,10,moving_average_28
+2026-11-02,General Medicine,5,2,9,0,10,moving_average_28
+2026-11-03,General Medicine,5,2,9,0,10,moving_average_28
+2026-11-04,General Medicine,6,2,9,0,10,moving_average_28
+2026-10-06,ICU,1,0,2,0,3,moving_average_28
+2026-10-07,ICU,0,0,2,0,3,moving_average_28
+2026-10-08,ICU,1,0,2,0,3,moving_average_28
+2026-10-09,ICU,0,0,2,0,3,moving_average_28
+2026-10-10,ICU,1,0,2,0,3,moving_average_28
+2026-10-11,ICU,1,0,2,0,3,moving_average_28
+2026-10-12,ICU,0,0,2,0,3,moving_average_28
+2026-10-13,ICU,1,0,2,0,3,moving_average_28
+2026-10-14,ICU,1,0,2,0,3,moving_average_28
+2026-10-15,ICU,0,0,2,0,3,moving_average_28
+2026-10-16,ICU,1,0,2,0,3,moving_average_28
+2026-10-17,ICU,1,0,2,0,3,moving_average_28
+2026-10-18,ICU,0,0,2,0,3,moving_average_28
+2026-10-19,ICU,1,0,2,0,3,moving_average_28
+2026-10-20,ICU,1,0,2,0,3,moving_average_28
+2026-10-21,ICU,0,0,2,0,3,moving_average_28
+2026-10-22,ICU,1,0,2,0,3,moving_average_28
+2026-10-23,ICU,1,0,2,0,3,moving_average_28
+2026-10-24,ICU,0,0,2,0,3,moving_average_28
+2026-10-25,ICU,1,0,2,0,3,moving_average_28
+2026-10-26,ICU,1,0,2,0,3,moving_average_28
+2026-10-27,ICU,0,0,2,0,3,moving_average_28
+2026-10-28,ICU,1,0,2,0,3,moving_average_28
+2026-10-29,ICU,1,0,2,0,3,moving_average_28
+2026-10-30,ICU,0,0,2,0,3,moving_average_28
+2026-10-31,ICU,1,0,2,0,3,moving_average_28
+2026-11-01,ICU,0,0,2,0,3,moving_average_28
+2026-11-02,ICU,1,0,2,0,3,moving_average_28
+2026-11-03,ICU,1,0,2,0,3,moving_average_28
+2026-11-04,ICU,0,0,2,0,3,moving_average_28
+2026-10-06,Neurology,1,0,2,0,3,moving_average_28
+2026-10-07,Neurology,0,0,2,0,3,moving_average_28
+2026-10-08,Neurology,1,0,2,0,3,moving_average_28
+2026-10-09,Neurology,1,0,2,0,3,moving_average_28
+2026-10-10,Neurology,1,0,2,0,3,moving_average_28
+2026-10-11,Neurology,0,0,2,0,3,moving_average_28
+2026-10-12,Neurology,1,0,2,0,3,moving_average_28
+2026-10-13,Neurology,1,0,2,0,3,moving_average_28
+2026-10-14,Neurology,0,0,2,0,3,moving_average_28
+2026-10-15,Neurology,1,0,2,0,3,moving_average_28
+2026-10-16,Neurology,1,0,2,0,3,moving_average_28
+2026-10-17,Neurology,1,0,2,0,3,moving_average_28
+2026-10-18,Neurology,0,0,2,0,3,moving_average_28
+2026-10-19,Neurology,1,0,2,0,3,moving_average_28
+2026-10-20,Neurology,1,0,2,0,3,moving_average_28
+2026-10-21,Neurology,0,0,2,0,3,moving_average_28
+2026-10-22,Neurology,1,0,2,0,3,moving_average_28
+2026-10-23,Neurology,1,0,2,0,3,moving_average_28
+2026-10-24,Neurology,1,0,2,0,3,moving_average_28
+2026-10-25,Neurology,0,0,2,0,3,moving_average_28
+2026-10-26,Neurology,1,0,2,0,3,moving_average_28
+2026-10-27,Neurology,1,0,2,0,3,moving_average_28
+2026-10-28,Neurology,0,0,2,0,3,moving_average_28
+2026-10-29,Neurology,1,0,2,0,3,moving_average_28
+2026-10-30,Neurology,1,0,2,0,3,moving_average_28
+2026-10-31,Neurology,1,0,2,0,3,moving_average_28
+2026-11-01,Neurology,0,0,2,0,3,moving_average_28
+2026-11-02,Neurology,1,0,2,0,3,moving_average_28
+2026-11-03,Neurology,1,0,2,0,3,moving_average_28
+2026-11-04,Neurology,0,0,2,0,3,moving_average_28
+2026-10-06,Oncology,0,0,1,0,2,moving_average_28
+2026-10-07,Oncology,1,0,1,0,2,moving_average_28
+2026-10-08,Oncology,0,0,1,0,2,moving_average_28
+2026-10-09,Oncology,0,0,1,0,2,moving_average_28
+2026-10-10,Oncology,1,0,1,0,2,moving_average_28
+2026-10-11,Oncology,0,0,1,0,2,moving_average_28
+2026-10-12,Oncology,0,0,1,0,2,moving_average_28
+2026-10-13,Oncology,0,0,1,0,2,moving_average_28
+2026-10-14,Oncology,1,0,1,0,2,moving_average_28
+2026-10-15,Oncology,0,0,1,0,2,moving_average_28
+2026-10-16,Oncology,0,0,1,0,2,moving_average_28
+2026-10-17,Oncology,0,0,1,0,2,moving_average_28
+2026-10-18,Oncology,1,0,1,0,2,moving_average_28
+2026-10-19,Oncology,0,0,1,0,2,moving_average_28
+2026-10-20,Oncology,0,0,1,0,2,moving_average_28
+2026-10-21,Oncology,1,0,1,0,2,moving_average_28
+2026-10-22,Oncology,0,0,1,0,2,moving_average_28
+2026-10-23,Oncology,0,0,1,0,2,moving_average_28
+2026-10-24,Oncology,0,0,1,0,2,moving_average_28
+2026-10-25,Oncology,1,0,1,0,2,moving_average_28
+2026-10-26,Oncology,0,0,1,0,2,moving_average_28
+2026-10-27,Oncology,0,0,1,0,2,moving_average_28
+2026-10-28,Oncology,0,0,1,0,2,moving_average_28
+2026-10-29,Oncology,1,0,1,0,2,moving_average_28
+2026-10-30,Oncology,0,0,1,0,2,moving_average_28
+2026-10-31,Oncology,0,0,1,0,2,moving_average_28
+2026-11-01,Oncology,1,0,1,0,2,moving_average_28
+2026-11-02,Oncology,0,0,1,0,2,moving_average_28
+2026-11-03,Oncology,0,0,1,0,2,moving_average_28
+2026-11-04,Oncology,1,0,1,0,2,moving_average_28
+2026-10-06,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-07,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-08,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-09,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-10,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-11,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-12,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-13,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-14,Orthopedics,0,0,2,0,3,moving_average_28
+2026-10-15,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-16,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-17,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-18,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-19,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-20,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-21,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-22,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-23,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-24,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-25,Orthopedics,0,0,2,0,3,moving_average_28
+2026-10-26,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-27,Orthopedics,2,0,2,0,3,moving_average_28
+2026-10-28,Orthopedics,0,0,2,0,3,moving_average_28
+2026-10-29,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-30,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-31,Orthopedics,1,0,2,0,3,moving_average_28
+2026-11-01,Orthopedics,1,0,2,0,3,moving_average_28
+2026-11-02,Orthopedics,1,0,2,0,3,moving_average_28
+2026-11-03,Orthopedics,1,0,2,0,3,moving_average_28
+2026-11-04,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-06,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-07,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-08,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-09,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-10,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-11,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-12,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-13,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-14,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-15,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-16,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-17,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-18,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-19,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-20,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-21,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-22,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-23,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-24,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-25,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-26,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-27,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-28,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-29,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-30,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-31,Pediatrics,1,0,3,0,3,moving_average_28
+2026-11-01,Pediatrics,1,0,3,0,3,moving_average_28
+2026-11-02,Pediatrics,1,0,3,0,3,moving_average_28
+2026-11-03,Pediatrics,1,0,3,0,3,moving_average_28
+2026-11-04,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-06,Surgery,1,0,3,0,4,moving_average_28
+2026-10-07,Surgery,2,0,3,0,4,moving_average_28
+2026-10-08,Surgery,1,0,3,0,4,moving_average_28
+2026-10-09,Surgery,1,0,3,0,4,moving_average_28
+2026-10-10,Surgery,1,0,3,0,4,moving_average_28
+2026-10-11,Surgery,1,0,3,0,4,moving_average_28
+2026-10-12,Surgery,2,0,3,0,4,moving_average_28
+2026-10-13,Surgery,1,0,3,0,4,moving_average_28
+2026-10-14,Surgery,1,0,3,0,4,moving_average_28
+2026-10-15,Surgery,2,0,3,0,4,moving_average_28
+2026-10-16,Surgery,1,0,3,0,4,moving_average_28
+2026-10-17,Surgery,1,0,3,0,4,moving_average_28
+2026-10-18,Surgery,1,0,3,0,4,moving_average_28
+2026-10-19,Surgery,1,0,3,0,4,moving_average_28
+2026-10-20,Surgery,2,0,3,0,4,moving_average_28
+2026-10-21,Surgery,1,0,3,0,4,moving_average_28
+2026-10-22,Surgery,1,0,3,0,4,moving_average_28
+2026-10-23,Surgery,2,0,3,0,4,moving_average_28
+2026-10-24,Surgery,1,0,3,0,4,moving_average_28
+2026-10-25,Surgery,1,0,3,0,4,moving_average_28
+2026-10-26,Surgery,1,0,3,0,4,moving_average_28
+2026-10-27,Surgery,2,0,3,0,4,moving_average_28
+2026-10-28,Surgery,1,0,3,0,4,moving_average_28
+2026-10-29,Surgery,1,0,3,0,4,moving_average_28
+2026-10-30,Surgery,1,0,3,0,4,moving_average_28
+2026-10-31,Surgery,2,0,3,0,4,moving_average_28
+2026-11-01,Surgery,1,0,3,0,4,moving_average_28
+2026-11-02,Surgery,1,0,3,0,4,moving_average_28
+2026-11-03,Surgery,1,0,3,0,4,moving_average_28
+2026-11-04,Surgery,2,0,3,0,4,moving_average_28
+2026-10-06,All Departments,11,6,16,4,18,moving_average_28
+2026-10-07,All Departments,12,6,16,4,18,moving_average_28
+2026-10-08,All Departments,11,6,16,4,18,moving_average_28
+2026-10-09,All Departments,11,6,16,4,18,moving_average_28
+2026-10-10,All Departments,11,6,16,4,18,moving_average_28
+2026-10-11,All Departments,12,6,16,4,18,moving_average_28
+2026-10-12,All Departments,11,6,16,4,18,moving_average_28
+2026-10-13,All Departments,11,6,17,3,19,moving_average_28
+2026-10-14,All Departments,11,6,17,3,19,moving_average_28
+2026-10-15,All Departments,12,6,17,3,19,moving_average_28
+2026-10-16,All Departments,11,6,17,3,19,moving_average_28
+2026-10-17,All Departments,11,6,17,3,19,moving_average_28
+2026-10-18,All Departments,11,6,17,3,19,moving_average_28
+2026-10-19,All Departments,12,6,17,3,19,moving_average_28
+2026-10-20,All Departments,11,6,16,3,19,moving_average_28
+2026-10-21,All Departments,11,6,16,3,19,moving_average_28
+2026-10-22,All Departments,11,6,16,3,19,moving_average_28
+2026-10-23,All Departments,12,6,16,3,19,moving_average_28
+2026-10-24,All Departments,11,6,16,3,19,moving_average_28
+2026-10-25,All Departments,11,6,16,3,19,moving_average_28
+2026-10-26,All Departments,11,6,16,3,19,moving_average_28
+2026-10-27,All Departments,12,6,16,3,19,moving_average_28
+2026-10-28,All Departments,11,6,16,3,19,moving_average_28
+2026-10-29,All Departments,11,6,16,3,19,moving_average_28
+2026-10-30,All Departments,11,6,16,3,19,moving_average_28
+2026-10-31,All Departments,12,6,16,3,19,moving_average_28
+2026-11-01,All Departments,11,6,16,3,19,moving_average_28
+2026-11-02,All Departments,11,6,16,3,19,moving_average_28
+2026-11-03,All Departments,11,6,16,3,19,moving_average_28
+2026-11-04,All Departments,12,6,16,3,19,moving_average_28

@@ -1,0 +1,80 @@
+{
+  "project": "CareOps-AI",
+  "data_scope": "fully_synthetic_portfolio_scenario",
+  "scenario_as_of_date": "2026-10-05",
+  "forecast_horizon_days": 30,
+  "forecast_windows": {
+    "admission_forecasting": [
+      "2026-10-06",
+      "2026-11-04"
+    ],
+    "occupancy_forecasting": [
+      "2026-10-06",
+      "2026-11-04"
+    ],
+    "icu_forecasting": [
+      "2026-10-06",
+      "2026-11-04"
+    ]
+  },
+  "synthetic_source_row_counts": {
+    "patients.csv": 50000,
+    "admissions.csv": 11640,
+    "beds.csv": 230,
+    "staff.csv": 300,
+    "appointments.csv": 120000,
+    "daily_operations.csv": 9081,
+    "shifts.csv": 166485,
+    "hospital_snapshot.csv": 1
+  },
+  "source_integrity_checks_passed": true,
+  "audit_failures": 0,
+  "audit_warnings": [
+    "data_scope",
+    "latest_observed_operations_age_days",
+    "forecast_start_age_days",
+    "occupancy_forecast_capacity_basis",
+    "bed_inventory_snapshot_date",
+    "staff_availability_snapshot_date",
+    "latest_appointment_data_age_days",
+    "isolation_label_provenance",
+    "emergency_reserve_flag_semantics"
+  ],
+  "optimized_capacity_gates": {
+    "overflow_bed_days": 0,
+    "unfilled_staff_positions": 0,
+    "icu_overflow_bed_days": 0,
+    "emergency_overflow_bed_days": 0,
+    "unassigned_appointments": 0
+  },
+  "optimized_appointment_count": 106,
+  "synthetic_capacity_expansion": {
+    "scenario_only": true,
+    "temporary_surge_beds": 10,
+    "surge_staff_pool_headcount": 593,
+    "scheduled_surge_hours": 44110.0,
+    "illustrative_expansion_cost_usd": 4096020.0,
+    "costs_are_scenario_assumptions_not_market_quotes": true
+  },
+  "not_for_clinical_or_live_operational_use": true,
+  "reliability_scorecard": {
+    "path": "C:\\Users\\krish\\Documents\\CareOps-AI\\optimization\\resource_planning\\outputs\\reliability_scorecard.json",
+    "minimum_target": 4.0,
+    "overall_score": 4.1,
+    "all_sections_at_or_above_target": true,
+    "data_asset_count": 13,
+    "forecast_score_count": 24
+  },
+  "pipeline_status": "ready_for_next_process",
+  "next_process_ready": true,
+  "next_process_blockers": [],
+  "review_required_sections": [],
+  "no_show_model_integration": {
+    "model_version": "Enhanced Behavioral V2",
+    "historical_features_are_leakage_safe": true,
+    "source_data_modified": false,
+    "score": 4.5,
+    "required_score": 4.5
+  },
+  "ready_for_live_operational_use": false
+}

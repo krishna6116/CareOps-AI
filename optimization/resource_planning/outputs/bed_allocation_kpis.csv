@@ -1,3 +1,3 @@
 scenario,forecast_department_days,forecast_bed_days,allocated_bed_days,overflow_bed_days,mean_forecast_occupancy_utilization,allocated_physical_capacity_utilization,staffed_capacity_utilization,overflow_bed_days_per_forecast_admission,overflow_bed_days_due_to_staffing,overflow_bed_days_due_to_bed_constraints,transfer_in_bed_days,unmet_isolation_bed_days,isolation_demand_source_days_missing,staffing_constraint_violations,physical_capacity_violations,emergency_icu_reserve_violations
-baseline,270,4299.0,4299,0,0.615,0.615,0.855,0.0,0,0,0,0,0,0,0,0
-optimized,270,4299.0,4299,0,0.615,0.615,0.855,0.0,0,0,0,0,0,0,0,0
+baseline,270,4152.0,4152,0,0.5991,0.5991,0.9129,0.0,0,0,0,0,0,0,0,0
+optimized,270,4152.0,4152,0,0.5991,0.5991,0.9129,0.0,0,0,0,0,0,0,0,0

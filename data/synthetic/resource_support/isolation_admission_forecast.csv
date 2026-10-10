@@ -1,301 +1,301 @@
 date,department,predicted_isolation_admissions,historical_smoothed_isolation_rate,isolation_forecast_source
-2026-10-05,Cardiology,0.12588013154127511,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-06,Cardiology,0.12634785945795277,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-07,Cardiology,0.11808804061076053,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-08,Cardiology,0.11919105197356245,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-09,Cardiology,0.11871484371581548,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-10,Cardiology,0.11825353650968196,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-11,Cardiology,0.11891039187551752,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-12,Cardiology,0.10240467961828724,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-13,Cardiology,0.1043972345647613,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-14,Cardiology,0.1047113407277316,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-15,Cardiology,0.09517916219248952,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-16,Cardiology,0.09522452409555462,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-17,Cardiology,0.0842931226382127,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-18,Cardiology,0.08991583892473576,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-19,Cardiology,0.09584522335630008,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-20,Cardiology,0.0901916376276544,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-21,Cardiology,0.08546204217782093,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-22,Cardiology,0.08504512959887833,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-23,Cardiology,0.08658850998057177,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-24,Cardiology,0.08658850998057177,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-25,Cardiology,0.08661241670411728,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-26,Cardiology,0.08653283324771044,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-27,Cardiology,0.08661241670411728,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-28,Cardiology,0.08841214186963915,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-29,Cardiology,0.08599574497998588,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-30,Cardiology,0.08599574497998588,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-31,Cardiology,0.08599574497998588,0.06994912186524659,synthetic_historical_rate_scenario
-2026-11-01,Cardiology,0.08582302786634857,0.06994912186524659,synthetic_historical_rate_scenario
-2026-11-02,Cardiology,0.08507419790661452,0.06994912186524659,synthetic_historical_rate_scenario
-2026-11-03,Cardiology,0.08782251217705922,0.06994912186524659,synthetic_historical_rate_scenario
-2026-10-05,Emergency,0.04461903973007558,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-06,Emergency,0.04049414459709795,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-07,Emergency,0.045340915865645426,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-08,Emergency,0.04236273564922948,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-09,Emergency,0.039145071220059766,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-10,Emergency,0.04570041833644684,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-11,Emergency,0.04570041833644684,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-12,Emergency,0.046858046140310125,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-13,Emergency,0.04233956241115474,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-14,Emergency,0.04531774262757069,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-15,Emergency,0.04233956241115474,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-16,Emergency,0.048902704447042956,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-17,Emergency,0.048902704447042956,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-18,Emergency,0.08498427045998665,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-19,Emergency,0.08765965134866573,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-20,Emergency,0.08169065452874304,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-21,Emergency,0.048587245229945446,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-22,Emergency,0.08122067963849915,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-23,Emergency,0.08098181823589647,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-24,Emergency,0.08098181823589647,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-25,Emergency,0.07955500326723061,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-26,Emergency,0.0738336263624757,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-27,Emergency,0.06874692825509224,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-28,Emergency,0.07007086595452298,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-29,Emergency,0.06709266615288217,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-30,Emergency,0.06758919860805959,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-31,Emergency,0.06758919860805959,0.06571710963476499,synthetic_historical_rate_scenario
-2026-11-01,Emergency,0.06491512209535734,0.06571710963476499,synthetic_historical_rate_scenario
-2026-11-02,Emergency,0.07103680924546787,0.06571710963476499,synthetic_historical_rate_scenario
-2026-11-03,Emergency,0.06687833328591572,0.06571710963476499,synthetic_historical_rate_scenario
-2026-10-05,General Medicine,0.38597971718277174,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-06,General Medicine,0.3855987350201626,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-07,General Medicine,0.3501452648945672,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-08,General Medicine,0.3425904893465334,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-09,General Medicine,0.34325627507985595,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-10,General Medicine,0.3084513168539425,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-11,General Medicine,0.3095277442194904,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-12,General Medicine,0.39701746568059204,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-13,General Medicine,0.39630719074284515,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-14,General Medicine,0.3631795118549275,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-15,General Medicine,0.3614897477958683,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-16,General Medicine,0.3593473630557172,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-17,General Medicine,0.3272671456593458,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-18,General Medicine,0.32055740076847333,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-19,General Medicine,0.393589749181438,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-20,General Medicine,0.3739483103960831,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-21,General Medicine,0.3558894256047827,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-22,General Medicine,0.3555750286211783,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-23,General Medicine,0.35452935066121244,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-24,General Medicine,0.321847389526603,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-25,General Medicine,0.32092513855767923,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-26,General Medicine,0.3770945591891465,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-27,General Medicine,0.374993988356049,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-28,General Medicine,0.3583614994604227,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-29,General Medicine,0.35452935066121244,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-30,General Medicine,0.3555750286211783,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-31,General Medicine,0.321847389526603,0.06926549668661772,synthetic_historical_rate_scenario
-2026-11-01,General Medicine,0.31814923679446727,0.06926549668661772,synthetic_historical_rate_scenario
-2026-11-02,General Medicine,0.3777739526078609,0.06926549668661772,synthetic_historical_rate_scenario
-2026-11-03,General Medicine,0.3756733817747634,0.06926549668661772,synthetic_historical_rate_scenario
-2026-10-05,ICU,0.055425339671005214,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-06,ICU,0.04030430213306761,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-07,ICU,0.041573486160660617,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-08,ICU,0.045445733695138366,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-09,ICU,0.04440393566123666,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-10,ICU,0.037384125584331844,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-11,ICU,0.03925114048623282,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-12,ICU,0.042242193738262795,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-13,ICU,0.040534949355100686,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-14,ICU,0.037721332638869405,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-15,ICU,0.03988307456184327,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-16,ICU,0.04175007215623978,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-17,ICU,0.03659724483872763,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-18,ICU,0.03659724483872763,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-19,ICU,0.030753009915254148,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-20,ICU,0.05302519429149629,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-21,ICU,0.05397181588583171,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-22,ICU,0.05271966244263453,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-23,ICU,0.05157020184094371,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-24,ICU,0.04736401342527145,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-25,ICU,0.04641739183093604,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-26,ICU,0.049031527195678576,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-27,ICU,0.049031527195678576,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-28,ICU,0.04955199847001902,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-29,ICU,0.048775682719641764,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-30,ICU,0.0478290710153089,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-31,ICU,0.04267625111529868,0.08296335453392709,synthetic_historical_rate_scenario
-2026-11-01,ICU,0.04435383290830448,0.08296335453392709,synthetic_historical_rate_scenario
-2026-11-02,ICU,0.04874163144085269,0.08296335453392709,synthetic_historical_rate_scenario
-2026-11-03,ICU,0.04874163144085269,0.08296335453392709,synthetic_historical_rate_scenario
-2026-10-05,Neurology,0.06294429409077987,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-06,Neurology,0.0508616640800566,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-07,Neurology,0.03915103751994556,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-08,Neurology,0.04419960675972296,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-09,Neurology,0.06995950496700995,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-10,Neurology,0.054479951092790545,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-11,Neurology,0.04970104368748093,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-12,Neurology,0.07163447998713043,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-13,Neurology,0.040160413957009616,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-14,Neurology,0.04058981538468833,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-15,Neurology,0.04352895336754926,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-16,Neurology,0.061210542220458464,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-17,Neurology,0.06407514798013758,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-18,Neurology,0.05050748113499988,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-19,Neurology,0.06679373298115536,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-20,Neurology,0.05471728248252078,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-21,Neurology,0.04569676751091396,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-22,Neurology,0.06236293703113306,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-23,Neurology,0.07806018129573447,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-24,Neurology,0.08175006486626722,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-25,Neurology,0.04649159891336352,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-26,Neurology,0.0814234625610264,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-27,Neurology,0.05153006488916045,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-28,Neurology,0.06462726276252768,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-29,Neurology,0.05204199536877534,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-30,Neurology,0.07204769712967815,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-31,Neurology,0.06028521032492766,0.05330334657408725,synthetic_historical_rate_scenario
-2026-11-01,Neurology,0.06765751121745413,0.05330334657408725,synthetic_historical_rate_scenario
-2026-11-02,Neurology,0.0760376921202098,0.05330334657408725,synthetic_historical_rate_scenario
-2026-11-03,Neurology,0.06424387248861164,0.05330334657408725,synthetic_historical_rate_scenario
-2026-10-05,Oncology,0.029949932347355993,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-06,Oncology,0.03047819282456939,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-07,Oncology,0.027402076923097155,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-08,Oncology,0.028611663088958423,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-09,Oncology,0.028286322341209844,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-10,Oncology,0.02647126846979469,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-11,Oncology,0.025715208856331894,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-12,Oncology,0.03356599405309304,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-13,Oncology,0.03409426015998061,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-14,Oncology,0.03125857263051433,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-15,Oncology,0.03246815504325948,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-16,Oncology,0.03647414862523547,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-17,Oncology,0.03440994976961687,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-18,Oncology,0.03317526463967777,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-19,Oncology,0.036645114324022364,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-20,Oncology,0.03717338043090994,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-21,Oncology,0.03478593318978177,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-22,Oncology,0.03599552123220111,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-23,Oncology,0.03599552123220111,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-24,Oncology,0.033931318623466385,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-25,Oncology,0.03317526463967777,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-26,Oncology,0.0356702461639847,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-27,Oncology,0.03280838252611305,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-28,Oncology,0.030899573937367624,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-29,Oncology,0.030965640040494655,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-30,Oncology,0.03210916197978696,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-31,Oncology,0.028901454320782487,0.06296683988186474,synthetic_historical_rate_scenario
-2026-11-01,Oncology,0.02980893528081755,0.06296683988186474,synthetic_historical_rate_scenario
-2026-11-02,Oncology,0.03263341600553821,0.06296683988186474,synthetic_historical_rate_scenario
-2026-11-03,Oncology,0.03316168211242579,0.06296683988186474,synthetic_historical_rate_scenario
-2026-10-05,Orthopedics,0.04139623521833374,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-06,Orthopedics,0.03892505385595262,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-07,Orthopedics,0.038314801120440944,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-08,Orthopedics,0.04208799287614694,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-09,Orthopedics,0.03968144787311922,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-10,Orthopedics,0.04335839558080028,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-11,Orthopedics,0.04345433426019834,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-12,Orthopedics,0.04350346603647031,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-13,Orthopedics,0.04479132361183534,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-14,Orthopedics,0.050311773576745995,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-15,Orthopedics,0.05332987422142668,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-16,Orthopedics,0.05486954283808751,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-17,Orthopedics,0.04756411960276334,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-18,Orthopedics,0.053673161488586606,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-19,Orthopedics,0.05439546008066813,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-20,Orthopedics,0.05439546008066813,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-21,Orthopedics,0.05117111753698351,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-22,Orthopedics,0.05117111753698351,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-23,Orthopedics,0.050819870327616604,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-24,Orthopedics,0.04655311736767885,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-25,Orthopedics,0.04891608016028018,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-26,Orthopedics,0.04966141983315421,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-27,Orthopedics,0.04966141983315421,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-28,Orthopedics,0.049905384936530385,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-29,Orthopedics,0.04899286611940118,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-30,Orthopedics,0.052738945212623116,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-31,Orthopedics,0.05114757972322464,0.06830980550083263,synthetic_historical_rate_scenario
-2026-11-01,Orthopedics,0.06485339908705624,0.06830980550083263,synthetic_historical_rate_scenario
-2026-11-02,Orthopedics,0.05598439483579675,0.06830980550083263,synthetic_historical_rate_scenario
-2026-11-03,Orthopedics,0.05653590686224439,0.06830980550083263,synthetic_historical_rate_scenario
-2026-10-05,Pediatrics,0.07835547228161358,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-06,Pediatrics,0.08194387346944401,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-07,Pediatrics,0.07981135364252408,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-08,Pediatrics,0.10058248086606894,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-09,Pediatrics,0.09991357805925154,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-10,Pediatrics,0.09940710627136738,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-11,Pediatrics,0.09486490186997873,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-12,Pediatrics,0.09768374756099768,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-13,Pediatrics,0.09829751151594741,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-14,Pediatrics,0.09829751151594741,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-15,Pediatrics,0.10405584531559199,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-16,Pediatrics,0.10032712390428389,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-17,Pediatrics,0.09867033820562444,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-18,Pediatrics,0.10033720343256292,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-19,Pediatrics,0.1015589028619191,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-20,Pediatrics,0.09722672873723404,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-21,Pediatrics,0.09722672873723404,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-22,Pediatrics,0.09755581508668698,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-23,Pediatrics,0.097320875630903,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-24,Pediatrics,0.09722940235216217,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-25,Pediatrics,0.08755578229152504,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-26,Pediatrics,0.10240786472209584,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-27,Pediatrics,0.0980756905974108,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-28,Pediatrics,0.09840477694686373,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-29,Pediatrics,0.10121312424326491,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-30,Pediatrics,0.09226655811413187,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-31,Pediatrics,0.091882528977906,0.07475969191658152,synthetic_historical_rate_scenario
-2026-11-01,Pediatrics,0.09087238378576244,0.07475969191658152,synthetic_historical_rate_scenario
-2026-11-02,Pediatrics,0.09474076592886595,0.07475969191658152,synthetic_historical_rate_scenario
-2026-11-03,Pediatrics,0.09171867203101108,0.07475969191658152,synthetic_historical_rate_scenario
-2026-10-05,Surgery,0.06687622142055752,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-06,Surgery,0.09170256253680899,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-07,Surgery,0.09189699699008401,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-08,Surgery,0.09019950954806726,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-09,Surgery,0.08847364070146287,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-10,Surgery,0.07497810816524306,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-11,Surgery,0.07497810816524306,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-12,Surgery,0.09461378729557103,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-13,Surgery,0.09445703461484853,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-14,Surgery,0.09521701003504665,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-15,Surgery,0.09227674891620649,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-16,Surgery,0.0877182936333975,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-17,Surgery,0.07334337419195454,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-18,Surgery,0.0769637934885525,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-19,Surgery,0.09726150162866168,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-20,Surgery,0.09726150162866168,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-21,Surgery,0.09726150162866168,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-22,Surgery,0.0977119363513172,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-23,Surgery,0.09250484808169238,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-24,Surgery,0.07582038092600545,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-25,Surgery,0.07582038092600545,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-26,Surgery,0.09545606005633343,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-27,Surgery,0.09545606005633343,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-28,Surgery,0.09545606005633343,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-29,Surgery,0.09718936919730972,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-30,Surgery,0.09319562527113588,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-31,Surgery,0.07755370753246149,0.07325553156157083,synthetic_historical_rate_scenario
-2026-11-01,Surgery,0.07006103855317446,0.07325553156157083,synthetic_historical_rate_scenario
-2026-11-02,Surgery,0.08932934441615012,0.07325553156157083,synthetic_historical_rate_scenario
-2026-11-03,Surgery,0.09085105927000071,0.07325553156157083,synthetic_historical_rate_scenario
-2026-10-05,All Departments,0.9014211356742363,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-06,All Departments,0.893661965559191,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-07,All Departments,0.8348629916677779,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-08,All Departments,0.8579777083003305,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-09,All Departments,0.882469282387047,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-10,All Departments,0.8162800551280827,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-11,All Departments,0.8083694991067064,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-12,All Departments,0.9423322376257781,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-13,All Departments,0.898575423533611,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-14,All Departments,0.8701477037968557,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-15,All Departments,0.8684406198260093,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-16,All Departments,0.8961509471296342,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-17,All Departments,0.8274846608692064,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-18,All Departments,0.8567060098141714,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-19,All Departments,0.980264673357059,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-20,All Departments,0.94802615269442,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-21,All Departments,0.8731552797561046,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-22,All Departments,0.9298071845379351,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-23,All Departments,0.9440571328021286,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-24,All Departments,0.8899037202472636,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-25,All Departments,0.8331846223242407,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-26,All Departments,0.9673830370706212,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-27,All Departments,0.9136983242818023,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-28,All Departments,0.9161632489973578,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-29,All Departments,0.8930586719451437,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-30,All Departments,0.9129340718352167,0.06964746345657781,synthetic_historical_rate_scenario
-2026-10-31,All Departments,0.838925673468607,0.06964746345657781,synthetic_historical_rate_scenario
-2026-11-01,All Departments,0.8501555752313454,0.06964746345657781,synthetic_historical_rate_scenario
-2026-11-02,All Departments,0.9464891998806801,0.06964746345657781,synthetic_historical_rate_scenario
-2026-11-03,All Departments,0.9270741846780785,0.06964746345657781,synthetic_historical_rate_scenario
+2026-10-06,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-07,Cardiology,0.0,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-08,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-09,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-10,Cardiology,0.0,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-11,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-12,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-13,Cardiology,0.0,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-14,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-15,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-16,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-17,Cardiology,0.0,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-18,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-19,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-20,Cardiology,0.0,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-21,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-22,Cardiology,0.0,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-23,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-24,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-25,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-26,Cardiology,0.0,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-27,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-28,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-29,Cardiology,0.0,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-30,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-31,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-11-01,Cardiology,0.0,0.06995152297595768,synthetic_historical_rate_scenario
+2026-11-02,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-11-03,Cardiology,0.06995152297595768,0.06995152297595768,synthetic_historical_rate_scenario
+2026-11-04,Cardiology,0.0,0.06995152297595768,synthetic_historical_rate_scenario
+2026-10-06,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-07,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-08,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-09,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-10,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-11,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-12,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-13,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-14,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-15,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-16,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-17,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-18,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-19,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-20,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-21,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-22,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-23,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-24,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-25,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-26,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-27,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-28,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-29,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-30,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-31,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-11-01,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-11-02,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-11-03,Emergency,0.0,0.0657210074019283,synthetic_historical_rate_scenario
+2026-11-04,Emergency,0.0657210074019283,0.0657210074019283,synthetic_historical_rate_scenario
+2026-10-06,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-07,General Medicine,0.4162179069750427,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-08,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-09,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-10,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-11,General Medicine,0.4162179069750427,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-12,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-13,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-14,General Medicine,0.4162179069750427,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-15,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-16,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-17,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-18,General Medicine,0.4162179069750427,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-19,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-20,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-21,General Medicine,0.4162179069750427,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-22,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-23,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-24,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-25,General Medicine,0.4162179069750427,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-26,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-27,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-28,General Medicine,0.4162179069750427,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-29,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-30,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-31,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-11-01,General Medicine,0.4162179069750427,0.06936965116250711,synthetic_historical_rate_scenario
+2026-11-02,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-11-03,General Medicine,0.34684825581253553,0.06936965116250711,synthetic_historical_rate_scenario
+2026-11-04,General Medicine,0.4162179069750427,0.06936965116250711,synthetic_historical_rate_scenario
+2026-10-06,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-07,ICU,0.0,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-08,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-09,ICU,0.0,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-10,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-11,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-12,ICU,0.0,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-13,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-14,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-15,ICU,0.0,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-16,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-17,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-18,ICU,0.0,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-19,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-20,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-21,ICU,0.0,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-22,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-23,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-24,ICU,0.0,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-25,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-26,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-27,ICU,0.0,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-28,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-29,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-30,ICU,0.0,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-31,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-11-01,ICU,0.0,0.08285926677705963,synthetic_historical_rate_scenario
+2026-11-02,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-11-03,ICU,0.08285926677705963,0.08285926677705963,synthetic_historical_rate_scenario
+2026-11-04,ICU,0.0,0.08285926677705963,synthetic_historical_rate_scenario
+2026-10-06,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-07,Neurology,0.0,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-08,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-09,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-10,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-11,Neurology,0.0,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-12,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-13,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-14,Neurology,0.0,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-15,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-16,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-17,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-18,Neurology,0.0,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-19,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-20,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-21,Neurology,0.0,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-22,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-23,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-24,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-25,Neurology,0.0,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-26,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-27,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-28,Neurology,0.0,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-29,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-30,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-31,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-11-01,Neurology,0.0,0.05323409009821043,synthetic_historical_rate_scenario
+2026-11-02,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-11-03,Neurology,0.05323409009821043,0.05323409009821043,synthetic_historical_rate_scenario
+2026-11-04,Neurology,0.0,0.05323409009821043,synthetic_historical_rate_scenario
+2026-10-06,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-07,Oncology,0.06297250859106529,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-08,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-09,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-10,Oncology,0.06297250859106529,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-11,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-12,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-13,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-14,Oncology,0.06297250859106529,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-15,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-16,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-17,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-18,Oncology,0.06297250859106529,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-19,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-20,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-21,Oncology,0.06297250859106529,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-22,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-23,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-24,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-25,Oncology,0.06297250859106529,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-26,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-27,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-28,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-29,Oncology,0.06297250859106529,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-30,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-31,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-11-01,Oncology,0.06297250859106529,0.06297250859106529,synthetic_historical_rate_scenario
+2026-11-02,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-11-03,Oncology,0.0,0.06297250859106529,synthetic_historical_rate_scenario
+2026-11-04,Oncology,0.06297250859106529,0.06297250859106529,synthetic_historical_rate_scenario
+2026-10-06,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-07,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-08,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-09,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-10,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-11,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-12,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-13,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-14,Orthopedics,0.0,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-15,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-16,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-17,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-18,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-19,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-20,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-21,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-22,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-23,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-24,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-25,Orthopedics,0.0,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-26,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-27,Orthopedics,0.13645348660402032,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-28,Orthopedics,0.0,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-29,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-30,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-31,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-11-01,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-11-02,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-11-03,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-11-04,Orthopedics,0.06822674330201016,0.06822674330201016,synthetic_historical_rate_scenario
+2026-10-06,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-07,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-08,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-09,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-10,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-11,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-12,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-13,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-14,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-15,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-16,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-17,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-18,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-19,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-20,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-21,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-22,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-23,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-24,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-25,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-26,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-27,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-28,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-29,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-30,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-31,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-11-01,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-11-02,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-11-03,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-11-04,Pediatrics,0.07469313095192807,0.07469313095192807,synthetic_historical_rate_scenario
+2026-10-06,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-07,Surgery,0.14651504420135883,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-08,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-09,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-10,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-11,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-12,Surgery,0.14651504420135883,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-13,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-14,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-15,Surgery,0.14651504420135883,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-16,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-17,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-18,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-19,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-20,Surgery,0.14651504420135883,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-21,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-22,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-23,Surgery,0.14651504420135883,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-24,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-25,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-26,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-27,Surgery,0.14651504420135883,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-28,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-29,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-30,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-31,Surgery,0.14651504420135883,0.07325752210067941,synthetic_historical_rate_scenario
+2026-11-01,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-11-02,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-11-03,Surgery,0.07325752210067941,0.07325752210067941,synthetic_historical_rate_scenario
+2026-11-04,Surgery,0.14651504420135883,0.07325752210067941,synthetic_historical_rate_scenario
+2026-10-06,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-07,All Departments,0.8360824742268042,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-08,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-09,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-10,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-11,All Departments,0.8360824742268042,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-12,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-13,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-14,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-15,All Departments,0.8360824742268042,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-16,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-17,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-18,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-19,All Departments,0.8360824742268042,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-20,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-21,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-22,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-23,All Departments,0.8360824742268042,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-24,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-25,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-26,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-27,All Departments,0.8360824742268042,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-28,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-29,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-30,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-10-31,All Departments,0.8360824742268042,0.06967353951890035,synthetic_historical_rate_scenario
+2026-11-01,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-11-02,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-11-03,All Departments,0.7664089347079038,0.06967353951890035,synthetic_historical_rate_scenario
+2026-11-04,All Departments,0.8360824742268042,0.06967353951890035,synthetic_historical_rate_scenario

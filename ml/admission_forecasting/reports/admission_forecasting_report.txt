@@ -75,7 +75,31 @@ BASELINE COMPARISON
 MAE improvement vs baseline: 16.31%
 RMSE improvement vs baseline: 26.32%
 
-DEPARTMENT MODEL PERFORMANCE
+The comparison above is one-step-ahead against the 7-day seasonal naive baseline only.
+
+30-DAY ROLLING-ORIGIN BACKTEST (HOSPITAL TOTAL)
+--------------------------------------------------------------------------------
+Origins: 12 every 14 days from 2026-03-22 to 2026-08-23
+                 model   MAE  RMSE  sMAPE_percent  MASE   bias
+     moving_average_28 2.944 3.691         28.648 0.797  0.271
+      moving_average_7 3.057 3.843         29.764 0.827  0.161
+     xgboost_recursive 3.199 4.075         30.193 0.866  1.878
+same_weekday_last_week 3.725 4.693         36.303 1.008  0.131
+            last_value 4.897 6.054         47.533 1.325 -0.625
+
+Published forecast model: moving_average_28
+XGBoost does not beat the best naive baseline on the 30-day backtest, so the baseline forecast is published.
+
+Interval coverage on later backtest origins:
+ level bucket  calibration_origins  evaluation_origins  calibrated_half_width  empirical_coverage
+  0.80    1-7                    6                   6                  3.786               0.667
+  0.80   8-14                    6                   6                  4.857               0.786
+  0.80  15-30                    6                   6                  4.214               0.698
+  0.95    1-7                    6                   6                  6.464               0.881
+  0.95   8-14                    6                   6                  6.786               0.881
+  0.95  15-30                    6                   6                  6.857               0.896
+
+DEPARTMENT MODEL PERFORMANCE (XGBOOST, ONE-STEP HOLDOUT)
 --------------------------------------------------------------------------------
 
 Department: Cardiology
@@ -127,18 +151,18 @@ MAPE: 35.69%
 --------------------------------------------------------------------------------
 Forecast start: 2026-10-06
 Forecast end: 2026-11-04
-Total forecasted admissions: 384.92
+Total forecasted admissions: 338
 
 Department forecast totals:
- - General Medicine: 153.22
- - Cardiology: 42.14
- - Pediatrics: 38.57
- - Surgery: 36.51
- - Neurology: 33.26
- - Emergency: 27.90
- - Orthopedics: 21.69
- - ICU: 16.10
- - Oncology: 15.54
+ - General Medicine: 159
+ - Surgery: 38
+ - Pediatrics: 30
+ - Orthopedics: 28
+ - Neurology: 21
+ - Cardiology: 20
+ - ICU: 19
+ - Emergency: 14
+ - Oncology: 9
 
 TOP FORECASTING FEATURES
 --------------------------------------------------------------------------------

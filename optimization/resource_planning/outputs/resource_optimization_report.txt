@@ -1,29 +1,29 @@
 CAREOPS AI - RESOURCE OPTIMIZATION SCENARIO
 Synthetic-data planning aid; human review is required before operational use.
-Staff planning horizon: 2026-10-05 to 2026-11-03
-Run date: 2026-10-04
+Staff planning horizon: 2026-10-06 to 2026-11-04
+Run date: 2026-10-10
 Data scope: bundled synthetic/historical snapshot; not a live hospital feed.
-Input audit warnings: 6; failed checks: 0.
-Input warnings: data_scope, occupancy_forecast_capacity_basis, bed_inventory_snapshot_date, staff_availability_snapshot_date, isolation_label_provenance, emergency_reserve_flag_semantics
+Input audit warnings: 9; failed checks: 0.
+Input warnings: data_scope, latest_observed_operations_age_days, forecast_start_age_days, occupancy_forecast_capacity_basis, bed_inventory_snapshot_date, staff_availability_snapshot_date, latest_appointment_data_age_days, isolation_label_provenance, emergency_reserve_flag_semantics
 Forecast holdout checks scored: 24 model/group combinations.
-Regression holdout comparisons where the model beat its baseline: 11 of 12.
+Regression holdout comparisons where the model beat its baseline: 10 of 12.
 No-show probability calibration is evaluated separately with Brier score.
 Holdout scores evaluate saved historical test predictions; they do not validate future operational performance.
-No-show Brier score: 0.1133 versus 0.1267 pre-holdout prevalence baseline; model probabilities outperform the baseline.
+No-show Brier score: 0.1131 versus 0.1282 pre-holdout prevalence baseline; model probabilities outperform the baseline.
 No-show risk scores are retained for review but do not influence slot movement until a leakage-safe calibration evaluation shows improvement over a pre-holdout baseline.
-Appointment planning dates: 2026-10-04 to 2026-10-04
+Appointment planning dates: 2026-10-05 to 2026-10-05
 
 Bed allocation KPIs:
  scenario  forecast_department_days  forecast_bed_days  allocated_bed_days  overflow_bed_days  mean_forecast_occupancy_utilization  allocated_physical_capacity_utilization  staffed_capacity_utilization  overflow_bed_days_per_forecast_admission  overflow_bed_days_due_to_staffing  overflow_bed_days_due_to_bed_constraints  transfer_in_bed_days  unmet_isolation_bed_days  isolation_demand_source_days_missing  staffing_constraint_violations  physical_capacity_violations  emergency_icu_reserve_violations
- baseline                       270             4299.0                4299                  0                                0.615                                    0.615                         0.855                                       0.0                                  0                                         0                     0                         0                                     0                               0                             0                                 0
-optimized                       270             4299.0                4299                  0                                0.615                                    0.615                         0.855                                       0.0                                  0                                         0                     0                         0                                     0                               0                             0                                 0
+ baseline                       270             4152.0                4152                  0                               0.5991                                   0.5991                        0.9129                                       0.0                                  0                                         0                     0                         0                                     0                               0                             0                                 0
+optimized                       270             4152.0                4152                  0                               0.5991                                   0.5991                        0.9129                                       0.0                                  0                                         0                     0                         0                                     0                               0                             0                                 0
 
 Appointment KPIs:
 planning_date_start planning_date_end  appointments_requested  appointments_scheduled  appointments_unassigned  baseline_unavailable_doctor_bookings  baseline_off_shift_doctor_bookings  baseline_specialty_mismatch_bookings  optimized_unavailable_doctor_bookings  optimized_off_shift_doctor_bookings  baseline_doctor_time_conflicts  optimized_doctor_time_conflicts  doctor_changes  mean_no_show_risk  mean_schedule_shift_minutes
-         2026-10-04        2026-10-04                     140                     140                        0                                     2                                  49                                     0                                      0                                    0                              12                                0              49             0.1265                        14.68
+         2026-10-05        2026-10-05                     106                     106                        0                                     4                                  34                                     0                                      0                                    0                               8                                0              34             0.1383                        13.87
 
 Staff positions unfilled: 0
-Forecast mean occupancy: 61.5% of 233 planned operational beds.
+Forecast mean occupancy: 59.9% of 231 planned operational beds.
 Mean incremental nurses needed per shift across departments: 0.0 at the 4:1 scenario ratio.
 Optimized overflow attribution: 0 bed-days due to staffing limits and 0 bed-days due to dedicated bed/compatibility limits.
 Emergency capacity forecast days: 30
@@ -33,7 +33,7 @@ Emergency overflow served in General Medicine beds: 0 bed-days
 Capacity assumptions: one assigned nurse supports up to 4 beds for scenario analysis; 2 ICU and 2 emergency beds are protected.
 Department occupancy is calibrated to the hospital-wide occupancy forecast; uncalibrated admission/LOS projections are retained in the bed forecast output.
 Forecast occupancy utilization is based on projected census divided by physical operational beds. Allocation utilization and staffed-capacity utilization are reported separately; neither is a measured patient wait time.
-The occupancy forecast was trained against the original inventory (230 physical / 221 operational beds). The scenario adds 12 temporary synthetic surge beds, for 242 planned physical beds and 233 planned operational beds. Post-expansion allocation utilization uses planned capacity.
+The occupancy forecast was trained against the original inventory (230 physical / 221 operational beds). The scenario adds 10 temporary synthetic surge beds, for 240 planned physical beds and 231 planned operational beds. Post-expansion allocation utilization uses planned capacity.
 The synthetic flex workforce and temporary beds are explicit scenario-only capacity assumptions, not confirmed hires, funded beds, or live resources.
 Illustrative resource-expansion costs are scenario assumptions, not market quotes.
 Optimized capacity gate: zero unfilled staffing positions, zero bed overflow, zero ICU overflow, and zero emergency overflow.

@@ -74,11 +74,11 @@
         "r2": 0.6876568479099235,
         "mape_percent": 26.377018074282184
     },
-    "training_time_seconds": 0.3887059688568115,
+    "training_time_seconds": 0.5512528419494629,
     "target_leakage_prevention": {
         "discharge_date_used_as_feature": false,
         "los_used_as_feature": false,
         "chronological_split": true
     },
-    "generated_at": "2026-10-05T11:18:56.574682"
+    "generated_at": "2026-10-10T14:39:59.525302"
 }

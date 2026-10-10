@@ -3,18 +3,39 @@ CAREOPS AI - OCCUPANCY FORECASTING REPORT
 
 Historical period: 2024-01-01 to 2026-10-05
 Historical days: 1009
-Historical occupancy source: daily_operations
+Historical occupancy source: daily_operations_bed_weighted
 Bed capacity: 230
-Average historical occupancy: 57.83%
-Latest historical occupancy: 59.52%
+Average historical occupancy: 59.55%
+Latest historical occupancy: 62.61%
 
 MODEL PERFORMANCE
 ------------------------------------------------------------
-MAE: 0.026583
-RMSE: 0.033038
-MAPE: 4.61%
-Seasonal naive MAE: 0.050856
-Seasonal naive RMSE: 0.061337
+MAE: 0.016308
+RMSE: 0.020341
+MAPE: 2.82%
+Seasonal naive MAE: 0.047098
+Seasonal naive RMSE: 0.055839
+(One-step-ahead holdout on occupancy rate; Ridge target is the same day, features use the previous day and earlier.)
+
+30-DAY ROLLING-ORIGIN BACKTEST (OCCUPIED BEDS)
+------------------------------------------------------------
+Origins: 12 every 14 days from 2026-03-22 to 2026-08-23
+                 model    MAE   RMSE  sMAPE_percent  MASE  bias
+       ridge_recursive  9.166 11.224          6.915 0.907 1.055
+           ridge_blend 11.847 14.214          8.903 1.173 0.523
+     moving_average_28 11.996 14.414          9.058 1.188 0.922
+      moving_average_7 13.206 15.769          9.909 1.307 0.152
+            last_value 13.628 16.502         10.235 1.349 1.294
+same_weekday_last_week 13.797 16.400         10.386 1.366 0.053
+Published forecast model: ridge_recursive
+Interval coverage on later backtest origins:
+ level bucket  calibration_origins  evaluation_origins  calibrated_half_width  empirical_coverage
+  0.80    1-7                    6                   6                 13.180               0.738
+  0.80   8-14                    6                   6                 15.247               0.833
+  0.80  15-30                    6                   6                 16.418               0.865
+  0.95    1-7                    6                   6                 18.555               0.881
+  0.95   8-14                    6                   6                 22.292               0.976
+  0.95  15-30                    6                   6                 24.191               0.979
 
 30-DAY FORECAST
 ------------------------------------------------------------
@@ -22,9 +43,9 @@ Forecast days: 30
 Normal days: 30
 Warning days: 0
 Critical days: 0
-Average forecast occupancy: 61.78%
-First forecast occupancy: 61.74%
-Last forecast occupancy: 61.30%
+Average forecast occupancy: 60.17%
+First forecast occupancy: 62.61%
+Last forecast occupancy: 58.70%
 
 Alert thresholds:
 NORMAL: < 90%

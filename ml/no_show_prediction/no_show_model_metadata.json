@@ -8,13 +8,13 @@
   "train_rows": 78000,
   "validation_rows": 18000,
   "test_rows": 24000,
-  "selected_threshold": 0.2,
-  "training_seconds": 15.546573600033298,
-  "scale_pos_weight": 5.641123882503193,
+  "selected_threshold": 0.21000000000000002,
+  "training_seconds": 6.234962800001085,
+  "scale_pos_weight": 5.5370432450553135,
   "probability_calibration": {
     "method": "Platt scaling fitted on validation predictions only",
-    "scale": 0.8921891109736342,
-    "offset": -1.6766192672600457
+    "scale": 0.9903418870661994,
+    "offset": -1.74383295091347
   },
   "chronological_split": {
     "train": 0.65,

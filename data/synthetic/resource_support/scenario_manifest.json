@@ -1,6 +1,6 @@
 {
   "data_scope": "synthetic_portfolio_fixture_only",
-  "snapshot_date": "2026-10-04",
+  "snapshot_date": "2026-10-05",
   "seed": 42,
   "isolation_rules": {
     "infectious_disease_probability": 0.65,
