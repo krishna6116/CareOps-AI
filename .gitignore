@@ -15,4 +15,10 @@ node_modules/
 frontend/node_modules/
 frontend/dist/
 frontend/*.tsbuildinfo
-tools/node-v*/
+tools/
+
+# Large regenerable artifacts: rebuild with run_portfolio.py (--exploratory for features).
+data/features/
+data/feature_engineering/*.csv
+!data/feature_engineering/feature_engineering_data_dictionary.csv
+ml/los_prediction/los_random_forest_model.joblib

@@ -1,9 +1,0 @@
-dataset,rows,columns,missing_cells,missing_percent,duplicate_rows
-patients,50000,14,0,0.0,0
-admissions,120000,15,0,0.0,0
-beds,230,9,0,0.0,0
-staff,300,8,0,0.0,0
-appointments,120000,14,0,0.0,0
-daily_operations,8865,13,0,0.0,0
-shifts,192075,12,0,0.0,0
-hospital_snapshot,1,10,0,0.0,0
