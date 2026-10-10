@@ -6,6 +6,7 @@
 from pathlib import Path
 import json
 import os
+import sys
 import warnings
 
 import numpy as np
@@ -19,6 +20,20 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import joblib
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from count_outputs import assert_count_column, to_stock_counts
+from forecast_evaluation import (
+    NAIVE_BASELINES,
+    conformal_intervals,
+    forecast_sanity,
+    horizon_bucket,
+    residual_diagnostics,
+    rolling_origin_backtest,
+    rolling_origins,
+    seasonal_mase_scale,
+    select_champion,
+    summarize_backtest,
+)
 
 # ============================================================
 # 1. PROJECT PATHS
@@ -296,7 +311,8 @@ def find_numeric_column(df, names):
 def build_occupancy_from_daily_operations(
     daily_operations,
     dates,
-    total_beds
+    total_beds,
+    department_beds=None
 ):
 
     if daily_operations is None:
@@ -361,6 +377,33 @@ def build_occupancy_from_daily_operations(
             result.index.intersection(daily.index)
         ] = daily.loc[
             daily.index.intersection(result.index)
+        ]
+
+        return result.clip(0, total_beds)
+
+    if (
+        occupancy_col is not None
+        and department_beds is not None
+        and "department" in temp.columns
+    ):
+        # Department rows report occupancy as a share of that
+        # department's beds. Weight by department capacity; an
+        # unweighted mean treats 10 oncology beds like 100
+        # general-medicine beds.
+        rate = temp[occupancy_col].astype(float)
+        if rate.max() > 1.5:
+            rate = rate / 100.0
+        departments = temp["department"].astype(str).str.strip()
+        capacity = departments.map(department_beds)
+        if capacity.isna().any():
+            missing = sorted(departments[capacity.isna()].unique())
+            raise ValueError(f"No bed inventory for departments: {missing}")
+        occupied = (rate * capacity).groupby(temp["_date"]).sum().round()
+
+        result.loc[
+            result.index.intersection(occupied.index)
+        ] = occupied.loc[
+            occupied.index.intersection(result.index)
         ]
 
         return result.clip(0, total_beds)
@@ -516,8 +559,10 @@ def create_features(df):
         data["date"] - data["date"].min()
     ).dt.days
 
-    # Target = next day's occupancy
-    data["target"] = data["occupancy_rate"].shift(-1)
+    # Target = the same day's occupancy. Every feature above uses
+    # values up to the previous day, so each row is a one-step-ahead
+    # forecast and matches how the recursive forecast builds rows.
+    data["target"] = data["occupancy_rate"]
 
     return data
 
@@ -561,7 +606,71 @@ def calculate_metrics(actual, predicted):
 
 
 # ============================================================
-# 9. MAIN
+# 9. RECURSIVE FORECAST
+# ============================================================
+
+def recursive_rate_forecast(model, rates, horizon, feature_columns, blend):
+    """Forecast occupancy rates ``horizon`` days past the end of ``rates``.
+
+    ``rates`` is a date-indexed series of daily occupancy rates. With
+    ``blend`` the Ridge prediction is mixed with the weekly pattern and
+    recent level and limited to a 12-point daily change (the original
+    hand-tuned procedure); without it the pure Ridge prediction is used.
+    """
+    working = pd.DataFrame({
+        "date": rates.index,
+        "occupancy_rate": rates.to_numpy(dtype=float),
+    }).reset_index(drop=True)
+    start_date = working["date"].min()
+    forecasts = []
+
+    for _ in range(horizon):
+        next_date = working["date"].iloc[-1] + pd.Timedelta(days=1)
+        series = pd.concat(
+            [working["occupancy_rate"], pd.Series([np.nan])],
+            ignore_index=True,
+        )
+        row = {
+            "day_of_week": next_date.dayofweek,
+            "day_of_month": next_date.day,
+            "month": next_date.month,
+            "week_of_year": int(next_date.isocalendar().week),
+            "dow_sin": np.sin(2 * np.pi * next_date.dayofweek / 7),
+            "dow_cos": np.cos(2 * np.pi * next_date.dayofweek / 7),
+            "month_sin": np.sin(2 * np.pi * next_date.month / 12),
+            "month_cos": np.cos(2 * np.pi * next_date.month / 12),
+            "days_since_start": (next_date - start_date).days,
+        }
+        for lag in [1, 2, 3, 7, 14, 21, 28]:
+            row[f"lag_{lag}"] = series.iloc[-1 - lag]
+        previous_values = series.iloc[:-1]
+        for window in [3, 7, 14, 28]:
+            recent = previous_values.iloc[-window:]
+            row[f"rolling_mean_{window}"] = recent.mean()
+            row[f"rolling_std_{window}"] = recent.std()
+        row["trend_7"] = previous_values.iloc[-1] - previous_values.iloc[-8]
+        row["trend_14"] = previous_values.iloc[-1] - previous_values.iloc[-15]
+
+        prediction = float(np.clip(
+            model.predict(pd.DataFrame([row])[feature_columns])[0], 0, 1
+        ))
+
+        if blend:
+            seasonal_prediction = float(previous_values.iloc[-7])
+            recent_mean = float(previous_values.iloc[-7:].mean())
+            previous = float(previous_values.iloc[-1])
+            prediction = 0.60 * prediction + 0.25 * seasonal_prediction + 0.15 * recent_mean
+            prediction = np.clip(prediction, max(0, previous - 0.12), min(1, previous + 0.12))
+            prediction = float(np.clip(0.75 * prediction + 0.25 * recent_mean, 0, 1))
+
+        working.loc[len(working)] = [next_date, prediction]
+        forecasts.append(prediction)
+
+    return np.array(forecasts)
+
+
+# ============================================================
+# 10. MAIN
 # ============================================================
 
 def main():
@@ -679,14 +788,25 @@ def main():
             "Using daily operations as occupancy source..."
         )
 
+        department_beds = (
+            beds.groupby(beds["department"].astype(str).str.strip()).size()
+            if "department" in beds.columns
+            else None
+        )
+
         occupancy = build_occupancy_from_daily_operations(
             daily_operations,
             dates,
-            total_beds
+            total_beds,
+            department_beds
         )
 
         if occupancy is not None:
-            occupancy_source = "daily_operations"
+            occupancy_source = (
+                "daily_operations_bed_weighted"
+                if department_beds is not None
+                else "daily_operations"
+            )
 
     if occupancy is None and admissions is not None:
 
@@ -733,11 +853,12 @@ def main():
     )
 
     # Fill missing historical values conservatively
-    history["occupied_beds"] = (
+    history["occupied_beds"] = to_stock_counts(
         history["occupied_beds"]
         .interpolate()
         .ffill()
-        .bfill()
+        .bfill(),
+        total_beds
     )
 
     history["occupancy_rate"] = (
@@ -1007,11 +1128,14 @@ def main():
 
     test_predictions[
         "actual_occupied_beds"
-    ] = (
+    ] = to_stock_counts(
         test_predictions["actual_occupancy_rate"]
-        * total_beds
+        * total_beds,
+        total_beds
     )
 
+    # Raw model output is kept here for scoring; published
+    # forecasts are whole beds.
     test_predictions[
         "predicted_occupied_beds"
     ] = (
@@ -1040,204 +1164,83 @@ def main():
     )
 
     # --------------------------------------------------------
-    # 30-DAY FUTURE FORECAST
+    # 30-DAY ROLLING-ORIGIN BACKTEST AND CHAMPION
+    #
+    # Every candidate forecasts 30 days recursively from origins
+    # inside the holdout. The Ridge model is fitted on the
+    # training rows only, so these origins are out of sample.
     # --------------------------------------------------------
 
     print()
-    print("[6/7] Generating 30-day occupancy forecast...")
+    print("[6/7] Backtesting candidates and generating 30-day occupancy forecast...")
 
     forecast_days = 30
+    backtest_step_days = 14
 
-    working = history[
-        ["date", "occupancy_rate"]
-    ].copy()
-
-    future_rows = []
-
-    for step in range(1, forecast_days + 1):
-
-        next_date = (
-            working["date"].iloc[-1]
-            + pd.Timedelta(days=1)
-        )
-
-        temp = pd.DataFrame({
-            "date": list(working["date"]) + [next_date],
-            "occupancy_rate": list(
-                working["occupancy_rate"]
-            ) + [np.nan]
-        })
-
-        temp["day_of_week"] = temp["date"].dt.dayofweek
-        temp["day_of_month"] = temp["date"].dt.day
-        temp["month"] = temp["date"].dt.month
-        temp["week_of_year"] = (
-            temp["date"]
-            .dt.isocalendar()
-            .week
-            .astype(int)
-        )
-
-        temp["dow_sin"] = np.sin(
-            2 * np.pi * temp["day_of_week"] / 7
-        )
-
-        temp["dow_cos"] = np.cos(
-            2 * np.pi * temp["day_of_week"] / 7
-        )
-
-        temp["month_sin"] = np.sin(
-            2 * np.pi * temp["month"] / 12
-        )
-
-        temp["month_cos"] = np.cos(
-            2 * np.pi * temp["month"] / 12
-        )
-
-        temp["days_since_start"] = (
-            temp["date"]
-            - temp["date"].min()
-        ).dt.days
-
-        for lag in [1, 2, 3, 7, 14, 21, 28]:
-            temp[f"lag_{lag}"] = (
-                temp["occupancy_rate"]
-                .shift(lag)
-            )
-
-        for window in [3, 7, 14, 28]:
-
-            temp[f"rolling_mean_{window}"] = (
-                temp["occupancy_rate"]
-                .shift(1)
-                .rolling(window)
-                .mean()
-            )
-
-            temp[f"rolling_std_{window}"] = (
-                temp["occupancy_rate"]
-                .shift(1)
-                .rolling(window)
-                .std()
-            )
-
-        temp["trend_7"] = (
-            temp["occupancy_rate"].shift(1)
-            - temp["occupancy_rate"].shift(8)
-        )
-
-        temp["trend_14"] = (
-            temp["occupancy_rate"].shift(1)
-            - temp["occupancy_rate"].shift(15)
-        )
-
-        row = temp.iloc[[-1]][feature_columns].copy()
-
-        ml_prediction = float(
-            model.predict(row)[0]
-        )
-
-        ml_prediction = np.clip(
-            ml_prediction,
-            0,
-            1
-        )
-
-        # Weekly seasonal estimate
-        if len(working) >= 7:
-            seasonal_prediction = float(
-                working["occupancy_rate"].iloc[-7]
-            )
-        else:
-            seasonal_prediction = float(
-                working["occupancy_rate"].iloc[-1]
-            )
-
-        # Recent average
-        recent_mean = float(
-            working["occupancy_rate"]
-            .tail(7)
-            .mean()
-        )
-
-        # Blend ML, weekly pattern and recent level.
-        blended = (
-            0.60 * ml_prediction
-            + 0.25 * seasonal_prediction
-            + 0.15 * recent_mean
-        )
-
-        # ----------------------------------------------------
-        # Stability guardrail
-        # ----------------------------------------------------
-        #
-        # A forecast should not suddenly jump from a very low
-        # recent occupancy to 100% without evidence.
-        #
-        max_change = 0.12
-
-        previous = float(
-            working["occupancy_rate"].iloc[-1]
-        )
-
-        lower_bound = max(
-            0,
-            previous - max_change
-        )
-
-        upper_bound = min(
-            1,
-            previous + max_change
-        )
-
-        blended = np.clip(
-            blended,
-            lower_bound,
-            upper_bound
-        )
-
-        # Additional smoothing toward recent trend
-        blended = (
-            0.75 * blended
-            + 0.25 * recent_mean
-        )
-
-        blended = float(
-            np.clip(
-                blended,
-                0,
-                1
-            )
-        )
-
-        working.loc[len(working)] = [
-            next_date,
-            blended
-        ]
-
-        future_rows.append({
-            "date": next_date,
-            "forecast_occupancy_rate": blended,
-            "forecast_occupied_beds": (
-                blended * total_beds
-            ),
-            "forecast_available_beds": (
-                total_beds
-                - blended * total_beds
-            ),
-        })
-
-    future = pd.DataFrame(
-        future_rows
+    occupied_series = (
+        history.set_index("date")["occupied_beds"].astype(float).sort_index()
     )
+    test_start = pd.Timestamp(modeling["date"].iloc[split_index])
 
-    # Round bed values because beds are discrete
-    future["forecast_occupied_beds"] = (
-        future["forecast_occupied_beds"]
-        .round()
-        .clip(0, total_beds)
-        .astype(int)
+    def ridge_forecaster(blend):
+        def forecast(bed_history, horizon):
+            rates = bed_history / total_beds
+            return recursive_rate_forecast(
+                model, rates, horizon, feature_columns, blend
+            ) * total_beds
+        return forecast
+
+    candidates = {
+        **NAIVE_BASELINES,
+        "ridge_recursive": ridge_forecaster(False),
+        "ridge_blend": ridge_forecaster(True),
+    }
+    origins = rolling_origins(
+        occupied_series.index,
+        test_start - pd.Timedelta(days=1),
+        forecast_days,
+        backtest_step_days,
     )
+    backtest = rolling_origin_backtest(
+        occupied_series, candidates, origins, forecast_days
+    )
+    backtest_summary = summarize_backtest(
+        backtest,
+        seasonal_mase_scale(occupied_series[occupied_series.index < test_start]),
+    )
+    champion = select_champion(backtest_summary)
+    interval_widths, interval_coverage = conformal_intervals(backtest, champion)
+
+    backtest.to_csv(OUTPUT_DIR / "occupancy_backtest_predictions.csv", index=False)
+    backtest_summary.to_csv(OUTPUT_DIR / "occupancy_backtest_summary.csv", index=False)
+    interval_coverage.to_csv(OUTPUT_DIR / "occupancy_interval_coverage.csv", index=False)
+
+    print()
+    print("30-day backtest, occupied beds (lower MAE is better):")
+    print(backtest_summary[["model", "MAE", "RMSE", "sMAPE_percent", "MASE", "bias"]].round(3).to_string(index=False))
+    print(f"Champion by backtest MAE: {champion}")
+
+    # --------------------------------------------------------
+    # PUBLISHED 30-DAY FORECAST (WHOLE BEDS, CAPPED AT CAPACITY)
+    # --------------------------------------------------------
+
+    expected_beds = candidates[champion](occupied_series, forecast_days)
+    future = pd.DataFrame({
+        "date": pd.date_range(
+            occupied_series.index.max() + pd.Timedelta(days=1),
+            periods=forecast_days,
+        ),
+        "forecast_occupied_beds": to_stock_counts(expected_beds, total_beds),
+    })
+    buckets = horizon_bucket(pd.Series(np.arange(1, forecast_days + 1)))
+    for level in sorted(interval_widths["level"].unique()):
+        label = int(round(level * 100))
+        level_widths = interval_widths[interval_widths["level"] == level].set_index("bucket")["half_width"]
+        half_width = buckets.map(level_widths).to_numpy()
+        lower = np.clip(np.floor(expected_beds - half_width), 0, total_beds)
+        upper = np.clip(np.ceil(expected_beds + half_width), 0, total_beds)
+        future[f"occupied_beds_lower_{label}"] = np.minimum(lower, future["forecast_occupied_beds"]).astype(int)
+        future[f"occupied_beds_upper_{label}"] = np.maximum(upper, future["forecast_occupied_beds"]).astype(int)
 
     future["forecast_available_beds"] = (
         total_beds
@@ -1247,6 +1250,25 @@ def main():
     future["forecast_occupancy_rate"] = (
         future["forecast_occupied_beds"]
         / total_beds
+    )
+
+    future["model"] = champion
+
+    for column in [
+        "forecast_occupied_beds", "forecast_available_beds",
+        "occupied_beds_lower_80", "occupied_beds_upper_80",
+        "occupied_beds_lower_95", "occupied_beds_upper_95",
+    ]:
+        assert_count_column(future, column, capacity=total_beds)
+
+    forecast_checks = forecast_sanity(
+        future["forecast_occupied_beds"], occupied_series.to_numpy(), total_beds
+    )
+    if forecast_checks["has_negative"] or forecast_checks["exceeds_capacity"]:
+        raise RuntimeError(f"Occupancy forecast failed sanity checks: {forecast_checks}")
+    residuals = residual_diagnostics(
+        test_predictions["actual_occupied_beds"],
+        test_predictions["predicted_occupied_beds"],
     )
 
     # --------------------------------------------------------
@@ -1391,6 +1413,33 @@ def main():
         f"{baseline_rmse:.6f}"
     )
 
+    report.append(
+        "(One-step-ahead holdout on occupancy rate; Ridge target is the "
+        "same day, features use the previous day and earlier.)"
+    )
+
+    report.append("")
+
+    report.append("30-DAY ROLLING-ORIGIN BACKTEST (OCCUPIED BEDS)")
+    report.append("-" * 60)
+
+    report.append(
+        f"Origins: {len(origins)} every {backtest_step_days} days from "
+        f"{origins.min().date()} to {origins.max().date()}"
+    )
+
+    report.append(
+        backtest_summary[
+            ["model", "MAE", "RMSE", "sMAPE_percent", "MASE", "bias"]
+        ].round(3).to_string(index=False)
+    )
+
+    report.append(f"Published forecast model: {champion}")
+
+    report.append("Interval coverage on later backtest origins:")
+
+    report.append(interval_coverage.round(3).to_string(index=False))
+
     report.append("")
 
     report.append("30-DAY FORECAST")
@@ -1475,6 +1524,23 @@ def main():
         "historical_occupancy_source": occupancy_source,
         "forecast_days": int(forecast_days),
         "model": "Ridge regression with lag and seasonal features",
+        "published_forecast_model": champion,
+        "rolling_origin_backtest": {
+            "origins": [str(origin.date()) for origin in origins],
+            "step_days": backtest_step_days,
+            "summary_occupied_beds": backtest_summary.to_dict(orient="records"),
+            "interval_method": (
+                "Split-conformal absolute-error quantiles by horizon bucket; "
+                "earlier origins calibrate, later origins measure coverage"
+            ),
+            "interval_coverage": interval_coverage.to_dict(orient="records"),
+        },
+        "one_step_residual_diagnostics_beds": residuals,
+        "published_forecast_sanity": forecast_checks,
+        "output_rules": (
+            "Published occupied/available beds and interval bounds are whole "
+            "numbers between 0 and bed capacity."
+        ),
         "warning_threshold": 0.90,
         "critical_threshold": 0.95,
         "normal_days": normal_days,
@@ -1543,34 +1609,56 @@ def main():
             figsize=(14, 6)
         )
 
+        recent = history.tail(180)
+
         plt.plot(
-            history["date"],
-            history["occupancy_rate"] * 100,
-            label="Historical occupancy"
+            recent["date"],
+            recent["occupied_beds"],
+            label="Occupied beds (last 180 days)"
+        )
+
+        plt.fill_between(
+            future["date"],
+            future["occupied_beds_lower_95"],
+            future["occupied_beds_upper_95"],
+            alpha=0.15,
+            label="95% interval"
+        )
+
+        plt.fill_between(
+            future["date"],
+            future["occupied_beds_lower_80"],
+            future["occupied_beds_upper_80"],
+            alpha=0.3,
+            label="80% interval"
         )
 
         plt.plot(
             future["date"],
-            future["forecast_occupancy_rate"] * 100,
-            label="30-day forecast"
+            future["forecast_occupied_beds"],
+            marker="o",
+            label=f"30-day forecast ({champion})"
         )
 
         plt.axhline(
-            90,
+            0.90 * total_beds,
             linestyle="--",
-            label="Warning threshold"
+            label="Warning threshold (90%)"
         )
 
         plt.axhline(
-            95,
-            linestyle="--",
-            label="Critical threshold"
+            total_beds,
+            color="black",
+            linewidth=1,
+            label=f"Bed capacity ({total_beds})"
         )
+
+        plt.gca().yaxis.get_major_locator().set_params(integer=True)
 
         plt.xlabel("Date")
-        plt.ylabel("Occupancy (%)")
+        plt.ylabel("Occupied beds")
         plt.title(
-            "CareOps AI - Hospital Occupancy Forecast"
+            "CareOps AI - Hospital Occupancy Forecast (whole beds)"
         )
 
         plt.legend()
