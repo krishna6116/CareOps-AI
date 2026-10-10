@@ -22,6 +22,7 @@ import joblib
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from count_outputs import assert_count_column, to_stock_counts
+from scenario_config import WARMUP_END, drop_warmup
 from forecast_evaluation import (
     NAIVE_BASELINES,
     conformal_intervals,
@@ -871,6 +872,10 @@ def main():
         - history["occupied_beds"]
     ).clip(0, total_beds)
 
+    # The simulated hospital opens empty and occupancy overshoots while the
+    # first cohort is in hospital; drop the warm-up before modelling.
+    history = drop_warmup(history).reset_index(drop=True)
+
     # Current monitoring views are intentionally based on the physical bed
     # inventory, whereas the history above is a daily hospital-wide series.
     bed_monitor = beds.copy()
@@ -1521,6 +1526,7 @@ def main():
         "stage": "occupancy_forecasting",
         "bed_capacity": int(total_beds),
         "historical_days": int(len(history)),
+        "modelling_start_date": str(WARMUP_END),
         "historical_occupancy_source": occupancy_source,
         "forecast_days": int(forecast_days),
         "model": "Ridge regression with lag and seasonal features",

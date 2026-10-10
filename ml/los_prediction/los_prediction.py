@@ -89,6 +89,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 from xgboost import XGBRegressor
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scenario_config import drop_warmup
+
 
 warnings.filterwarnings("ignore")
 
@@ -2143,6 +2146,14 @@ def main() -> None:
         combined = combined[
             combined["los_target"] >= 0
         ].copy()
+
+        # Stays admitted during the simulator warm-up (empty hospital) are
+        # excluded from training and evaluation; features above were built
+        # on the full history first.
+        combined = drop_warmup(
+            combined,
+            admission_column,
+        )
 
         # Admission datetime is needed for chronological split.
         combined = combined[

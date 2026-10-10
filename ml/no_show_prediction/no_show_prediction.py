@@ -29,6 +29,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scenario_config import WARMUP_END
+
 warnings.filterwarnings("ignore")
 
 
@@ -2247,6 +2250,16 @@ def main():
         df,
         historical
     )
+
+    # Appointments during the simulator warm-up are excluded from
+    # training and evaluation; the history features above still use them.
+    keep = (
+        df["appointment_datetime"].dt.normalize()
+        >= pd.Timestamp(WARMUP_END)
+    ).to_numpy()
+    X = X.loc[keep].reset_index(drop=True)
+    y = y.loc[keep].reset_index(drop=True)
+    df = df.loc[keep].reset_index(drop=True)
 
     print_section(
         "MODEL DATASET"

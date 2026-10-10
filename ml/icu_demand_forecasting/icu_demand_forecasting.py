@@ -52,6 +52,7 @@ import xgboost as xgb
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from count_outputs import assert_count_column, to_flow_counts
+from scenario_config import drop_warmup
 
 
 # ============================================================================
@@ -2332,6 +2333,9 @@ def main():
     daily_df = build_daily_series(
         raw_df
     )
+
+    # Simulator warm-up (empty hospital) is not steady-state operations.
+    daily_df = drop_warmup(daily_df).reset_index(drop=True)
 
     # ------------------------------------------------------------------
     # FEATURES

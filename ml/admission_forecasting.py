@@ -86,6 +86,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from count_outputs import assert_count_column, reconcile_flow_counts
+from scenario_config import WARMUP_END, drop_warmup
 from forecast_evaluation import (
     NAIVE_BASELINES,
     conformal_intervals,
@@ -1059,6 +1060,10 @@ COMPLETE_SERIES = COMPLETE_SERIES.sort_values(
         "date"
     ]
 ).reset_index(drop=True)
+
+# The simulated hospital opens empty; warm-up days are not steady-state
+# operations and are excluded from training, validation and evaluation.
+COMPLETE_SERIES = drop_warmup(COMPLETE_SERIES).reset_index(drop=True)
 
 
 COMPLETE_SERIES.to_csv(
@@ -2944,6 +2949,13 @@ model_summary = {
 
     "historical_end_date": str(
         date_max.date()
+    ),
+
+    "modelling_start_date": str(WARMUP_END),
+
+    "warmup_note": (
+        "Days before modelling_start_date are simulator warm-up "
+        "(empty hospital) and are excluded from training and evaluation."
     ),
 
     "number_of_departments": int(
