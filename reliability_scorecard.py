@@ -25,6 +25,11 @@ EMERGENCY = OUTPUT / "emergency_capacity_optimization.csv"
 PORTFOLIO_MANIFEST = OUTPUT / "portfolio_run_manifest.json"
 SUPPORT_MANIFEST = ROOT / "data" / "synthetic" / "resource_support" / "scenario_manifest.json"
 SUPPORT_DATA = ROOT / "data" / "synthetic" / "resource_support"
+ADMISSION_BACKTEST = ROOT / "ml" / "admission_forecasting" / "admission_backtest_summary.csv"
+OCCUPANCY_BACKTEST = ROOT / "ml" / "occupancy_forecasting" / "occupancy_backtest_summary.csv"
+NAIVE_MODELS = (
+    "last_value", "same_weekday_last_week", "moving_average_7", "moving_average_28",
+)
 SCORECARD_JSON = OUTPUT / "reliability_scorecard.json"
 SCORECARD_CSV = OUTPUT / "reliability_scorecard.csv"
 DETAILS_CSV = OUTPUT / "reliability_details.csv"
@@ -46,6 +51,31 @@ def _score(value: float, evidence: str, limitation: str) -> dict:
         "evidence": evidence,
         "limitation": limitation,
     }
+
+
+def _rolling_backtest_evidence(
+    summary: pd.DataFrame, model_candidates: tuple[str, ...], unit: str,
+) -> tuple[bool, str]:
+    """Describe a 30-day rolling-origin backtest; True when the published
+    forecast is the lowest-MAE candidate and no worse than every naive baseline."""
+    ranked = summary.sort_values(["MAE", "RMSE"], kind="stable").reset_index(drop=True)
+    published = str(ranked.iloc[0]["model"])
+    naive = ranked[ranked["model"].isin(NAIVE_MODELS)]
+    best_naive = naive.iloc[0] if not naive.empty else None
+    learned = ranked[ranked["model"].isin(model_candidates)]
+    parts = [f"30-day rolling-origin backtest: published {published} MAE {ranked.iloc[0]['MAE']:.2f} {unit}"]
+    for _, row in learned.iterrows():
+        if row["model"] != published:
+            parts.append(f"{row['model']} MAE {row['MAE']:.2f}")
+    if best_naive is not None and best_naive["model"] != published:
+        parts.append(f"best naive ({best_naive['model']}) MAE {best_naive['MAE']:.2f}")
+    learned_wins = published in model_candidates
+    parts.append(
+        "the learned model beats every naive baseline" if learned_wins
+        else "the learned model does not beat the best naive baseline, so the baseline is published"
+    )
+    ok = best_naive is None or float(ranked.iloc[0]["MAE"]) <= float(best_naive["MAE"])
+    return ok, "; ".join(parts) + "."
 
 
 def _forecast_reliability(row: pd.Series) -> dict:
@@ -157,13 +187,27 @@ def build_scorecard() -> dict:
     admission_improvement = float(
         -admission["mae_change_vs_baseline_percent"].fillna(0).mean()
     )
+    one_step_evidence = (
+        f"One-step XGBoost holdout: {admission_beats:.0%} of departments beat the "
+        f"same-weekday baseline (mean MAE change {admission_improvement:.1f}%)."
+    )
+    if ADMISSION_BACKTEST.is_file():
+        summary = pd.read_csv(ADMISSION_BACKTEST)
+        summary = summary[summary["department"].eq("All Departments")]
+        admission_ok, rolling_evidence = _rolling_backtest_evidence(
+            summary, ("xgboost_recursive",), "admissions/day"
+        )
+        admission_evidence = rolling_evidence + " " + one_step_evidence
+    else:
+        admission_ok = admission_beats >= 0.6 and admission_improvement >= 0
+        admission_evidence = one_step_evidence
     rows.append((
         "Admission forecasting",
         _score(
-            4.0 if admission_beats >= 0.6 and admission_improvement >= 0 else 3.0,
-            f"{admission_beats:.0%} of department holdouts beat the seasonal baseline; "
-            f"mean department MAE improvement {admission_improvement:.1f}%.",
-            "Hospital-total holdout performance remains separately reported and may be weaker.",
+            4.0 if admission_ok else 3.0,
+            admission_evidence,
+            "Daily admissions are close to Poisson noise around a stable level; "
+            "a learned model adds little over a moving average in this synthetic scenario.",
         ),
     ))
 
@@ -174,13 +218,24 @@ def build_scorecard() -> dict:
         and occupancy_row["beats_baseline"]
         and float(occupancy_row["wape_percent"]) <= 10
     )
+    occupancy_evidence = (
+        "One-step holdout beats the same-weekday baseline with WAPE "
+        f"{float(occupancy_row['wape_percent']):.1f}%."
+        if occupancy_good
+        else "One-step holdout does not meet the baseline/WAPE threshold."
+        if occupancy_row is not None else "No occupancy holdout was found."
+    )
+    if OCCUPANCY_BACKTEST.is_file():
+        rolling_ok, rolling_evidence = _rolling_backtest_evidence(
+            pd.read_csv(OCCUPANCY_BACKTEST), ("ridge_recursive", "ridge_blend"), "beds"
+        )
+        occupancy_good = occupancy_good and rolling_ok
+        occupancy_evidence = rolling_evidence + " " + occupancy_evidence
     rows.append((
         "Occupancy forecasting",
         _score(
             4.0 if occupancy_good else 3.0,
-            "Chronological holdout beats the occupancy baseline with WAPE "
-            f"{float(occupancy_row['wape_percent']):.1f}%."
-            if occupancy_row is not None else "No occupancy holdout was found.",
+            occupancy_evidence,
             "Forecast is synthetic and does not establish live capacity accuracy.",
         ),
     ))

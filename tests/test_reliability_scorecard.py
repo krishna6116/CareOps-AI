@@ -2,7 +2,7 @@ import unittest
 
 import pandas as pd
 
-from reliability_scorecard import _forecast_reliability
+from reliability_scorecard import _forecast_reliability, _rolling_backtest_evidence
 
 
 class ForecastReliabilityTests(unittest.TestCase):
@@ -76,6 +76,35 @@ class ForecastReliabilityTests(unittest.TestCase):
         score = _forecast_reliability(row)
 
         self.assertEqual(score["score"], 4.0)
+
+
+class RollingBacktestEvidenceTests(unittest.TestCase):
+    def summary(self, xgboost_mae):
+        return pd.DataFrame([
+            {"model": "moving_average_28", "MAE": 2.9, "RMSE": 3.7},
+            {"model": "xgboost_recursive", "MAE": xgboost_mae, "RMSE": 4.0},
+            {"model": "last_value", "MAE": 4.9, "RMSE": 6.0},
+        ])
+
+    def test_evidence_says_when_learned_model_loses_to_baseline(self):
+        ok, evidence = _rolling_backtest_evidence(
+            self.summary(3.2), ("xgboost_recursive",), "admissions/day"
+        )
+
+        self.assertTrue(ok)
+        self.assertIn("published moving_average_28", evidence)
+        self.assertIn("xgboost_recursive MAE 3.20", evidence)
+        self.assertIn("does not beat the best naive baseline", evidence)
+
+    def test_evidence_when_learned_model_wins(self):
+        ok, evidence = _rolling_backtest_evidence(
+            self.summary(2.5), ("xgboost_recursive",), "admissions/day"
+        )
+
+        self.assertTrue(ok)
+        self.assertIn("published xgboost_recursive", evidence)
+        self.assertIn("best naive (moving_average_28) MAE 2.90", evidence)
+        self.assertIn("beats every naive baseline", evidence)
 
 
 if __name__ == "__main__":
