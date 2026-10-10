@@ -169,6 +169,34 @@ for name in dataset_names:
             print(f"[ERROR] Could not load {name}: {error}")
 
 
+# LOS, ICU need, severity and comorbidity are recorded per admission, not
+# per patient. Encounter-level analyses use admissions joined to patient age.
+if "admissions" in datasets:
+
+    encounters = datasets["admissions"].copy()
+
+    if (
+        "patients" in datasets
+        and "age" not in encounters.columns
+        and {"patient_id", "age"} <= set(datasets["patients"].columns)
+    ):
+
+        encounters = encounters.merge(
+            datasets["patients"][["patient_id", "age"]],
+            on="patient_id",
+            how="left"
+        )
+
+    if "stay_status" in encounters.columns:
+
+        # Open stays have no final LOS yet.
+        encounters = encounters[
+            encounters["stay_status"].astype(str).str.lower() == "completed"
+        ]
+
+    datasets["encounters"] = encounters
+
+
 print()
 print("=" * 80)
 
@@ -560,9 +588,9 @@ if "patients" in datasets and "department" in datasets["patients"].columns:
 # 16. ICU ANALYSIS
 # ================================================================
 
-if "patients" in datasets:
+if "encounters" in datasets:
 
-    patients = datasets["patients"]
+    patients = datasets["encounters"]
 
     if (
         "ICU_required" in patients.columns
@@ -611,9 +639,9 @@ if "patients" in datasets:
 # 17. LENGTH OF STAY ANALYSIS
 # ================================================================
 
-if "patients" in datasets:
+if "encounters" in datasets:
 
-    patients = datasets["patients"]
+    patients = datasets["encounters"]
 
     if "LOS" in patients.columns:
 
@@ -1272,11 +1300,35 @@ if "daily_operations" in datasets:
                 errors="coerce"
             )
 
-            occupancy_by_date = (
-                daily
-                .groupby("date")["occupancy"]
-                .mean()
-            )
+            # Department occupancy is a percentage of that department's
+            # beds, so the hospital figure must be weighted by bed count.
+            if "beds" in datasets and "department" in datasets["beds"].columns:
+
+                department_beds = datasets["beds"].groupby("department").size()
+
+                daily["occupied_beds"] = (
+                    daily["occupancy"] / 100
+                    * daily["department"].map(department_beds)
+                )
+
+                occupancy_by_date = (
+                    daily
+                    .groupby("date")["occupied_beds"]
+                    .sum()
+                    .round()
+                )
+
+                y_label = f"Occupied beds (of {int(department_beds.sum())})"
+
+            else:
+
+                occupancy_by_date = (
+                    daily
+                    .groupby("date")["occupancy"]
+                    .mean()
+                )
+
+                y_label = "Mean department occupancy (%)"
 
             plt.figure(figsize=(14, 6))
 
@@ -1284,7 +1336,7 @@ if "daily_operations" in datasets:
 
             plt.title("Hospital Occupancy Over Time")
             plt.xlabel("Date")
-            plt.ylabel("Occupancy")
+            plt.ylabel(y_label)
 
             plt.tight_layout()
 
@@ -1553,9 +1605,9 @@ for name, df in datasets.items():
 # 32. SEVERITY VS LOS
 # ================================================================
 
-if "patients" in datasets:
+if "encounters" in datasets:
 
-    patients = datasets["patients"]
+    patients = datasets["encounters"]
 
     if (
         "severity" in patients.columns
@@ -1591,9 +1643,9 @@ if "patients" in datasets:
 # 33. ICU VS LOS
 # ================================================================
 
-if "patients" in datasets:
+if "encounters" in datasets:
 
-    patients = datasets["patients"]
+    patients = datasets["encounters"]
 
     if (
         "ICU_required" in patients.columns
@@ -1629,9 +1681,9 @@ if "patients" in datasets:
 # 34. COMORBIDITY VS LOS
 # ================================================================
 
-if "patients" in datasets:
+if "encounters" in datasets:
 
-    patients = datasets["patients"]
+    patients = datasets["encounters"]
 
     if (
         "comorbidity_count" in patients.columns
@@ -1676,9 +1728,9 @@ if "patients" in datasets:
 # 35. DEPARTMENT VS LOS
 # ================================================================
 
-if "patients" in datasets:
+if "encounters" in datasets:
 
-    patients = datasets["patients"]
+    patients = datasets["encounters"]
 
     if (
         "department" in patients.columns
@@ -1728,9 +1780,9 @@ if "patients" in datasets:
 # 36. AGE VS LOS
 # ================================================================
 
-if "patients" in datasets:
+if "encounters" in datasets:
 
-    patients = datasets["patients"]
+    patients = datasets["encounters"]
 
     if (
         "age" in patients.columns

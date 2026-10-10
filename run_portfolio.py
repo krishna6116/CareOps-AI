@@ -54,6 +54,14 @@ PIPELINE = [
     ROOT / "optimization" / "resource_optimization.py",
     ROOT / "reliability_scorecard.py",
 ]
+# Exploratory stages: cleaned copies, EDA reports, and feature tables built
+# from the same synthetic source. The forecasting models build their own
+# leakage-safe features and do not read these outputs.
+EXPLORATORY = [
+    ROOT / "data" / "data_cleaning.py",
+    ROOT / "data" / "eda_complete.py",
+    ROOT / "data" / "feature_engineering.py",
+]
 
 
 def build_pipeline_readiness(
@@ -473,7 +481,7 @@ def validate_appointment_schedule(schedule: pd.DataFrame) -> int:
     return len(schedule)
 
 
-def run_pipeline(as_of: date, postgres: bool = False) -> None:
+def run_pipeline(as_of: date, postgres: bool = False, exploratory: bool = False) -> None:
     OUTPUT.mkdir(parents=True, exist_ok=True)
     manifest_path = OUTPUT / "portfolio_run_manifest.json"
     if manifest_path.exists():
@@ -483,8 +491,11 @@ def run_pipeline(as_of: date, postgres: bool = False) -> None:
     environment["CAREOPS_AS_OF_DATE"] = as_of.isoformat()
     environment["CAREOPS_DATA_DIR"] = str(SYNTHETIC_DATA)
 
-    for index, script in enumerate(PIPELINE, start=1):
-        print(f"\n[{index}/{len(PIPELINE)}] Running {script.relative_to(ROOT)}", flush=True)
+    steps = list(PIPELINE)
+    if exploratory:
+        steps[1:1] = EXPLORATORY
+    for index, script in enumerate(steps, start=1):
+        print(f"\n[{index}/{len(steps)}] Running {script.relative_to(ROOT)}", flush=True)
         subprocess.run(
             [sys.executable, str(script)],
             cwd=ROOT,
@@ -629,6 +640,12 @@ def run_pipeline(as_of: date, postgres: bool = False) -> None:
     manifest_path.write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
     )
+    subprocess.run(
+        [sys.executable, str(ROOT / "ml" / "model_metrics_report.py")],
+        cwd=ROOT,
+        env=environment,
+        check=True,
+    )
 
 
 def parse_args() -> argparse.Namespace:
@@ -649,12 +666,20 @@ def parse_args() -> argparse.Namespace:
             "the careops PostgreSQL schema. Requires CAREOPS_DATABASE_URL."
         ),
     )
+    parser.add_argument(
+        "--exploratory",
+        action="store_true",
+        help=(
+            "Also rebuild data/processed, the EDA reports, and the exploratory "
+            "feature tables from the generated synthetic data."
+        ),
+    )
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    run_pipeline(args.as_of_date, postgres=args.postgres)
+    run_pipeline(args.as_of_date, postgres=args.postgres, exploratory=args.exploratory)
     manifest = json.loads(
         (OUTPUT / "portfolio_run_manifest.json").read_text(encoding="utf-8")
     )

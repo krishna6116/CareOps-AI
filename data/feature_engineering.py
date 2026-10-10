@@ -1241,8 +1241,31 @@ if (
     )
 
 
+# ------------------------------------------------
+# Leakage guard
+#
+# A LOS model may only use information available at admission.
+# Discharge-date fields, the raw LOS column, and bands derived from
+# the target are only known after discharge. los_target stays as the
+# single label column.
+# ------------------------------------------------
+
+los_leakage_columns = [
+    column for column in los.columns
+    if column.startswith("discharge_")
+    or column in {
+        "LOS",
+        "length_of_stay",
+        "los_group",
+        "expected_discharge_date_from_actual_los",
+        "los_short_stay",
+        "los_long_stay",
+        "los_very_long_stay",
+    }
+]
+
 save_csv(
-    los,
+    los.drop(columns=los_leakage_columns),
     "los_prediction_features.csv"
 )
 
