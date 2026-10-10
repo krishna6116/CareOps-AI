@@ -1,9 +1,9 @@
 metric,value
-model_mae,0.016307582859585414
-model_rmse,0.020340508724604616
-model_mape_percent,2.824133063613305
-seasonal_naive_mae,0.047097770911498575
-seasonal_naive_rmse,0.05583938661105807
-average_historical_occupancy_percent,59.550997543844545
+model_mae,0.016194788971050735
+model_rmse,0.02019234967825137
+model_mape_percent,2.8239738594539405
+seasonal_naive_mae,0.04642210144927537
+seasonal_naive_rmse,0.05519984315475923
+average_historical_occupancy_percent,59.77820806196091
 latest_historical_occupancy_percent,62.60869565217392
 bed_capacity,230.0

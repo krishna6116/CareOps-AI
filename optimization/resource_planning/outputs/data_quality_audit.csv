@@ -8,10 +8,10 @@ isolation_labels_not_empty,PASS,11640,Input contains rows.
 isolation_forecast_not_empty,PASS,300,Input contains rows.
 daily_operations_not_empty,PASS,9081,Input contains rows.
 admission_forecast_not_empty,PASS,300,Input contains rows.
-los_predictions_not_empty,PASS,2300,Input contains rows.
+los_predictions_not_empty,PASS,2240,Input contains rows.
 icu_forecast_not_empty,PASS,30,Input contains rows.
 occupancy_forecast_not_empty,PASS,30,Input contains rows.
-no_show_predictions_not_empty,PASS,24000,Input contains rows.
+no_show_predictions_not_empty,PASS,23470,Input contains rows.
 no_show_prediction_duplicate_ids,PASS,0,No-show prediction IDs are unique.
 no_show_prediction_probability_bounds,PASS,0,No-show probabilities are finite and bounded.
 data_scope,WARN,synthetic/historical,Bundled data is synthetic and historical; results do not establish live-site performance.

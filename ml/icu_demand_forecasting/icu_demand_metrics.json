@@ -4,16 +4,16 @@
     "target_unit": "admissions_per_day",
     "capacity_note": "ICU bed occupancy and capacity risk are not estimated from admissions.",
     "test_metrics": {
-        "MAE": 0.7281378660653088,
-        "RMSE": 0.9267583030674812,
-        "R2": 0.052674939358570816,
-        "MAPE_percent": 39.55649879905913
+        "MAE": 0.7420331478739778,
+        "RMSE": 0.9424805463704967,
+        "R2": 0.0056597917929333,
+        "MAPE_percent": 41.61189605561338
     },
     "baseline_7_day_metrics": {
-        "MAE": 1.0067567567567568,
-        "RMSE": 1.3779146013627437,
-        "R2": -1.0941638551790116,
-        "MAPE_percent": 65.48148148148147
+        "MAE": 0.9791666666666666,
+        "RMSE": 1.3565683830083088,
+        "R2": -1.0600302310516083,
+        "MAPE_percent": 66.7829457364341
     },
     "forecast_horizon_days": 30,
     "feature_count": 54

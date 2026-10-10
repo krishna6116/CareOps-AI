@@ -1,25 +1,4 @@
 date,admissions,department
-2024-01-01,1,Cardiology
-2024-01-02,0,Cardiology
-2024-01-03,1,Cardiology
-2024-01-04,0,Cardiology
-2024-01-05,0,Cardiology
-2024-01-06,2,Cardiology
-2024-01-07,1,Cardiology
-2024-01-08,0,Cardiology
-2024-01-09,0,Cardiology
-2024-01-10,2,Cardiology
-2024-01-11,1,Cardiology
-2024-01-12,0,Cardiology
-2024-01-13,3,Cardiology
-2024-01-14,0,Cardiology
-2024-01-15,1,Cardiology
-2024-01-16,1,Cardiology
-2024-01-17,1,Cardiology
-2024-01-18,0,Cardiology
-2024-01-19,0,Cardiology
-2024-01-20,0,Cardiology
-2024-01-21,1,Cardiology
 2024-01-22,2,Cardiology
 2024-01-23,1,Cardiology
 2024-01-24,1,Cardiology
@@ -1008,27 +987,6 @@ date,admissions,department
 2026-10-03,1,Cardiology
 2026-10-04,0,Cardiology
 2026-10-05,0,Cardiology
-2024-01-01,2,Emergency
-2024-01-02,0,Emergency
-2024-01-03,1,Emergency
-2024-01-04,0,Emergency
-2024-01-05,1,Emergency
-2024-01-06,0,Emergency
-2024-01-07,0,Emergency
-2024-01-08,1,Emergency
-2024-01-09,0,Emergency
-2024-01-10,1,Emergency
-2024-01-11,1,Emergency
-2024-01-12,1,Emergency
-2024-01-13,1,Emergency
-2024-01-14,0,Emergency
-2024-01-15,0,Emergency
-2024-01-16,1,Emergency
-2024-01-17,0,Emergency
-2024-01-18,2,Emergency
-2024-01-19,1,Emergency
-2024-01-20,1,Emergency
-2024-01-21,0,Emergency
 2024-01-22,0,Emergency
 2024-01-23,2,Emergency
 2024-01-24,0,Emergency
@@ -2017,27 +1975,6 @@ date,admissions,department
 2026-10-03,0,Emergency
 2026-10-04,0,Emergency
 2026-10-05,0,Emergency
-2024-01-01,9,General Medicine
-2024-01-02,4,General Medicine
-2024-01-03,8,General Medicine
-2024-01-04,8,General Medicine
-2024-01-05,13,General Medicine
-2024-01-06,8,General Medicine
-2024-01-07,9,General Medicine
-2024-01-08,10,General Medicine
-2024-01-09,7,General Medicine
-2024-01-10,2,General Medicine
-2024-01-11,4,General Medicine
-2024-01-12,7,General Medicine
-2024-01-13,4,General Medicine
-2024-01-14,7,General Medicine
-2024-01-15,7,General Medicine
-2024-01-16,8,General Medicine
-2024-01-17,7,General Medicine
-2024-01-18,8,General Medicine
-2024-01-19,8,General Medicine
-2024-01-20,8,General Medicine
-2024-01-21,6,General Medicine
 2024-01-22,4,General Medicine
 2024-01-23,5,General Medicine
 2024-01-24,7,General Medicine
@@ -3026,27 +2963,6 @@ date,admissions,department
 2026-10-03,8,General Medicine
 2026-10-04,5,General Medicine
 2026-10-05,6,General Medicine
-2024-01-01,1,ICU
-2024-01-02,0,ICU
-2024-01-03,0,ICU
-2024-01-04,2,ICU
-2024-01-05,0,ICU
-2024-01-06,0,ICU
-2024-01-07,0,ICU
-2024-01-08,1,ICU
-2024-01-09,2,ICU
-2024-01-10,0,ICU
-2024-01-11,1,ICU
-2024-01-12,1,ICU
-2024-01-13,0,ICU
-2024-01-14,1,ICU
-2024-01-15,0,ICU
-2024-01-16,2,ICU
-2024-01-17,0,ICU
-2024-01-18,0,ICU
-2024-01-19,0,ICU
-2024-01-20,1,ICU
-2024-01-21,0,ICU
 2024-01-22,1,ICU
 2024-01-23,2,ICU
 2024-01-24,0,ICU
@@ -4035,27 +3951,6 @@ date,admissions,department
 2026-10-03,0,ICU
 2026-10-04,0,ICU
 2026-10-05,1,ICU
-2024-01-01,0,Neurology
-2024-01-02,0,Neurology
-2024-01-03,1,Neurology
-2024-01-04,1,Neurology
-2024-01-05,0,Neurology
-2024-01-06,0,Neurology
-2024-01-07,0,Neurology
-2024-01-08,1,Neurology
-2024-01-09,0,Neurology
-2024-01-10,3,Neurology
-2024-01-11,0,Neurology
-2024-01-12,0,Neurology
-2024-01-13,0,Neurology
-2024-01-14,2,Neurology
-2024-01-15,1,Neurology
-2024-01-16,3,Neurology
-2024-01-17,2,Neurology
-2024-01-18,0,Neurology
-2024-01-19,1,Neurology
-2024-01-20,1,Neurology
-2024-01-21,0,Neurology
 2024-01-22,1,Neurology
 2024-01-23,1,Neurology
 2024-01-24,1,Neurology
@@ -5044,27 +4939,6 @@ date,admissions,department
 2026-10-03,0,Neurology
 2026-10-04,1,Neurology
 2026-10-05,1,Neurology
-2024-01-01,2,Oncology
-2024-01-02,1,Oncology
-2024-01-03,1,Oncology
-2024-01-04,0,Oncology
-2024-01-05,0,Oncology
-2024-01-06,1,Oncology
-2024-01-07,1,Oncology
-2024-01-08,0,Oncology
-2024-01-09,1,Oncology
-2024-01-10,0,Oncology
-2024-01-11,0,Oncology
-2024-01-12,1,Oncology
-2024-01-13,1,Oncology
-2024-01-14,0,Oncology
-2024-01-15,0,Oncology
-2024-01-16,0,Oncology
-2024-01-17,1,Oncology
-2024-01-18,0,Oncology
-2024-01-19,0,Oncology
-2024-01-20,0,Oncology
-2024-01-21,0,Oncology
 2024-01-22,0,Oncology
 2024-01-23,0,Oncology
 2024-01-24,0,Oncology
@@ -6053,27 +5927,6 @@ date,admissions,department
 2026-10-03,0,Oncology
 2026-10-04,1,Oncology
 2026-10-05,0,Oncology
-2024-01-01,0,Orthopedics
-2024-01-02,4,Orthopedics
-2024-01-03,1,Orthopedics
-2024-01-04,0,Orthopedics
-2024-01-05,0,Orthopedics
-2024-01-06,1,Orthopedics
-2024-01-07,1,Orthopedics
-2024-01-08,0,Orthopedics
-2024-01-09,0,Orthopedics
-2024-01-10,1,Orthopedics
-2024-01-11,1,Orthopedics
-2024-01-12,0,Orthopedics
-2024-01-13,0,Orthopedics
-2024-01-14,0,Orthopedics
-2024-01-15,1,Orthopedics
-2024-01-16,2,Orthopedics
-2024-01-17,0,Orthopedics
-2024-01-18,2,Orthopedics
-2024-01-19,1,Orthopedics
-2024-01-20,0,Orthopedics
-2024-01-21,1,Orthopedics
 2024-01-22,0,Orthopedics
 2024-01-23,2,Orthopedics
 2024-01-24,2,Orthopedics
@@ -7062,27 +6915,6 @@ date,admissions,department
 2026-10-03,1,Orthopedics
 2026-10-04,0,Orthopedics
 2026-10-05,1,Orthopedics
-2024-01-01,1,Pediatrics
-2024-01-02,0,Pediatrics
-2024-01-03,2,Pediatrics
-2024-01-04,2,Pediatrics
-2024-01-05,2,Pediatrics
-2024-01-06,2,Pediatrics
-2024-01-07,1,Pediatrics
-2024-01-08,0,Pediatrics
-2024-01-09,0,Pediatrics
-2024-01-10,1,Pediatrics
-2024-01-11,3,Pediatrics
-2024-01-12,3,Pediatrics
-2024-01-13,1,Pediatrics
-2024-01-14,0,Pediatrics
-2024-01-15,4,Pediatrics
-2024-01-16,0,Pediatrics
-2024-01-17,2,Pediatrics
-2024-01-18,1,Pediatrics
-2024-01-19,1,Pediatrics
-2024-01-20,4,Pediatrics
-2024-01-21,0,Pediatrics
 2024-01-22,1,Pediatrics
 2024-01-23,0,Pediatrics
 2024-01-24,1,Pediatrics
@@ -8071,27 +7903,6 @@ date,admissions,department
 2026-10-03,1,Pediatrics
 2026-10-04,0,Pediatrics
 2026-10-05,1,Pediatrics
-2024-01-01,1,Surgery
-2024-01-02,2,Surgery
-2024-01-03,2,Surgery
-2024-01-04,2,Surgery
-2024-01-05,0,Surgery
-2024-01-06,1,Surgery
-2024-01-07,0,Surgery
-2024-01-08,1,Surgery
-2024-01-09,1,Surgery
-2024-01-10,3,Surgery
-2024-01-11,0,Surgery
-2024-01-12,0,Surgery
-2024-01-13,3,Surgery
-2024-01-14,1,Surgery
-2024-01-15,1,Surgery
-2024-01-16,2,Surgery
-2024-01-17,3,Surgery
-2024-01-18,3,Surgery
-2024-01-19,3,Surgery
-2024-01-20,2,Surgery
-2024-01-21,0,Surgery
 2024-01-22,2,Surgery
 2024-01-23,0,Surgery
 2024-01-24,1,Surgery

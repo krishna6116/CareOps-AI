@@ -61,91 +61,91 @@ Rolling features:
 
 OVERALL MODEL PERFORMANCE
 --------------------------------------------------------------------------------
-ML MAE: 0.8544
-ML RMSE: 1.1196
-ML MAPE: 41.78%
+ML MAE: 0.8466
+ML RMSE: 1.1119
+ML MAPE: 42.04%
 
 Baseline performance:
-Baseline MAE: 1.0209
-Baseline RMSE: 1.5196
-Baseline MAPE: 68.24%
+Baseline MAE: 1.0162
+Baseline RMSE: 1.5012
+Baseline MAPE: 68.34%
 
 BASELINE COMPARISON
 --------------------------------------------------------------------------------
-MAE improvement vs baseline: 16.31%
-RMSE improvement vs baseline: 26.32%
+MAE improvement vs baseline: 16.69%
+RMSE improvement vs baseline: 25.93%
 
 The comparison above is one-step-ahead against the 7-day seasonal naive baseline only.
 
 30-DAY ROLLING-ORIGIN BACKTEST (HOSPITAL TOTAL)
 --------------------------------------------------------------------------------
-Origins: 12 every 14 days from 2026-03-22 to 2026-08-23
-                 model   MAE  RMSE  sMAPE_percent  MASE   bias
-     moving_average_28 2.944 3.691         28.648 0.797  0.271
-      moving_average_7 3.057 3.843         29.764 0.827  0.161
-     xgboost_recursive 3.199 4.075         30.193 0.866  1.878
-same_weekday_last_week 3.725 4.693         36.303 1.008  0.131
-            last_value 4.897 6.054         47.533 1.325 -0.625
+Origins: 12 every 14 days from 2026-03-27 to 2026-08-28
+                 model   MAE  RMSE  sMAPE_percent  MASE  bias
+     moving_average_28 2.950 3.665         28.646 0.797 0.245
+     xgboost_recursive 3.098 3.909         29.487 0.837 1.661
+      moving_average_7 3.158 3.938         30.502 0.853 0.239
+same_weekday_last_week 4.000 5.120         38.349 1.080 0.167
+            last_value 5.219 6.371         45.617 1.410 1.275
 
 Published forecast model: moving_average_28
 XGBoost does not beat the best naive baseline on the 30-day backtest, so the baseline forecast is published.
 
 Interval coverage on later backtest origins:
  level bucket  calibration_origins  evaluation_origins  calibrated_half_width  empirical_coverage
-  0.80    1-7                    6                   6                  3.786               0.667
-  0.80   8-14                    6                   6                  4.857               0.786
-  0.80  15-30                    6                   6                  4.214               0.698
-  0.95    1-7                    6                   6                  6.464               0.881
-  0.95   8-14                    6                   6                  6.786               0.881
-  0.95  15-30                    6                   6                  6.857               0.896
+  0.80    1-7                    6                   6                  4.250               0.762
+  0.80   8-14                    6                   6                  4.357               0.690
+  0.80  15-30                    6                   6                  4.357               0.729
+  0.95    1-7                    6                   6                  6.036               0.857
+  0.95   8-14                    6                   6                  6.643               0.881
+  0.95  15-30                    6                   6                  7.036               0.927
 
 DEPARTMENT MODEL PERFORMANCE (XGBOOST, ONE-STEP HOLDOUT)
 --------------------------------------------------------------------------------
 
 Department: Cardiology
-MAE: 0.9141
-RMSE: 1.0790
-MAPE: 37.35%
+MAE: 0.8641
+RMSE: 1.0407
+MAPE: 33.40%
 
 Department: Emergency
-MAE: 0.6344
-RMSE: 0.7195
-MAPE: 37.33%
+MAE: 0.6407
+RMSE: 0.7273
+MAPE: 37.53%
 
 Department: General Medicine
-MAE: 1.8347
-RMSE: 2.2525
-MAPE: 52.40%
+MAE: 1.8291
+RMSE: 2.2412
+MAPE: 53.87%
 
 Department: ICU
-MAE: 0.6815
-RMSE: 0.8240
-MAPE: 56.90%
+MAE: 0.6891
+RMSE: 0.8340
+MAPE: 56.83%
 
 Department: Neurology
-MAE: 0.7017
-RMSE: 0.8413
-MAPE: 25.88%
+MAE: 0.6871
+RMSE: 0.8176
+MAPE: 32.06%
 
 Department: Oncology
-MAE: 0.5144
-RMSE: 0.5661
-MAPE: 57.90%
+MAE: 0.5027
+RMSE: 0.5603
+MAPE: 59.81%
 
 Department: Orthopedics
-MAE: 0.6911
-RMSE: 0.8496
-MAPE: 39.75%
+MAE: 0.6924
+RMSE: 0.8536
+MAPE: 38.98%
 
 Department: Pediatrics
-MAE: 0.8063
-RMSE: 0.9572
-MAPE: 32.03%
+MAE: 0.7919
+RMSE: 0.9438
+MAPE: 29.56%
 
 Department: Surgery
-MAE: 0.9114
-RMSE: 1.0864
-MAPE: 35.69%
+MAE: 0.9218
+RMSE: 1.0933
+MAPE: 35.99%
 
 30-DAY FORECAST
 --------------------------------------------------------------------------------
@@ -166,21 +166,21 @@ Department forecast totals:
 
 TOP FORECASTING FEATURES
 --------------------------------------------------------------------------------
- - day_of_year: 0.051209
- - rolling_mean_14: 0.050922
- - rolling_std_14: 0.049428
- - day_of_week: 0.048792
- - trend: 0.048740
- - rolling_std_28: 0.048013
- - doy_sin: 0.046239
- - week_of_year: 0.045363
- - doy_cos: 0.043973
- - rolling_mean_28: 0.043855
- - day: 0.041537
- - dow_sin: 0.041264
- - lag_1: 0.040527
- - rolling_mean_7: 0.039108
- - lag_28: 0.035974
+ - dow_sin: 0.055287
+ - week_of_year: 0.050288
+ - day_of_year: 0.048432
+ - rolling_std_28: 0.048404
+ - day_of_week: 0.047772
+ - rolling_mean_14: 0.047466
+ - rolling_mean_28: 0.047368
+ - rolling_std_14: 0.046490
+ - doy_sin: 0.045477
+ - trend: 0.044853
+ - doy_cos: 0.042931
+ - day: 0.040413
+ - rolling_mean_7: 0.038382
+ - lag_1: 0.036937
+ - lag_7: 0.036059
 
 OUTPUT FILES
 --------------------------------------------------------------------------------

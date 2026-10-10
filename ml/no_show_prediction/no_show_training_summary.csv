@@ -1,9 +1,9 @@
 metric,value
-total_rows,120000.0
+total_rows,117347.0
 feature_count,77.0
-train_rows,78000.0
-validation_rows,18000.0
-test_rows,24000.0
-best_iteration,90.0
-selected_threshold,0.21000000000000002
-training_seconds,6.234962800001085
+train_rows,76275.0
+validation_rows,17602.0
+test_rows,23470.0
+best_iteration,74.0
+selected_threshold,0.2
+training_seconds,5.0713942000002135

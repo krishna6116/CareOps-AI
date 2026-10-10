@@ -9,7 +9,8 @@ not evidence of real-world accuracy.
 ## How the forecasts are evaluated
 
 - **Time-based split.** The last 20% of days is held out. Models never see it during training or model selection.
-- **30-day rolling-origin backtest.** From 12 origins inside the holdout (2026-03-22 to 2026-08-23, every 14 days), every candidate forecasts the next 30 days using only data up to the origin. Learned models forecast recursively, exactly as in production.
+- **Warm-up excluded.** The simulated hospital opens empty; the first 21 days (before 2024-01-22) are not used for training, validation or evaluation.
+- **30-day rolling-origin backtest.** From 12 origins inside the holdout (2026-03-27 to 2026-08-28, every 14 days), every candidate forecasts the next 30 days using only data up to the origin. Learned models forecast recursively, exactly as in production.
 - **Naive baselines.** Last observed value, same weekday last week, and 7- and 28-day moving averages.
 - **Champion rule.** The lowest backtest MAE is published. If the learned model loses, the baseline is published.
 - **Metrics.** MAE and RMSE in counts per day. sMAPE stays defined when actual values are zero. MASE scales MAE by the in-sample same-weekday naive error (below 1 beats it).
@@ -20,26 +21,26 @@ not evidence of real-world accuracy.
 
 | Model | MAE | RMSE | sMAPE % | MASE | Bias | MAE d1-7 | MAE d8-14 | MAE d15-30 |
 |---|---|---|---|---|---|---|---|---|
-| 28-day moving average **(published)** | 2.94 | 3.69 | 28.65 | 0.8 | 0.27 | 2.93 | 2.97 | 2.94 |
-| 7-day moving average | 3.06 | 3.84 | 29.76 | 0.83 | 0.16 | 2.88 | 3.26 | 3.05 |
-| XGBoost (recursive) | 3.2 | 4.07 | 30.19 | 0.87 | 1.88 | 3.04 | 3.3 | 3.22 |
-| Same weekday last week | 3.72 | 4.69 | 36.3 | 1.01 | 0.13 | 3.54 | 3.79 | 3.78 |
-| Last observed value | 4.9 | 6.05 | 47.53 | 1.33 | -0.62 | 4.68 | 4.71 | 5.07 |
+| 28-day moving average **(published)** | 2.95 | 3.66 | 28.65 | 0.8 | 0.25 | 2.74 | 3.24 | 2.91 |
+| XGBoost (recursive) | 3.1 | 3.91 | 29.49 | 0.84 | 1.66 | 2.94 | 3.08 | 3.17 |
+| 7-day moving average | 3.16 | 3.94 | 30.5 | 0.85 | 0.24 | 3.02 | 3.38 | 3.12 |
+| Same weekday last week | 4.0 | 5.12 | 38.35 | 1.08 | 0.17 | 3.99 | 3.68 | 4.15 |
+| Last observed value | 5.22 | 6.37 | 45.62 | 1.41 | 1.27 | 5.1 | 5.17 | 5.3 |
 
-**Published model: 28-day moving average.** XGBoost does not beat the best naive baseline on the 30-day backtest. Per department, XGBoost has the lowest backtest MAE in 3 of 9 departments.
+**Published model: 28-day moving average.** XGBoost does not beat the best naive baseline on the 30-day backtest. Per department, XGBoost has the lowest backtest MAE in 2 of 9 departments.
 
-Why: the synthetic daily admissions are close to Poisson noise around a stable level (variance about equal to the mean). Little day-to-day structure is left beyond the average, and one-step XGBoost residuals on the holdout have mean -1.49 (actual minus predicted), i.e. a systematic over-prediction, with lag-1 autocorrelation -0.06.
+Why: the synthetic daily admissions are close to Poisson noise around a stable level (variance about equal to the mean). Little day-to-day structure is left beyond the average, and one-step XGBoost residuals on the holdout have mean -1.44 (actual minus predicted), i.e. a systematic over-prediction, with lag-1 autocorrelation -0.07.
 
 Interval coverage (hospital total, later backtest origins):
 
 | Interval | Days | Half-width | Observed coverage |
 |---|---|---|---|
-| 80% | 1-7 | 3.8 | 67% |
-| 80% | 8-14 | 4.9 | 79% |
-| 80% | 15-30 | 4.2 | 70% |
-| 95% | 1-7 | 6.5 | 88% |
-| 95% | 8-14 | 6.8 | 88% |
-| 95% | 15-30 | 6.9 | 90% |
+| 80% | 1-7 | 4.2 | 76% |
+| 80% | 8-14 | 4.4 | 69% |
+| 80% | 15-30 | 4.4 | 73% |
+| 95% | 1-7 | 6.0 | 86% |
+| 95% | 8-14 | 6.6 | 88% |
+| 95% | 15-30 | 7.0 | 93% |
 
 Published 30-day path: 11-12 admissions/day, all whole numbers: True, negative values: False.
 
@@ -49,12 +50,12 @@ Bed capacity: 230. History source: `daily_operations_bed_weighted` (department o
 
 | Model | MAE | RMSE | sMAPE % | MASE | Bias | MAE d1-7 | MAE d8-14 | MAE d15-30 |
 |---|---|---|---|---|---|---|---|---|
-| Ridge (recursive) **(published)** | 9.17 | 11.22 | 6.91 | 0.91 | 1.05 | 8.41 | 8.97 | 9.58 |
-| Ridge blend (Ridge + weekly + recent level) | 11.85 | 14.21 | 8.9 | 1.17 | 0.52 | 9.44 | 11.8 | 12.92 |
-| 28-day moving average | 12.0 | 14.41 | 9.06 | 1.19 | 0.92 | 12.27 | 12.4 | 11.7 |
-| 7-day moving average | 13.21 | 15.77 | 9.91 | 1.31 | 0.15 | 9.99 | 12.81 | 14.78 |
-| Last observed value | 13.63 | 16.5 | 10.24 | 1.35 | 1.29 | 9.54 | 13.36 | 15.54 |
-| Same weekday last week | 13.8 | 16.4 | 10.39 | 1.37 | 0.05 | 10.92 | 13.26 | 15.29 |
+| Ridge (recursive) **(published)** | 8.56 | 10.9 | 6.47 | 0.9 | 3.16 | 5.28 | 9.06 | 9.78 |
+| Ridge blend (Ridge + weekly + recent level) | 11.64 | 14.05 | 8.8 | 1.23 | 1.82 | 8.57 | 12.66 | 12.54 |
+| 28-day moving average | 11.89 | 14.42 | 8.98 | 1.25 | 1.0 | 12.26 | 10.44 | 12.37 |
+| 7-day moving average | 12.98 | 15.68 | 9.84 | 1.37 | 1.37 | 9.52 | 13.65 | 14.2 |
+| Last observed value | 13.61 | 16.99 | 10.28 | 1.43 | 2.85 | 6.99 | 14.83 | 15.98 |
+| Same weekday last week | 13.97 | 16.82 | 10.57 | 1.47 | 1.38 | 11.61 | 14.33 | 14.84 |
 
 **Published model: Ridge (recursive).**
 
@@ -62,14 +63,14 @@ Interval coverage (later backtest origins):
 
 | Interval | Days | Half-width | Observed coverage |
 |---|---|---|---|
-| 80% | 1-7 | 13.2 | 74% |
-| 80% | 8-14 | 15.2 | 83% |
-| 80% | 15-30 | 16.4 | 86% |
-| 95% | 1-7 | 18.6 | 88% |
-| 95% | 8-14 | 22.3 | 98% |
-| 95% | 15-30 | 24.2 | 98% |
+| 80% | 1-7 | 8.3 | 83% |
+| 80% | 8-14 | 16.2 | 76% |
+| 80% | 15-30 | 17.0 | 88% |
+| 95% | 1-7 | 19.2 | 98% |
+| 95% | 8-14 | 25.2 | 100% |
+| 95% | 15-30 | 24.0 | 98% |
 
-Published 30-day path: 133-144 occupied beds (11 distinct values; recent 90-day history standard deviation 10.4 beds, forecast standard deviation 3.1). Exceeds capacity: False.
+Published 30-day path: 134-144 occupied beds (11 distinct values; recent 90-day history standard deviation 10.4 beds, forecast standard deviation 2.9). Exceeds capacity: False.
 
 ## Other models (one-step chronological holdout)
 
@@ -77,9 +78,9 @@ These have not yet been through the 30-day rolling-origin backtest.
 
 | Model | Test rows | Result |
 |---|---|---|
-| ICU admissions (XGBoost) | 148 | MAE 0.73/day vs 7-day baseline 1.01 |
-| Length of stay (XGBoost) | 2300 | MAE 2.59 days |
-| No-show (XGBoost, calibrated) | 24000 | Brier 0.113 vs prevalence 0.128; ROC-AUC 0.741 |
+| ICU admissions (XGBoost) | 144 | MAE 0.74/day vs 7-day baseline 0.98 |
+| Length of stay (XGBoost) | 2240 | MAE 2.59 days |
+| No-show (XGBoost, calibrated) | 23470 | Brier 0.113 vs prevalence 0.128; ROC-AUC 0.741 |
 
 ## Simulation and optimization results (not model accuracy)
 
@@ -87,5 +88,5 @@ These numbers come from the OR-Tools scenario run on synthetic data. They show t
 finds a feasible plan under its constraints. They are not measured improvements at a real hospital.
 
 - Optimized bed plan overflow bed-days: 0.
-- This relies on 10 scenario-only surge beds and a 593-person synthetic flex staff pool.
+- This relies on 11 scenario-only surge beds and a 593-person synthetic flex staff pool.
 - Pipeline status: `ready_for_next_process`; reliability scorecard overall 4.1/5 (the pipeline's own rubric, equal-weighted sections).

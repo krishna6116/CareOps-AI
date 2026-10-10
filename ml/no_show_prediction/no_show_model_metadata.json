@@ -3,18 +3,18 @@
   "module": "No-Show Prediction",
   "model_version": "Enhanced Behavioral V2",
   "source_file": "C:\\Users\\krish\\Documents\\CareOps-AI\\data\\synthetic\\appointments.csv",
-  "source_rows": 120000,
+  "source_rows": 117347,
   "feature_count": 77,
-  "train_rows": 78000,
-  "validation_rows": 18000,
-  "test_rows": 24000,
-  "selected_threshold": 0.21000000000000002,
-  "training_seconds": 6.234962800001085,
-  "scale_pos_weight": 5.5370432450553135,
+  "train_rows": 76275,
+  "validation_rows": 17602,
+  "test_rows": 23470,
+  "selected_threshold": 0.2,
+  "training_seconds": 5.0713942000002135,
+  "scale_pos_weight": 5.567504735663854,
   "probability_calibration": {
     "method": "Platt scaling fitted on validation predictions only",
-    "scale": 0.9903418870661994,
-    "offset": -1.74383295091347
+    "scale": 0.9662728070102219,
+    "offset": -1.7408826847869436
   },
   "chronological_split": {
     "train": 0.65,

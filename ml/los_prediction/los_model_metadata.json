@@ -13,13 +13,13 @@
         "patients_file": "C:\\Users\\krish\\Documents\\CareOps-AI\\data\\synthetic\\patients.csv"
     },
     "training": {
-        "rows": 9196,
-        "date_start": "2024-01-01T00:00:00",
-        "date_end": "2026-02-26T00:00:00"
+        "rows": 8960,
+        "date_start": "2024-01-22T00:00:00",
+        "date_end": "2026-03-03T00:00:00"
     },
     "testing": {
-        "rows": 2300,
-        "date_start": "2026-02-26T00:00:00",
+        "rows": 2240,
+        "date_start": "2026-03-03T00:00:00",
         "date_end": "2026-10-01T00:00:00"
     },
     "split": {
@@ -63,22 +63,22 @@
         "verbosity": 0
     },
     "baseline_metrics": {
-        "mae_days": 4.488962308754279,
-        "rmse_days": 5.774970566425039,
-        "r2": -0.0006388556568213133,
-        "mape_percent": 53.21752563828455
+        "mae_days": 4.488130978954081,
+        "rmse_days": 5.762940999078925,
+        "r2": -0.00033433727560905346,
+        "mape_percent": 53.61501939038399
     },
     "xgboost_metrics": {
-        "mae_days": 2.590747502886731,
-        "rmse_days": 3.2264659634484394,
-        "r2": 0.6876568479099235,
-        "mape_percent": 26.377018074282184
+        "mae_days": 2.594238152780703,
+        "rmse_days": 3.214185756511126,
+        "r2": 0.6888292444450208,
+        "mape_percent": 26.78880626371494
     },
-    "training_time_seconds": 0.5512528419494629,
+    "training_time_seconds": 0.6286337375640869,
     "target_leakage_prevention": {
         "discharge_date_used_as_feature": false,
         "los_used_as_feature": false,
         "chronological_split": true
     },
-    "generated_at": "2026-10-10T14:39:59.525302"
+    "generated_at": "2026-10-10T15:24:56.330953"
 }

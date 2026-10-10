@@ -36,13 +36,13 @@ date,department,predicted_admissions,lower_80,upper_80,lower_95,upper_95,model
 2026-10-10,Emergency,0,0,2,0,2,moving_average_28
 2026-10-11,Emergency,1,0,2,0,2,moving_average_28
 2026-10-12,Emergency,0,0,2,0,2,moving_average_28
-2026-10-13,Emergency,1,0,2,0,2,moving_average_28
-2026-10-14,Emergency,0,0,2,0,2,moving_average_28
-2026-10-15,Emergency,1,0,2,0,2,moving_average_28
-2026-10-16,Emergency,0,0,2,0,2,moving_average_28
-2026-10-17,Emergency,1,0,2,0,2,moving_average_28
-2026-10-18,Emergency,0,0,2,0,2,moving_average_28
-2026-10-19,Emergency,1,0,2,0,2,moving_average_28
+2026-10-13,Emergency,1,0,2,0,3,moving_average_28
+2026-10-14,Emergency,0,0,2,0,3,moving_average_28
+2026-10-15,Emergency,1,0,2,0,3,moving_average_28
+2026-10-16,Emergency,0,0,2,0,3,moving_average_28
+2026-10-17,Emergency,1,0,2,0,3,moving_average_28
+2026-10-18,Emergency,0,0,2,0,3,moving_average_28
+2026-10-19,Emergency,1,0,2,0,3,moving_average_28
 2026-10-20,Emergency,0,0,2,0,2,moving_average_28
 2026-10-21,Emergency,0,0,2,0,2,moving_average_28
 2026-10-22,Emergency,1,0,2,0,2,moving_average_28
@@ -59,20 +59,20 @@ date,department,predicted_admissions,lower_80,upper_80,lower_95,upper_95,model
 2026-11-02,Emergency,0,0,2,0,2,moving_average_28
 2026-11-03,Emergency,0,0,2,0,2,moving_average_28
 2026-11-04,Emergency,1,0,2,0,2,moving_average_28
-2026-10-06,General Medicine,5,2,8,0,10,moving_average_28
-2026-10-07,General Medicine,6,2,8,0,10,moving_average_28
-2026-10-08,General Medicine,5,2,8,0,10,moving_average_28
-2026-10-09,General Medicine,5,2,8,0,10,moving_average_28
-2026-10-10,General Medicine,5,2,8,0,10,moving_average_28
-2026-10-11,General Medicine,6,2,8,0,10,moving_average_28
-2026-10-12,General Medicine,5,2,8,0,10,moving_average_28
-2026-10-13,General Medicine,5,1,9,0,11,moving_average_28
-2026-10-14,General Medicine,6,1,9,0,11,moving_average_28
-2026-10-15,General Medicine,5,1,9,0,11,moving_average_28
-2026-10-16,General Medicine,5,1,9,0,11,moving_average_28
-2026-10-17,General Medicine,5,1,9,0,11,moving_average_28
-2026-10-18,General Medicine,6,1,9,0,11,moving_average_28
-2026-10-19,General Medicine,5,1,9,0,11,moving_average_28
+2026-10-06,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-07,General Medicine,6,2,9,0,10,moving_average_28
+2026-10-08,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-09,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-10,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-11,General Medicine,6,2,9,0,10,moving_average_28
+2026-10-12,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-13,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-14,General Medicine,6,2,9,0,10,moving_average_28
+2026-10-15,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-16,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-17,General Medicine,5,2,9,0,10,moving_average_28
+2026-10-18,General Medicine,6,2,9,0,10,moving_average_28
+2026-10-19,General Medicine,5,2,9,0,10,moving_average_28
 2026-10-20,General Medicine,5,2,9,0,10,moving_average_28
 2026-10-21,General Medicine,6,2,9,0,10,moving_average_28
 2026-10-22,General Medicine,5,2,9,0,10,moving_average_28
@@ -126,13 +126,13 @@ date,department,predicted_admissions,lower_80,upper_80,lower_95,upper_95,model
 2026-10-10,Neurology,1,0,2,0,3,moving_average_28
 2026-10-11,Neurology,0,0,2,0,3,moving_average_28
 2026-10-12,Neurology,1,0,2,0,3,moving_average_28
-2026-10-13,Neurology,1,0,2,0,3,moving_average_28
-2026-10-14,Neurology,0,0,2,0,3,moving_average_28
-2026-10-15,Neurology,1,0,2,0,3,moving_average_28
-2026-10-16,Neurology,1,0,2,0,3,moving_average_28
-2026-10-17,Neurology,1,0,2,0,3,moving_average_28
-2026-10-18,Neurology,0,0,2,0,3,moving_average_28
-2026-10-19,Neurology,1,0,2,0,3,moving_average_28
+2026-10-13,Neurology,1,0,2,0,2,moving_average_28
+2026-10-14,Neurology,0,0,2,0,2,moving_average_28
+2026-10-15,Neurology,1,0,2,0,2,moving_average_28
+2026-10-16,Neurology,1,0,2,0,2,moving_average_28
+2026-10-17,Neurology,1,0,2,0,2,moving_average_28
+2026-10-18,Neurology,0,0,2,0,2,moving_average_28
+2026-10-19,Neurology,1,0,2,0,2,moving_average_28
 2026-10-20,Neurology,1,0,2,0,3,moving_average_28
 2026-10-21,Neurology,0,0,2,0,3,moving_average_28
 2026-10-22,Neurology,1,0,2,0,3,moving_average_28
@@ -179,20 +179,20 @@ date,department,predicted_admissions,lower_80,upper_80,lower_95,upper_95,model
 2026-11-02,Oncology,0,0,1,0,2,moving_average_28
 2026-11-03,Oncology,0,0,1,0,2,moving_average_28
 2026-11-04,Oncology,1,0,1,0,2,moving_average_28
-2026-10-06,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-07,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-08,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-09,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-10,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-11,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-12,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-13,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-14,Orthopedics,0,0,2,0,3,moving_average_28
-2026-10-15,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-16,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-17,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-18,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-19,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-06,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-07,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-08,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-09,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-10,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-11,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-12,Orthopedics,1,0,2,0,3,moving_average_28
+2026-10-13,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-14,Orthopedics,0,0,2,0,4,moving_average_28
+2026-10-15,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-16,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-17,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-18,Orthopedics,1,0,2,0,4,moving_average_28
+2026-10-19,Orthopedics,1,0,2,0,4,moving_average_28
 2026-10-20,Orthopedics,1,0,2,0,3,moving_average_28
 2026-10-21,Orthopedics,1,0,2,0,3,moving_average_28
 2026-10-22,Orthopedics,1,0,2,0,3,moving_average_28
@@ -216,13 +216,13 @@ date,department,predicted_admissions,lower_80,upper_80,lower_95,upper_95,model
 2026-10-10,Pediatrics,1,0,3,0,3,moving_average_28
 2026-10-11,Pediatrics,1,0,3,0,3,moving_average_28
 2026-10-12,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-13,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-14,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-15,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-16,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-17,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-18,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-19,Pediatrics,1,0,3,0,3,moving_average_28
+2026-10-13,Pediatrics,1,0,3,0,4,moving_average_28
+2026-10-14,Pediatrics,1,0,3,0,4,moving_average_28
+2026-10-15,Pediatrics,1,0,3,0,4,moving_average_28
+2026-10-16,Pediatrics,1,0,3,0,4,moving_average_28
+2026-10-17,Pediatrics,1,0,3,0,4,moving_average_28
+2026-10-18,Pediatrics,1,0,3,0,4,moving_average_28
+2026-10-19,Pediatrics,1,0,3,0,4,moving_average_28
 2026-10-20,Pediatrics,1,0,3,0,3,moving_average_28
 2026-10-21,Pediatrics,1,0,3,0,3,moving_average_28
 2026-10-22,Pediatrics,1,0,3,0,3,moving_average_28
@@ -269,33 +269,33 @@ date,department,predicted_admissions,lower_80,upper_80,lower_95,upper_95,model
 2026-11-02,Surgery,1,0,3,0,4,moving_average_28
 2026-11-03,Surgery,1,0,3,0,4,moving_average_28
 2026-11-04,Surgery,2,0,3,0,4,moving_average_28
-2026-10-06,All Departments,11,6,16,4,18,moving_average_28
-2026-10-07,All Departments,12,6,16,4,18,moving_average_28
-2026-10-08,All Departments,11,6,16,4,18,moving_average_28
-2026-10-09,All Departments,11,6,16,4,18,moving_average_28
-2026-10-10,All Departments,11,6,16,4,18,moving_average_28
-2026-10-11,All Departments,12,6,16,4,18,moving_average_28
-2026-10-12,All Departments,11,6,16,4,18,moving_average_28
-2026-10-13,All Departments,11,6,17,3,19,moving_average_28
-2026-10-14,All Departments,11,6,17,3,19,moving_average_28
-2026-10-15,All Departments,12,6,17,3,19,moving_average_28
-2026-10-16,All Departments,11,6,17,3,19,moving_average_28
-2026-10-17,All Departments,11,6,17,3,19,moving_average_28
-2026-10-18,All Departments,11,6,17,3,19,moving_average_28
-2026-10-19,All Departments,12,6,17,3,19,moving_average_28
-2026-10-20,All Departments,11,6,16,3,19,moving_average_28
-2026-10-21,All Departments,11,6,16,3,19,moving_average_28
-2026-10-22,All Departments,11,6,16,3,19,moving_average_28
-2026-10-23,All Departments,12,6,16,3,19,moving_average_28
-2026-10-24,All Departments,11,6,16,3,19,moving_average_28
-2026-10-25,All Departments,11,6,16,3,19,moving_average_28
-2026-10-26,All Departments,11,6,16,3,19,moving_average_28
-2026-10-27,All Departments,12,6,16,3,19,moving_average_28
-2026-10-28,All Departments,11,6,16,3,19,moving_average_28
-2026-10-29,All Departments,11,6,16,3,19,moving_average_28
-2026-10-30,All Departments,11,6,16,3,19,moving_average_28
-2026-10-31,All Departments,12,6,16,3,19,moving_average_28
-2026-11-01,All Departments,11,6,16,3,19,moving_average_28
-2026-11-02,All Departments,11,6,16,3,19,moving_average_28
-2026-11-03,All Departments,11,6,16,3,19,moving_average_28
-2026-11-04,All Departments,12,6,16,3,19,moving_average_28
+2026-10-06,All Departments,11,6,16,3,19,moving_average_28
+2026-10-07,All Departments,12,6,16,3,19,moving_average_28
+2026-10-08,All Departments,11,6,16,3,19,moving_average_28
+2026-10-09,All Departments,11,6,16,3,19,moving_average_28
+2026-10-10,All Departments,11,6,16,3,19,moving_average_28
+2026-10-11,All Departments,12,6,16,3,19,moving_average_28
+2026-10-12,All Departments,11,6,16,3,19,moving_average_28
+2026-10-13,All Departments,11,6,17,4,19,moving_average_28
+2026-10-14,All Departments,11,6,17,4,19,moving_average_28
+2026-10-15,All Departments,12,6,17,4,19,moving_average_28
+2026-10-16,All Departments,11,6,17,4,19,moving_average_28
+2026-10-17,All Departments,11,6,17,4,19,moving_average_28
+2026-10-18,All Departments,11,6,17,4,19,moving_average_28
+2026-10-19,All Departments,12,6,17,4,19,moving_average_28
+2026-10-20,All Departments,11,6,16,4,19,moving_average_28
+2026-10-21,All Departments,11,6,16,4,19,moving_average_28
+2026-10-22,All Departments,11,6,16,4,19,moving_average_28
+2026-10-23,All Departments,12,6,16,4,19,moving_average_28
+2026-10-24,All Departments,11,6,16,4,19,moving_average_28
+2026-10-25,All Departments,11,6,16,4,19,moving_average_28
+2026-10-26,All Departments,11,6,16,4,19,moving_average_28
+2026-10-27,All Departments,12,6,16,4,19,moving_average_28
+2026-10-28,All Departments,11,6,16,4,19,moving_average_28
+2026-10-29,All Departments,11,6,16,4,19,moving_average_28
+2026-10-30,All Departments,11,6,16,4,19,moving_average_28
+2026-10-31,All Departments,12,6,16,4,19,moving_average_28
+2026-11-01,All Departments,11,6,16,4,19,moving_average_28
+2026-11-02,All Departments,11,6,16,4,19,moving_average_28
+2026-11-03,All Departments,11,6,16,4,19,moving_average_28
+2026-11-04,All Departments,12,6,16,4,19,moving_average_28

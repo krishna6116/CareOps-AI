@@ -5,6 +5,8 @@
     "source_type": "Existing daily admissions dataset",
     "historical_start_date": "2024-01-01",
     "historical_end_date": "2026-10-05",
+    "modelling_start_date": "2024-01-22",
+    "warmup_note": "Days before modelling_start_date are simulator warm-up (empty hospital) and are excluded from training and evaluation.",
     "number_of_departments": 9,
     "number_of_historical_days": 1009,
     "total_historical_admissions": 11640.0,
@@ -15,18 +17,18 @@
     "rolling_origin_backtest": {
         "method": "Recursive 30-day forecasts from origins inside the holdout; champion = lowest hospital-total MAE",
         "origins": [
-            "2026-03-22",
-            "2026-04-05",
-            "2026-04-19",
-            "2026-05-03",
-            "2026-05-17",
-            "2026-05-31",
-            "2026-06-14",
-            "2026-06-28",
-            "2026-07-12",
-            "2026-07-26",
-            "2026-08-09",
-            "2026-08-23"
+            "2026-03-27",
+            "2026-04-10",
+            "2026-04-24",
+            "2026-05-08",
+            "2026-05-22",
+            "2026-06-05",
+            "2026-06-19",
+            "2026-07-03",
+            "2026-07-17",
+            "2026-07-31",
+            "2026-08-14",
+            "2026-08-28"
         ],
         "step_days": 14,
         "hospital_total": [
@@ -34,71 +36,71 @@
                 "model": "moving_average_28",
                 "origins": 12,
                 "forecast_days": 360,
-                "MAE": 2.9444444444444446,
-                "RMSE": 3.691022425013172,
-                "MAPE_percent": 41.964870509871574,
-                "sMAPE_percent": 28.64778172189999,
-                "bias": 0.2708333333333337,
-                "MASE": 0.7967320261437909,
-                "MAE_h1-7": 2.931547619047619,
-                "MAE_h8-14": 2.970663265306123,
-                "MAE_h15-30": 2.9386160714285716
-            },
-            {
-                "model": "moving_average_7",
-                "origins": 12,
-                "forecast_days": 360,
-                "MAE": 3.0567460317460315,
-                "RMSE": 3.8431329929907525,
-                "MAPE_percent": 42.01797311963812,
-                "sMAPE_percent": 29.763721693778162,
-                "bias": 0.16071428571428584,
-                "MASE": 0.8271195144724556,
-                "MAE_h1-7": 2.8758503401360542,
-                "MAE_h8-14": 3.2551020408163267,
-                "MAE_h15-30": 3.0491071428571423
+                "MAE": 2.9498015873015877,
+                "RMSE": 3.6649907270658213,
+                "MAPE_percent": 39.461567387932014,
+                "sMAPE_percent": 28.645795328466,
+                "bias": 0.24523809523809517,
+                "MASE": 0.7967796824310006,
+                "MAE_h1-7": 2.7363945578231292,
+                "MAE_h8-14": 3.2448979591836737,
+                "MAE_h15-30": 2.9140625
             },
             {
                 "model": "xgboost_recursive",
                 "origins": 12,
                 "forecast_days": 360,
-                "MAE": 3.1990955146857436,
-                "RMSE": 4.074832743727589,
-                "MAPE_percent": 50.396185623971434,
-                "sMAPE_percent": 30.193490278572423,
-                "bias": 1.8779773418481152,
-                "MASE": 0.8656376098561424,
-                "MAE_h1-7": 3.036392996619855,
-                "MAE_h8-14": 3.302738747249047,
-                "MAE_h15-30": 3.2249339520931244
+                "MAE": 3.0978237428185014,
+                "RMSE": 3.9092561846053053,
+                "MAPE_percent": 45.924864933909674,
+                "sMAPE_percent": 29.486947236204585,
+                "bias": 1.660573522042897,
+                "MASE": 0.8367623872248537,
+                "MAE_h1-7": 2.9413792540629706,
+                "MAE_h8-14": 3.083879178123815,
+                "MAE_h15-30": 3.1723689537029713
+            },
+            {
+                "model": "moving_average_7",
+                "origins": 12,
+                "forecast_days": 360,
+                "MAE": 3.157539682539683,
+                "RMSE": 3.9380045478127754,
+                "MAPE_percent": 41.84254402441876,
+                "sMAPE_percent": 30.501526346410074,
+                "bias": 0.23928571428571427,
+                "MASE": 0.8528924373583738,
+                "MAE_h1-7": 3.018707482993198,
+                "MAE_h8-14": 3.3758503401360542,
+                "MAE_h15-30": 3.122767857142857
             },
             {
                 "model": "same_weekday_last_week",
                 "origins": 12,
                 "forecast_days": 360,
-                "MAE": 3.725,
-                "RMSE": 4.693080012102926,
-                "MAPE_percent": 44.846120841089885,
-                "sMAPE_percent": 36.30331919206886,
-                "bias": 0.13055555555555556,
-                "MASE": 1.0079411764705883,
-                "MAE_h1-7": 3.5357142857142856,
-                "MAE_h8-14": 3.7857142857142856,
-                "MAE_h15-30": 3.78125
+                "MAE": 4.0,
+                "RMSE": 5.1196788093698915,
+                "MAPE_percent": 49.546236566199156,
+                "sMAPE_percent": 38.34897916839094,
+                "bias": 0.16666666666666666,
+                "MASE": 1.080451900034235,
+                "MAE_h1-7": 3.988095238095238,
+                "MAE_h8-14": 3.6785714285714284,
+                "MAE_h15-30": 4.145833333333333
             },
             {
                 "model": "last_value",
                 "origins": 12,
                 "forecast_days": 360,
-                "MAE": 4.897222222222222,
-                "RMSE": 6.054153762317057,
-                "MAPE_percent": 61.28664969528619,
-                "sMAPE_percent": 47.533082019444855,
-                "bias": -0.625,
-                "MASE": 1.3251307189542483,
-                "MAE_h1-7": 4.678571428571429,
-                "MAE_h8-14": 4.714285714285714,
-                "MAE_h15-30": 5.072916666666667
+                "MAE": 5.219444444444444,
+                "RMSE": 6.3711589735829595,
+                "MAPE_percent": 61.8413538621872,
+                "sMAPE_percent": 45.61739771061424,
+                "bias": 1.275,
+                "MASE": 1.4098396667807829,
+                "MAE_h1-7": 5.095238095238095,
+                "MAE_h8-14": 5.166666666666667,
+                "MAE_h15-30": 5.296875
             }
         ],
         "interval_method": "Split-conformal absolute-error quantiles by horizon bucket; earlier origins calibrate, later origins measure coverage",
@@ -108,39 +110,39 @@
                 "bucket": "1-7",
                 "calibration_origins": 6,
                 "evaluation_origins": 6,
-                "calibrated_half_width": 3.7857142857142865,
-                "empirical_coverage": 0.6666666666666666
+                "calibrated_half_width": 4.25,
+                "empirical_coverage": 0.7619047619047619
             },
             {
                 "level": 0.8,
                 "bucket": "8-14",
                 "calibration_origins": 6,
                 "evaluation_origins": 6,
-                "calibrated_half_width": 4.857142857142858,
-                "empirical_coverage": 0.7857142857142857
+                "calibrated_half_width": 4.357142857142858,
+                "empirical_coverage": 0.6904761904761905
             },
             {
                 "level": 0.8,
                 "bucket": "15-30",
                 "calibration_origins": 6,
                 "evaluation_origins": 6,
-                "calibrated_half_width": 4.2142857142857135,
-                "empirical_coverage": 0.6979166666666666
+                "calibrated_half_width": 4.357142857142858,
+                "empirical_coverage": 0.7291666666666666
             },
             {
                 "level": 0.95,
                 "bucket": "1-7",
                 "calibration_origins": 6,
                 "evaluation_origins": 6,
-                "calibrated_half_width": 6.4642857142857135,
-                "empirical_coverage": 0.8809523809523809
+                "calibrated_half_width": 6.035714285714285,
+                "empirical_coverage": 0.8571428571428571
             },
             {
                 "level": 0.95,
                 "bucket": "8-14",
                 "calibration_origins": 6,
                 "evaluation_origins": 6,
-                "calibrated_half_width": 6.7857142857142865,
+                "calibrated_half_width": 6.642857142857142,
                 "empirical_coverage": 0.8809523809523809
             },
             {
@@ -148,16 +150,16 @@
                 "bucket": "15-30",
                 "calibration_origins": 6,
                 "evaluation_origins": 6,
-                "calibrated_half_width": 6.857142857142858,
-                "empirical_coverage": 0.8958333333333334
+                "calibrated_half_width": 7.0357142857142865,
+                "empirical_coverage": 0.9270833333333334
             }
         ]
     },
     "one_step_residual_diagnostics_hospital": {
-        "residual_mean": -1.494040024462085,
-        "residual_std": 3.5668621142353603,
-        "residual_autocorr_lag1": -0.06461947892132465,
-        "residual_autocorr_lag7": -0.00451222654384823
+        "residual_mean": -1.443250482281049,
+        "residual_std": 3.5475721581899253,
+        "residual_autocorr_lag1": -0.06856426487683463,
+        "residual_autocorr_lag7": -0.013436042446907616
     },
     "published_forecast_sanity": {
         "forecast_min": 11.0,
@@ -293,13 +295,13 @@
             "verbosity": 0
         },
         "Oncology": {
-            "n_estimators": 300,
-            "max_depth": 1,
-            "learning_rate": 0.04,
+            "n_estimators": 120,
+            "max_depth": 2,
+            "learning_rate": 0.025,
             "subsample": 0.9,
             "colsample_bytree": 0.9,
-            "min_child_weight": 5,
-            "reg_lambda": 5.0,
+            "min_child_weight": 8,
+            "reg_lambda": 8.0,
             "objective": "reg:squarederror",
             "tree_method": "hist",
             "random_state": 42,
@@ -321,13 +323,13 @@
             "verbosity": 0
         },
         "Pediatrics": {
-            "n_estimators": 300,
-            "max_depth": 1,
-            "learning_rate": 0.04,
+            "n_estimators": 120,
+            "max_depth": 2,
+            "learning_rate": 0.025,
             "subsample": 0.9,
             "colsample_bytree": 0.9,
-            "min_child_weight": 5,
-            "reg_lambda": 5.0,
+            "min_child_weight": 8,
+            "reg_lambda": 8.0,
             "objective": "reg:squarederror",
             "tree_method": "hist",
             "random_state": 42,
@@ -378,55 +380,55 @@
         "selected_by_department": {
             "Cardiology": {
                 "candidate": "regularized",
-                "validation_MAE": 0.854961514093314
+                "validation_MAE": 0.8615386265438872
             },
             "Emergency": {
                 "candidate": "shallow",
-                "validation_MAE": 0.6334497630596161
+                "validation_MAE": 0.6323788096378375
             },
             "General Medicine": {
                 "candidate": "regularized",
-                "validation_MAE": 1.8434798125248806
+                "validation_MAE": 1.884090076793324
             },
             "ICU": {
                 "candidate": "shallow",
-                "validation_MAE": 0.695249072115892
+                "validation_MAE": 0.6711439469998534
             },
             "Neurology": {
                 "candidate": "mid",
-                "validation_MAE": 0.6472138660206537
+                "validation_MAE": 0.6388531866084252
             },
             "Oncology": {
-                "candidate": "shallow",
-                "validation_MAE": 0.5310144211954562
+                "candidate": "regularized",
+                "validation_MAE": 0.5464261870879632
             },
             "Orthopedics": {
                 "candidate": "regularized",
-                "validation_MAE": 0.727900531831061
+                "validation_MAE": 0.7228476929587203
             },
             "Pediatrics": {
-                "candidate": "shallow",
-                "validation_MAE": 0.7010074018672773
+                "candidate": "regularized",
+                "validation_MAE": 0.7266421360628945
             },
             "Surgery": {
                 "candidate": "regularized",
-                "validation_MAE": 0.8876204137589522
+                "validation_MAE": 0.8663140709524031
             }
         },
         "holdout_used_for_selection": false
     },
     "overall_ml_metrics": {
-        "MAE": 0.8544095043183314,
-        "RMSE": 1.119594893182763,
-        "MAPE_percent": 41.77846132507651
+        "MAE": 0.8465514320285163,
+        "RMSE": 1.1119410736425233,
+        "MAPE_percent": 42.03838731839619
     },
     "overall_baseline_metrics": {
-        "MAE": 1.0208685843203609,
-        "RMSE": 1.5195659427146686,
-        "MAPE_percent": 68.2368951539806
+        "MAE": 1.0162037037037037,
+        "RMSE": 1.5011569612209852,
+        "MAPE_percent": 68.3443311830075
     },
-    "MAE_improvement_vs_baseline_percent": 16.305632532795485,
-    "RMSE_improvement_vs_baseline_percent": 26.32140128235348,
+    "MAE_improvement_vs_baseline_percent": 16.694711016783813,
+    "RMSE_improvement_vs_baseline_percent": 25.927727588318827,
     "departments_modelled": [
         "Cardiology",
         "Emergency",
@@ -438,6 +440,6 @@
         "Pediatrics",
         "Surgery"
     ],
-    "generated_at": "2026-10-10T14:39:55.796193",
+    "generated_at": "2026-10-10T15:24:52.879814",
     "safety_note": "Operations decision support only. Not a clinical diagnosis or treatment system."
 }
