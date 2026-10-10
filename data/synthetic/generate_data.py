@@ -37,10 +37,17 @@ from faker import Faker
 
 SEED = 42
 
-NUM_PATIENTS = 50_000
+# CAREOPS_SCENARIO_SCALE (0 < scale <= 1) shrinks the patient and
+# appointment volumes for quick CI smoke runs. Beds and staff are not
+# scaled, so capacity calibration is unchanged. Published results use 1.
+SCENARIO_SCALE = float(os.environ.get("CAREOPS_SCENARIO_SCALE", "1"))
+if not 0 < SCENARIO_SCALE <= 1:
+    raise ValueError("CAREOPS_SCENARIO_SCALE must be in (0, 1].")
+
+NUM_PATIENTS = int(50_000 * SCENARIO_SCALE)
 NUM_BEDS = 230
 NUM_STAFF = 300
-NUM_APPOINTMENTS = 120_000
+NUM_APPOINTMENTS = int(120_000 * SCENARIO_SCALE)
 
 START_DATE = datetime(2024, 1, 1)
 TARGET_CENSUS_UTILIZATION = 0.65

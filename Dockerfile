@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.14-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -9,7 +9,7 @@ WORKDIR /app
 COPY . /app
 
 RUN python -m pip install --upgrade pip && \
-    python -m pip install -r requirements.txt
+    python -m pip install -r requirements-lock.txt
 
 EXPOSE 8000
 
