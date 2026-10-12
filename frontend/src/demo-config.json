@@ -1,0 +1,44 @@
+{
+  "exampleQuestions": [
+    "How many beds are forecast to be available in seven days?",
+    "Which departments face the greatest capacity pressure?",
+    "Why were some bed requests left unassigned?",
+    "What happens if admissions increase by 20%?",
+    "Which shifts have insufficient staff coverage?",
+    "How reliable is the occupancy forecast?",
+    "What are the biggest limitations of the current models?",
+    "How does optimized allocation compare with the baseline?",
+    "Which recommendations are supported by the latest optimization run?"
+  ],
+  "scenarioPresets": [
+    { "label": "Admissions +20%", "admissionsPercent": 20, "icuBedDelta": 0, "staffPercent": 0 },
+    { "label": "ICU capacity −3 beds", "admissionsPercent": 0, "icuBedDelta": -3, "staffPercent": 0 },
+    { "label": "Staff availability −10%", "admissionsPercent": 0, "icuBedDelta": 0, "staffPercent": -10 },
+    { "label": "All three combined", "admissionsPercent": 20, "icuBedDelta": -3, "staffPercent": -10 }
+  ],
+  "snapshotPaths": [
+    "/meta",
+    "/dashboard/overview",
+    "/dashboard/beds",
+    "/dashboard/staff",
+    "/dashboard/appointments",
+    "/dashboard/optimization",
+    "/forecast/admissions",
+    "/forecast/occupancy",
+    "/forecast/icu",
+    "/forecast/history?days=90",
+    "/los/predictions?limit=500",
+    "/no-show/predictions?limit=500",
+    "/no-show/summary",
+    "/models/evaluation",
+    "/beds/availability",
+    "/alerts",
+    "/optimization/runs",
+    "/optimization/bed-assignments",
+    "/optimization/bed-assignments/requests?status=UNASSIGNED&policy=optimized&limit=500",
+    "/optimization/bed-assignments/requests?status=UNASSIGNED&policy=baseline&limit=500",
+    "/audit/runs",
+    "/audit/assistant",
+    "/simulation/runs"
+  ]
+}

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 
-import { API_URL, type Row } from './api';
+import { API_URL, DEMO_MODE, type Row } from './api';
 import { display, formatCount, formatSigned, label, toNumber } from './format';
 
 export type Series = { name: string; values: Array<number | null> };
@@ -15,8 +15,8 @@ export function PageHeader({ title, eyebrow, detail }: { title: string; eyebrow:
   );
 }
 
-export function Panel({ title, detail, children }: { title: string; detail?: string; children: ReactNode }) {
-  return <section className="panel"><div className="panel-heading"><h2>{title}</h2>{detail && <p>{detail}</p>}</div>{children}</section>;
+export function Panel({ title, detail, wide = false, children }: { title: string; detail?: string; wide?: boolean; children: ReactNode }) {
+  return <section className={wide ? 'panel panel-wide' : 'panel'}><div className="panel-heading"><h2>{title}</h2>{detail && <p>{detail}</p>}</div>{children}</section>;
 }
 
 export function Metric({ label: name, value, note }: { label: string; value: string | number | null; note?: string }) {
@@ -28,7 +28,7 @@ export function Metric({ label: name, value, note }: { label: string; value: str
 export function TrendChart({ labels, series, counts = true }: { labels: string[]; series: Series[]; counts?: boolean }) {
   const width = 760;
   const height = 230;
-  const pad = 34;
+  const pad = 44;
   const allValues = series.flatMap((line) => line.values.filter((value): value is number => value !== null && Number.isFinite(value)));
   if (!labels.length || !allValues.length) return <Empty>No chart data is available.</Empty>;
   const min = Math.min(0, ...allValues);
@@ -53,7 +53,7 @@ export function TrendChart({ labels, series, counts = true }: { labels: string[]
         {[0, 1, 2, 3].map((step) => {
           const value = min + (max - min) * step / 3;
           const lineY = y(value);
-          return <g key={step}><line x1={pad} x2={width - pad} y1={lineY} y2={lineY} className="chart-grid" /><text x="2" y={lineY + 4} className="chart-label">{tick(value)}</text></g>;
+          return <g key={step}><line x1={pad} x2={width - pad} y1={lineY} y2={lineY} className="chart-grid" /><text x="2" y={lineY + 6} className="chart-label">{tick(value)}</text></g>;
         })}
         {paths.map((path, index) => <path key={series[index].name} d={path} fill="none" stroke={colors[index % colors.length]} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />)}
         {series.flatMap((line) => line.values.map((value, index) => (
@@ -97,7 +97,10 @@ export function DataTable({ rows, caption }: { rows: Row[]; caption?: string }) 
       {visibleRows.length ? (
         <>
           <div className="table-wrap"><table>{caption && <caption className="sr-only">{caption}</caption>}<thead><tr>{columns.map((column) => <th key={column} scope="col">{label(column)}</th>)}</tr></thead><tbody>
-            {visibleRows.map((row, index) => <tr key={`${String(row.id ?? row.admission_id ?? row.appointment_id ?? row.date ?? 'row')}-${currentPage * pageSize + index}`}>{columns.map((column) => <td key={column}>{display(row[column])}</td>)}</tr>)}
+            {visibleRows.map((row, index) => <tr key={`${String(row.id ?? row.admission_id ?? row.appointment_id ?? row.date ?? 'row')}-${currentPage * pageSize + index}`}>{columns.map((column) => {
+              const text = display(row[column]);
+              return <td key={column} className={text.length > 48 ? 'cell-long' : undefined}>{text}</td>;
+            })}</tr>)}
           </tbody></table></div>
           {pageCount > 1 && (
             <div className="table-pagination">
@@ -156,7 +159,7 @@ export function RequestError({ message }: { message: string }) {
     <div className="state-card error-state" role="alert">
       <strong>Could not load this data</strong>
       <p>{message}</p>
-      <small>Check that the FastAPI backend is running and reachable at {API_URL}.</small>
+      <small>{DEMO_MODE ? 'This is the static demo; some actions need the live API.' : `Check that the FastAPI backend is running and reachable at ${API_URL}.`}</small>
       <p><button className="button" type="button" onClick={() => window.location.reload()}>Retry</button></p>
     </div>
   );

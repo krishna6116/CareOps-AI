@@ -86,13 +86,14 @@ h3 { margin-bottom: 12px; font-size: 14px; }
 .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
 .panel { margin-bottom: 14px; padding: 18px; }
 .content-grid .panel { margin-bottom: 0; }
+.content-grid .panel-wide { grid-column: 1 / -1; }
 .panel-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 14px; margin-bottom: 14px; }
 .panel-heading p { margin: 0; color: #8095af; font-size: 11px; }
 
 .chart-wrap { width: 100%; min-width: 0; }
 .chart-wrap svg { display: block; width: 100%; height: auto; overflow: visible; }
 .chart-grid { stroke: rgba(165, 190, 221, .12); stroke-dasharray: 3 5; }
-.chart-label { fill: #8298b3; font-size: 10px; }
+.chart-label { fill: #8298b3; font-size: 17px; }
 .chart-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 8px; color: #9cafc7; font-size: 11px; }
 .chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
 .chart-legend i { width: 8px; height: 8px; border-radius: 50%; }
@@ -102,7 +103,9 @@ h3 { margin-bottom: 12px; font-size: 14px; }
 table { width: 100%; border-collapse: collapse; font-size: 11px; text-align: left; }
 th { position: sticky; top: 0; z-index: 1; background: #142b43; color: #9bb5d4; font-size: 10px; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
 th, td { max-width: 280px; padding: 9px 11px; border-bottom: 1px solid rgba(142, 170, 206, .1); }
-td { max-width: 360px; color: #c2d0e2; overflow-wrap: anywhere; white-space: normal; }
+td { max-width: 360px; color: #c2d0e2; white-space: nowrap; }
+/* Long text (messages, definitions) wraps at word boundaries in a readable width. */
+td.cell-long { min-width: 260px; max-width: 520px; white-space: normal; overflow-wrap: break-word; line-height: 1.45; }
 tbody tr:hover { background: rgba(95, 147, 213, .06); }
 .table-toolbar, .table-pagination { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 10px; color: #91a8c4; font-size: 11px; }
 .table-toolbar label { display: inline-flex; align-items: center; gap: 7px; }
@@ -179,3 +182,5 @@ select, input, textarea { border: 1px solid rgba(142, 170, 206, .24); border-rad
 .panel details summary { cursor: pointer; margin-bottom: 10px; }
 .metric-grid.compact { margin-top: 14px; }
 .panel code { color: #b9cce3; font-size: 11px; }
+.demo-banner { margin: 0 0 22px; padding: 12px 14px; border: 1px solid rgba(255, 196, 110, .3); border-radius: 10px; background: rgba(255, 196, 110, .08); color: #ffe2b5; font-size: 12px; line-height: 1.5; }
+.demo-banner a { color: #ffd491; }
