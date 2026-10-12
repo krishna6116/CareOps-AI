@@ -373,6 +373,18 @@ def explain_unassigned(
     leftover = [bed_id for bed_id in candidates if bed_id not in used]
     if not leftover:
         return "taken_by_other_requests"
+    if rules.staffing_hard:
+        # Other placements the same day may have used the ward's headroom.
+        load = dict(state.ward_load)
+        for bed_id in used:
+            ward = beds.at[bed_id, "department_key"]
+            load[ward] = load.get(ward, 0) + 1
+        leftover = [
+            bed_id for bed_id in leftover
+            if state.has_staff_headroom(beds.at[bed_id, "department_key"], load)
+        ]
+        if not leftover:
+            return "staffing_limit"
     remaining = _pool_counts([bed_id for bed_id in state.free if bed_id not in used], beds)
     if priority(request) < CRITICAL and all(
         (pool := beds.at[bed_id, "bed_type_key"]) in rules.reserve

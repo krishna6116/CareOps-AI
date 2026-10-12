@@ -144,6 +144,24 @@ class AssignmentTests(unittest.TestCase):
         self.assertEqual(detail.loc["A", "optimized_bed_department"], "Cardiology")
         self.assertEqual(detail.loc["A", "baseline_reason"], "staffing_limit")
 
+    def test_staffing_headroom_used_by_other_requests_is_explained(self):
+        # One nurse per shift: 4 staffed beds per ward. General Medicine
+        # already holds 3 patients, so only one of two new arrivals fits.
+        beds = [bed(f"GM{i}", "General Medicine", "General") for i in range(1, 7)]
+        in_house = [
+            admission(f"OLD{i}", "General Medicine", admitted=DAY - pd.Timedelta(days=1), bed_id=f"GM{i}")
+            for i in range(1, 4)
+        ]
+        detail, _, _ = run_day(
+            in_house + [admission("N1", "General Medicine", severity="High"),
+                        admission("N2", "General Medicine", severity="Low")],
+            rules=Rules(staffing_hard=True), beds=beds,
+            shifts=roster(["General Medicine"], nurses_per_shift=1),
+        )
+        self.assertEqual(detail.loc["N1", "optimized_status"], "ASSIGNED")
+        self.assertEqual(detail.loc["N2", "optimized_reason"], "staffing_limit")
+        self.assertEqual(detail.loc["N2", "baseline_reason"], "staffing_limit")
+
     def test_reported_staffing_counts_exceedances(self):
         shifts = roster([ward for ward in WARDS if ward != "Cardiology"])
         beds = [bed("CA1", "Cardiology", "General")]
