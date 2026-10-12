@@ -67,7 +67,7 @@ Time series: 30-day rolling-origin backtest from 24 weekly origins (2026-03-27 t
 | Length of stay (days) | Rolling 30-day holdout windows | MAE | XGBoost | 2.62 | Department x severity mean 3.04 | XGBoost 2.62 | yes |
 | No-show probability | Rolling 30-day holdout windows | Brier | XGBoost (calibrated) | 0.113 | Logistic regression 0.118 | XGBoost (calibrated) 0.113 | yes |
 
-Where no learned model beats the baseline, the baseline is published. Daily admission and ICU counts in this synthetic data behave close to Poisson noise around a stable level, so there is little structure beyond the recent average; see [docs/MODEL_METRICS.md](docs/MODEL_METRICS.md).
+Where no learned model beats the baseline, the baseline is published. Daily admission and ICU counts in this synthetic data are close to Poisson, and their weekday and seasonal effects are small next to day-to-day noise ([docs/EDA_FINDINGS.md](docs/EDA_FINDINGS.md)), so the recent average is hard to beat.
 
 Whole-number 80% / 95% interval coverage, measured as published (range across horizon buckets): admissions 81–83% / 97–97%; occupied beds 74–83% / 93–94%; ICU admissions 92–95% / 98–100%.
 

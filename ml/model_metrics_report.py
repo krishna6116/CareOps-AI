@@ -166,8 +166,8 @@ def build_readme_block(data: dict) -> str:
         markdown_table(summary_rows(data)),
         "",
         "Where no learned model beats the baseline, the baseline is published. Daily admission and ICU counts "
-        "in this synthetic data behave close to Poisson noise around a stable level, so there is little structure "
-        "beyond the recent average; see [docs/MODEL_METRICS.md](docs/MODEL_METRICS.md).",
+        "in this synthetic data are close to Poisson, and their weekday and seasonal effects are small next to "
+        "day-to-day noise ([docs/EDA_FINDINGS.md](docs/EDA_FINDINGS.md)), so the recent average is hard to beat.",
         "",
         "Whole-number 80% / 95% interval coverage, measured as published "
         f"(range across horizon buckets): admissions {coverage_range(data['admission_coverage'], 0.8)} / "
@@ -254,8 +254,8 @@ def build_report(data: dict) -> str:
         "",
         f"Published: **{label(admission_champion)}**. Per department, XGBoost has the lowest backtest MAE in "
         f"{int(department_wins['model'].eq('xgboost_recursive').sum())} of {department_wins['department'].nunique()} departments. "
-        "Daily admissions are close to Poisson noise around a stable level (variance about equal to the mean), so "
-        "there is little structure beyond the average. One-step XGBoost holdout residuals (actual minus predicted) "
+        "Daily admissions are close to Poisson (variance about equal to the mean); the weekday and seasonal "
+        "effects are real but small next to day-to-day noise (see EDA_FINDINGS.md). One-step XGBoost holdout residuals (actual minus predicted) "
         f"have mean {residuals['residual_mean']:.2f} and lag-1 autocorrelation {residuals['residual_autocorr_lag1']:.2f}.",
         "",
         "Interval coverage:",

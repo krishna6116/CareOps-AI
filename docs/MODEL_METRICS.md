@@ -38,7 +38,7 @@ not evidence of real-world accuracy.
 | Same weekday last week | 3.92 | 5.00 | 38.03 | 1.06 | 0.10 | 3.89 | 3.73 | 4.02 |
 | Last observed value | 4.84 | 5.95 | 43.67 | 1.31 | 1.25 | 4.90 | 4.67 | 4.90 |
 
-Published: **28-day moving average**. Per department, XGBoost has the lowest backtest MAE in 3 of 9 departments. Daily admissions are close to Poisson noise around a stable level (variance about equal to the mean), so there is little structure beyond the average. One-step XGBoost holdout residuals (actual minus predicted) have mean -1.44 and lag-1 autocorrelation -0.07.
+Published: **28-day moving average**. Per department, XGBoost has the lowest backtest MAE in 3 of 9 departments. Daily admissions are close to Poisson (variance about equal to the mean); the weekday and seasonal effects are real but small next to day-to-day noise (see EDA_FINDINGS.md). One-step XGBoost holdout residuals (actual minus predicted) have mean -1.44 and lag-1 autocorrelation -0.07.
 
 Interval coverage:
 
