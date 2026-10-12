@@ -15,31 +15,31 @@ Baseline PR-AUC: 0.1505
 
 VALIDATION
 ----------------------------------------------------------------------
-accuracy: 0.7869560277241222
-precision: 0.349
-recall: 0.5491738788355626
-f1: 0.42678080097829413
-roc_auc: 0.7344030121319077
-pr_auc: 0.3173406552079189
-threshold: 0.2
-tn: 12456
-fp: 2604
-fn: 1146
-tp: 1396
+accuracy: 0.7880354505169868
+precision: 0.34922647730154704
+recall: 0.5416994492525571
+f1: 0.4246723207401697
+roc_auc: 0.7328645815374746
+pr_auc: 0.31684622756145736
+threshold: 0.18000000000000005
+tn: 12494
+fp: 2566
+fn: 1165
+tp: 1377
 
 TEST
 ----------------------------------------------------------------------
-accuracy: 0.7814657008947593
-precision: 0.35969702307556806
-recall: 0.5774886877828054
-f1: 0.44328666015413
-roc_auc: 0.7410836558153218
-pr_auc: 0.32067048554005156
-threshold: 0.2
-tn: 16299
-fp: 3635
-fn: 1494
-tp: 2042
+accuracy: 0.7823604601619089
+precision: 0.36053938963804116
+recall: 0.5746606334841629
+f1: 0.44308765808983863
+roc_auc: 0.7404219132412981
+pr_auc: 0.3192126482564389
+threshold: 0.18000000000000005
+tn: 16330
+fp: 3604
+fn: 1504
+tp: 2032
 
 MODEL CONFIGURATION
 ----------------------------------------------------------------------
@@ -47,25 +47,25 @@ Algorithm: XGBoost binary classification
 Chronological split: 65% / 15% / 20%
 Historical features: leakage-safe
 scale_pos_weight: 5.567505
-Training time: 5.07 seconds
+Training time: 4.76 seconds
 
 TOP FEATURES
 ----------------------------------------------------------------------
-patient_department_no_show_rate: 27.4804%
-patient_historical_no_show_rate: 23.8539%
-patient_previous_no_shows: 5.2497%
-reminder_sent: 3.5649%
-duration: 1.1529%
-priority_severity_no_show_rate: 1.0431%
-patient_days_since_previous: 0.9948%
-age_group_71_80: 0.8401%
-priority_Routine: 0.8361%
-is_weekend: 0.8278%
-lead_time_days: 0.7889%
-priority_Urgent: 0.7603%
-age_group_51_60: 0.7319%
-hour_sin: 0.7241%
-appointment_hour: 0.7085%
+patient_department_no_show_rate: 23.5728%
+patient_department_previous: 16.4742%
+patient_previous_no_shows: 14.7579%
+patient_previous_appointments: 11.4366%
+patient_historical_no_show_rate: 2.6204%
+reminder_sent: 2.4688%
+patient_days_since_previous: 1.4694%
+duration: 0.8592%
+department_Oncology: 0.7774%
+priority_severity_no_show_rate: 0.7440%
+lead_time_days: 0.6045%
+patient_severity_Critical: 0.5926%
+age_group_31_40: 0.5405%
+department_priority_no_show_rate: 0.5072%
+priority_historical_no_show_rate: 0.5064%
 
 INTERPRETATION
 ----------------------------------------------------------------------

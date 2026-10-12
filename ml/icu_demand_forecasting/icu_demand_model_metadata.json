@@ -11,12 +11,8 @@
     "scipy_used": false,
     "matplotlib_used": false,
     "seed": 42,
-    "feature_count": 54,
+    "feature_count": 50,
     "features": [
-        "admissions",
-        "discharges",
-        "emergency_cases",
-        "occupancy",
         "day_of_week",
         "day_of_month",
         "week_of_year",

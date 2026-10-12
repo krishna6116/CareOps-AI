@@ -93,7 +93,7 @@ class RollingBacktestEvidenceTests(unittest.TestCase):
 
         self.assertTrue(ok)
         self.assertIn("published moving_average_28", evidence)
-        self.assertIn("xgboost_recursive MAE 3.20", evidence)
+        self.assertIn("xgboost_recursive MAE 3.2", evidence)
         self.assertIn("does not beat the best naive baseline", evidence)
 
     def test_evidence_when_learned_model_wins(self):
@@ -103,7 +103,7 @@ class RollingBacktestEvidenceTests(unittest.TestCase):
 
         self.assertTrue(ok)
         self.assertIn("published xgboost_recursive", evidence)
-        self.assertIn("best naive (moving_average_28) MAE 2.90", evidence)
+        self.assertIn("best naive (moving_average_28) MAE 2.9", evidence)
         self.assertIn("beats every naive baseline", evidence)
 
 

@@ -1,16 +1,16 @@
-"""Write docs/MODEL_METRICS.md from the latest pipeline outputs.
+"""Build docs/MODEL_METRICS.md and the README results block from run outputs.
 
-Every number in the report is read from files the pipeline just wrote, so
-the document cannot drift from the models. Model (forecast) results and
+Every number is read from files the pipeline just wrote. ``build_report`` and
+``build_readme_block`` only read; ``main`` writes. tests/test_generated_docs.py
+rebuilds both and fails if the committed documents differ. Model results and
 simulation/optimization results are kept in separate sections.
 """
 
 from __future__ import annotations
 
 import json
-from pathlib import Path
-
 import sys
+from pathlib import Path
 
 import pandas as pd
 
@@ -21,6 +21,9 @@ from scenario_config import WARMUP_DAYS, WARMUP_END
 ROOT = Path(__file__).resolve().parents[1]
 ADMISSIONS = ROOT / "ml" / "admission_forecasting"
 OCCUPANCY = ROOT / "ml" / "occupancy_forecasting"
+ICU = ROOT / "ml" / "icu_demand_forecasting"
+LOS = ROOT / "ml" / "los_prediction"
+NO_SHOW = ROOT / "ml" / "no_show_prediction"
 PLANNING = ROOT / "optimization" / "resource_planning" / "outputs"
 REPORT = ROOT / "docs" / "MODEL_METRICS.md"
 README = ROOT / "README.md"
@@ -35,7 +38,18 @@ MODEL_LABELS = {
     "moving_average_7": "7-day moving average",
     "same_weekday_last_week": "Same weekday last week",
     "last_value": "Last observed value",
+    "xgboost": "XGBoost",
+    "overall_mean": "Training mean",
+    "mean_by_department": "Department mean",
+    "mean_by_department_severity": "Department x severity mean",
+    "xgboost_calibrated": "XGBoost (calibrated)",
+    "logistic_regression": "Logistic regression",
+    "prevalence": "Training no-show rate",
 }
+
+
+def label(model: str) -> str:
+    return MODEL_LABELS.get(model, model)
 
 
 def markdown_table(frame: pd.DataFrame) -> str:
@@ -45,264 +59,295 @@ def markdown_table(frame: pd.DataFrame) -> str:
     return "\n".join([header, divider, *rows])
 
 
-def backtest_table(summary: pd.DataFrame, champion: str) -> str:
-    table = summary.sort_values("MAE").copy()
-    table["Model"] = [
-        MODEL_LABELS.get(model, model) + (" **(published)**" if model == champion else "")
-        for model in table["model"]
-    ]
-    columns = {
-        "MAE": "MAE", "RMSE": "RMSE", "sMAPE_percent": "sMAPE %", "MASE": "MASE", "bias": "Bias",
-        "MAE_h1-7": "MAE d1-7", "MAE_h8-14": "MAE d8-14", "MAE_h15-30": "MAE d15-30",
-    }
-    out = table[["Model", *columns]].rename(columns=columns)
-    return markdown_table(out.round(2))
+def fmt(value, digits: int = 2) -> str:
+    return "n/a" if pd.isna(value) else f"{value:.{digits}f}"
+
+
+def ranked_table(summary: pd.DataFrame, champion: str, columns: dict[str, str], sort: str, digits: int = 2) -> str:
+    table = summary.sort_values(sort, kind="stable")
+    out = pd.DataFrame({
+        "Model": [label(m) + (" **(published)**" if m == champion else "") for m in table["model"]],
+    })
+    for source, header in columns.items():
+        out[header] = [fmt(v, digits) for v in table[source]]
+    return markdown_table(out)
+
+
+TIME_SERIES_COLUMNS = {
+    "MAE": "MAE", "RMSE": "RMSE", "sMAPE_percent": "sMAPE %", "MASE": "MASE", "bias": "Bias",
+    "MAE_h1-7": "MAE d1-7", "MAE_h8-14": "MAE d8-14", "MAE_h15-30": "MAE d15-30",
+}
 
 
 def coverage_table(coverage: pd.DataFrame) -> str:
-    table = coverage.assign(
-        Interval=(coverage["level"] * 100).round().astype(int).astype(str) + "%",
-        Days=coverage["bucket"],
-        **{
-            "Half-width": coverage["calibrated_half_width"].round(1),
-            "Observed coverage": (coverage["empirical_coverage"] * 100).round(0).astype(int).astype(str) + "%",
-        },
-    )
-    return markdown_table(table[["Interval", "Days", "Half-width", "Observed coverage"]])
+    before = coverage[coverage["method"].eq("split_half_continuous")].set_index(["level", "bucket"])
+    after = coverage[coverage["method"].eq("sequential_published")].set_index(["level", "bucket"])
+    rows = []
+    for (level, bucket), row in after.iterrows():
+        previous = before["empirical_coverage"].get((level, bucket))
+        rows.append({
+            "Target": f"{level:.0%}",
+            "Days": bucket,
+            "Before: split-half, raw interval": "n/a" if previous is None else f"{previous:.0%}",
+            "After: expanding window, published whole-number interval": f"{row['empirical_coverage']:.0%}",
+            "Mean half-width": fmt(row["mean_half_width"], 1),
+        })
+    return markdown_table(pd.DataFrame(rows))
 
 
 def coverage_range(coverage: pd.DataFrame, level: float) -> str:
-    values = coverage.loc[coverage["level"].round(2).eq(level), "empirical_coverage"] * 100
+    published = coverage[coverage["method"].eq("sequential_published") & coverage["level"].round(2).eq(level)]
+    values = published["empirical_coverage"] * 100
     return f"{values.min():.0f}–{values.max():.0f}%"
 
 
-def readme_results(
-    origins: list[str],
-    admission_backtest: pd.DataFrame,
-    admission_champion: str,
-    occupancy_backtest: pd.DataFrame,
-    occupancy_champion: str,
-    holdout_rows: dict[str, pd.Series | None],
-) -> list[str]:
-    """Markdown for the README results block, built only from run outputs."""
-
-    def summary_row(target: str, summary: pd.DataFrame, champion: str, learned: tuple[str, ...]) -> str:
-        ranked = summary.sort_values(["MAE", "RMSE"], kind="stable")
-        naive = ranked[~ranked["model"].isin(learned)].iloc[0]
-        best_learned = ranked[ranked["model"].isin(learned)].iloc[0]
-        champion_row = ranked[ranked["model"].eq(champion)].iloc[0]
-        learned_wins = champion in learned
-        verdict = (
-            "Beats every naive baseline" if learned_wins
-            else f"**{MODEL_LABELS.get(best_learned['model'], best_learned['model'])} does not beat the baseline**"
-        )
-        return (
-            f"| {target} | {MODEL_LABELS.get(champion, champion)} | {champion_row['MAE']:.2f} | "
-            f"{MODEL_LABELS.get(naive['model'], naive['model'])} {naive['MAE']:.2f} | "
-            f"{MODEL_LABELS.get(best_learned['model'], best_learned['model'])} {best_learned['MAE']:.2f} "
-            f"(MASE {best_learned['MASE']:.2f}) | {verdict} |"
-        )
-
-    admission_coverage = pd.read_csv(ADMISSIONS / "admission_interval_coverage.csv")
-    occupancy_coverage = pd.read_csv(OCCUPANCY / "occupancy_interval_coverage.csv")
-    lines = [
-        f"30-day rolling-origin backtest: {len(origins)} origins ({origins[0]} to {origins[-1]}), "
-        "30 days each, inside a held-out final 20% of history. Learned models forecast recursively, "
-        "as they do in production. MASE below 1 means better than the same-weekday naive forecast.",
-        "",
-        "| Target | Published model | MAE | Best naive baseline | Best learned model | Verdict |",
-        "|---|---|---|---|---|---|",
-        summary_row("Hospital admissions / day", admission_backtest, admission_champion, ("xgboost_recursive",)),
-        summary_row("Occupied beds (of 230)", occupancy_backtest, occupancy_champion, ("ridge_recursive", "ridge_blend")),
-        "",
-        "Interval coverage on the later backtest origins, range across horizon buckets "
-        f"(target 80% / 95%): admissions {coverage_range(admission_coverage, 0.8)} / "
-        f"{coverage_range(admission_coverage, 0.95)}; occupied beds {coverage_range(occupancy_coverage, 0.8)} / "
-        f"{coverage_range(occupancy_coverage, 0.95)}.",
-    ]
-    icu, los, no_show = holdout_rows["icu"], holdout_rows["los"], holdout_rows["no_show"]
-    holdouts = []
-    if icu is not None:
-        holdouts.append(f"ICU admissions MAE {icu['mae']:.2f}/day vs {icu['baseline_mae']:.2f} for the 7-day baseline")
-    if los is not None:
-        holdouts.append(f"length of stay MAE {los['mae']:.2f} days")
-    if no_show is not None:
-        holdouts.append(
-            f"no-show Brier {no_show['brier_score']:.3f} vs {no_show['pre_holdout_baseline_brier']:.3f} "
-            f"for the prevalence baseline, ROC-AUC {no_show['roc_auc']:.2f}"
-        )
-    if holdouts:
-        lines += ["", "One-step chronological holdouts (not yet 30-day backtested): " + "; ".join(holdouts) + "."]
-    if admission_champion != "xgboost_recursive":
-        lines += [
-            "",
-            "**Why admissions don't beat the baseline:** in this synthetic data, daily admissions behave like "
-            "Poisson noise around a stable level (variance ≈ mean), so there is little structure beyond the "
-            "average for a model to learn. Occupancy is a slowly changing stock, so recent history carries "
-            "real information.",
-        ]
-    return lines
-
-
-def update_readme(block: list[str]) -> None:
-    text = README.read_text(encoding="utf-8")
-    if README_START not in text or README_END not in text:
-        raise ValueError("README.md is missing the generated metrics markers.")
-    before, rest = text.split(README_START, 1)
-    _, after = rest.split(README_END, 1)
-    README.write_text(
-        before + README_START + "\n" + "\n".join(block) + "\n" + README_END + after,
-        encoding="utf-8",
-    )
-
-
-def main() -> None:
+def load_outputs() -> dict:
+    """Read every output the documents use."""
     admission_summary = json.loads((ADMISSIONS / "model_summary.json").read_text(encoding="utf-8"))
     admission_backtest = pd.read_csv(ADMISSIONS / "admission_backtest_summary.csv")
-    hospital_backtest = admission_backtest[admission_backtest["department"].eq("All Departments")]
-    admission_champion = admission_summary["published_forecast_model"]
-    department_wins = (
-        admission_backtest[~admission_backtest["department"].eq("All Departments")]
-        .sort_values("MAE").groupby("department").head(1)
-    )
-    xgboost_department_wins = int(department_wins["model"].eq("xgboost_recursive").sum())
-
     occupancy_meta = json.loads((OCCUPANCY / "run_metadata.json").read_text(encoding="utf-8"))
-    occupancy_backtest = pd.read_csv(OCCUPANCY / "occupancy_backtest_summary.csv")
+    return {
+        "admission_summary": admission_summary,
+        "admission_backtest": admission_backtest,
+        "admission_hospital": admission_backtest[admission_backtest["department"].eq("All Departments")],
+        "admission_coverage": pd.read_csv(ADMISSIONS / "admission_interval_coverage.csv"),
+        "occupancy_meta": occupancy_meta,
+        "occupancy_backtest": pd.read_csv(OCCUPANCY / "occupancy_backtest_summary.csv"),
+        "occupancy_coverage": pd.read_csv(OCCUPANCY / "occupancy_interval_coverage.csv"),
+        "occupancy_risk": pd.read_csv(OCCUPANCY / "occupancy_risk_metrics.csv"),
+        "icu_backtest": pd.read_csv(ICU / "icu_backtest_summary.csv"),
+        "icu_coverage": pd.read_csv(ICU / "icu_interval_coverage.csv"),
+        "los_backtest": pd.read_csv(LOS / "los_backtest_summary.csv"),
+        "no_show_backtest": pd.read_csv(NO_SHOW / "no_show_backtest_summary.csv"),
+        "manifest": json.loads((PLANNING / "portfolio_run_manifest.json").read_text(encoding="utf-8")),
+        "scorecard": json.loads((PLANNING / "reliability_scorecard.json").read_text(encoding="utf-8")),
+        "bed_kpis": pd.read_csv(PLANNING / "bed_allocation_kpis.csv"),
+    }
+
+
+def summary_rows(data: dict) -> pd.DataFrame:
+    """One row per model: published model, best baseline and best learned model."""
+    specs = [
+        ("Hospital admissions / day", "30-day rolling-origin backtest", data["admission_hospital"], "MAE", ("xgboost_recursive",)),
+        ("Occupied beds (of 230)", "30-day rolling-origin backtest", data["occupancy_backtest"], "MAE", ("ridge_recursive", "ridge_blend")),
+        ("ICU admissions / day", "30-day rolling-origin backtest", data["icu_backtest"], "MAE", ("xgboost_recursive",)),
+        ("Length of stay (days)", "Rolling 30-day holdout windows", data["los_backtest"], "MAE", ("xgboost",)),
+        ("No-show probability", "Rolling 30-day holdout windows", data["no_show_backtest"], "brier", ("xgboost_calibrated",)),
+    ]
+    rows = []
+    for target, evaluation, summary, metric, learned in specs:
+        ranked = summary.sort_values(metric, kind="stable")
+        published = ranked.iloc[0]
+        baseline = ranked[~ranked["model"].isin(learned)].iloc[0]
+        best_learned = ranked[ranked["model"].isin(learned)].iloc[0]
+        digits = 3 if metric == "brier" else 2
+        rows.append({
+            "Target": target,
+            "Evaluation": evaluation,
+            "Metric": metric if metric != "brier" else "Brier",
+            "Published model": label(published["model"]),
+            "Published": fmt(published[metric], digits),
+            "Best baseline": f"{label(baseline['model'])} {fmt(baseline[metric], digits)}",
+            "Best learned": f"{label(best_learned['model'])} {fmt(best_learned[metric], digits)}",
+            "Learned beats baseline": "yes" if best_learned[metric] < baseline[metric] else "**no**",
+        })
+    return pd.DataFrame(rows)
+
+
+def build_readme_block(data: dict) -> str:
+    origins = data["admission_summary"]["rolling_origin_backtest"]["origins"]
+    no_show = data["no_show_backtest"].sort_values("brier", kind="stable").iloc[0]
+    lines = [
+        f"Time series: 30-day rolling-origin backtest from {len(origins)} weekly origins "
+        f"({origins[0]} to {origins[-1]}) inside the held-out final 20% of history; learned models "
+        "forecast recursively, as in production. LOS and no-show: a model fitted before the holdout is "
+        "scored on rolling 30-day windows. Lower is better for every metric shown.",
+        "",
+        markdown_table(summary_rows(data)),
+        "",
+        "Where no learned model beats the baseline, the baseline is published. Daily admission and ICU counts "
+        "in this synthetic data behave close to Poisson noise around a stable level, so there is little structure "
+        "beyond the recent average; see [docs/MODEL_METRICS.md](docs/MODEL_METRICS.md).",
+        "",
+        "Whole-number 80% / 95% interval coverage, measured as published "
+        f"(range across horizon buckets): admissions {coverage_range(data['admission_coverage'], 0.8)} / "
+        f"{coverage_range(data['admission_coverage'], 0.95)}; occupied beds "
+        f"{coverage_range(data['occupancy_coverage'], 0.8)} / {coverage_range(data['occupancy_coverage'], 0.95)}; "
+        f"ICU admissions {coverage_range(data['icu_coverage'], 0.8)} / {coverage_range(data['icu_coverage'], 0.95)}.",
+        "",
+        f"Published no-show model: ROC-AUC {fmt(no_show['roc_auc'])}, PR-AUC {fmt(no_show['pr_auc'])}, "
+        f"calibration error (ECE) {fmt(no_show['ece'], 3)}.",
+    ]
+    return "\n".join(lines)
+
+
+def build_report(data: dict) -> str:
+    admission_summary = data["admission_summary"]
+    origins = admission_summary["rolling_origin_backtest"]["origins"]
+    admission_champion = admission_summary["published_forecast_model"]
+    occupancy_meta = data["occupancy_meta"]
     occupancy_champion = occupancy_meta["published_forecast_model"]
+    icu_champion = data["icu_backtest"].sort_values("MAE", kind="stable").iloc[0]["model"]
+    los_champion = data["los_backtest"].sort_values("MAE", kind="stable").iloc[0]["model"]
+    no_show_champion = data["no_show_backtest"].sort_values("brier", kind="stable").iloc[0]["model"]
+    manifest, scorecard = data["manifest"], data["scorecard"]
 
-    holdout = pd.read_csv(PLANNING / "forecast_backtest_summary.csv")
-    manifest = json.loads((PLANNING / "portfolio_run_manifest.json").read_text(encoding="utf-8"))
-    scorecard = json.loads((PLANNING / "reliability_scorecard.json").read_text(encoding="utf-8"))
-    bed_kpis = pd.read_csv(PLANNING / "bed_allocation_kpis.csv")
-
+    department_wins = (
+        data["admission_backtest"][~data["admission_backtest"]["department"].eq("All Departments")]
+        .sort_values("MAE", kind="stable").groupby("department").head(1)
+    )
     residuals = admission_summary["one_step_residual_diagnostics_hospital"]
     admission_sanity = admission_summary["published_forecast_sanity"]
     occupancy_sanity = occupancy_meta["published_forecast_sanity"]
 
-    def holdout_row(model: str, group: str) -> pd.Series | None:
-        rows = holdout[holdout["model"].eq(model) & holdout["group"].eq(group)]
-        return rows.iloc[0] if not rows.empty else None
+    risk = data["occupancy_risk"].copy()
+    risk_table = markdown_table(pd.DataFrame({
+        "Threshold": risk["threshold_name"],
+        "Beds": [f"{v:.0f}" for v in risk["threshold"]],
+        "Actual days": risk["actual_events"],
+        "Predicted days": risk["predicted_events"],
+        "Precision": [fmt(v) for v in risk["precision"]],
+        "Recall": [fmt(v) for v in risk["recall"]],
+        "F1": [fmt(v) for v in risk["f1"]],
+    }))
 
-    icu = holdout_row("icu_xgboost", "icu")
-    los = holdout_row("los_xgboost", "all_departments")
-    no_show = holdout_row("no_show_xgboost", "holdout")
-
-    origins = admission_summary["rolling_origin_backtest"]["origins"]
     lines = [
         "# Model metrics",
         "",
         "Generated by `ml/model_metrics_report.py` from the outputs of",
-        f"`run_portfolio.py --as-of-date {manifest['scenario_as_of_date']}`. Do not edit by hand.",
+        f"`run_portfolio.py --as-of-date {manifest['scenario_as_of_date']}`. Do not edit by hand;",
+        "`tests/test_generated_docs.py` fails if this file differs from the outputs.",
         "",
-        "All data is synthetic. These are retrospective checks on a simulated hospital,",
+        "Simulation results on synthetic data: retrospective checks on a simulated hospital,",
         "not evidence of real-world accuracy.",
         "",
-        "## How the forecasts are evaluated",
+        "## Summary",
         "",
-        "- **Time-based split.** The last 20% of days is held out. Models never see it during training or model selection.",
+        markdown_table(summary_rows(data)),
+        "",
+        "## How the models are evaluated",
+        "",
+        "- **Time-based splits only.** Models never see the holdout during training or model selection.",
         f"- **Warm-up excluded.** The simulated hospital opens empty; the first {WARMUP_DAYS} days (before {WARMUP_END}) are not used for training, validation or evaluation.",
-        f"- **30-day rolling-origin backtest.** From {len(origins)} origins inside the holdout "
-        f"({origins[0]} to {origins[-1]}, every "
-        f"{admission_summary['rolling_origin_backtest']['step_days']} days), every candidate forecasts the next 30 days "
-        "using only data up to the origin. Learned models forecast recursively, exactly as in production.",
-        "- **Naive baselines.** Last observed value, same weekday last week, and 7- and 28-day moving averages.",
-        "- **Champion rule.** The lowest backtest MAE is published. If the learned model loses, the baseline is published.",
-        "- **Metrics.** MAE and RMSE in counts per day. sMAPE stays defined when actual values are zero. MASE scales MAE by the in-sample same-weekday naive error (below 1 beats it).",
-        "- **Prediction intervals.** Split-conformal absolute-error quantiles by horizon (days 1-7, 8-14, 15-30). The earlier half of origins sets the widths and the later half measures coverage.",
-        "- **Whole numbers.** Published admissions, beds and ICU admissions are whole, non-negative counts. Occupied beds are capped at bed capacity. Evaluation files keep raw model output.",
+        f"- **Time series (admissions, occupancy, ICU).** From {len(origins)} weekly origins "
+        f"({origins[0]} to {origins[-1]}) every candidate forecasts the next 30 days using only data up to the origin. "
+        "Learned models forecast recursively, as in production. Baselines: last observed value, same weekday last week, "
+        "7- and 28-day moving averages. The lowest MAE is published.",
+        "- **Length of stay.** Predicted at admission. The model and the baselines (training mean, department mean, "
+        "department x severity mean) are fitted on stays already discharged before the holdout and scored on the "
+        "admissions in each rolling 30-day window. The lowest pooled MAE is published.",
+        "- **No-show.** Scored the day before the appointment. Calibrated XGBoost, logistic regression and the training "
+        "no-show rate are scored on each rolling 30-day window; the lowest pooled Brier score is published. Thresholds "
+        "for precision/recall/F1 are chosen on validation data.",
+        "- **Metrics.** MAE and RMSE; MAPE for LOS (no zero stays); sMAPE and MASE for count series with zeros "
+        "(MASE below 1 beats the in-sample same-weekday forecast). Classification: precision, recall, F1, ROC-AUC, "
+        "PR-AUC, Brier, log loss and expected calibration error (ECE).",
+        "- **Prediction intervals.** Conformal absolute-error quantiles by horizon (days 1-7, 8-14, 15-30). Coverage is "
+        "now measured as published: at each origin the width uses only errors already observed (expanding window) and "
+        "the whole-number interval is checked. The earlier split-half check on the raw interval is shown for comparison.",
+        "- **Leakage audit.** `tests/test_leakage_audit.py` perturbs values at time t and checks that no feature at or "
+        "before t changes, for every model.",
         "",
         "## Admissions (hospital total, admissions per day)",
         "",
-        backtest_table(hospital_backtest, admission_champion),
+        ranked_table(data["admission_hospital"], admission_champion, TIME_SERIES_COLUMNS, "MAE"),
         "",
-        f"**Published model: {MODEL_LABELS.get(admission_champion, admission_champion)}.** "
-        + (
-            "XGBoost does not beat the best naive baseline on the 30-day backtest."
-            if admission_champion != "xgboost_recursive"
-            else "XGBoost beats every naive baseline on the 30-day backtest."
-        )
-        + f" Per department, XGBoost has the lowest backtest MAE in {xgboost_department_wins} of "
-        f"{department_wins['department'].nunique()} departments.",
+        f"Published: **{label(admission_champion)}**. Per department, XGBoost has the lowest backtest MAE in "
+        f"{int(department_wins['model'].eq('xgboost_recursive').sum())} of {department_wins['department'].nunique()} departments. "
+        "Daily admissions are close to Poisson noise around a stable level (variance about equal to the mean), so "
+        "there is little structure beyond the average. One-step XGBoost holdout residuals (actual minus predicted) "
+        f"have mean {residuals['residual_mean']:.2f} and lag-1 autocorrelation {residuals['residual_autocorr_lag1']:.2f}.",
         "",
-        "Why: the synthetic daily admissions are close to Poisson noise around a stable level "
-        "(variance about equal to the mean). Little day-to-day structure is left beyond the average, "
-        f"and one-step XGBoost residuals on the holdout have mean {residuals['residual_mean']:.2f} "
-        f"(actual minus predicted), i.e. a systematic over-prediction, with lag-1 autocorrelation "
-        f"{residuals['residual_autocorr_lag1']:.2f}.",
+        "Interval coverage:",
         "",
-        "Interval coverage (hospital total, later backtest origins):",
-        "",
-        coverage_table(pd.read_csv(ADMISSIONS / "admission_interval_coverage.csv")),
+        coverage_table(data["admission_coverage"]),
         "",
         f"Published 30-day path: {admission_sanity['forecast_min']:.0f}-{admission_sanity['forecast_max']:.0f} "
-        f"admissions/day, all whole numbers: {admission_sanity['all_whole_numbers']}, "
-        f"negative values: {admission_sanity['has_negative']}.",
+        f"admissions/day; whole numbers: {admission_sanity['all_whole_numbers']}; negative values: {admission_sanity['has_negative']}.",
         "",
         "## Occupancy (hospital occupied beds)",
         "",
-        f"Bed capacity: {occupancy_meta['bed_capacity']}. History source: "
-        f"`{occupancy_meta['historical_occupancy_source']}` (department occupancy weighted by department bed count).",
+        f"Bed capacity {occupancy_meta['bed_capacity']}; history `{occupancy_meta['historical_occupancy_source']}` "
+        "(department occupancy weighted by department bed count).",
         "",
-        backtest_table(occupancy_backtest, occupancy_champion),
+        ranked_table(data["occupancy_backtest"], occupancy_champion, TIME_SERIES_COLUMNS, "MAE"),
         "",
-        f"**Published model: {MODEL_LABELS.get(occupancy_champion, occupancy_champion)}.**",
+        f"Published: **{label(occupancy_champion)}**.",
         "",
-        "Interval coverage (later backtest origins):",
+        "Interval coverage:",
         "",
-        coverage_table(pd.read_csv(OCCUPANCY / "occupancy_interval_coverage.csv")),
+        coverage_table(data["occupancy_coverage"]),
         "",
-        f"Published 30-day path: {occupancy_sanity['forecast_min']:.0f}-{occupancy_sanity['forecast_max']:.0f} "
-        f"occupied beds ({occupancy_sanity['distinct_values']} distinct values; recent 90-day history standard deviation "
-        f"{occupancy_sanity['recent_history_std']:.1f} beds, forecast standard deviation {occupancy_sanity['forecast_std']:.1f}). "
-        f"Exceeds capacity: {occupancy_sanity['exceeds_capacity']}.",
+        "Occupancy-risk alerts on the backtest (does the forecast flag the days that reach a threshold?). The "
+        "elevated level is the 90th percentile of pre-holdout occupancy; the 90%/95% alert levels never occur in this "
+        "synthetic history, so their precision/recall are undefined (n/a):",
         "",
-        "## Other models (one-step chronological holdout)",
+        risk_table,
         "",
-        "These have not yet been through the 30-day rolling-origin backtest.",
+        f"Published 30-day path: {occupancy_sanity['forecast_min']:.0f}-{occupancy_sanity['forecast_max']:.0f} occupied beds "
+        f"({occupancy_sanity['distinct_values']} distinct values; recent 90-day standard deviation "
+        f"{occupancy_sanity['recent_history_std']:.1f}, forecast {occupancy_sanity['forecast_std']:.1f}); exceeds capacity: "
+        f"{occupancy_sanity['exceeds_capacity']}.",
         "",
-    ]
-    other = []
-    if icu is not None:
-        other.append({
-            "Model": "ICU admissions (XGBoost)", "Test rows": int(icu["test_rows"]),
-            "Result": f"MAE {icu['mae']:.2f}/day vs 7-day baseline {icu['baseline_mae']:.2f}",
-        })
-    if los is not None:
-        other.append({
-            "Model": "Length of stay (XGBoost)", "Test rows": int(los["test_rows"]),
-            "Result": f"MAE {los['mae']:.2f} days",
-        })
-    if no_show is not None:
-        other.append({
-            "Model": "No-show (XGBoost, calibrated)", "Test rows": int(no_show["test_rows"]),
-            "Result": f"Brier {no_show['brier_score']:.3f} vs prevalence {no_show['pre_holdout_baseline_brier']:.3f}; ROC-AUC {no_show['roc_auc']:.3f}",
-        })
-    lines.append(markdown_table(pd.DataFrame(other)))
-
-    optimized = bed_kpis[bed_kpis["scenario"].eq("optimized")]
-    expansion = manifest["synthetic_capacity_expansion"]
-    lines += [
+        "## ICU admissions (admissions per day, not ICU census)",
+        "",
+        ranked_table(data["icu_backtest"], icu_champion, TIME_SERIES_COLUMNS, "MAE"),
+        "",
+        f"Published: **{label(icu_champion)}**. At under one ICU admission a day, whole-number intervals are "
+        "coarse, so measured coverage can exceed the target.",
+        "",
+        coverage_table(data["icu_coverage"]),
+        "",
+        "## Length of stay (days per admission)",
+        "",
+        ranked_table(data["los_backtest"], los_champion, {
+            "MAE": "MAE", "RMSE": "RMSE", "MAPE_percent": "MAPE %", "bias": "Bias",
+            "window_MAE_mean": "Window MAE mean", "window_MAE_std": "Window MAE std",
+        }, "MAE"),
+        "",
+        f"Published: **{label(los_champion)}**.",
+        "",
+        "## No-show (probability per appointment)",
+        "",
+        ranked_table(data["no_show_backtest"], no_show_champion, {
+            "brier": "Brier", "log_loss": "Log loss", "roc_auc": "ROC-AUC", "pr_auc": "PR-AUC",
+            "precision": "Precision", "recall": "Recall", "f1": "F1", "ece": "ECE",
+            "window_brier_std": "Window Brier std",
+        }, "brier", digits=3),
+        "",
+        f"Published: **{label(no_show_champion)}**. Calibration by probability bin: `ml/no_show_prediction/no_show_reliability.csv`.",
         "",
         "## Simulation and optimization results (not model accuracy)",
         "",
-        "These numbers come from the OR-Tools scenario run on synthetic data. They show that the planner",
-        "finds a feasible plan under its constraints. They are not measured improvements at a real hospital.",
+        "From the OR-Tools scenario run on synthetic data. They show that the planner finds a feasible plan under",
+        "its constraints; they are not measured improvements at a real hospital.",
         "",
-        f"- Optimized bed plan overflow bed-days: {int(optimized['overflow_bed_days'].sum())}.",
-        f"- This relies on {expansion['temporary_surge_beds']} scenario-only surge beds and a "
-        f"{expansion['surge_staff_pool_headcount']}-person synthetic flex staff pool.",
-        f"- Pipeline status: `{manifest['pipeline_status']}`; reliability scorecard overall "
-        f"{scorecard['overall_score']}/5 (the pipeline's own rubric, equal-weighted sections).",
+        f"- Optimized bed plan overflow bed-days: {int(data['bed_kpis'][data['bed_kpis']['scenario'].eq('optimized')]['overflow_bed_days'].sum())}.",
+        f"- Relies on {manifest['synthetic_capacity_expansion']['temporary_surge_beds']} scenario-only surge beds and a "
+        f"{manifest['synthetic_capacity_expansion']['surge_staff_pool_headcount']}-person synthetic flex staff pool.",
+        f"- Pipeline status: `{manifest['pipeline_status']}`; reliability scorecard overall {scorecard['overall_score']}/5 "
+        "(the pipeline's own rubric, equal-weighted sections).",
         "",
     ]
+    return "\n".join(lines)
+
+
+def readme_with_block(readme: str, block: str) -> str:
+    if README_START not in readme or README_END not in readme:
+        raise ValueError("README.md is missing the generated metrics markers.")
+    before, rest = readme.split(README_START, 1)
+    _, after = rest.split(README_END, 1)
+    return before + README_START + "\n" + block + "\n" + README_END + after
+
+
+def main() -> None:
+    data = load_outputs()
     REPORT.parent.mkdir(parents=True, exist_ok=True)
-    REPORT.write_text("\n".join(lines), encoding="utf-8")
-    update_readme(readme_results(
-        origins, hospital_backtest, admission_champion,
-        occupancy_backtest, occupancy_champion,
-        {"icu": icu, "los": los, "no_show": no_show},
-    ))
+    REPORT.write_text(build_report(data), encoding="utf-8")
+    README.write_text(
+        readme_with_block(README.read_text(encoding="utf-8"), build_readme_block(data)),
+        encoding="utf-8",
+    )
     print(REPORT)
     print(README)
 

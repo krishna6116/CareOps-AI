@@ -90,6 +90,10 @@ from sklearn.preprocessing import OneHotEncoder
 from xgboost import XGBRegressor
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from forecast_evaluation import model_status
+from los_evaluation import LEARNED as LOS_LEARNED
+from los_evaluation import completed_before, fit_baselines
+from los_evaluation import evaluate as evaluate_los
 from scenario_config import drop_warmup
 
 
@@ -2203,6 +2207,18 @@ def main() -> None:
             combined
         )
 
+        # Train only on stays already discharged when the holdout starts;
+        # later discharges were not observable at that time.
+        test_start = pd.Timestamp(test_df["admission_datetime_model"].min())
+        training_rows_before = len(train_df)
+        train_df = completed_before(
+            train_df, "admission_datetime_model", "los_target", test_start
+        ).copy()
+        print(
+            f"Training stays still open at the holdout start (excluded): "
+            f"{training_rows_before - len(train_df):,}"
+        )
+
         print(
             f"Training rows: {len(train_df):,}"
         )
@@ -2411,12 +2427,35 @@ def main() -> None:
             "Generating LOS predictions and feature importance..."
         )
 
+        # Rolling 30-day windows over the holdout against simple baselines;
+        # the lowest pooled MAE is published.
+        candidate_predictions = {
+            "xgboost": predictions,
+            **fit_baselines(train_df, test_df, "los_target", ["department", "severity"]),
+        }
+        los_windows, los_summary, los_champion = evaluate_los(
+            test_df,
+            "admission_datetime_model",
+            "los_target",
+            candidate_predictions,
+            test_start - pd.Timedelta(days=1),
+        )
+        los_windows.to_csv(OUTPUT_DIR / "los_backtest_windows.csv", index=False)
+        los_summary.to_csv(OUTPUT_DIR / "los_backtest_summary.csv", index=False)
+        los_status = model_status(los_summary, los_champion, LOS_LEARNED)
+        print("")
+        print("Rolling 30-day windows (pooled over the holdout):")
+        print(los_summary.round(3).to_string(index=False))
+        print(f"Published LOS model: {los_champion}")
+
         prediction_output = (
             create_prediction_output(
                 test_df,
-                predictions,
+                candidate_predictions[los_champion],
             )
         )
+        for key, value in los_status.items():
+            prediction_output[key] = value
 
         feature_importance = (
             build_feature_importance(

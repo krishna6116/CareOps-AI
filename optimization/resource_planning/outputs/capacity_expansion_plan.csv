@@ -1,84 +1,84 @@
 resource_type,department,role,shift,added_quantity,forecast_horizon_days,scheduled_hours,unit_cost_usd,planned_cost_usd,cost_basis,scenario_only,peak_required_staff_per_shift,scheduled_surge_staff
 temporary_surge_beds,cardiology,,,1,30,0.0,250.0,7500.0,illustrative bed-day rate; scenario assumption,True,,
-temporary_surge_beds,general medicine,,,5,30,0.0,250.0,37500.0,illustrative bed-day rate; scenario assumption,True,,
+temporary_surge_beds,general medicine,,,4,30,0.0,250.0,30000.0,illustrative bed-day rate; scenario assumption,True,,
 temporary_surge_beds,neurology,,,1,30,0.0,250.0,7500.0,illustrative bed-day rate; scenario assumption,True,,
 temporary_surge_beds,orthopedics,,,1,30,0.0,250.0,7500.0,illustrative bed-day rate; scenario assumption,True,,
 temporary_surge_beds,pediatrics,,,1,30,0.0,250.0,7500.0,illustrative bed-day rate; scenario assumption,True,,
 temporary_surge_beds,surgery,,,2,30,0.0,250.0,15000.0,illustrative bed-day rate; scenario assumption,True,,
-synthetic_surge_staff,cardiology,Nurse,Evening,8,30,616.0,75.0,46200.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
+synthetic_surge_staff,cardiology,Nurse,Evening,8,30,608.0,75.0,45600.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
 synthetic_surge_staff,cardiology,Technician,Evening,4,30,160.0,60.0,9600.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,cardiology,Therapist,Evening,4,30,128.0,60.0,7680.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,cardiology,Administrator,Morning,4,30,136.0,30.0,4080.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,cardiology,Doctor,Morning,9,30,632.0,160.0,101120.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
-synthetic_surge_staff,cardiology,Nurse,Morning,7,30,496.0,75.0,37200.0,illustrative hourly rate applied to scheduled surge hours,True,3.0,7.0
+synthetic_surge_staff,cardiology,Doctor,Morning,9,30,624.0,160.0,99840.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
+synthetic_surge_staff,cardiology,Nurse,Morning,7,30,488.0,75.0,36600.0,illustrative hourly rate applied to scheduled surge hours,True,3.0,7.0
 synthetic_surge_staff,cardiology,Technician,Morning,4,30,128.0,60.0,7680.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,cardiology,Nurse,Night,6,30,440.0,75.0,33000.0,illustrative hourly rate applied to scheduled surge hours,True,2.0,6.0
 synthetic_surge_staff,cardiology,Technician,Night,4,30,160.0,60.0,9600.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,emergency,Administrator,Evening,5,30,224.0,30.0,6720.0,illustrative hourly rate applied to scheduled surge hours,True,2.0,5.0
 synthetic_surge_staff,emergency,Nurse,Evening,7,30,504.0,75.0,37800.0,illustrative hourly rate applied to scheduled surge hours,True,3.0,7.0
 synthetic_surge_staff,emergency,Administrator,Morning,4,30,112.0,30.0,3360.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,emergency,Doctor,Morning,8,30,480.0,160.0,76800.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
+synthetic_surge_staff,emergency,Doctor,Morning,8,30,488.0,160.0,78080.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
 synthetic_surge_staff,emergency,Nurse,Morning,9,30,608.0,75.0,45600.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
 synthetic_surge_staff,emergency,Nurse,Night,6,30,520.0,75.0,39000.0,illustrative hourly rate applied to scheduled surge hours,True,2.0,6.0
-synthetic_surge_staff,general medicine,Nurse,Evening,26,30,3512.0,75.0,263400.0,illustrative hourly rate applied to scheduled surge hours,True,17.0,26.0
+synthetic_surge_staff,general medicine,Nurse,Evening,26,30,3504.0,75.0,262800.0,illustrative hourly rate applied to scheduled surge hours,True,17.0,26.0
 synthetic_surge_staff,general medicine,Therapist,Evening,4,30,176.0,60.0,10560.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,general medicine,Administrator,Morning,4,30,208.0,30.0,6240.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,general medicine,Doctor,Morning,35,30,2992.0,160.0,478720.0,illustrative hourly rate applied to scheduled surge hours,True,23.0,35.0
-synthetic_surge_staff,general medicine,Nurse,Morning,26,30,3904.0,75.0,292800.0,illustrative hourly rate applied to scheduled surge hours,True,17.0,26.0
+synthetic_surge_staff,general medicine,Nurse,Morning,26,30,3888.0,75.0,291600.0,illustrative hourly rate applied to scheduled surge hours,True,17.0,26.0
 synthetic_surge_staff,general medicine,Technician,Morning,4,30,176.0,60.0,10560.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,general medicine,Nurse,Night,32,30,4560.0,75.0,342000.0,illustrative hourly rate applied to scheduled surge hours,True,17.0,32.0
+synthetic_surge_staff,general medicine,Nurse,Night,32,30,4540.0,75.0,340500.0,illustrative hourly rate applied to scheduled surge hours,True,17.0,32.0
 synthetic_surge_staff,general medicine,Technician,Night,4,30,220.0,60.0,13200.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,icu,Administrator,Evening,4,30,128.0,30.0,3840.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,icu,Nurse,Evening,9,30,800.0,75.0,60000.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
+synthetic_surge_staff,icu,Nurse,Evening,9,30,816.0,75.0,61200.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
 synthetic_surge_staff,icu,Technician,Evening,5,30,296.0,60.0,17760.0,illustrative hourly rate applied to scheduled surge hours,True,2.0,5.0
-synthetic_surge_staff,icu,Therapist,Evening,4,30,128.0,60.0,7680.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,3.0
+synthetic_surge_staff,icu,Therapist,Evening,4,30,128.0,60.0,7680.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,icu,Doctor,Morning,11,30,744.0,160.0,119040.0,illustrative hourly rate applied to scheduled surge hours,True,6.0,11.0
-synthetic_surge_staff,icu,Nurse,Morning,8,30,752.0,75.0,56400.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
+synthetic_surge_staff,icu,Nurse,Morning,8,30,744.0,75.0,55800.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
 synthetic_surge_staff,icu,Technician,Morning,4,30,152.0,60.0,9120.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,icu,Therapist,Morning,4,30,120.0,60.0,7200.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,icu,Nurse,Night,9,30,810.0,75.0,60750.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,9.0
+synthetic_surge_staff,icu,Nurse,Night,9,30,800.0,75.0,60000.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,9.0
 synthetic_surge_staff,icu,Technician,Night,4,30,160.0,60.0,9600.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,icu,Therapist,Night,6,30,410.0,60.0,24600.0,illustrative hourly rate applied to scheduled surge hours,True,2.0,8.0
+synthetic_surge_staff,icu,Therapist,Night,6,30,410.0,60.0,24600.0,illustrative hourly rate applied to scheduled surge hours,True,2.0,9.0
 synthetic_surge_staff,neurology,Administrator,Evening,4,30,168.0,30.0,5040.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,neurology,Nurse,Evening,12,30,848.0,75.0,63600.0,illustrative hourly rate applied to scheduled surge hours,True,7.0,12.0
 synthetic_surge_staff,neurology,Technician,Evening,4,30,136.0,60.0,8160.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,neurology,Therapist,Evening,4,30,136.0,60.0,8160.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,neurology,Administrator,Morning,4,30,136.0,30.0,4080.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,neurology,Doctor,Morning,8,30,504.0,160.0,80640.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
+synthetic_surge_staff,neurology,Doctor,Morning,8,30,496.0,160.0,79360.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
 synthetic_surge_staff,neurology,Nurse,Morning,9,30,632.0,75.0,47400.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
 synthetic_surge_staff,neurology,Technician,Morning,4,30,136.0,60.0,8160.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,neurology,Nurse,Night,8,30,470.0,75.0,35250.0,illustrative hourly rate applied to scheduled surge hours,True,3.0,8.0
-synthetic_surge_staff,oncology,Nurse,Evening,9,30,400.0,75.0,30000.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
-synthetic_surge_staff,oncology,Technician,Evening,4,30,72.0,60.0,4320.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
+synthetic_surge_staff,neurology,Nurse,Night,8,30,460.0,75.0,34500.0,illustrative hourly rate applied to scheduled surge hours,True,3.0,8.0
+synthetic_surge_staff,oncology,Nurse,Evening,9,30,384.0,75.0,28800.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
+synthetic_surge_staff,oncology,Technician,Evening,4,30,72.0,60.0,4320.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,3.0
 synthetic_surge_staff,oncology,Administrator,Morning,4,30,72.0,30.0,2160.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,3.0
 synthetic_surge_staff,oncology,Doctor,Morning,8,30,336.0,160.0,53760.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
 synthetic_surge_staff,oncology,Nurse,Morning,8,30,360.0,75.0,27000.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
 synthetic_surge_staff,oncology,Technician,Morning,4,30,72.0,60.0,4320.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,oncology,Nurse,Night,6,30,330.0,75.0,24750.0,illustrative hourly rate applied to scheduled surge hours,True,2.0,7.0
+synthetic_surge_staff,oncology,Nurse,Night,6,30,330.0,75.0,24750.0,illustrative hourly rate applied to scheduled surge hours,True,2.0,6.0
 synthetic_surge_staff,oncology,Technician,Night,4,30,90.0,60.0,5400.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,oncology,Therapist,Night,4,30,90.0,60.0,5400.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,3.0
 synthetic_surge_staff,orthopedics,Administrator,Evening,4,30,8.0,30.0,240.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,1.0
-synthetic_surge_staff,orthopedics,Nurse,Evening,8,30,520.0,75.0,39000.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
+synthetic_surge_staff,orthopedics,Nurse,Evening,8,30,544.0,75.0,40800.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
 synthetic_surge_staff,orthopedics,Technician,Evening,5,30,344.0,60.0,20640.0,illustrative hourly rate applied to scheduled surge hours,True,2.0,5.0
 synthetic_surge_staff,orthopedics,Administrator,Morning,4,30,144.0,30.0,4320.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,orthopedics,Doctor,Morning,9,30,680.0,160.0,108800.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
+synthetic_surge_staff,orthopedics,Doctor,Morning,9,30,696.0,160.0,111360.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
 synthetic_surge_staff,orthopedics,Nurse,Morning,8,30,592.0,75.0,44400.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
 synthetic_surge_staff,orthopedics,Technician,Morning,5,30,216.0,60.0,12960.0,illustrative hourly rate applied to scheduled surge hours,True,2.0,5.0
 synthetic_surge_staff,orthopedics,Nurse,Night,11,30,970.0,75.0,72750.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,12.0
 synthetic_surge_staff,orthopedics,Technician,Night,4,30,230.0,60.0,13800.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,orthopedics,Therapist,Night,4,30,230.0,60.0,13800.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,pediatrics,Nurse,Evening,7,30,496.0,75.0,37200.0,illustrative hourly rate applied to scheduled surge hours,True,3.0,7.0
-synthetic_surge_staff,pediatrics,Administrator,Morning,4,30,176.0,30.0,5280.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
+synthetic_surge_staff,pediatrics,Nurse,Evening,8,30,560.0,75.0,42000.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
+synthetic_surge_staff,pediatrics,Administrator,Morning,4,30,168.0,30.0,5040.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,pediatrics,Doctor,Morning,8,30,600.0,160.0,96000.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
-synthetic_surge_staff,pediatrics,Nurse,Morning,7,30,496.0,75.0,37200.0,illustrative hourly rate applied to scheduled surge hours,True,3.0,7.0
+synthetic_surge_staff,pediatrics,Nurse,Morning,8,30,552.0,75.0,41400.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,8.0
 synthetic_surge_staff,pediatrics,Administrator,Night,4,30,300.0,30.0,9000.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,pediatrics,Nurse,Night,8,30,610.0,75.0,45750.0,illustrative hourly rate applied to scheduled surge hours,True,3.0,8.0
+synthetic_surge_staff,pediatrics,Nurse,Night,9,30,630.0,75.0,47250.0,illustrative hourly rate applied to scheduled surge hours,True,4.0,9.0
 synthetic_surge_staff,pediatrics,Technician,Night,4,30,260.0,60.0,15600.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
-synthetic_surge_staff,surgery,Nurse,Evening,9,30,864.0,75.0,64800.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
+synthetic_surge_staff,surgery,Nurse,Evening,9,30,832.0,75.0,62400.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
 synthetic_surge_staff,surgery,Technician,Evening,4,30,208.0,60.0,12480.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,surgery,Doctor,Morning,12,30,840.0,160.0,134400.0,illustrative hourly rate applied to scheduled surge hours,True,7.0,12.0
-synthetic_surge_staff,surgery,Nurse,Morning,9,30,840.0,75.0,63000.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
-synthetic_surge_staff,surgery,Surgeon,Morning,32,30,2424.0,160.0,387840.0,illustrative hourly rate applied to scheduled surge hours,True,21.0,32.0
+synthetic_surge_staff,surgery,Nurse,Morning,9,30,832.0,75.0,62400.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,9.0
+synthetic_surge_staff,surgery,Surgeon,Morning,32,30,2432.0,160.0,389120.0,illustrative hourly rate applied to scheduled surge hours,True,21.0,32.0
 synthetic_surge_staff,surgery,Technician,Morning,4,30,208.0,60.0,12480.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,surgery,Therapist,Morning,4,30,208.0,60.0,12480.0,illustrative hourly rate applied to scheduled surge hours,True,1.0,4.0
 synthetic_surge_staff,surgery,Nurse,Night,11,30,960.0,75.0,72000.0,illustrative hourly rate applied to scheduled surge hours,True,5.0,11.0

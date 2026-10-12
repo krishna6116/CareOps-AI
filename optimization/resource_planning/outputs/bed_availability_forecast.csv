@@ -1,271 +1,271 @@
 date,department,current_occupied,predicted_admissions,predicted_isolation_admissions,projected_isolation_bed_demand,isolation_scenario_rate,isolation_source_type,isolation_demand_source_available,mean_predicted_los_days,expected_discharges,unconstrained_projected_occupied_beds,admission_los_projected_occupied_beds,predicted_icu_admissions_per_day,occupancy_forecast_total_beds,occupancy_calibration_factor,icu_demand_not_in_occupancy_forecast,projected_occupied_beds,operational_bed_capacity,forecast_available_beds
-2026-10-06,cardiology,5,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,6,6,,144.0,1.0068,0,6,20,14
-2026-10-06,emergency,6,0,0,0,0.065721,synthetic_historical_rate_scenario,True,11.39,1,5,5,,144.0,1.0068,0,5,10,5
-2026-10-06,general medicine,66,5,0,1,0.06937,synthetic_historical_rate_scenario,True,11.75,6,65,65,,144.0,1.0068,0,66,101,35
-2026-10-06,icu,14,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,14,14,1.0,144.0,1.0,0,14,19,5
-2026-10-06,neurology,7,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,7,7,,144.0,1.0068,0,7,15,8
-2026-10-06,oncology,2,0,0,0,0.062973,synthetic_historical_rate_scenario,True,12.0,0,2,2,,144.0,1.0068,0,2,10,8
-2026-10-06,orthopedics,15,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,15,15,,144.0,1.0068,0,15,16,1
-2026-10-06,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,144.0,1.0068,0,12,15,3
-2026-10-06,surgery,17,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,17,17,,144.0,1.0068,0,17,26,9
-2026-10-07,cardiology,6,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,5,5,,144.0,0.999,0,5,20,15
-2026-10-07,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,144.0,0.999,0,6,10,4
-2026-10-07,general medicine,66,6,1,1,0.06937,synthetic_historical_rate_scenario,True,11.75,5,66,66,,144.0,0.999,0,66,101,35
-2026-10-07,icu,14,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,13,13,1.0,144.0,1.0,0,13,19,6
-2026-10-07,neurology,7,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,0,7,7,,144.0,0.999,0,7,15,8
-2026-10-07,oncology,2,1,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,144.0,0.999,0,3,10,7
-2026-10-07,orthopedics,15,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,2,15,15,,144.0,0.999,0,15,16,1
-2026-10-07,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,144.0,0.999,0,12,15,3
-2026-10-07,surgery,17,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,2,17,17,,144.0,0.999,0,17,26,9
-2026-10-08,cardiology,5,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,6,6,,144.0,1.0069,0,6,20,14
-2026-10-08,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,6,6,,144.0,1.0069,0,6,10,4
-2026-10-08,general medicine,66,5,0,2,0.06937,synthetic_historical_rate_scenario,True,11.75,6,66,66,,144.0,1.0069,0,66,101,35
-2026-10-08,icu,13,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,13,13,1.0,144.0,1.0,0,13,19,6
-2026-10-08,neurology,7,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,7,7,,144.0,1.0069,0,7,15,8
-2026-10-08,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,1,2,2,,144.0,1.0069,0,3,10,7
-2026-10-08,orthopedics,15,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,14,14,,144.0,1.0069,0,14,16,2
-2026-10-08,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,144.0,1.0069,0,12,15,3
-2026-10-08,surgery,17,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,17,17,,144.0,1.0069,0,17,26,9
-2026-10-09,cardiology,6,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,6,6,,143.0,0.9991,0,6,20,14
-2026-10-09,emergency,6,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,143.0,0.9991,0,6,10,4
-2026-10-09,general medicine,66,5,0,2,0.06937,synthetic_historical_rate_scenario,True,11.75,5,65,65,,143.0,0.9991,0,65,101,36
-2026-10-09,icu,13,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,0,13,13,1.0,143.0,1.0,0,13,19,6
-2026-10-09,neurology,7,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,0,8,8,,143.0,0.9991,0,8,15,7
-2026-10-09,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,2,2,,143.0,0.9991,0,2,10,8
-2026-10-09,orthopedics,14,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,14,14,,143.0,0.9991,0,14,16,2
-2026-10-09,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,143.0,0.9991,0,12,15,3
-2026-10-09,surgery,17,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,2,17,17,,143.0,0.9991,0,17,26,9
-2026-10-10,cardiology,6,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,6,6,,142.0,0.9986,0,6,20,14
-2026-10-10,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,5,5,,142.0,0.9986,0,5,10,5
-2026-10-10,general medicine,65,5,1,2,0.06937,synthetic_historical_rate_scenario,True,11.75,6,65,65,,142.0,0.9986,0,65,101,36
-2026-10-10,icu,13,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,13,13,1.0,142.0,1.0,0,13,19,6
-2026-10-10,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,8,8,,142.0,0.9986,0,8,15,7
-2026-10-10,oncology,2,1,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,142.0,0.9986,0,3,10,7
-2026-10-10,orthopedics,14,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,14,14,,142.0,0.9986,0,14,16,2
-2026-10-10,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,142.0,0.9986,0,12,15,3
-2026-10-10,surgery,17,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,16,16,,142.0,0.9986,0,16,26,10
-2026-10-11,cardiology,6,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,6,6,,140.0,0.9824,0,6,20,14
-2026-10-11,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,140.0,0.9824,0,6,10,4
-2026-10-11,general medicine,65,6,0,2,0.06937,synthetic_historical_rate_scenario,True,11.75,6,65,65,,140.0,0.9824,0,64,101,37
-2026-10-11,icu,13,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,13,13,1.0,140.0,1.0,0,13,19,6
-2026-10-11,neurology,8,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,7,7,,140.0,0.9824,0,7,15,8
-2026-10-11,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,140.0,0.9824,0,3,10,7
-2026-10-11,orthopedics,14,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,14,14,,140.0,0.9824,0,14,16,2
-2026-10-11,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,140.0,0.9824,0,12,15,3
-2026-10-11,surgery,16,1,1,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,16,16,,140.0,0.9824,0,15,26,11
-2026-10-12,cardiology,6,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,7,7,,141.0,1.0122,0,7,20,13
-2026-10-12,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,5,5,,141.0,1.0122,0,5,10,5
-2026-10-12,general medicine,64,5,1,2,0.06937,synthetic_historical_rate_scenario,True,11.75,5,64,64,,141.0,1.0122,0,64,101,37
-2026-10-12,icu,13,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,12,12,0.0,141.0,1.0,0,12,19,7
-2026-10-12,neurology,7,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,0,8,8,,141.0,1.0122,0,8,15,7
-2026-10-12,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,2,2,,141.0,1.0122,0,3,10,7
-2026-10-12,orthopedics,14,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,2,13,13,,141.0,1.0122,0,14,16,2
-2026-10-12,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,141.0,1.0122,0,12,15,3
-2026-10-12,surgery,15,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,2,16,16,,141.0,1.0122,0,16,26,10
-2026-10-13,cardiology,7,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,6,6,,141.0,1.0051,0,6,20,14
-2026-10-13,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,141.0,1.0051,0,6,10,4
-2026-10-13,general medicine,64,5,0,3,0.06937,synthetic_historical_rate_scenario,True,11.75,5,64,64,,141.0,1.0051,0,64,101,37
-2026-10-13,icu,12,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,12,12,1.0,141.0,1.0,0,13,19,6
-2026-10-13,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,8,8,,141.0,1.0051,0,8,15,7
-2026-10-13,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,1,2,2,,141.0,1.0051,0,2,10,8
-2026-10-13,orthopedics,14,1,1,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,14,14,,141.0,1.0051,0,14,16,2
-2026-10-13,pediatrics,12,1,1,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,141.0,1.0051,0,12,15,3
-2026-10-13,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,16,16,,141.0,1.0051,0,16,26,10
-2026-10-14,cardiology,6,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,6,6,,141.0,1.0051,0,7,20,13
-2026-10-14,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,5,5,,141.0,1.0051,0,5,10,5
-2026-10-14,general medicine,64,6,0,3,0.06937,synthetic_historical_rate_scenario,True,11.75,6,65,65,,141.0,1.0051,0,65,101,36
-2026-10-14,icu,12,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,0,13,13,1.0,141.0,1.0,0,13,19,6
-2026-10-14,neurology,8,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,0,8,8,,141.0,1.0051,0,8,15,7
-2026-10-14,oncology,3,1,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,141.0,1.0051,0,3,10,7
-2026-10-14,orthopedics,14,0,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,141.0,1.0051,0,12,16,4
-2026-10-14,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,141.0,1.0051,0,12,15,3
-2026-10-14,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,2,16,16,,141.0,1.0051,0,16,26,10
-2026-10-15,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,7,7,,142.0,1.005,0,7,20,13
-2026-10-15,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,142.0,1.005,0,6,10,4
-2026-10-15,general medicine,65,5,1,3,0.06937,synthetic_historical_rate_scenario,True,11.75,5,65,65,,142.0,1.005,0,65,101,36
-2026-10-15,icu,13,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,12,12,2.0,142.0,1.0,0,12,19,7
-2026-10-15,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,8,8,,142.0,1.005,0,8,15,7
-2026-10-15,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,142.0,1.005,0,3,10,7
-2026-10-15,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,142.0,1.005,0,12,16,4
-2026-10-15,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,142.0,1.005,0,12,15,3
-2026-10-15,surgery,16,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,16,16,,142.0,1.005,0,17,26,9
-2026-10-16,cardiology,7,1,1,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,7,7,,142.0,1.0058,0,7,20,13
-2026-10-16,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,6,6,,142.0,1.0058,0,6,10,4
-2026-10-16,general medicine,65,5,0,3,0.06937,synthetic_historical_rate_scenario,True,11.75,6,64,64,,142.0,1.0058,0,65,101,36
-2026-10-16,icu,12,1,1,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,12,12,1.0,142.0,1.0,0,12,19,7
-2026-10-16,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,9,9,,142.0,1.0058,0,9,15,6
-2026-10-16,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,142.0,1.0058,0,3,10,7
-2026-10-16,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,142.0,1.0058,0,12,16,4
-2026-10-16,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,142.0,1.0058,0,12,15,3
-2026-10-16,surgery,17,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,16,16,,142.0,1.0058,0,16,26,10
-2026-10-17,cardiology,7,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,7,7,,141.0,0.998,0,7,20,13
-2026-10-17,emergency,6,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,141.0,0.998,0,6,10,4
-2026-10-17,general medicine,65,5,0,3,0.06937,synthetic_historical_rate_scenario,True,11.75,5,64,64,,141.0,0.998,0,64,101,37
-2026-10-17,icu,12,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,12,12,1.0,141.0,1.0,0,12,19,7
-2026-10-17,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,0,9,9,,141.0,0.998,0,9,15,6
-2026-10-17,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,1,3,3,,141.0,0.998,0,3,10,7
-2026-10-17,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,141.0,0.998,0,12,16,4
-2026-10-17,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,141.0,0.998,0,12,15,3
-2026-10-17,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,2,16,16,,141.0,0.998,0,16,26,10
-2026-10-18,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,7,7,,139.0,0.9895,0,7,20,13
-2026-10-18,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,6,6,,139.0,0.9895,0,6,10,4
-2026-10-18,general medicine,64,6,1,3,0.06937,synthetic_historical_rate_scenario,True,11.75,6,65,65,,139.0,0.9895,0,64,101,37
-2026-10-18,icu,12,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,0,12,12,1.0,139.0,1.0,0,12,19,7
-2026-10-18,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,8,8,,139.0,0.9895,0,8,15,7
-2026-10-18,oncology,3,1,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,139.0,0.9895,0,3,10,7
-2026-10-18,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,139.0,0.9895,0,12,16,4
-2026-10-18,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,139.0,0.9895,0,12,15,3
-2026-10-18,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,15,15,,139.0,0.9895,0,15,26,11
-2026-10-19,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,8,8,,139.0,0.9961,0,8,20,12
-2026-10-19,emergency,6,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,139.0,0.9961,0,6,10,4
-2026-10-19,general medicine,64,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.75,5,64,64,,139.0,0.9961,0,63,101,38
-2026-10-19,icu,12,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,12,12,1.0,139.0,1.0,0,12,19,7
-2026-10-19,neurology,8,1,1,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,8,8,,139.0,0.9961,0,8,15,7
-2026-10-19,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,139.0,0.9961,0,3,10,7
-2026-10-19,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,139.0,0.9961,0,12,16,4
-2026-10-19,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,139.0,0.9961,0,12,15,3
-2026-10-19,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,15,15,,139.0,0.9961,0,15,26,11
-2026-10-20,cardiology,8,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,7,7,,139.0,1.0039,0,7,20,13
-2026-10-20,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,5,5,,139.0,1.0039,0,5,10,5
-2026-10-20,general medicine,63,5,1,4,0.06937,synthetic_historical_rate_scenario,True,11.75,6,63,63,,139.0,1.0039,0,63,101,38
-2026-10-20,icu,12,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,12,12,0.0,139.0,1.0,0,12,19,7
-2026-10-20,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,0,9,9,,139.0,1.0039,0,9,15,6
-2026-10-20,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,139.0,1.0039,0,3,10,7
-2026-10-20,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,139.0,1.0039,0,12,16,4
-2026-10-20,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,139.0,1.0039,0,12,15,3
-2026-10-20,surgery,15,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,16,16,,139.0,1.0039,0,16,26,10
-2026-10-21,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,7,7,,139.0,1.0038,0,7,20,13
-2026-10-21,emergency,5,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,5,5,,139.0,1.0038,0,5,10,5
-2026-10-21,general medicine,63,6,0,4,0.06937,synthetic_historical_rate_scenario,True,11.75,5,64,64,,139.0,1.0038,0,64,101,37
-2026-10-21,icu,12,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,11,11,1.0,139.0,1.0,0,11,19,8
-2026-10-21,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,8,8,,139.0,1.0038,0,8,15,7
-2026-10-21,oncology,3,1,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,1,4,4,,139.0,1.0038,0,4,10,6
-2026-10-21,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,139.0,1.0038,0,12,16,4
-2026-10-21,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,139.0,1.0038,0,12,15,3
-2026-10-21,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,2,16,16,,139.0,1.0038,0,16,26,10
-2026-10-22,cardiology,7,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,7,7,,140.0,1.0118,0,7,20,13
-2026-10-22,emergency,5,1,1,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,6,6,,140.0,1.0118,0,6,10,4
-2026-10-22,general medicine,64,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.75,6,64,64,,140.0,1.0118,0,64,101,37
-2026-10-22,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,0,12,12,1.0,140.0,1.0,0,12,19,7
-2026-10-22,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,8,8,,140.0,1.0118,0,9,15,6
-2026-10-22,oncology,4,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,140.0,1.0118,0,3,10,7
-2026-10-22,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,140.0,1.0118,0,12,16,4
-2026-10-22,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,140.0,1.0118,0,12,15,3
-2026-10-22,surgery,16,1,1,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,15,15,,140.0,1.0118,0,15,26,11
-2026-10-23,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,7,7,,139.0,0.9889,0,7,20,13
-2026-10-23,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,5,5,,139.0,0.9889,0,5,10,5
-2026-10-23,general medicine,64,5,1,4,0.06937,synthetic_historical_rate_scenario,True,11.75,5,64,64,,139.0,0.9889,0,63,101,38
-2026-10-23,icu,12,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,12,12,1.0,139.0,1.0,0,12,19,7
-2026-10-23,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,0,9,9,,139.0,0.9889,0,9,15,6
-2026-10-23,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,139.0,0.9889,0,3,10,7
-2026-10-23,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,139.0,0.9889,0,12,16,4
-2026-10-23,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,139.0,0.9889,0,12,15,3
-2026-10-23,surgery,15,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,16,16,,139.0,0.9889,0,16,26,10
-2026-10-24,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,7,7,,138.0,0.996,0,7,20,13
-2026-10-24,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,138.0,0.996,0,6,10,4
-2026-10-24,general medicine,63,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.75,5,63,63,,138.0,0.996,0,63,101,38
-2026-10-24,icu,12,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,11,11,0.0,138.0,1.0,0,11,19,8
-2026-10-24,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,9,9,,138.0,0.996,0,9,15,6
-2026-10-24,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,138.0,0.996,0,3,10,7
-2026-10-24,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,138.0,0.996,0,12,16,4
-2026-10-24,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,138.0,0.996,0,12,15,3
-2026-10-24,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,2,16,16,,138.0,0.996,0,15,26,11
-2026-10-25,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,8,8,,136.0,0.9875,0,8,20,12
-2026-10-25,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,5,5,,136.0,0.9875,0,5,10,5
-2026-10-25,general medicine,62,6,0,4,0.06937,synthetic_historical_rate_scenario,True,11.75,6,63,63,,136.0,0.9875,0,62,101,39
-2026-10-25,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,12,12,1.0,136.0,1.0,0,11,19,8
-2026-10-25,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,8,8,,136.0,0.9875,0,8,15,7
-2026-10-25,oncology,3,1,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,1,4,4,,136.0,0.9875,0,4,10,6
-2026-10-25,orthopedics,12,0,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,11,11,,136.0,0.9875,0,11,16,5
-2026-10-25,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,136.0,0.9875,0,12,15,3
-2026-10-25,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,15,15,,136.0,0.9875,0,15,26,11
-2026-10-26,cardiology,8,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,7,7,,136.0,1.002,0,7,20,13
-2026-10-26,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,136.0,1.002,0,6,10,4
-2026-10-26,general medicine,62,5,1,4,0.06937,synthetic_historical_rate_scenario,True,11.75,5,62,62,,136.0,1.002,0,62,101,39
-2026-10-26,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,0,12,12,0.0,136.0,1.0,0,12,19,7
-2026-10-26,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,0,8,8,,136.0,1.002,0,8,15,7
-2026-10-26,oncology,4,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,136.0,1.002,0,3,10,7
-2026-10-26,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,11,11,,136.0,1.002,0,11,16,5
-2026-10-26,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,136.0,1.002,0,12,15,3
-2026-10-26,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,15,15,,136.0,1.002,0,15,26,11
-2026-10-27,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,7,7,,137.0,1.0019,0,7,20,13
-2026-10-27,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,5,5,,137.0,1.0019,0,5,10,5
-2026-10-27,general medicine,62,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.75,5,62,62,,137.0,1.0019,0,62,101,39
-2026-10-27,icu,12,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,11,11,1.0,137.0,1.0,0,11,19,8
-2026-10-27,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,9,9,,137.0,1.0019,0,9,15,6
-2026-10-27,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,137.0,1.0019,0,3,10,7
-2026-10-27,orthopedics,11,2,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,137.0,1.0019,0,12,16,4
-2026-10-27,pediatrics,12,1,1,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,137.0,1.0019,0,12,15,3
-2026-10-27,surgery,15,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,2,16,16,,137.0,1.0019,0,16,26,10
-2026-10-28,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,8,8,,137.0,1.0027,0,8,20,12
-2026-10-28,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,137.0,1.0027,0,6,10,4
-2026-10-28,general medicine,62,6,1,4,0.06937,synthetic_historical_rate_scenario,True,11.75,6,63,63,,137.0,1.0027,0,63,101,38
-2026-10-28,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,11,11,1.0,137.0,1.0,0,11,19,8
-2026-10-28,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,8,8,,137.0,1.0027,0,8,15,7
-2026-10-28,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,137.0,1.0027,0,3,10,7
-2026-10-28,orthopedics,12,0,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,11,11,,137.0,1.0027,0,11,16,5
-2026-10-28,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,137.0,1.0027,0,12,15,3
-2026-10-28,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,15,15,,137.0,1.0027,0,15,26,11
-2026-10-29,cardiology,8,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,7,7,,137.0,1.0027,0,7,20,13
-2026-10-29,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,5,5,,137.0,1.0027,0,5,10,5
-2026-10-29,general medicine,63,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.75,5,63,63,,137.0,1.0027,0,63,101,38
-2026-10-29,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,0,12,12,0.0,137.0,1.0,0,12,19,7
-2026-10-29,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,9,9,,137.0,1.0027,0,9,15,6
-2026-10-29,oncology,3,1,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,1,3,3,,137.0,1.0027,0,3,10,7
-2026-10-29,orthopedics,11,1,1,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,11,11,,137.0,1.0027,0,11,16,5
-2026-10-29,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,137.0,1.0027,0,12,15,3
-2026-10-29,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,15,15,,137.0,1.0027,0,15,26,11
-2026-10-30,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,8,8,,137.0,1.0026,0,8,20,12
-2026-10-30,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,137.0,1.0026,0,6,10,4
-2026-10-30,general medicine,63,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.75,5,62,62,,137.0,1.0026,0,62,101,39
-2026-10-30,icu,12,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,11,11,1.0,137.0,1.0,0,11,19,8
-2026-10-30,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,0,9,9,,137.0,1.0026,0,9,15,6
-2026-10-30,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,137.0,1.0026,0,3,10,7
-2026-10-30,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,11,11,,137.0,1.0026,0,11,16,5
-2026-10-30,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,137.0,1.0026,0,12,15,3
-2026-10-30,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,15,15,,137.0,1.0026,0,15,26,11
-2026-10-31,cardiology,8,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,8,8,,136.0,0.9869,0,8,20,12
-2026-10-31,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,5,5,,136.0,0.9869,0,5,10,5
-2026-10-31,general medicine,62,5,1,4,0.06937,synthetic_historical_rate_scenario,True,11.75,6,62,62,,136.0,0.9869,0,62,101,39
-2026-10-31,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,11,11,1.0,136.0,1.0,0,11,19,8
-2026-10-31,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,9,9,,136.0,0.9869,0,9,15,6
-2026-10-31,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,136.0,0.9869,0,3,10,7
-2026-10-31,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,12,12,,136.0,0.9869,0,11,16,5
-2026-10-31,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,136.0,0.9869,0,12,15,3
-2026-10-31,surgery,15,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,2,16,16,,136.0,0.9869,0,15,26,11
-2026-11-01,cardiology,8,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,7,7,,134.0,0.986,0,7,20,13
-2026-11-01,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,6,6,,134.0,0.986,0,6,10,4
-2026-11-01,general medicine,62,6,0,4,0.06937,synthetic_historical_rate_scenario,True,11.75,5,62,62,,134.0,0.986,0,61,101,40
-2026-11-01,icu,11,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,11,11,0.0,134.0,1.0,0,10,19,9
-2026-11-01,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,8,8,,134.0,0.986,0,8,15,7
-2026-11-01,oncology,3,1,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,4,4,,134.0,0.986,0,4,10,6
-2026-11-01,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,11,11,,134.0,0.986,0,11,16,5
-2026-11-01,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,134.0,0.986,0,12,15,3
-2026-11-01,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,15,15,,134.0,0.986,0,15,26,11
-2026-11-02,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,0,7,7,,135.0,1.0089,0,7,20,13
-2026-11-02,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,5,5,,135.0,1.0089,0,5,10,5
-2026-11-02,general medicine,61,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.75,5,61,61,,135.0,1.0089,0,62,101,39
-2026-11-02,icu,10,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,0,11,11,1.0,135.0,1.0,0,11,19,8
-2026-11-02,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,0,9,9,,135.0,1.0089,0,9,15,6
-2026-11-02,oncology,4,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,1,3,3,,135.0,1.0089,0,3,10,7
-2026-11-02,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,11,11,,135.0,1.0089,0,11,16,5
-2026-11-02,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,135.0,1.0089,0,12,15,3
-2026-11-02,surgery,15,1,1,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,15,15,,135.0,1.0089,0,15,26,11
-2026-11-03,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,8,8,,135.0,1.0014,0,8,20,12
-2026-11-03,emergency,5,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,0,5,5,,135.0,1.0014,0,5,10,5
-2026-11-03,general medicine,62,5,1,4,0.06937,synthetic_historical_rate_scenario,True,11.75,5,61,61,,135.0,1.0014,0,61,101,40
-2026-11-03,icu,11,1,1,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,11,11,0.0,135.0,1.0,0,11,19,8
-2026-11-03,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,9,9,,135.0,1.0014,0,9,15,6
-2026-11-03,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,3,3,,135.0,1.0014,0,3,10,7
-2026-11-03,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,11,11,,135.0,1.0014,0,11,16,5
-2026-11-03,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,135.0,1.0014,0,12,15,3
-2026-11-03,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.85,1,15,15,,135.0,1.0014,0,15,26,11
-2026-11-04,cardiology,8,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.55,1,7,7,,136.0,1.0013,0,7,20,13
-2026-11-04,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.39,1,6,6,,136.0,1.0013,0,6,10,4
-2026-11-04,general medicine,61,6,0,5,0.06937,synthetic_historical_rate_scenario,True,11.75,6,62,62,,136.0,1.0013,0,62,101,39
-2026-11-04,icu,11,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.86,1,11,11,1.0,136.0,1.0,0,11,19,8
-2026-11-04,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.55,1,8,8,,136.0,1.0013,0,8,15,7
-2026-11-04,oncology,3,1,1,1,0.062973,synthetic_historical_rate_scenario,True,12.0,0,4,4,,136.0,1.0013,0,4,10,6
-2026-11-04,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.81,1,11,11,,136.0,1.0013,0,11,16,5
-2026-11-04,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,12.18,1,12,12,,136.0,1.0013,0,12,15,3
-2026-11-04,surgery,15,2,0,2,0.073258,synthetic_historical_rate_scenario,True,11.85,2,15,15,,136.0,1.0013,0,15,26,11
+2026-10-06,cardiology,5,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,6,6,,144.0,1.0101,0,6,20,14
+2026-10-06,emergency,6,0,0,0,0.065721,synthetic_historical_rate_scenario,True,11.13,1,5,5,,144.0,1.0101,0,5,10,5
+2026-10-06,general medicine,66,5,0,1,0.06937,synthetic_historical_rate_scenario,True,11.26,6,65,65,,144.0,1.0101,0,66,100,34
+2026-10-06,icu,14,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,14,14,1.0,144.0,1.0,0,14,19,5
+2026-10-06,neurology,7,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,7,7,,144.0,1.0101,0,7,15,8
+2026-10-06,oncology,2,0,0,0,0.062973,synthetic_historical_rate_scenario,True,11.59,0,2,2,,144.0,1.0101,0,2,10,8
+2026-10-06,orthopedics,15,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,15,15,,144.0,1.0101,0,15,16,1
+2026-10-06,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,144.0,1.0101,0,12,15,3
+2026-10-06,surgery,17,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,17,17,,144.0,1.0101,0,17,26,9
+2026-10-07,cardiology,6,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,5,5,,144.0,1.0022,0,5,20,15
+2026-10-07,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,6,6,,144.0,1.0022,0,6,10,4
+2026-10-07,general medicine,66,6,1,1,0.06937,synthetic_historical_rate_scenario,True,11.26,6,66,66,,144.0,1.0022,0,66,100,34
+2026-10-07,icu,14,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,13,13,1.0,144.0,1.0,0,13,19,6
+2026-10-07,neurology,7,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,0,7,7,,144.0,1.0022,0,7,15,8
+2026-10-07,oncology,2,1,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,144.0,1.0022,0,3,10,7
+2026-10-07,orthopedics,15,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,2,15,15,,144.0,1.0022,0,15,16,1
+2026-10-07,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,144.0,1.0022,0,12,15,3
+2026-10-07,surgery,17,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,2,17,17,,144.0,1.0022,0,17,26,9
+2026-10-08,cardiology,5,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,6,6,,144.0,1.0102,0,6,20,14
+2026-10-08,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,6,6,,144.0,1.0102,0,6,10,4
+2026-10-08,general medicine,66,5,0,2,0.06937,synthetic_historical_rate_scenario,True,11.26,6,65,65,,144.0,1.0102,0,66,100,34
+2026-10-08,icu,13,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,13,13,1.0,144.0,1.0,0,13,19,6
+2026-10-08,neurology,7,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,7,7,,144.0,1.0102,0,7,15,8
+2026-10-08,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,1,3,3,,144.0,1.0102,0,3,10,7
+2026-10-08,orthopedics,15,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,14,14,,144.0,1.0102,0,14,16,2
+2026-10-08,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,144.0,1.0102,0,12,15,3
+2026-10-08,surgery,17,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,17,17,,144.0,1.0102,0,17,26,9
+2026-10-09,cardiology,6,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,6,6,,143.0,1.0024,0,6,20,14
+2026-10-09,emergency,6,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,6,6,,143.0,1.0024,0,6,10,4
+2026-10-09,general medicine,66,5,0,2,0.06937,synthetic_historical_rate_scenario,True,11.26,5,65,65,,143.0,1.0024,0,65,100,35
+2026-10-09,icu,13,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,13,13,1.0,143.0,1.0,0,13,19,6
+2026-10-09,neurology,7,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,0,8,8,,143.0,1.0024,0,8,15,7
+2026-10-09,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,2,2,,143.0,1.0024,0,2,10,8
+2026-10-09,orthopedics,14,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,14,14,,143.0,1.0024,0,14,16,2
+2026-10-09,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,143.0,1.0024,0,12,15,3
+2026-10-09,surgery,17,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,2,17,17,,143.0,1.0024,0,17,26,9
+2026-10-10,cardiology,6,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,6,6,,142.0,1.0018,0,6,20,14
+2026-10-10,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,6,6,,142.0,1.0018,0,6,10,4
+2026-10-10,general medicine,65,5,1,2,0.06937,synthetic_historical_rate_scenario,True,11.26,6,64,64,,142.0,1.0018,0,64,100,36
+2026-10-10,icu,13,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,0,13,13,1.0,142.0,1.0,0,13,19,6
+2026-10-10,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,8,8,,142.0,1.0018,0,8,15,7
+2026-10-10,oncology,2,1,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,142.0,1.0018,0,3,10,7
+2026-10-10,orthopedics,14,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,14,14,,142.0,1.0018,0,14,16,2
+2026-10-10,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,142.0,1.0018,0,12,15,3
+2026-10-10,surgery,17,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,16,16,,142.0,1.0018,0,16,26,10
+2026-10-11,cardiology,6,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,6,6,,140.0,0.9856,0,6,20,14
+2026-10-11,emergency,6,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,6,6,,140.0,0.9856,0,6,10,4
+2026-10-11,general medicine,64,6,0,2,0.06937,synthetic_historical_rate_scenario,True,11.26,6,65,65,,140.0,0.9856,0,64,100,36
+2026-10-11,icu,13,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,13,13,1.0,140.0,1.0,0,13,19,6
+2026-10-11,neurology,8,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,7,7,,140.0,0.9856,0,7,15,8
+2026-10-11,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,140.0,0.9856,0,3,10,7
+2026-10-11,orthopedics,14,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,2,14,14,,140.0,0.9856,0,14,16,2
+2026-10-11,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,140.0,0.9856,0,12,15,3
+2026-10-11,surgery,16,1,1,1,0.073258,synthetic_historical_rate_scenario,True,11.42,2,16,16,,140.0,0.9856,0,15,26,11
+2026-10-12,cardiology,6,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,7,7,,141.0,1.0155,0,7,20,13
+2026-10-12,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,5,5,,141.0,1.0155,0,5,10,5
+2026-10-12,general medicine,64,5,1,2,0.06937,synthetic_historical_rate_scenario,True,11.26,6,63,63,,141.0,1.0155,0,64,100,36
+2026-10-12,icu,13,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,12,12,1.0,141.0,1.0,0,12,19,7
+2026-10-12,neurology,7,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,0,8,8,,141.0,1.0155,0,8,15,7
+2026-10-12,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,141.0,1.0155,0,3,10,7
+2026-10-12,orthopedics,14,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,13,13,,141.0,1.0155,0,14,16,2
+2026-10-12,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,141.0,1.0155,0,12,15,3
+2026-10-12,surgery,15,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,16,16,,141.0,1.0155,0,16,26,10
+2026-10-13,cardiology,7,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,6,6,,141.0,1.0084,0,6,20,14
+2026-10-13,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,6,6,,141.0,1.0084,0,6,10,4
+2026-10-13,general medicine,64,5,0,3,0.06937,synthetic_historical_rate_scenario,True,11.26,5,64,64,,141.0,1.0084,0,64,100,36
+2026-10-13,icu,12,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,12,12,0.0,141.0,1.0,0,12,19,7
+2026-10-13,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,8,8,,141.0,1.0084,0,8,15,7
+2026-10-13,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,1,2,2,,141.0,1.0084,0,3,10,7
+2026-10-13,orthopedics,14,1,1,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,14,14,,141.0,1.0084,0,14,16,2
+2026-10-13,pediatrics,12,1,1,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,141.0,1.0084,0,12,15,3
+2026-10-13,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,2,16,16,,141.0,1.0084,0,16,26,10
+2026-10-14,cardiology,6,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,7,7,,141.0,1.0083,0,7,20,13
+2026-10-14,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,6,6,,141.0,1.0083,0,6,10,4
+2026-10-14,general medicine,64,6,0,3,0.06937,synthetic_historical_rate_scenario,True,11.26,6,64,64,,141.0,1.0083,0,65,100,35
+2026-10-14,icu,12,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,12,12,1.0,141.0,1.0,0,12,19,7
+2026-10-14,neurology,8,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,8,8,,141.0,1.0083,0,8,15,7
+2026-10-14,oncology,3,1,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,141.0,1.0083,0,3,10,7
+2026-10-14,orthopedics,14,0,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,12,12,,141.0,1.0083,0,12,16,4
+2026-10-14,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,141.0,1.0083,0,12,15,3
+2026-10-14,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,16,16,,141.0,1.0083,0,16,26,10
+2026-10-15,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,7,7,,142.0,1.0082,0,7,20,13
+2026-10-15,emergency,6,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,6,6,,142.0,1.0082,0,6,10,4
+2026-10-15,general medicine,65,5,1,3,0.06937,synthetic_historical_rate_scenario,True,11.26,6,64,64,,142.0,1.0082,0,65,100,35
+2026-10-15,icu,12,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,0,12,12,1.0,142.0,1.0,0,12,19,7
+2026-10-15,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,0,8,8,,142.0,1.0082,0,8,15,7
+2026-10-15,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,142.0,1.0082,0,3,10,7
+2026-10-15,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,13,13,,142.0,1.0082,0,13,16,3
+2026-10-15,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,142.0,1.0082,0,12,15,3
+2026-10-15,surgery,16,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,16,16,,142.0,1.0082,0,16,26,10
+2026-10-16,cardiology,7,1,1,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,7,7,,142.0,1.0091,0,8,20,12
+2026-10-16,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,6,6,,142.0,1.0091,0,6,10,4
+2026-10-16,general medicine,65,5,0,3,0.06937,synthetic_historical_rate_scenario,True,11.26,5,64,64,,142.0,1.0091,0,64,100,36
+2026-10-16,icu,12,1,1,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,12,12,1.0,142.0,1.0,0,12,19,7
+2026-10-16,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,9,9,,142.0,1.0091,0,9,15,6
+2026-10-16,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,142.0,1.0091,0,3,10,7
+2026-10-16,orthopedics,13,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,12,12,,142.0,1.0091,0,12,16,4
+2026-10-16,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,142.0,1.0091,0,12,15,3
+2026-10-16,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,2,16,16,,142.0,1.0091,0,16,26,10
+2026-10-17,cardiology,7,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,7,7,,141.0,1.0012,0,7,20,13
+2026-10-17,emergency,6,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,6,6,,141.0,1.0012,0,6,10,4
+2026-10-17,general medicine,64,5,0,3,0.06937,synthetic_historical_rate_scenario,True,11.26,6,64,64,,141.0,1.0012,0,64,100,36
+2026-10-17,icu,12,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,12,12,1.0,141.0,1.0,0,12,19,7
+2026-10-17,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,9,9,,141.0,1.0012,0,9,15,6
+2026-10-17,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,1,3,3,,141.0,1.0012,0,3,10,7
+2026-10-17,orthopedics,13,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,12,12,,141.0,1.0012,0,12,16,4
+2026-10-17,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,141.0,1.0012,0,12,15,3
+2026-10-17,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,16,16,,141.0,1.0012,0,16,26,10
+2026-10-18,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,7,7,,139.0,0.9927,0,7,20,13
+2026-10-18,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,6,6,,139.0,0.9927,0,6,10,4
+2026-10-18,general medicine,64,6,1,3,0.06937,synthetic_historical_rate_scenario,True,11.26,6,64,64,,139.0,0.9927,0,64,100,36
+2026-10-18,icu,12,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,11,11,1.0,139.0,1.0,0,12,19,7
+2026-10-18,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,0,8,8,,139.0,0.9927,0,8,15,7
+2026-10-18,oncology,2,1,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,139.0,0.9927,0,3,10,7
+2026-10-18,orthopedics,13,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,13,13,,139.0,0.9927,0,12,16,4
+2026-10-18,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,139.0,0.9927,0,12,15,3
+2026-10-18,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,2,16,16,,139.0,0.9927,0,15,26,11
+2026-10-19,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,8,8,,139.0,0.9993,0,8,20,12
+2026-10-19,emergency,6,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,6,6,,139.0,0.9993,0,6,10,4
+2026-10-19,general medicine,64,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.26,6,63,63,,139.0,0.9993,0,63,100,37
+2026-10-19,icu,12,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,0,12,12,1.0,139.0,1.0,0,12,19,7
+2026-10-19,neurology,8,1,1,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,8,8,,139.0,0.9993,0,8,15,7
+2026-10-19,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,139.0,0.9993,0,3,10,7
+2026-10-19,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,2,12,12,,139.0,0.9993,0,12,16,4
+2026-10-19,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,139.0,0.9993,0,12,15,3
+2026-10-19,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,15,15,,139.0,0.9993,0,15,26,11
+2026-10-20,cardiology,8,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,7,7,,139.0,1.0072,0,7,20,13
+2026-10-20,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,5,5,,139.0,1.0072,0,5,10,5
+2026-10-20,general medicine,63,5,1,4,0.06937,synthetic_historical_rate_scenario,True,11.26,5,62,62,,139.0,1.0072,0,63,100,37
+2026-10-20,icu,12,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,12,12,1.0,139.0,1.0,0,12,19,7
+2026-10-20,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,9,9,,139.0,1.0072,0,9,15,6
+2026-10-20,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,139.0,1.0072,0,3,10,7
+2026-10-20,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,12,12,,139.0,1.0072,0,12,16,4
+2026-10-20,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,2,12,12,,139.0,1.0072,0,12,15,3
+2026-10-20,surgery,15,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,16,16,,139.0,1.0072,0,16,26,10
+2026-10-21,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,7,7,,139.0,1.007,0,7,20,13
+2026-10-21,emergency,5,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,5,5,,139.0,1.007,0,5,10,5
+2026-10-21,general medicine,63,6,0,4,0.06937,synthetic_historical_rate_scenario,True,11.26,6,63,63,,139.0,1.007,0,64,100,36
+2026-10-21,icu,12,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,11,11,1.0,139.0,1.0,0,11,19,8
+2026-10-21,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,0,8,8,,139.0,1.007,0,8,15,7
+2026-10-21,oncology,3,1,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,1,4,4,,139.0,1.007,0,4,10,6
+2026-10-21,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,12,12,,139.0,1.007,0,12,16,4
+2026-10-21,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,139.0,1.007,0,12,15,3
+2026-10-21,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,2,16,16,,139.0,1.007,0,16,26,10
+2026-10-22,cardiology,7,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,7,7,,140.0,1.0151,0,7,20,13
+2026-10-22,emergency,5,1,1,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,6,6,,140.0,1.0151,0,6,10,4
+2026-10-22,general medicine,64,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.26,5,63,63,,140.0,1.0151,0,64,100,36
+2026-10-22,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,11,11,1.0,140.0,1.0,0,11,19,8
+2026-10-22,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,9,9,,140.0,1.0151,0,9,15,6
+2026-10-22,oncology,4,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,140.0,1.0151,0,3,10,7
+2026-10-22,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,12,12,,140.0,1.0151,0,12,16,4
+2026-10-22,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,140.0,1.0151,0,13,15,2
+2026-10-22,surgery,16,1,1,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,15,15,,140.0,1.0151,0,15,26,11
+2026-10-23,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,7,7,,139.0,0.9922,0,7,20,13
+2026-10-23,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,5,5,,139.0,0.9922,0,5,10,5
+2026-10-23,general medicine,64,5,1,4,0.06937,synthetic_historical_rate_scenario,True,11.26,6,63,63,,139.0,0.9922,0,63,100,37
+2026-10-23,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,0,12,12,1.0,139.0,1.0,0,12,19,7
+2026-10-23,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,9,9,,139.0,0.9922,0,9,15,6
+2026-10-23,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,139.0,0.9922,0,3,10,7
+2026-10-23,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,12,12,,139.0,0.9922,0,12,16,4
+2026-10-23,pediatrics,13,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,13,13,,139.0,0.9922,0,12,15,3
+2026-10-23,surgery,15,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,16,16,,139.0,0.9922,0,16,26,10
+2026-10-24,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,8,8,,138.0,0.9992,0,8,20,12
+2026-10-24,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,6,6,,138.0,0.9992,0,6,10,4
+2026-10-24,general medicine,63,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.26,6,62,62,,138.0,0.9992,0,62,100,38
+2026-10-24,icu,12,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,11,11,1.0,138.0,1.0,0,11,19,8
+2026-10-24,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,0,9,9,,138.0,0.9992,0,9,15,6
+2026-10-24,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,138.0,0.9992,0,3,10,7
+2026-10-24,orthopedics,12,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,12,12,,138.0,0.9992,0,12,16,4
+2026-10-24,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,138.0,0.9992,0,12,15,3
+2026-10-24,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,2,15,15,,138.0,0.9992,0,15,26,11
+2026-10-25,cardiology,8,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,8,8,,136.0,0.9907,0,8,20,12
+2026-10-25,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,5,5,,136.0,0.9907,0,5,10,5
+2026-10-25,general medicine,62,6,0,4,0.06937,synthetic_historical_rate_scenario,True,11.26,5,63,63,,136.0,0.9907,0,62,100,38
+2026-10-25,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,11,11,1.0,136.0,1.0,0,11,19,8
+2026-10-25,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,8,8,,136.0,0.9907,0,8,15,7
+2026-10-25,oncology,3,1,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,1,4,4,,136.0,0.9907,0,4,10,6
+2026-10-25,orthopedics,12,0,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,11,11,,136.0,0.9907,0,11,16,5
+2026-10-25,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,136.0,0.9907,0,12,15,3
+2026-10-25,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,15,15,,136.0,0.9907,0,15,26,11
+2026-10-26,cardiology,8,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,7,7,,136.0,1.0052,0,7,20,13
+2026-10-26,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,6,6,,136.0,1.0052,0,6,10,4
+2026-10-26,general medicine,62,5,1,4,0.06937,synthetic_historical_rate_scenario,True,11.26,6,61,61,,136.0,1.0052,0,62,100,38
+2026-10-26,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,11,11,0.0,136.0,1.0,0,11,19,8
+2026-10-26,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,9,9,,136.0,1.0052,0,9,15,6
+2026-10-26,oncology,4,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,136.0,1.0052,0,3,10,7
+2026-10-26,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,11,11,,136.0,1.0052,0,11,16,5
+2026-10-26,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,136.0,1.0052,0,12,15,3
+2026-10-26,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,15,15,,136.0,1.0052,0,15,26,11
+2026-10-27,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,8,8,,137.0,1.0051,0,8,20,12
+2026-10-27,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,5,5,,137.0,1.0051,0,5,10,5
+2026-10-27,general medicine,62,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.26,5,61,61,,137.0,1.0051,0,62,100,38
+2026-10-27,icu,11,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,0,11,11,1.0,137.0,1.0,0,11,19,8
+2026-10-27,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,9,9,,137.0,1.0051,0,9,15,6
+2026-10-27,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,137.0,1.0051,0,3,10,7
+2026-10-27,orthopedics,11,2,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,12,12,,137.0,1.0051,0,12,16,4
+2026-10-27,pediatrics,12,1,1,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,137.0,1.0051,0,12,15,3
+2026-10-27,surgery,15,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,2,15,15,,137.0,1.0051,0,15,26,11
+2026-10-28,cardiology,8,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,8,8,,137.0,1.0059,0,8,20,12
+2026-10-28,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,6,6,,137.0,1.0059,0,6,10,4
+2026-10-28,general medicine,62,6,1,4,0.06937,synthetic_historical_rate_scenario,True,11.26,6,62,62,,137.0,1.0059,0,63,100,37
+2026-10-28,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,11,11,1.0,137.0,1.0,0,11,19,8
+2026-10-28,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,0,8,8,,137.0,1.0059,0,8,15,7
+2026-10-28,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,1,3,3,,137.0,1.0059,0,3,10,7
+2026-10-28,orthopedics,12,0,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,11,11,,137.0,1.0059,0,11,16,5
+2026-10-28,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,137.0,1.0059,0,12,15,3
+2026-10-28,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,15,15,,137.0,1.0059,0,15,26,11
+2026-10-29,cardiology,8,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,7,7,,137.0,1.0059,0,7,20,13
+2026-10-29,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,5,5,,137.0,1.0059,0,5,10,5
+2026-10-29,general medicine,63,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.26,5,62,62,,137.0,1.0059,0,63,100,37
+2026-10-29,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,11,11,1.0,137.0,1.0,0,11,19,8
+2026-10-29,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,9,9,,137.0,1.0059,0,9,15,6
+2026-10-29,oncology,3,1,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,4,4,,137.0,1.0059,0,4,10,6
+2026-10-29,orthopedics,11,1,1,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,11,11,,137.0,1.0059,0,11,16,5
+2026-10-29,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,137.0,1.0059,0,12,15,3
+2026-10-29,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,15,15,,137.0,1.0059,0,15,26,11
+2026-10-30,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,8,8,,137.0,1.0058,0,8,20,12
+2026-10-30,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,6,6,,137.0,1.0058,0,6,10,4
+2026-10-30,general medicine,63,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.26,6,62,62,,137.0,1.0058,0,62,100,38
+2026-10-30,icu,11,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,0,10,10,1.0,137.0,1.0,0,11,19,8
+2026-10-30,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,9,9,,137.0,1.0058,0,9,15,6
+2026-10-30,oncology,4,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,137.0,1.0058,0,3,10,7
+2026-10-30,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,11,11,,137.0,1.0058,0,11,16,5
+2026-10-30,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,137.0,1.0058,0,12,15,3
+2026-10-30,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,2,15,15,,137.0,1.0058,0,15,26,11
+2026-10-31,cardiology,8,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,8,8,,136.0,0.9901,0,8,20,12
+2026-10-31,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,5,5,,136.0,0.9901,0,5,10,5
+2026-10-31,general medicine,62,5,1,4,0.06937,synthetic_historical_rate_scenario,True,11.26,5,62,62,,136.0,0.9901,0,61,100,39
+2026-10-31,icu,11,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,11,11,1.0,136.0,1.0,0,11,19,8
+2026-10-31,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,0,9,9,,136.0,0.9901,0,9,15,6
+2026-10-31,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,136.0,0.9901,0,3,10,7
+2026-10-31,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,11,11,,136.0,0.9901,0,11,16,5
+2026-10-31,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,136.0,0.9901,0,12,15,3
+2026-10-31,surgery,15,2,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,16,16,,136.0,0.9901,0,16,26,10
+2026-11-01,cardiology,8,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,7,7,,134.0,0.9892,0,7,20,13
+2026-11-01,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,6,6,,134.0,0.9892,0,6,10,4
+2026-11-01,general medicine,61,6,0,4,0.06937,synthetic_historical_rate_scenario,True,11.26,6,62,62,,134.0,0.9892,0,61,100,39
+2026-11-01,icu,11,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,10,10,1.0,134.0,1.0,0,10,19,9
+2026-11-01,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,8,8,,134.0,0.9892,0,8,15,7
+2026-11-01,oncology,3,1,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,1,4,4,,134.0,0.9892,0,4,10,6
+2026-11-01,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,11,11,,134.0,0.9892,0,11,16,5
+2026-11-01,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,134.0,0.9892,0,12,15,3
+2026-11-01,surgery,16,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,15,15,,134.0,0.9892,0,15,26,11
+2026-11-02,cardiology,7,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,7,7,,135.0,1.0122,0,8,20,12
+2026-11-02,emergency,6,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,5,5,,135.0,1.0122,0,5,10,5
+2026-11-02,general medicine,61,5,0,4,0.06937,synthetic_historical_rate_scenario,True,11.26,5,61,61,,135.0,1.0122,0,61,100,39
+2026-11-02,icu,10,1,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,0,11,11,1.0,135.0,1.0,0,11,19,8
+2026-11-02,neurology,8,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,9,9,,135.0,1.0122,0,9,15,6
+2026-11-02,oncology,4,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,135.0,1.0122,0,3,10,7
+2026-11-02,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,11,11,,135.0,1.0122,0,11,16,5
+2026-11-02,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,135.0,1.0122,0,12,15,3
+2026-11-02,surgery,15,1,1,1,0.073258,synthetic_historical_rate_scenario,True,11.42,2,14,14,,135.0,1.0122,0,15,26,11
+2026-11-03,cardiology,8,1,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,1,8,8,,135.0,1.0046,0,8,20,12
+2026-11-03,emergency,5,0,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,1,5,5,,135.0,1.0046,0,5,10,5
+2026-11-03,general medicine,61,5,1,4,0.06937,synthetic_historical_rate_scenario,True,11.26,6,61,61,,135.0,1.0046,0,61,100,39
+2026-11-03,icu,11,1,1,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,11,11,1.0,135.0,1.0,0,11,19,8
+2026-11-03,neurology,9,1,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,1,9,9,,135.0,1.0046,0,9,15,6
+2026-11-03,oncology,3,0,0,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,3,3,,135.0,1.0046,0,3,10,7
+2026-11-03,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,11,11,,135.0,1.0046,0,11,16,5
+2026-11-03,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,135.0,1.0046,0,12,15,3
+2026-11-03,surgery,15,1,0,1,0.073258,synthetic_historical_rate_scenario,True,11.42,1,14,14,,135.0,1.0046,0,15,26,11
+2026-11-04,cardiology,8,0,0,1,0.069952,synthetic_historical_rate_scenario,True,11.31,0,7,7,,136.0,1.0045,0,7,20,13
+2026-11-04,emergency,5,1,0,1,0.065721,synthetic_historical_rate_scenario,True,11.13,0,5,5,,136.0,1.0045,0,6,10,4
+2026-11-04,general medicine,61,6,0,4,0.06937,synthetic_historical_rate_scenario,True,11.26,5,62,62,,136.0,1.0045,0,62,100,38
+2026-11-04,icu,11,0,0,1,0.082859,synthetic_historical_rate_scenario,True,15.52,1,10,10,1.0,136.0,1.0,0,10,19,9
+2026-11-04,neurology,9,0,0,1,0.053234,synthetic_historical_rate_scenario,True,12.23,0,8,8,,136.0,1.0045,0,8,15,7
+2026-11-04,oncology,3,1,1,1,0.062973,synthetic_historical_rate_scenario,True,11.59,0,4,4,,136.0,1.0045,0,4,10,6
+2026-11-04,orthopedics,11,1,0,1,0.068227,synthetic_historical_rate_scenario,True,11.53,1,12,12,,136.0,1.0045,0,12,16,4
+2026-11-04,pediatrics,12,1,0,1,0.074693,synthetic_historical_rate_scenario,True,11.8,1,12,12,,136.0,1.0045,0,12,15,3
+2026-11-04,surgery,15,2,0,2,0.073258,synthetic_historical_rate_scenario,True,11.42,1,15,15,,136.0,1.0045,0,15,26,11

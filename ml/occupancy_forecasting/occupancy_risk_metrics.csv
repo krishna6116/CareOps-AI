@@ -1,0 +1,4 @@
+threshold_name,threshold,forecast_days,actual_events,predicted_events,true_positives,precision,recall,f1
+elevated_p90_training,157.0,720,4,0,0,,0.0,
+warning_90pct,207.0,720,0,0,0,,,
+critical_95pct,218.5,720,0,0,0,,,

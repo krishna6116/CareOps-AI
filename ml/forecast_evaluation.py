@@ -132,38 +132,208 @@ def select_champion(summary: pd.DataFrame, candidates: list[str] | None = None) 
     return str(pool.sort_values(["MAE", "RMSE"], kind="stable").iloc[0]["model"])
 
 
+def integer_interval(
+    predicted, half_width, capacity: float | None = None,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Whole-number bounds as published: floor/ceil, non-negative, capped."""
+    predicted = np.asarray(predicted, dtype=float)
+    half_width = np.asarray(half_width, dtype=float)
+    lower = np.floor(np.clip(predicted - half_width, 0, None))
+    upper = np.ceil(predicted + half_width)
+    if capacity is not None:
+        lower = np.minimum(lower, capacity)
+        upper = np.minimum(upper, capacity)
+    return lower, upper
+
+
 def conformal_intervals(
     backtest: pd.DataFrame,
     model: str,
     levels: tuple[float, ...] = INTERVAL_LEVELS,
+    capacity: float | None = None,
+    min_calibration_origins: int = 6,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Split-conformal interval widths by horizon bucket, plus held-out coverage.
+    """Conformal interval half-widths by horizon bucket, plus measured coverage.
 
-    The earlier half of the origins calibrates absolute-error quantiles; the
-    later half measures how often the actual value falls inside. The returned
-    widths for publishing use all origins.
+    Published widths use the absolute errors from every origin.
+
+    Coverage is reported two ways:
+
+    - ``split_half_continuous``: the earlier half of origins calibrates, the
+      later half is checked against the raw continuous interval.
+    - ``sequential_published``: at each origin after the first
+      ``min_calibration_origins``, the width comes only from errors whose
+      actual values were already observed by that origin (expanding window),
+      and coverage is checked on the whole-number interval that would be
+      published (floor/ceil, non-negative, capped at ``capacity``).
     """
     frame = backtest[backtest["model"] == model].copy()
     frame["abs_error"] = (frame["actual"] - frame["predicted"]).abs()
     frame["bucket"] = horizon_bucket(frame["horizon"])
     origins = np.sort(frame["origin"].unique())
+
+    widths = [
+        {"level": level, "bucket": bucket,
+         "half_width": float(_conformal_quantile(group["abs_error"], level))}
+        for level in levels
+        for bucket, group in frame.groupby("bucket", sort=False)
+    ]
+
+    coverage = []
     split = origins[len(origins) // 2]
     calibration = frame[frame["origin"] < split]
     evaluation = frame[frame["origin"] >= split]
-    widths, coverage = [], []
     for level in levels:
-        for bucket, group in frame.groupby("bucket", sort=False):
-            widths.append({"level": level, "bucket": bucket,
-                           "half_width": float(_conformal_quantile(group["abs_error"], level))})
+        for bucket in frame["bucket"].unique():
             calibrated = _conformal_quantile(calibration.loc[calibration["bucket"] == bucket, "abs_error"], level)
             held_out = evaluation.loc[evaluation["bucket"] == bucket, "abs_error"]
             coverage.append({
-                "level": level, "bucket": bucket, "calibration_origins": int(calibration["origin"].nunique()),
+                "method": "split_half_continuous", "level": level, "bucket": bucket,
                 "evaluation_origins": int(evaluation["origin"].nunique()),
-                "calibrated_half_width": float(calibrated),
+                "mean_half_width": float(calibrated),
                 "empirical_coverage": float((held_out <= calibrated).mean()) if len(held_out) else np.nan,
             })
+
+    sequential = []
+    for origin in origins[min_calibration_origins:]:
+        known = frame[(frame["origin"] < origin) & (frame["date"] <= origin)]
+        current = frame[frame["origin"] == origin]
+        for level in levels:
+            for bucket, group in current.groupby("bucket", sort=False):
+                half_width = _conformal_quantile(known.loc[known["bucket"] == bucket, "abs_error"], level)
+                lower, upper = integer_interval(group["predicted"], half_width, capacity)
+                actual = group["actual"].to_numpy()
+                sequential.append(pd.DataFrame({
+                    "level": level, "bucket": bucket, "origin": origin, "half_width": half_width,
+                    "covered": (actual >= lower) & (actual <= upper),
+                }))
+    if sequential:
+        sequential_frame = pd.concat(sequential, ignore_index=True)
+        for (level, bucket), group in sequential_frame.groupby(["level", "bucket"], sort=False):
+            coverage.append({
+                "method": "sequential_published", "level": level, "bucket": bucket,
+                "evaluation_origins": int(group["origin"].nunique()),
+                "mean_half_width": float(group["half_width"].mean()),
+                "empirical_coverage": float(group["covered"].mean()),
+            })
     return pd.DataFrame(widths), pd.DataFrame(coverage)
+
+
+def threshold_exceedance(
+    backtest: pd.DataFrame, model: str, thresholds: dict[str, float],
+) -> pd.DataFrame:
+    """Precision/recall/F1 for 'value at or above threshold' events.
+
+    Undefined metrics (no predicted or no actual events) are reported as NaN
+    with the event counts, never silently as zero.
+    """
+    frame = backtest[backtest["model"] == model]
+    rows = []
+    for name, threshold in thresholds.items():
+        predicted = frame["predicted"].to_numpy() >= threshold
+        actual = frame["actual"].to_numpy() >= threshold
+        true_positive = int((predicted & actual).sum())
+        precision = true_positive / predicted.sum() if predicted.sum() else np.nan
+        recall = true_positive / actual.sum() if actual.sum() else np.nan
+        f1 = (
+            2 * precision * recall / (precision + recall)
+            if np.isfinite(precision) and np.isfinite(recall) and (precision + recall) > 0
+            else np.nan
+        )
+        rows.append({
+            "threshold_name": name, "threshold": float(threshold), "forecast_days": len(frame),
+            "actual_events": int(actual.sum()), "predicted_events": int(predicted.sum()),
+            "true_positives": true_positive, "precision": precision, "recall": recall, "f1": f1,
+        })
+    return pd.DataFrame(rows)
+
+
+def rolling_windows(
+    frame: pd.DataFrame,
+    date_column: str,
+    origins: pd.DatetimeIndex,
+    window_days: int,
+    metric_fn: Callable[[pd.DataFrame], dict[str, float]],
+) -> pd.DataFrame:
+    """Score a fixed model on each window (origin, origin + window_days]."""
+    dates = pd.to_datetime(frame[date_column]).dt.normalize()
+    rows = []
+    for origin in origins:
+        window = frame[(dates > origin) & (dates <= origin + pd.Timedelta(days=window_days))]
+        if len(window):
+            rows.append({"origin": origin, "rows": len(window), **metric_fn(window)})
+    return pd.DataFrame(rows)
+
+
+def evaluate_candidates(
+    series: pd.Series,
+    learned: dict[str, Forecaster],
+    first_origin: pd.Timestamp,
+    horizon: int,
+    step_days: int,
+    capacity: float | None = None,
+) -> dict[str, object]:
+    """Backtest learned forecasters against the naive baselines, pick the
+    lowest-MAE champion, and calibrate its intervals."""
+    train = series[series.index <= first_origin]
+    origins = rolling_origins(series.index, first_origin, horizon, step_days)
+    backtest = rolling_origin_backtest(series, {**NAIVE_BASELINES, **learned}, origins, horizon)
+    summary = summarize_backtest(backtest, seasonal_mase_scale(train))
+    champion = select_champion(summary)
+    widths, coverage = conformal_intervals(backtest, champion, capacity=capacity)
+    return {
+        "origins": origins, "backtest": backtest, "summary": summary, "champion": champion,
+        "widths": widths, "coverage": coverage,
+        "status": model_status(summary, champion, tuple(learned)),
+    }
+
+
+def interval_columns(
+    expected, widths: pd.DataFrame, capacity: float | None = None, point=None,
+) -> dict[str, np.ndarray]:
+    """Published whole-number interval columns for a 1..n day forecast path.
+
+    ``point`` (the published whole-number forecast) is kept inside its own
+    interval, since rounding can move it by up to one unit."""
+    expected = np.asarray(expected, dtype=float)
+    buckets = horizon_bucket(pd.Series(np.arange(1, len(expected) + 1)))
+    columns = {}
+    for level in sorted(widths["level"].unique()):
+        label = int(round(level * 100))
+        half_width = buckets.map(
+            widths[widths["level"] == level].set_index("bucket")["half_width"]
+        ).to_numpy()
+        lower, upper = integer_interval(expected, half_width, capacity)
+        if point is not None:
+            lower = np.minimum(lower, point)
+            upper = np.maximum(upper, point)
+        columns[f"lower_{label}"] = lower.astype(np.int64)
+        columns[f"upper_{label}"] = upper.astype(np.int64)
+    return columns
+
+
+def model_status(
+    summary: pd.DataFrame, champion: str, learned_models: tuple[str, ...],
+    score_column: str = "MAE",
+) -> dict[str, object]:
+    """Columns stating whether the published model is learned or a baseline,
+    and how it compares with the best baseline on the backtest (lower is better)."""
+    baselines = summary[~summary["model"].isin(learned_models)].sort_values(score_column, kind="stable")
+    learned = summary[summary["model"].isin(learned_models)].sort_values(score_column, kind="stable")
+    best_baseline = baselines.iloc[0]
+    best_learned = learned.iloc[0] if not learned.empty else None
+    return {
+        "model": champion,
+        "model_type": "learned" if champion in learned_models else "baseline",
+        "best_learned_model": best_learned["model"] if best_learned is not None else "",
+        "learned_beats_best_baseline": bool(
+            best_learned is not None and float(best_learned[score_column]) < float(best_baseline[score_column])
+        ),
+        "best_baseline": best_baseline["model"],
+        "backtest_metric": score_column,
+        "published_backtest_score": round(float(summary.loc[summary["model"] == champion, score_column].iloc[0]), 4),
+        "best_baseline_backtest_score": round(float(best_baseline[score_column]), 4),
+    }
 
 
 def horizon_bucket(horizon: pd.Series) -> pd.Series:

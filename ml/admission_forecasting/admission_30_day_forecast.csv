@@ -1,301 +1,301 @@
-date,department,predicted_admissions,lower_80,upper_80,lower_95,upper_95,model
-2026-10-06,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-07,Cardiology,0,0,2,0,3,moving_average_28
-2026-10-08,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-09,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-10,Cardiology,0,0,2,0,3,moving_average_28
-2026-10-11,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-12,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-13,Cardiology,0,0,2,0,3,moving_average_28
-2026-10-14,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-15,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-16,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-17,Cardiology,0,0,2,0,3,moving_average_28
-2026-10-18,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-19,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-20,Cardiology,0,0,2,0,3,moving_average_28
-2026-10-21,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-22,Cardiology,0,0,2,0,3,moving_average_28
-2026-10-23,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-24,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-25,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-26,Cardiology,0,0,2,0,3,moving_average_28
-2026-10-27,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-28,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-29,Cardiology,0,0,2,0,3,moving_average_28
-2026-10-30,Cardiology,1,0,2,0,3,moving_average_28
-2026-10-31,Cardiology,1,0,2,0,3,moving_average_28
-2026-11-01,Cardiology,0,0,2,0,3,moving_average_28
-2026-11-02,Cardiology,1,0,2,0,3,moving_average_28
-2026-11-03,Cardiology,1,0,2,0,3,moving_average_28
-2026-11-04,Cardiology,0,0,2,0,3,moving_average_28
-2026-10-06,Emergency,0,0,2,0,2,moving_average_28
-2026-10-07,Emergency,1,0,2,0,2,moving_average_28
-2026-10-08,Emergency,0,0,2,0,2,moving_average_28
-2026-10-09,Emergency,1,0,2,0,2,moving_average_28
-2026-10-10,Emergency,0,0,2,0,2,moving_average_28
-2026-10-11,Emergency,1,0,2,0,2,moving_average_28
-2026-10-12,Emergency,0,0,2,0,2,moving_average_28
-2026-10-13,Emergency,1,0,2,0,3,moving_average_28
-2026-10-14,Emergency,0,0,2,0,3,moving_average_28
-2026-10-15,Emergency,1,0,2,0,3,moving_average_28
-2026-10-16,Emergency,0,0,2,0,3,moving_average_28
-2026-10-17,Emergency,1,0,2,0,3,moving_average_28
-2026-10-18,Emergency,0,0,2,0,3,moving_average_28
-2026-10-19,Emergency,1,0,2,0,3,moving_average_28
-2026-10-20,Emergency,0,0,2,0,2,moving_average_28
-2026-10-21,Emergency,0,0,2,0,2,moving_average_28
-2026-10-22,Emergency,1,0,2,0,2,moving_average_28
-2026-10-23,Emergency,0,0,2,0,2,moving_average_28
-2026-10-24,Emergency,1,0,2,0,2,moving_average_28
-2026-10-25,Emergency,0,0,2,0,2,moving_average_28
-2026-10-26,Emergency,1,0,2,0,2,moving_average_28
-2026-10-27,Emergency,0,0,2,0,2,moving_average_28
-2026-10-28,Emergency,1,0,2,0,2,moving_average_28
-2026-10-29,Emergency,0,0,2,0,2,moving_average_28
-2026-10-30,Emergency,1,0,2,0,2,moving_average_28
-2026-10-31,Emergency,0,0,2,0,2,moving_average_28
-2026-11-01,Emergency,1,0,2,0,2,moving_average_28
-2026-11-02,Emergency,0,0,2,0,2,moving_average_28
-2026-11-03,Emergency,0,0,2,0,2,moving_average_28
-2026-11-04,Emergency,1,0,2,0,2,moving_average_28
-2026-10-06,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-07,General Medicine,6,2,9,0,10,moving_average_28
-2026-10-08,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-09,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-10,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-11,General Medicine,6,2,9,0,10,moving_average_28
-2026-10-12,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-13,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-14,General Medicine,6,2,9,0,10,moving_average_28
-2026-10-15,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-16,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-17,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-18,General Medicine,6,2,9,0,10,moving_average_28
-2026-10-19,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-20,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-21,General Medicine,6,2,9,0,10,moving_average_28
-2026-10-22,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-23,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-24,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-25,General Medicine,6,2,9,0,10,moving_average_28
-2026-10-26,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-27,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-28,General Medicine,6,2,9,0,10,moving_average_28
-2026-10-29,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-30,General Medicine,5,2,9,0,10,moving_average_28
-2026-10-31,General Medicine,5,2,9,0,10,moving_average_28
-2026-11-01,General Medicine,6,2,9,0,10,moving_average_28
-2026-11-02,General Medicine,5,2,9,0,10,moving_average_28
-2026-11-03,General Medicine,5,2,9,0,10,moving_average_28
-2026-11-04,General Medicine,6,2,9,0,10,moving_average_28
-2026-10-06,ICU,1,0,2,0,3,moving_average_28
-2026-10-07,ICU,0,0,2,0,3,moving_average_28
-2026-10-08,ICU,1,0,2,0,3,moving_average_28
-2026-10-09,ICU,0,0,2,0,3,moving_average_28
-2026-10-10,ICU,1,0,2,0,3,moving_average_28
-2026-10-11,ICU,1,0,2,0,3,moving_average_28
-2026-10-12,ICU,0,0,2,0,3,moving_average_28
-2026-10-13,ICU,1,0,2,0,3,moving_average_28
-2026-10-14,ICU,1,0,2,0,3,moving_average_28
-2026-10-15,ICU,0,0,2,0,3,moving_average_28
-2026-10-16,ICU,1,0,2,0,3,moving_average_28
-2026-10-17,ICU,1,0,2,0,3,moving_average_28
-2026-10-18,ICU,0,0,2,0,3,moving_average_28
-2026-10-19,ICU,1,0,2,0,3,moving_average_28
-2026-10-20,ICU,1,0,2,0,3,moving_average_28
-2026-10-21,ICU,0,0,2,0,3,moving_average_28
-2026-10-22,ICU,1,0,2,0,3,moving_average_28
-2026-10-23,ICU,1,0,2,0,3,moving_average_28
-2026-10-24,ICU,0,0,2,0,3,moving_average_28
-2026-10-25,ICU,1,0,2,0,3,moving_average_28
-2026-10-26,ICU,1,0,2,0,3,moving_average_28
-2026-10-27,ICU,0,0,2,0,3,moving_average_28
-2026-10-28,ICU,1,0,2,0,3,moving_average_28
-2026-10-29,ICU,1,0,2,0,3,moving_average_28
-2026-10-30,ICU,0,0,2,0,3,moving_average_28
-2026-10-31,ICU,1,0,2,0,3,moving_average_28
-2026-11-01,ICU,0,0,2,0,3,moving_average_28
-2026-11-02,ICU,1,0,2,0,3,moving_average_28
-2026-11-03,ICU,1,0,2,0,3,moving_average_28
-2026-11-04,ICU,0,0,2,0,3,moving_average_28
-2026-10-06,Neurology,1,0,2,0,3,moving_average_28
-2026-10-07,Neurology,0,0,2,0,3,moving_average_28
-2026-10-08,Neurology,1,0,2,0,3,moving_average_28
-2026-10-09,Neurology,1,0,2,0,3,moving_average_28
-2026-10-10,Neurology,1,0,2,0,3,moving_average_28
-2026-10-11,Neurology,0,0,2,0,3,moving_average_28
-2026-10-12,Neurology,1,0,2,0,3,moving_average_28
-2026-10-13,Neurology,1,0,2,0,2,moving_average_28
-2026-10-14,Neurology,0,0,2,0,2,moving_average_28
-2026-10-15,Neurology,1,0,2,0,2,moving_average_28
-2026-10-16,Neurology,1,0,2,0,2,moving_average_28
-2026-10-17,Neurology,1,0,2,0,2,moving_average_28
-2026-10-18,Neurology,0,0,2,0,2,moving_average_28
-2026-10-19,Neurology,1,0,2,0,2,moving_average_28
-2026-10-20,Neurology,1,0,2,0,3,moving_average_28
-2026-10-21,Neurology,0,0,2,0,3,moving_average_28
-2026-10-22,Neurology,1,0,2,0,3,moving_average_28
-2026-10-23,Neurology,1,0,2,0,3,moving_average_28
-2026-10-24,Neurology,1,0,2,0,3,moving_average_28
-2026-10-25,Neurology,0,0,2,0,3,moving_average_28
-2026-10-26,Neurology,1,0,2,0,3,moving_average_28
-2026-10-27,Neurology,1,0,2,0,3,moving_average_28
-2026-10-28,Neurology,0,0,2,0,3,moving_average_28
-2026-10-29,Neurology,1,0,2,0,3,moving_average_28
-2026-10-30,Neurology,1,0,2,0,3,moving_average_28
-2026-10-31,Neurology,1,0,2,0,3,moving_average_28
-2026-11-01,Neurology,0,0,2,0,3,moving_average_28
-2026-11-02,Neurology,1,0,2,0,3,moving_average_28
-2026-11-03,Neurology,1,0,2,0,3,moving_average_28
-2026-11-04,Neurology,0,0,2,0,3,moving_average_28
-2026-10-06,Oncology,0,0,1,0,2,moving_average_28
-2026-10-07,Oncology,1,0,1,0,2,moving_average_28
-2026-10-08,Oncology,0,0,1,0,2,moving_average_28
-2026-10-09,Oncology,0,0,1,0,2,moving_average_28
-2026-10-10,Oncology,1,0,1,0,2,moving_average_28
-2026-10-11,Oncology,0,0,1,0,2,moving_average_28
-2026-10-12,Oncology,0,0,1,0,2,moving_average_28
-2026-10-13,Oncology,0,0,1,0,2,moving_average_28
-2026-10-14,Oncology,1,0,1,0,2,moving_average_28
-2026-10-15,Oncology,0,0,1,0,2,moving_average_28
-2026-10-16,Oncology,0,0,1,0,2,moving_average_28
-2026-10-17,Oncology,0,0,1,0,2,moving_average_28
-2026-10-18,Oncology,1,0,1,0,2,moving_average_28
-2026-10-19,Oncology,0,0,1,0,2,moving_average_28
-2026-10-20,Oncology,0,0,1,0,2,moving_average_28
-2026-10-21,Oncology,1,0,1,0,2,moving_average_28
-2026-10-22,Oncology,0,0,1,0,2,moving_average_28
-2026-10-23,Oncology,0,0,1,0,2,moving_average_28
-2026-10-24,Oncology,0,0,1,0,2,moving_average_28
-2026-10-25,Oncology,1,0,1,0,2,moving_average_28
-2026-10-26,Oncology,0,0,1,0,2,moving_average_28
-2026-10-27,Oncology,0,0,1,0,2,moving_average_28
-2026-10-28,Oncology,0,0,1,0,2,moving_average_28
-2026-10-29,Oncology,1,0,1,0,2,moving_average_28
-2026-10-30,Oncology,0,0,1,0,2,moving_average_28
-2026-10-31,Oncology,0,0,1,0,2,moving_average_28
-2026-11-01,Oncology,1,0,1,0,2,moving_average_28
-2026-11-02,Oncology,0,0,1,0,2,moving_average_28
-2026-11-03,Oncology,0,0,1,0,2,moving_average_28
-2026-11-04,Oncology,1,0,1,0,2,moving_average_28
-2026-10-06,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-07,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-08,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-09,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-10,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-11,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-12,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-13,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-14,Orthopedics,0,0,2,0,4,moving_average_28
-2026-10-15,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-16,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-17,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-18,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-19,Orthopedics,1,0,2,0,4,moving_average_28
-2026-10-20,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-21,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-22,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-23,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-24,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-25,Orthopedics,0,0,2,0,3,moving_average_28
-2026-10-26,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-27,Orthopedics,2,0,2,0,3,moving_average_28
-2026-10-28,Orthopedics,0,0,2,0,3,moving_average_28
-2026-10-29,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-30,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-31,Orthopedics,1,0,2,0,3,moving_average_28
-2026-11-01,Orthopedics,1,0,2,0,3,moving_average_28
-2026-11-02,Orthopedics,1,0,2,0,3,moving_average_28
-2026-11-03,Orthopedics,1,0,2,0,3,moving_average_28
-2026-11-04,Orthopedics,1,0,2,0,3,moving_average_28
-2026-10-06,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-07,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-08,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-09,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-10,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-11,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-12,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-13,Pediatrics,1,0,3,0,4,moving_average_28
-2026-10-14,Pediatrics,1,0,3,0,4,moving_average_28
-2026-10-15,Pediatrics,1,0,3,0,4,moving_average_28
-2026-10-16,Pediatrics,1,0,3,0,4,moving_average_28
-2026-10-17,Pediatrics,1,0,3,0,4,moving_average_28
-2026-10-18,Pediatrics,1,0,3,0,4,moving_average_28
-2026-10-19,Pediatrics,1,0,3,0,4,moving_average_28
-2026-10-20,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-21,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-22,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-23,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-24,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-25,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-26,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-27,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-28,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-29,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-30,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-31,Pediatrics,1,0,3,0,3,moving_average_28
-2026-11-01,Pediatrics,1,0,3,0,3,moving_average_28
-2026-11-02,Pediatrics,1,0,3,0,3,moving_average_28
-2026-11-03,Pediatrics,1,0,3,0,3,moving_average_28
-2026-11-04,Pediatrics,1,0,3,0,3,moving_average_28
-2026-10-06,Surgery,1,0,3,0,4,moving_average_28
-2026-10-07,Surgery,2,0,3,0,4,moving_average_28
-2026-10-08,Surgery,1,0,3,0,4,moving_average_28
-2026-10-09,Surgery,1,0,3,0,4,moving_average_28
-2026-10-10,Surgery,1,0,3,0,4,moving_average_28
-2026-10-11,Surgery,1,0,3,0,4,moving_average_28
-2026-10-12,Surgery,2,0,3,0,4,moving_average_28
-2026-10-13,Surgery,1,0,3,0,4,moving_average_28
-2026-10-14,Surgery,1,0,3,0,4,moving_average_28
-2026-10-15,Surgery,2,0,3,0,4,moving_average_28
-2026-10-16,Surgery,1,0,3,0,4,moving_average_28
-2026-10-17,Surgery,1,0,3,0,4,moving_average_28
-2026-10-18,Surgery,1,0,3,0,4,moving_average_28
-2026-10-19,Surgery,1,0,3,0,4,moving_average_28
-2026-10-20,Surgery,2,0,3,0,4,moving_average_28
-2026-10-21,Surgery,1,0,3,0,4,moving_average_28
-2026-10-22,Surgery,1,0,3,0,4,moving_average_28
-2026-10-23,Surgery,2,0,3,0,4,moving_average_28
-2026-10-24,Surgery,1,0,3,0,4,moving_average_28
-2026-10-25,Surgery,1,0,3,0,4,moving_average_28
-2026-10-26,Surgery,1,0,3,0,4,moving_average_28
-2026-10-27,Surgery,2,0,3,0,4,moving_average_28
-2026-10-28,Surgery,1,0,3,0,4,moving_average_28
-2026-10-29,Surgery,1,0,3,0,4,moving_average_28
-2026-10-30,Surgery,1,0,3,0,4,moving_average_28
-2026-10-31,Surgery,2,0,3,0,4,moving_average_28
-2026-11-01,Surgery,1,0,3,0,4,moving_average_28
-2026-11-02,Surgery,1,0,3,0,4,moving_average_28
-2026-11-03,Surgery,1,0,3,0,4,moving_average_28
-2026-11-04,Surgery,2,0,3,0,4,moving_average_28
-2026-10-06,All Departments,11,6,16,3,19,moving_average_28
-2026-10-07,All Departments,12,6,16,3,19,moving_average_28
-2026-10-08,All Departments,11,6,16,3,19,moving_average_28
-2026-10-09,All Departments,11,6,16,3,19,moving_average_28
-2026-10-10,All Departments,11,6,16,3,19,moving_average_28
-2026-10-11,All Departments,12,6,16,3,19,moving_average_28
-2026-10-12,All Departments,11,6,16,3,19,moving_average_28
-2026-10-13,All Departments,11,6,17,4,19,moving_average_28
-2026-10-14,All Departments,11,6,17,4,19,moving_average_28
-2026-10-15,All Departments,12,6,17,4,19,moving_average_28
-2026-10-16,All Departments,11,6,17,4,19,moving_average_28
-2026-10-17,All Departments,11,6,17,4,19,moving_average_28
-2026-10-18,All Departments,11,6,17,4,19,moving_average_28
-2026-10-19,All Departments,12,6,17,4,19,moving_average_28
-2026-10-20,All Departments,11,6,16,4,19,moving_average_28
-2026-10-21,All Departments,11,6,16,4,19,moving_average_28
-2026-10-22,All Departments,11,6,16,4,19,moving_average_28
-2026-10-23,All Departments,12,6,16,4,19,moving_average_28
-2026-10-24,All Departments,11,6,16,4,19,moving_average_28
-2026-10-25,All Departments,11,6,16,4,19,moving_average_28
-2026-10-26,All Departments,11,6,16,4,19,moving_average_28
-2026-10-27,All Departments,12,6,16,4,19,moving_average_28
-2026-10-28,All Departments,11,6,16,4,19,moving_average_28
-2026-10-29,All Departments,11,6,16,4,19,moving_average_28
-2026-10-30,All Departments,11,6,16,4,19,moving_average_28
-2026-10-31,All Departments,12,6,16,4,19,moving_average_28
-2026-11-01,All Departments,11,6,16,4,19,moving_average_28
-2026-11-02,All Departments,11,6,16,4,19,moving_average_28
-2026-11-03,All Departments,11,6,16,4,19,moving_average_28
-2026-11-04,All Departments,12,6,16,4,19,moving_average_28
+date,department,predicted_admissions,lower_80,upper_80,lower_95,upper_95,model,model_type,best_learned_model,learned_beats_best_baseline,best_baseline,backtest_metric,published_backtest_score,best_baseline_backtest_score
+2026-10-06,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-07,Cardiology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-08,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-09,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-10,Cardiology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-11,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-12,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-13,Cardiology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-14,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-15,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-16,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-17,Cardiology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-18,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-19,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-20,Cardiology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-21,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-22,Cardiology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-23,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-24,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-25,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-26,Cardiology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-27,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-28,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-29,Cardiology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-30,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-31,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-01,Cardiology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-02,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-03,Cardiology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-04,Cardiology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-06,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-07,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-08,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-09,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-10,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-11,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-12,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-13,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-14,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-15,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-16,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-17,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-18,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-19,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-20,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-21,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-22,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-23,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-24,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-25,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-26,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-27,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-28,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-29,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-30,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-31,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-01,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-02,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-03,Emergency,0,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-04,Emergency,1,0,2,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-06,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-07,General Medicine,6,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-08,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-09,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-10,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-11,General Medicine,6,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-12,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-13,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-14,General Medicine,6,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-15,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-16,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-17,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-18,General Medicine,6,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-19,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-20,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-21,General Medicine,6,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-22,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-23,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-24,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-25,General Medicine,6,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-26,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-27,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-28,General Medicine,6,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-29,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-30,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-31,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-01,General Medicine,6,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-02,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-03,General Medicine,5,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-04,General Medicine,6,2,9,0,10,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-06,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-07,ICU,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-08,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-09,ICU,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-10,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-11,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-12,ICU,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-13,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-14,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-15,ICU,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-16,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-17,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-18,ICU,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-19,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-20,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-21,ICU,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-22,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-23,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-24,ICU,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-25,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-26,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-27,ICU,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-28,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-29,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-30,ICU,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-31,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-01,ICU,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-02,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-03,ICU,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-04,ICU,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-06,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-07,Neurology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-08,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-09,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-10,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-11,Neurology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-12,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-13,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-14,Neurology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-15,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-16,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-17,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-18,Neurology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-19,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-20,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-21,Neurology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-22,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-23,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-24,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-25,Neurology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-26,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-27,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-28,Neurology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-29,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-30,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-31,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-01,Neurology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-02,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-03,Neurology,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-04,Neurology,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-06,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-07,Oncology,1,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-08,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-09,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-10,Oncology,1,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-11,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-12,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-13,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-14,Oncology,1,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-15,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-16,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-17,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-18,Oncology,1,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-19,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-20,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-21,Oncology,1,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-22,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-23,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-24,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-25,Oncology,1,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-26,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-27,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-28,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-29,Oncology,1,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-30,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-31,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-01,Oncology,1,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-02,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-03,Oncology,0,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-04,Oncology,1,0,1,0,2,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-06,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-07,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-08,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-09,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-10,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-11,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-12,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-13,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-14,Orthopedics,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-15,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-16,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-17,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-18,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-19,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-20,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-21,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-22,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-23,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-24,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-25,Orthopedics,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-26,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-27,Orthopedics,2,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-28,Orthopedics,0,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-29,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-30,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-31,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-01,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-02,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-03,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-04,Orthopedics,1,0,2,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-06,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-07,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-08,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-09,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-10,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-11,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-12,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-13,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-14,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-15,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-16,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-17,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-18,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-19,Pediatrics,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-20,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-21,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-22,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-23,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-24,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-25,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-26,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-27,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-28,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-29,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-30,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-31,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-01,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-02,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-03,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-04,Pediatrics,1,0,3,0,3,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-06,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-07,Surgery,2,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-08,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-09,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-10,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-11,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-12,Surgery,2,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-13,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-14,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-15,Surgery,2,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-16,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-17,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-18,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-19,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-20,Surgery,2,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-21,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-22,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-23,Surgery,2,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-24,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-25,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-26,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-27,Surgery,2,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-28,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-29,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-30,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-31,Surgery,2,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-01,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-02,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-03,Surgery,1,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-04,Surgery,2,0,3,0,4,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-06,All Departments,11,6,16,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-07,All Departments,12,6,16,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-08,All Departments,11,6,16,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-09,All Departments,11,6,16,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-10,All Departments,11,6,16,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-11,All Departments,12,6,16,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-12,All Departments,11,6,16,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-13,All Departments,11,6,17,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-14,All Departments,11,6,17,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-15,All Departments,12,6,17,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-16,All Departments,11,6,17,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-17,All Departments,11,6,17,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-18,All Departments,11,6,17,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-19,All Departments,12,6,17,4,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-20,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-21,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-22,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-23,All Departments,12,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-24,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-25,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-26,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-27,All Departments,12,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-28,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-29,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-30,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-10-31,All Departments,12,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-01,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-02,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-03,All Departments,11,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744
+2026-11-04,All Departments,12,6,17,3,19,moving_average_28,baseline,xgboost_recursive,False,moving_average_28,MAE,2.9744,2.9744

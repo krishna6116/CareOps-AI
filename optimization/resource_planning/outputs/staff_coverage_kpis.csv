@@ -279,13 +279,13 @@ date,department,shift,role,required_staff,assigned_staff,unfilled_staff
 2026-10-10,emergency,Morning,doctor,1,1,0
 2026-10-10,emergency,Morning,nurse,2,2,0
 2026-10-10,emergency,Night,nurse,2,2,0
-2026-10-10,general medicine,Evening,nurse,17,17,0
+2026-10-10,general medicine,Evening,nurse,16,16,0
 2026-10-10,general medicine,Evening,therapist,1,1,0
 2026-10-10,general medicine,Morning,administrator,1,1,0
 2026-10-10,general medicine,Morning,doctor,19,19,0
-2026-10-10,general medicine,Morning,nurse,17,17,0
+2026-10-10,general medicine,Morning,nurse,16,16,0
 2026-10-10,general medicine,Morning,technician,1,1,0
-2026-10-10,general medicine,Night,nurse,17,17,0
+2026-10-10,general medicine,Night,nurse,16,16,0
 2026-10-10,general medicine,Night,technician,1,1,0
 2026-10-10,icu,Evening,administrator,1,1,0
 2026-10-10,icu,Evening,nurse,5,5,0
@@ -651,11 +651,11 @@ date,department,shift,role,required_staff,assigned_staff,unfilled_staff
 2026-10-15,oncology,Morning,doctor,1,1,0
 2026-10-15,oncology,Morning,nurse,1,1,0
 2026-10-15,oncology,Night,nurse,1,1,0
-2026-10-15,orthopedics,Evening,nurse,3,3,0
+2026-10-15,orthopedics,Evening,nurse,4,4,0
 2026-10-15,orthopedics,Evening,technician,2,2,0
 2026-10-15,orthopedics,Morning,administrator,1,1,0
 2026-10-15,orthopedics,Morning,doctor,4,4,0
-2026-10-15,orthopedics,Morning,nurse,3,3,0
+2026-10-15,orthopedics,Morning,nurse,4,4,0
 2026-10-15,orthopedics,Morning,technician,1,1,0
 2026-10-15,orthopedics,Night,nurse,4,4,0
 2026-10-15,orthopedics,Night,technician,1,1,0
@@ -667,14 +667,14 @@ date,department,shift,role,required_staff,assigned_staff,unfilled_staff
 2026-10-15,pediatrics,Night,administrator,1,1,0
 2026-10-15,pediatrics,Night,nurse,3,3,0
 2026-10-15,pediatrics,Night,technician,1,1,0
-2026-10-15,surgery,Evening,nurse,5,5,0
+2026-10-15,surgery,Evening,nurse,4,4,0
 2026-10-15,surgery,Evening,technician,1,1,0
 2026-10-15,surgery,Morning,doctor,7,7,0
-2026-10-15,surgery,Morning,nurse,5,5,0
+2026-10-15,surgery,Morning,nurse,4,4,0
 2026-10-15,surgery,Morning,surgeon,21,21,0
 2026-10-15,surgery,Morning,technician,1,1,0
 2026-10-15,surgery,Morning,therapist,1,1,0
-2026-10-15,surgery,Night,nurse,5,5,0
+2026-10-15,surgery,Night,nurse,4,4,0
 2026-10-15,surgery,Night,technician,1,1,0
 2026-10-16,cardiology,Evening,nurse,4,4,0
 2026-10-16,cardiology,Evening,technician,1,1,0
@@ -690,13 +690,13 @@ date,department,shift,role,required_staff,assigned_staff,unfilled_staff
 2026-10-16,emergency,Morning,doctor,1,1,0
 2026-10-16,emergency,Morning,nurse,2,2,0
 2026-10-16,emergency,Night,nurse,2,2,0
-2026-10-16,general medicine,Evening,nurse,17,17,0
+2026-10-16,general medicine,Evening,nurse,16,16,0
 2026-10-16,general medicine,Evening,therapist,1,1,0
 2026-10-16,general medicine,Morning,administrator,1,1,0
 2026-10-16,general medicine,Morning,doctor,19,19,0
-2026-10-16,general medicine,Morning,nurse,17,17,0
+2026-10-16,general medicine,Morning,nurse,16,16,0
 2026-10-16,general medicine,Morning,technician,1,1,0
-2026-10-16,general medicine,Night,nurse,17,17,0
+2026-10-16,general medicine,Night,nurse,16,16,0
 2026-10-16,general medicine,Night,technician,1,1,0
 2026-10-16,icu,Evening,administrator,1,1,0
 2026-10-16,icu,Evening,nurse,5,5,0
@@ -1135,12 +1135,12 @@ date,department,shift,role,required_staff,assigned_staff,unfilled_staff
 2026-10-22,orthopedics,Night,nurse,4,4,0
 2026-10-22,orthopedics,Night,technician,1,1,0
 2026-10-22,orthopedics,Night,therapist,1,1,0
-2026-10-22,pediatrics,Evening,nurse,3,3,0
+2026-10-22,pediatrics,Evening,nurse,4,4,0
 2026-10-22,pediatrics,Morning,administrator,1,1,0
 2026-10-22,pediatrics,Morning,doctor,4,4,0
-2026-10-22,pediatrics,Morning,nurse,3,3,0
+2026-10-22,pediatrics,Morning,nurse,4,4,0
 2026-10-22,pediatrics,Night,administrator,1,1,0
-2026-10-22,pediatrics,Night,nurse,3,3,0
+2026-10-22,pediatrics,Night,nurse,4,4,0
 2026-10-22,pediatrics,Night,technician,1,1,0
 2026-10-22,surgery,Evening,nurse,4,4,0
 2026-10-22,surgery,Evening,technician,1,1,0
@@ -1394,7 +1394,7 @@ date,department,shift,role,required_staff,assigned_staff,unfilled_staff
 2026-10-26,neurology,Morning,doctor,4,4,0
 2026-10-26,neurology,Morning,nurse,5,5,0
 2026-10-26,neurology,Morning,technician,1,1,0
-2026-10-26,neurology,Night,nurse,2,2,0
+2026-10-26,neurology,Night,nurse,3,3,0
 2026-10-26,oncology,Evening,nurse,2,2,0
 2026-10-26,oncology,Morning,doctor,1,1,0
 2026-10-26,oncology,Morning,nurse,1,1,0

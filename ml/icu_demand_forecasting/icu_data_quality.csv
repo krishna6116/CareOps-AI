@@ -12,12 +12,14 @@ daily_operations,seasonal_multiplier,float64,9081,0,0.0,4
 daily_operations,day_of_week,str,9081,0,0.0,7
 daily_operations,month,int64,9081,0,0.0,12
 daily_operations,year,int64,9081,0,0.0,3
+daily_operations,department_beds,int64,9081,0,0.0,5
+daily_operations,occupied_beds,float64,9081,0,0.0,90
 icu_modeling,date,datetime64[us],960,0,0.0,960
 icu_modeling,admissions,int64,960,0,0.0,22
 icu_modeling,discharges,int64,960,0,0.0,20
 icu_modeling,emergency_cases,int64,960,0,0.0,6
 icu_modeling,ICU_admissions,int64,960,0,0.0,6
-icu_modeling,occupancy,float64,960,0,0.0,638
+icu_modeling,occupancy,float64,960,0,0.0,325
 icu_modeling,day_of_week,int32,960,0,0.0,7
 icu_modeling,day_of_month,int32,960,0,0.0,31
 icu_modeling,week_of_year,int64,960,0,0.0,52
@@ -63,8 +65,8 @@ icu_modeling,discharges_roll_mean_7,float64,960,0,0.0,50
 icu_modeling,emergency_cases_lag_1,float64,960,0,0.0,6
 icu_modeling,emergency_cases_lag_7,float64,960,0,0.0,6
 icu_modeling,emergency_cases_roll_mean_7,float64,960,0,0.0,16
-icu_modeling,occupancy_lag_1,float64,960,0,0.0,638
-icu_modeling,occupancy_lag_7,float64,960,0,0.0,640
-icu_modeling,occupancy_roll_mean_7,float64,960,0,0.0,947
+icu_modeling,occupancy_lag_1,float64,960,0,0.0,325
+icu_modeling,occupancy_lag_7,float64,960,0,0.0,329
+icu_modeling,occupancy_roll_mean_7,float64,960,0,0.0,887
 icu_modeling,icu_change_1,float64,960,0,0.0,10
 icu_modeling,icu_change_7,float64,960,0,0.0,10

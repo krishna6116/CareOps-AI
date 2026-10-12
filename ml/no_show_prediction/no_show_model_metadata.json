@@ -8,13 +8,13 @@
   "train_rows": 76275,
   "validation_rows": 17602,
   "test_rows": 23470,
-  "selected_threshold": 0.2,
-  "training_seconds": 5.0713942000002135,
+  "selected_threshold": 0.18000000000000005,
+  "training_seconds": 4.762523199999919,
   "scale_pos_weight": 5.567504735663854,
   "probability_calibration": {
     "method": "Platt scaling fitted on validation predictions only",
-    "scale": 0.9662728070102219,
-    "offset": -1.7408826847869436
+    "scale": 0.9466334214506097,
+    "offset": -1.695370876263018
   },
   "chronological_split": {
     "train": 0.65,
@@ -22,6 +22,7 @@
     "test": 0.2
   },
   "historical_features_are_leakage_safe": true,
+  "prediction_time": "Day before the appointment: history features use outcomes from earlier days only, and the smoothing prior is the running no-show rate up to that day (tests/test_leakage_audit.py).",
   "source_data_regenerated": false,
   "source_data_modified": false,
   "random_seed": 42

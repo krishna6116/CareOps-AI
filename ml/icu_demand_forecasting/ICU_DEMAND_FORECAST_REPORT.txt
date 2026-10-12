@@ -17,9 +17,9 @@ Native XGBoost API: xgb.train
 scikit-learn: NOT USED
 SciPy: NOT USED
 Matplotlib: NOT USED
-Number of features: 54
+Number of features: 50
 Boosting rounds configured: 700
-Best iteration: 19
+Best iteration: 2
 
 DATA SPLIT
 ------------------------------------------------------------
@@ -29,10 +29,10 @@ Test rows: 144
 
 XGBOOST TEST METRICS
 ------------------------------------------------------------
-MAE: 0.7420331478739778
-RMSE: 0.9424805463704967
-R2: 0.0056597917929333
-MAPE_percent: 41.61189605561338
+MAE: 0.7776366505357954
+RMSE: 0.998310118630643
+R2: -0.11563250138336056
+MAPE_percent: 40.40844703020976
 
 7-DAY NAIVE BASELINE
 ------------------------------------------------------------
@@ -51,15 +51,11 @@ FUTURE FORECAST
 Forecast horizon: 30 days
 Forecast start: 2026-10-06
 Forecast end: 2026-11-04
-Maximum predicted ICU admissions per day: 2
+Maximum predicted ICU admissions per day: 1
 Capacity risk counts (census unavailable): {'NOT_ESTIMATED_CENSUS_UNAVAILABLE': 30}
 
 FEATURES
 ------------------------------------------------------------
-- admissions
-- discharges
-- emergency_cases
-- occupancy
 - day_of_week
 - day_of_month
 - week_of_year

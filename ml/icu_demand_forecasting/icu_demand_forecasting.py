@@ -34,6 +34,8 @@ The program:
 
 from __future__ import annotations
 
+import contextlib
+import io
 import json
 import math
 import os
@@ -52,6 +54,7 @@ import xgboost as xgb
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from count_outputs import assert_count_column, to_flow_counts
+from forecast_evaluation import NAIVE_BASELINES, evaluate_candidates, interval_columns
 from scenario_config import drop_warmup
 
 
@@ -224,6 +227,26 @@ def load_source_data() -> tuple[pd.DataFrame, Path]:
         .str.strip()
     )
 
+    # Department occupancy is a percentage of that department's beds.
+    # Keep bed counts so the hospital figure can be weighted correctly.
+    beds_path = source_path.parent / "beds.csv"
+    if beds_path.is_file():
+        beds = pd.read_csv(beds_path)
+        department_beds = beds.groupby(
+            beds["department"].astype(str).str.strip()
+        ).size()
+        df["department_beds"] = df["department"].map(department_beds)
+        if df["department_beds"].isna().any():
+            missing_departments = sorted(
+                df.loc[df["department_beds"].isna(), "department"].unique()
+            )
+            raise ValueError(
+                f"No bed inventory for departments: {missing_departments}"
+            )
+        df["occupied_beds"] = df["occupancy"] / 100 * df["department_beds"]
+    else:
+        warn("beds.csv not found; hospital occupancy is an unweighted department mean.")
+
     info(
         f"Date range: "
         f"{df['date'].min().date()} -> {df['date'].max().date()}"
@@ -260,6 +283,13 @@ def build_daily_series(
         .sort_values("date")
         .reset_index(drop=True)
     )
+
+    if {"occupied_beds", "department_beds"} <= set(raw_df.columns):
+        # Hospital occupancy % weighted by department bed count.
+        weighted = raw_df.groupby("date")[["occupied_beds", "department_beds"]].sum()
+        daily["occupancy"] = daily["date"].map(
+            100 * weighted["occupied_beds"] / weighted["department_beds"]
+        )
 
     # Make the calendar continuous.
     full_dates = pd.date_range(
@@ -303,11 +333,11 @@ def build_daily_series(
 # FEATURE ENGINEERING
 # ============================================================================
 
+# Same-day admissions, discharges, emergency cases and occupancy are not
+# features: they are unknown when the forecast is made (the end of the
+# previous day), and same-day admissions include the ICU admissions being
+# predicted. Only their lags and lagged rolling means are used.
 FEATURE_COLUMNS = [
-    "admissions",
-    "discharges",
-    "emergency_cases",
-    "occupancy",
     "day_of_week",
     "day_of_month",
     "week_of_year",
@@ -1209,21 +1239,6 @@ def create_future_forecast(
         forecast_rows
     )
 
-    # Published ICU admissions and hospital flows are whole counts;
-    # the recursion above keeps expected values internally.
-    forecast["predicted_icu_admissions"] = to_flow_counts(
-        forecast["predicted_icu_admissions"]
-    )
-    forecast["predicted_icu_demand"] = forecast["predicted_icu_admissions"]
-    for column in [
-        "forecast_admissions",
-        "forecast_discharges",
-        "forecast_emergency_cases",
-    ]:
-        forecast[column] = to_flow_counts(forecast[column])
-        assert_count_column(forecast, column)
-    assert_count_column(forecast, "predicted_icu_admissions")
-
     print(
         f"Future forecast created for "
         f"{len(forecast)} days."
@@ -1247,6 +1262,91 @@ def create_future_forecast(
     )
 
     return forecast
+
+
+# ============================================================================
+# BACKTEST AND PUBLISHING
+# ============================================================================
+
+BACKTEST_STEP_DAYS = 7
+XGB_CANDIDATE = "xgboost_recursive"
+
+
+def backtest_icu_candidates(
+    model,
+    daily_df: pd.DataFrame,
+    first_origin: pd.Timestamp,
+) -> dict:
+    """Score the recursive XGBoost forecast and naive baselines on 30-day
+    forecasts from weekly origins in the holdout. The model was fitted on
+    the training rows only, so these origins are out of sample."""
+
+    daily = daily_df.assign(date=pd.to_datetime(daily_df["date"]))
+    series = daily.set_index("date")["ICU_admissions"].astype(float)
+
+    def xgboost_forecast(history: pd.Series, horizon: int) -> np.ndarray:
+        visible = daily[daily["date"] <= history.index.max()]
+        with contextlib.redirect_stdout(io.StringIO()):
+            forecast = create_future_forecast(model, visible, horizon)
+        return forecast["predicted_icu_admissions"].to_numpy(dtype=float)
+
+    banner("ICU 30-DAY ROLLING-ORIGIN BACKTEST")
+    evaluation = evaluate_candidates(
+        series,
+        {XGB_CANDIDATE: xgboost_forecast},
+        first_origin,
+        FORECAST_HORIZON_DAYS,
+        BACKTEST_STEP_DAYS,
+    )
+    evaluation["series"] = series
+    print(
+        evaluation["summary"][["model", "MAE", "RMSE", "sMAPE_percent", "MASE", "bias"]]
+        .round(3).to_string(index=False)
+    )
+    info(f"Champion by backtest MAE: {evaluation['champion']}")
+
+    evaluation["backtest"].to_csv(OUTPUT_DIR / "icu_backtest_predictions.csv", index=False)
+    evaluation["summary"].to_csv(OUTPUT_DIR / "icu_backtest_summary.csv", index=False)
+    evaluation["coverage"].to_csv(OUTPUT_DIR / "icu_interval_coverage.csv", index=False)
+    return evaluation
+
+
+def publish_icu_forecast(
+    future_forecast: pd.DataFrame,
+    daily_df: pd.DataFrame,
+    evaluation: dict,
+) -> pd.DataFrame:
+    """Champion forecast as whole, non-negative counts with intervals and
+    model-vs-baseline status. Expected values stay internal."""
+
+    published = future_forecast.copy()
+    champion = evaluation["champion"]
+    if champion == XGB_CANDIDATE:
+        expected = published["predicted_icu_admissions"].to_numpy(dtype=float)
+    else:
+        expected = NAIVE_BASELINES[champion](
+            evaluation["series"], len(published)
+        )
+    published["predicted_icu_admissions"] = to_flow_counts(expected)
+    published["predicted_icu_demand"] = published["predicted_icu_admissions"]
+    for key, values in interval_columns(
+        expected, evaluation["widths"], point=published["predicted_icu_admissions"].to_numpy()
+    ).items():
+        published[key] = values
+    for column in [
+        "forecast_admissions",
+        "forecast_discharges",
+        "forecast_emergency_cases",
+    ]:
+        published[column] = to_flow_counts(published[column])
+    for column in [
+        "predicted_icu_admissions", "forecast_admissions", "forecast_discharges",
+        "forecast_emergency_cases", "lower_80", "upper_80", "lower_95", "upper_95",
+    ]:
+        assert_count_column(published, column)
+    for key, value in evaluation["status"].items():
+        published[key] = value
+    return published
 
 
 # ============================================================================
@@ -2411,6 +2511,21 @@ def main():
             daily_df,
             FORECAST_HORIZON_DAYS,
         )
+    )
+
+    # ------------------------------------------------------------------
+    # 30-DAY ROLLING-ORIGIN BACKTEST, CHAMPION AND PUBLISHING
+    # ------------------------------------------------------------------
+
+    evaluation = backtest_icu_candidates(
+        model,
+        daily_df,
+        pd.Timestamp(test["date"].min()) - pd.Timedelta(days=1),
+    )
+    future_forecast = publish_icu_forecast(
+        future_forecast,
+        daily_df,
+        evaluation,
     )
 
     # ------------------------------------------------------------------

@@ -30,6 +30,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from classification_evaluation import (
+    evaluate_classifiers,
+    logistic_regression_baseline,
+    prevalence_baseline,
+    reliability_table,
+)
+from forecast_evaluation import model_status
 from scenario_config import WARMUP_END
 
 warnings.filterwarnings("ignore")
@@ -453,13 +460,14 @@ def create_historical_features(df):
 
     n = len(df)
 
-    # Global prior no-show rate
-    global_rate = float(df["no_show"].mean())
-
-    print(
-        f"Global historical no-show rate: "
-        f"{global_rate:.4%}"
-    )
+    # Prediction time is the day before the appointment: features use only
+    # outcomes from earlier days. The smoothing prior is the running no-show
+    # rate over those days (Beta(1, 1) before any history), never the rate
+    # over the whole dataset.
+    global_counts = [0, 0]
+    global_rate = 0.5
+    pending = []
+    current_day = None
 
     # Output
     hist = pd.DataFrame(
@@ -520,6 +528,82 @@ def create_historical_features(df):
     dept_hour_state = defaultdict(lambda: [0, 0])
     day_hour_state = defaultdict(lambda: [0, 0])
 
+    def apply_update(record):
+        (p, target, dt, department, priority, severity,
+         pd_key, pp_key, age_bucket, hour, dow) = record
+
+        p["count"] += 1
+        p["no_shows"] += target
+        p["attended"] += 1 - target
+
+        p["last_dt"] = dt
+        p["last_no_show"] = target
+
+        if target == 1:
+            p["consecutive_no_shows"] += 1
+        else:
+            p["consecutive_no_shows"] = 0
+
+        p["history"].append(
+            (dt, target)
+        )
+
+        # Context states
+        dept_state[department][0] += 1
+        dept_state[department][1] += target
+
+        priority_state[priority][0] += 1
+        priority_state[priority][1] += target
+
+        severity_state[severity][0] += 1
+        severity_state[severity][1] += target
+
+        patient_dept_state[pd_key][0] += 1
+        patient_dept_state[pd_key][1] += target
+
+        patient_priority_state[pp_key][0] += 1
+        patient_priority_state[pp_key][1] += target
+
+        dept_age_state[
+            (department, age_bucket)
+        ][0] += 1
+
+        dept_age_state[
+            (department, age_bucket)
+        ][1] += target
+
+        dept_priority_state[
+            (department, priority)
+        ][0] += 1
+
+        dept_priority_state[
+            (department, priority)
+        ][1] += target
+
+        priority_severity_state[
+            (priority, severity)
+        ][0] += 1
+
+        priority_severity_state[
+            (priority, severity)
+        ][1] += target
+
+        dept_hour_state[
+            (department, hour)
+        ][0] += 1
+
+        dept_hour_state[
+            (department, hour)
+        ][1] += target
+
+        day_hour_state[
+            (dow, hour)
+        ][0] += 1
+
+        day_hour_state[
+            (dow, hour)
+        ][1] += target
+
     # ------------------------------------------------------------
     # Process rows chronologically
     # ------------------------------------------------------------
@@ -532,6 +616,15 @@ def create_historical_features(df):
         severity = str(row.patient_severity)
 
         dt = row.appointment_datetime
+
+        if current_day is not None and dt.normalize() != current_day:
+            for record in pending:
+                apply_update(record)
+                global_counts[0] += 1
+                global_counts[1] += record[1]
+            pending.clear()
+            global_rate = (global_counts[1] + 1) / (global_counts[0] + 2)
+        current_day = dt.normalize()
         target = int(row.no_show)
 
         hour = int(dt.hour)
@@ -902,80 +995,14 @@ def create_historical_features(df):
         )
 
         # --------------------------------------------------------
-        # UPDATE HISTORY AFTER FEATURES ARE CREATED
+        # Outcomes are applied only when the date changes, so an
+        # appointment never sees outcomes from its own day.
         # --------------------------------------------------------
 
-        p["count"] += 1
-        p["no_shows"] += target
-        p["attended"] += 1 - target
-
-        p["last_dt"] = dt
-        p["last_no_show"] = target
-
-        if target == 1:
-            p["consecutive_no_shows"] += 1
-        else:
-            p["consecutive_no_shows"] = 0
-
-        p["history"].append(
-            (dt, target)
-        )
-
-        # Context states
-        dept_state[department][0] += 1
-        dept_state[department][1] += target
-
-        priority_state[priority][0] += 1
-        priority_state[priority][1] += target
-
-        severity_state[severity][0] += 1
-        severity_state[severity][1] += target
-
-        patient_dept_state[pd_key][0] += 1
-        patient_dept_state[pd_key][1] += target
-
-        patient_priority_state[pp_key][0] += 1
-        patient_priority_state[pp_key][1] += target
-
-        dept_age_state[
-            (department, age_bucket)
-        ][0] += 1
-
-        dept_age_state[
-            (department, age_bucket)
-        ][1] += target
-
-        dept_priority_state[
-            (department, priority)
-        ][0] += 1
-
-        dept_priority_state[
-            (department, priority)
-        ][1] += target
-
-        priority_severity_state[
-            (priority, severity)
-        ][0] += 1
-
-        priority_severity_state[
-            (priority, severity)
-        ][1] += target
-
-        dept_hour_state[
-            (department, hour)
-        ][0] += 1
-
-        dept_hour_state[
-            (department, hour)
-        ][1] += target
-
-        day_hour_state[
-            (dow, hour)
-        ][0] += 1
-
-        day_hour_state[
-            (dow, hour)
-        ][1] += target
+        pending.append((
+            p, target, dt, department, priority, severity,
+            pd_key, pp_key, age_bucket, hour, dow,
+        ))
 
         if (i + 1) % 20000 == 0:
 
@@ -1755,7 +1782,8 @@ def save_predictions(
     y_test,
     probabilities,
     threshold,
-    test_idx
+    test_idx,
+    extra_columns=None
 ):
 
     result = df.iloc[
@@ -1795,6 +1823,9 @@ def save_predictions(
         probabilities,
         1 - probabilities
     )
+
+    for key, value in (extra_columns or {}).items():
+        result[key] = value
 
     result.to_csv(
         PREDICTIONS_FILE,
@@ -2115,6 +2146,11 @@ def save_metadata(
             "test": 0.20,
         },
         "historical_features_are_leakage_safe": True,
+        "prediction_time": (
+            "Day before the appointment: history features use outcomes "
+            "from earlier days only, and the smoothing prior is the running "
+            "no-show rate up to that day (tests/test_leakage_audit.py)."
+        ),
         "source_data_regenerated": False,
         "source_data_modified": False,
         "random_seed": SEED,
@@ -2496,6 +2532,47 @@ def main():
     )
 
     # ------------------------------------------------------------
+    # Baselines and rolling 30-day windows over the holdout
+    # ------------------------------------------------------------
+
+    logistic_validation = logistic_regression_baseline(
+        X_train, y_train, X_validation
+    )
+    logistic_threshold, _ = find_best_threshold(
+        y_validation, logistic_validation
+    )
+    candidates = {
+        "xgboost_calibrated": (np.asarray(test_probabilities), float(threshold)),
+        "logistic_regression": (
+            logistic_regression_baseline(X_train, y_train, X_test),
+            float(logistic_threshold),
+        ),
+        "prevalence": (prevalence_baseline(y_train, len(y_test)), float(threshold)),
+    }
+    test_dates = df.iloc[test_idx]["appointment_datetime"]
+    no_show_windows, no_show_summary, no_show_champion = evaluate_classifiers(
+        test_dates,
+        y_test,
+        candidates,
+        pd.Timestamp(test_dates.min()).normalize() - pd.Timedelta(days=1),
+    )
+    no_show_windows.to_csv(OUTPUT_DIR / "no_show_backtest_windows.csv", index=False)
+    no_show_summary.to_csv(OUTPUT_DIR / "no_show_backtest_summary.csv", index=False)
+    pd.concat([
+        reliability_table(y_test, probabilities).assign(model=name)
+        for name, (probabilities, _) in candidates.items()
+    ]).to_csv(OUTPUT_DIR / "no_show_reliability.csv", index=False)
+    no_show_status = model_status(
+        no_show_summary, no_show_champion, ("xgboost_calibrated",),
+        score_column="brier",
+    )
+    print_section("ROLLING 30-DAY WINDOWS VS BASELINES")
+    print(no_show_summary[
+        ["model", "brier", "log_loss", "roc_auc", "pr_auc", "precision", "recall", "f1", "ece"]
+    ].round(4).to_string(index=False))
+    print(f"Published no-show model (lowest Brier): {no_show_champion}")
+
+    # ------------------------------------------------------------
     # Save model
     # ------------------------------------------------------------
 
@@ -2504,15 +2581,17 @@ def main():
     )
 
     # ------------------------------------------------------------
-    # Save predictions
+    # Save predictions (champion)
     # ------------------------------------------------------------
 
+    published_probabilities, published_threshold = candidates[no_show_champion]
     save_predictions(
         df,
         y_test,
-        test_probabilities,
-        threshold,
-        test_idx
+        published_probabilities,
+        published_threshold,
+        test_idx,
+        no_show_status
     )
 
     # ------------------------------------------------------------

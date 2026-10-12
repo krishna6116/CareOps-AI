@@ -27,9 +27,9 @@ SUPPORT_MANIFEST = ROOT / "data" / "synthetic" / "resource_support" / "scenario_
 SUPPORT_DATA = ROOT / "data" / "synthetic" / "resource_support"
 ADMISSION_BACKTEST = ROOT / "ml" / "admission_forecasting" / "admission_backtest_summary.csv"
 OCCUPANCY_BACKTEST = ROOT / "ml" / "occupancy_forecasting" / "occupancy_backtest_summary.csv"
-NAIVE_MODELS = (
-    "last_value", "same_weekday_last_week", "moving_average_7", "moving_average_28",
-)
+ICU_BACKTEST = ROOT / "ml" / "icu_demand_forecasting" / "icu_backtest_summary.csv"
+LOS_BACKTEST = ROOT / "ml" / "los_prediction" / "los_backtest_summary.csv"
+NO_SHOW_BACKTEST = ROOT / "ml" / "no_show_prediction" / "no_show_backtest_summary.csv"
 SCORECARD_JSON = OUTPUT / "reliability_scorecard.json"
 SCORECARD_CSV = OUTPUT / "reliability_scorecard.csv"
 DETAILS_CSV = OUTPUT / "reliability_details.csv"
@@ -54,27 +54,32 @@ def _score(value: float, evidence: str, limitation: str) -> dict:
 
 
 def _rolling_backtest_evidence(
-    summary: pd.DataFrame, model_candidates: tuple[str, ...], unit: str,
+    summary: pd.DataFrame,
+    model_candidates: tuple[str, ...],
+    unit: str,
+    metric: str = "MAE",
+    evaluation: str = "30-day rolling-origin backtest",
 ) -> tuple[bool, str]:
-    """Describe a 30-day rolling-origin backtest; True when the published
-    forecast is the lowest-MAE candidate and no worse than every naive baseline."""
-    ranked = summary.sort_values(["MAE", "RMSE"], kind="stable").reset_index(drop=True)
+    """Describe a rolling evaluation; True when the published model (lowest
+    ``metric``, lower is better) is no worse than every baseline. Any
+    candidate that is not a learned model counts as a baseline."""
+    ranked = summary.sort_values(metric, kind="stable").reset_index(drop=True)
     published = str(ranked.iloc[0]["model"])
-    naive = ranked[ranked["model"].isin(NAIVE_MODELS)]
+    naive = ranked[~ranked["model"].isin(model_candidates)]
     best_naive = naive.iloc[0] if not naive.empty else None
     learned = ranked[ranked["model"].isin(model_candidates)]
-    parts = [f"30-day rolling-origin backtest: published {published} MAE {ranked.iloc[0]['MAE']:.2f} {unit}"]
+    parts = [f"{evaluation}: published {published} {metric} {ranked.iloc[0][metric]:.3g} {unit}".rstrip()]
     for _, row in learned.iterrows():
         if row["model"] != published:
-            parts.append(f"{row['model']} MAE {row['MAE']:.2f}")
+            parts.append(f"{row['model']} {metric} {row[metric]:.3g}")
     if best_naive is not None and best_naive["model"] != published:
-        parts.append(f"best naive ({best_naive['model']}) MAE {best_naive['MAE']:.2f}")
+        parts.append(f"best naive ({best_naive['model']}) {metric} {best_naive[metric]:.3g}")
     learned_wins = published in model_candidates
     parts.append(
         "the learned model beats every naive baseline" if learned_wins
         else "the learned model does not beat the best naive baseline, so the baseline is published"
     )
-    ok = best_naive is None or float(ranked.iloc[0]["MAE"]) <= float(best_naive["MAE"])
+    ok = best_naive is None or float(ranked.iloc[0][metric]) <= float(best_naive[metric])
     return ok, "; ".join(parts) + "."
 
 
@@ -247,13 +252,20 @@ def build_scorecard() -> dict:
         and icu_row["beats_baseline"]
         and float(icu_row["mae"]) <= 1.0
     )
+    icu_evidence = (
+        f"One-step holdout MAE {float(icu_row['mae']):.2f} admissions/day."
+        if icu_row is not None else "No ICU holdout was found."
+    )
+    if ICU_BACKTEST.is_file():
+        icu_good, rolling_evidence = _rolling_backtest_evidence(
+            pd.read_csv(ICU_BACKTEST), ("xgboost_recursive",), "ICU admissions/day"
+        )
+        icu_evidence = rolling_evidence + " " + icu_evidence
     rows.append((
         "ICU demand forecasting",
         _score(
             4.0 if icu_good else 3.0,
-            "Holdout MAE "
-            f"{float(icu_row['mae']):.2f} admissions/day beats the baseline."
-            if icu_row is not None else "No ICU holdout was found.",
+            icu_evidence,
             "This forecasts admissions flow, not occupied ICU census; low-count R² can remain unstable.",
         ),
     ))
@@ -261,12 +273,22 @@ def build_scorecard() -> dict:
     los = backtest[backtest["model"].eq("los_xgboost") & backtest["group"].eq("all_departments")]
     los_row = los.iloc[0] if not los.empty else None
     los_good = bool(los_row is not None and float(los_row["mae"]) <= 3.0)
+    los_evidence = (
+        f"All-department holdout MAE {float(los_row['mae']):.2f} days."
+        if los_row is not None else "No LOS holdout was found."
+    )
+    if LOS_BACKTEST.is_file():
+        beats_baselines, rolling_evidence = _rolling_backtest_evidence(
+            pd.read_csv(LOS_BACKTEST), ("xgboost",), "days",
+            evaluation="Rolling 30-day windows over the holdout",
+        )
+        los_good = los_good and beats_baselines
+        los_evidence = rolling_evidence + " " + los_evidence
     rows.append((
         "Length-of-stay prediction",
         _score(
             4.0 if los_good else 3.0,
-            f"All-department holdout MAE {float(los_row['mae']):.2f} days."
-            if los_row is not None else "No LOS holdout was found.",
+            los_evidence,
             "Individual stays can still deviate by several days; use intervals for capacity planning.",
         ),
     ))
@@ -276,12 +298,23 @@ def build_scorecard() -> dict:
     no_show_rating = (
         _forecast_reliability(no_show_row) if no_show_row is not None else None
     )
+    no_show_score = no_show_rating["score"] if no_show_rating else 3.0
+    no_show_evidence = (
+        no_show_rating["evidence"] if no_show_rating else "No no-show holdout was found."
+    )
+    if NO_SHOW_BACKTEST.is_file():
+        beats_baselines, rolling_evidence = _rolling_backtest_evidence(
+            pd.read_csv(NO_SHOW_BACKTEST), ("xgboost_calibrated",), "", metric="brier",
+            evaluation="Rolling 30-day windows over the holdout",
+        )
+        if not beats_baselines:
+            no_show_score = min(no_show_score, 3.0)
+        no_show_evidence = rolling_evidence + " " + no_show_evidence
     rows.append((
         "No-show prediction",
         _score(
-            no_show_rating["score"] if no_show_rating else 3.0,
-            no_show_rating["evidence"] if no_show_rating
-            else "No no-show holdout was found.",
+            no_show_score,
+            no_show_evidence,
             "Use only for outreach prioritization; never use it as a patient or access decision.",
         ),
     ))

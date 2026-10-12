@@ -19,23 +19,29 @@ Seasonal naive RMSE: 0.055200
 
 30-DAY ROLLING-ORIGIN BACKTEST (OCCUPIED BEDS)
 ------------------------------------------------------------
-Origins: 12 every 14 days from 2026-03-27 to 2026-08-28
+Origins: 24 every 7 days from 2026-03-27 to 2026-09-04
                  model    MAE   RMSE  sMAPE_percent  MASE  bias
-       ridge_recursive  8.564 10.895          6.472 0.902 3.155
-           ridge_blend 11.639 14.046          8.799 1.226 1.817
-     moving_average_28 11.891 14.424          8.981 1.253 1.002
-      moving_average_7 12.981 15.680          9.836 1.368 1.371
-            last_value 13.614 16.988         10.285 1.434 2.847
-same_weekday_last_week 13.967 16.822         10.567 1.471 1.383
+       ridge_recursive  8.725 10.947          6.593 0.919 2.816
+           ridge_blend 11.643 14.031          8.782 1.227 1.636
+     moving_average_28 11.875 14.302          8.970 1.251 0.959
+      moving_average_7 13.210 15.919          9.974 1.392 1.295
+            last_value 13.346 16.433         10.092 1.406 1.593
+same_weekday_last_week 14.125 16.953         10.674 1.488 1.286
 Published forecast model: ridge_recursive
 Interval coverage on later backtest origins:
- level bucket  calibration_origins  evaluation_origins  calibrated_half_width  empirical_coverage
-  0.80    1-7                    6                   6                  8.262               0.833
-  0.80   8-14                    6                   6                 16.189               0.762
-  0.80  15-30                    6                   6                 17.024               0.875
-  0.95    1-7                    6                   6                 19.189               0.976
-  0.95   8-14                    6                   6                 25.160               1.000
-  0.95  15-30                    6                   6                 24.046               0.979
+               method  level bucket  evaluation_origins  mean_half_width  empirical_coverage
+split_half_continuous   0.80    1-7                  12            8.476               0.750
+split_half_continuous   0.80   8-14                  12           14.830               0.750
+split_half_continuous   0.80  15-30                  12           16.820               0.875
+split_half_continuous   0.95    1-7                  12           18.360               0.964
+split_half_continuous   0.95   8-14                  12           24.016               0.988
+split_half_continuous   0.95  15-30                  12           23.765               0.984
+ sequential_published   0.80    1-7                  18            7.911               0.786
+ sequential_published   0.80   8-14                  18           14.142               0.738
+ sequential_published   0.80  15-30                  18           15.806               0.830
+ sequential_published   0.95    1-7                  18           16.647               0.944
+ sequential_published   0.95   8-14                  18           22.188               0.929
+ sequential_published   0.95  15-30                  18           22.500               0.938
 
 30-DAY FORECAST
 ------------------------------------------------------------

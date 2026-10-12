@@ -25,6 +25,8 @@ from count_outputs import assert_count_column, to_stock_counts
 from scenario_config import WARMUP_END, drop_warmup
 from forecast_evaluation import (
     NAIVE_BASELINES,
+    model_status,
+    threshold_exceedance,
     conformal_intervals,
     forecast_sanity,
     horizon_bucket,
@@ -1180,7 +1182,7 @@ def main():
     print("[6/7] Backtesting candidates and generating 30-day occupancy forecast...")
 
     forecast_days = 30
-    backtest_step_days = 14
+    backtest_step_days = 7
 
     occupied_series = (
         history.set_index("date")["occupied_beds"].astype(float).sort_index()
@@ -1214,7 +1216,23 @@ def main():
         seasonal_mase_scale(occupied_series[occupied_series.index < test_start]),
     )
     champion = select_champion(backtest_summary)
-    interval_widths, interval_coverage = conformal_intervals(backtest, champion)
+    interval_widths, interval_coverage = conformal_intervals(
+        backtest, champion, capacity=total_beds
+    )
+
+    # Occupancy-risk alerts: does the forecast flag the days that actually
+    # reach a threshold? The 90%/95% alert levels never occur in this
+    # synthetic history, so an "elevated" level at the 90th percentile of
+    # pre-holdout occupancy is also scored.
+    elevated_beds = float(np.ceil(
+        occupied_series[occupied_series.index < test_start].quantile(0.90)
+    ))
+    risk_metrics = threshold_exceedance(backtest, champion, {
+        "elevated_p90_training": elevated_beds,
+        "warning_90pct": 0.90 * total_beds,
+        "critical_95pct": 0.95 * total_beds,
+    })
+    risk_metrics.to_csv(OUTPUT_DIR / "occupancy_risk_metrics.csv", index=False)
 
     backtest.to_csv(OUTPUT_DIR / "occupancy_backtest_predictions.csv", index=False)
     backtest_summary.to_csv(OUTPUT_DIR / "occupancy_backtest_summary.csv", index=False)
@@ -1257,7 +1275,11 @@ def main():
         / total_beds
     )
 
-    future["model"] = champion
+    status = model_status(
+        backtest_summary, champion, ("ridge_recursive", "ridge_blend")
+    )
+    for key, value in status.items():
+        future[key] = value
 
     for column in [
         "forecast_occupied_beds", "forecast_available_beds",
@@ -1531,6 +1553,8 @@ def main():
         "forecast_days": int(forecast_days),
         "model": "Ridge regression with lag and seasonal features",
         "published_forecast_model": champion,
+        "model_status": status,
+        "risk_threshold_metrics": risk_metrics.astype(object).where(risk_metrics.notna(), None).to_dict(orient="records"),
         "rolling_origin_backtest": {
             "origins": [str(origin.date()) for origin in origins],
             "step_days": backtest_step_days,

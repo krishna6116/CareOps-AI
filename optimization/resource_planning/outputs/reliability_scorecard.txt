@@ -5,19 +5,19 @@ Method: Equal-weighted mean of portfolio section scores.
 
 PORTFOLIO SECTIONS
 Admission forecasting: 4.0/5
-  Evidence: 30-day rolling-origin backtest: published moving_average_28 MAE 2.95 admissions/day; xgboost_recursive MAE 3.10; the learned model does not beat the best naive baseline, so the baseline is published. One-step XGBoost holdout: 89% of departments beat the same-weekday baseline (mean MAE change 13.8%).
+  Evidence: 30-day rolling-origin backtest: published moving_average_28 MAE 2.97 admissions/day; xgboost_recursive MAE 3.13; the learned model does not beat the best naive baseline, so the baseline is published. One-step XGBoost holdout: 89% of departments beat the same-weekday baseline (mean MAE change 13.8%).
   Limitation: Daily admissions are close to Poisson noise around a stable level; a learned model adds little over a moving average in this synthetic scenario.
 Occupancy forecasting: 4.0/5
-  Evidence: 30-day rolling-origin backtest: published ridge_recursive MAE 8.56 beds; ridge_blend MAE 11.64; best naive (moving_average_28) MAE 11.89; the learned model beats every naive baseline. One-step holdout beats the same-weekday baseline with WAPE 2.8%.
+  Evidence: 30-day rolling-origin backtest: published ridge_recursive MAE 8.72 beds; ridge_blend MAE 11.6; best naive (moving_average_28) MAE 11.9; the learned model beats every naive baseline. One-step holdout beats the same-weekday baseline with WAPE 2.8%.
   Limitation: Forecast is synthetic and does not establish live capacity accuracy.
 ICU demand forecasting: 4.0/5
-  Evidence: Holdout MAE 0.74 admissions/day beats the baseline.
+  Evidence: 30-day rolling-origin backtest: published moving_average_28 MAE 0.748 ICU admissions/day; xgboost_recursive MAE 0.799; the learned model does not beat the best naive baseline, so the baseline is published. One-step holdout MAE 0.78 admissions/day.
   Limitation: This forecasts admissions flow, not occupied ICU census; low-count R² can remain unstable.
 Length-of-stay prediction: 4.0/5
-  Evidence: All-department holdout MAE 2.59 days.
+  Evidence: Rolling 30-day windows over the holdout: published xgboost MAE 2.62 days; best naive (mean_by_department_severity) MAE 3.04; the learned model beats every naive baseline. All-department holdout MAE 2.62 days.
   Limitation: Individual stays can still deviate by several days; use intervals for capacity planning.
 No-show prediction: 4.5/5
-  Evidence: Brier score 0.113 vs prevalence baseline 0.128; ROC-AUC 0.741; meets the reliability threshold.
+  Evidence: Rolling 30-day windows over the holdout: published xgboost_calibrated brier 0.113; best naive (logistic_regression) brier 0.118; the learned model beats every naive baseline. Brier score 0.113 vs prevalence baseline 0.128; ROC-AUC 0.740; meets the reliability threshold.
   Limitation: Use only for outreach prioritization; never use it as a patient or access decision.
 Bed allocation optimization: 4.0/5
   Evidence: Input audit passed and the optimized scenario has zero modeled bed overflow.
@@ -125,31 +125,31 @@ occupancy_ridge_bed_count / hospital: 4.0/5 (occupied-bed count WAPE 2.8%; 192 t
   Forecast file: ml/occupancy_forecasting/occupancy_future_forecast.csv
   Threshold: Occupied-bed count WAPE must be <= 10%; no paired baseline is available.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
-icu_xgboost / icu: 4.0/5 (MAE 0.74 admissions/day; 144 test rows, 2026-05-15 to 2026-10-05)
+icu_xgboost / icu: 4.0/5 (MAE 0.78 admissions/day; 144 test rows, 2026-05-15 to 2026-10-05)
   Forecast file: ml/icu_demand_forecasting/icu_future_forecast.csv
   Threshold: Must beat the 7-day baseline and have MAE <= 1 admission/day.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
-los_xgboost / Cardiology: 4.0/5 (MAE 2.47 days; 189 test rows, 2026-03-03 to 2026-10-01)
+los_xgboost / Cardiology: 4.0/5 (MAE 2.53 days; 189 test rows, 2026-03-03 to 2026-10-01)
   Forecast file: ml/los_prediction/los_predictions.csv
   Threshold: MAE must be <= 3.0 days.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
-los_xgboost / Emergency: 4.0/5 (MAE 2.58 days; 116 test rows, 2026-03-04 to 2026-09-26)
+los_xgboost / Emergency: 4.0/5 (MAE 2.62 days; 116 test rows, 2026-03-04 to 2026-09-26)
   Forecast file: ml/los_prediction/los_predictions.csv
   Threshold: MAE must be <= 3.0 days.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
-los_xgboost / General Medicine: 4.0/5 (MAE 2.52 days; 1,040 test rows, 2026-03-03 to 2026-10-01)
+los_xgboost / General Medicine: 4.0/5 (MAE 2.54 days; 1,040 test rows, 2026-03-03 to 2026-10-01)
   Forecast file: ml/los_prediction/los_predictions.csv
   Threshold: MAE must be <= 3.0 days.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
-los_xgboost / ICU: 3.0/5 (MAE 3.18 days; 136 test rows, 2026-03-05 to 2026-09-21)
+los_xgboost / ICU: 3.0/5 (MAE 3.19 days; 136 test rows, 2026-03-05 to 2026-09-21)
   Forecast file: ml/los_prediction/los_predictions.csv
   Threshold: MAE must be <= 3.0 days.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
-los_xgboost / Neurology: 4.0/5 (MAE 2.81 days; 146 test rows, 2026-03-04 to 2026-09-30)
+los_xgboost / Neurology: 4.0/5 (MAE 2.84 days; 146 test rows, 2026-03-04 to 2026-09-30)
   Forecast file: ml/los_prediction/los_predictions.csv
   Threshold: MAE must be <= 3.0 days.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
-los_xgboost / Oncology: 4.0/5 (MAE 2.50 days; 69 test rows, 2026-03-06 to 2026-09-17)
+los_xgboost / Oncology: 4.0/5 (MAE 2.53 days; 69 test rows, 2026-03-06 to 2026-09-17)
   Forecast file: ml/los_prediction/los_predictions.csv
   Threshold: MAE must be <= 3.0 days.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
@@ -157,19 +157,19 @@ los_xgboost / Orthopedics: 4.0/5 (MAE 2.76 days; 135 test rows, 2026-03-04 to 20
   Forecast file: ml/los_prediction/los_predictions.csv
   Threshold: MAE must be <= 3.0 days.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
-los_xgboost / Pediatrics: 4.0/5 (MAE 2.56 days; 193 test rows, 2026-03-05 to 2026-09-29)
+los_xgboost / Pediatrics: 4.0/5 (MAE 2.58 days; 193 test rows, 2026-03-05 to 2026-09-29)
   Forecast file: ml/los_prediction/los_predictions.csv
   Threshold: MAE must be <= 3.0 days.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
-los_xgboost / Surgery: 4.0/5 (MAE 2.53 days; 216 test rows, 2026-03-03 to 2026-09-27)
+los_xgboost / Surgery: 4.0/5 (MAE 2.55 days; 216 test rows, 2026-03-03 to 2026-09-27)
   Forecast file: ml/los_prediction/los_predictions.csv
   Threshold: MAE must be <= 3.0 days.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
-los_xgboost / all_departments: 4.0/5 (MAE 2.59 days; 2,240 test rows, 2026-03-03 to 2026-10-01)
+los_xgboost / all_departments: 4.0/5 (MAE 2.62 days; 2,240 test rows, 2026-03-03 to 2026-10-01)
   Forecast file: ml/los_prediction/los_predictions.csv
   Threshold: MAE must be <= 3.0 days.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.
-no_show_xgboost / holdout: 4.5/5 (Brier score 0.113 vs prevalence baseline 0.128; ROC-AUC 0.741; 23,470 test rows, 2026-03-21 to 2026-10-05)
+no_show_xgboost / holdout: 4.5/5 (Brier score 0.113 vs prevalence baseline 0.128; ROC-AUC 0.740; 23,470 test rows, 2026-03-21 to 2026-10-05)
   Forecast file: ml/no_show_prediction/no_show_predictions.csv
   Threshold: Brier score must beat the pre-holdout prevalence baseline and be <= 0.17 for 4/5; ROC-AUC must also be >= 0.70 for 4.5/5.
   Limitation: Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values.

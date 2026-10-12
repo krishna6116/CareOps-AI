@@ -89,6 +89,7 @@ from count_outputs import assert_count_column, reconcile_flow_counts
 from scenario_config import WARMUP_END, drop_warmup
 from forecast_evaluation import (
     NAIVE_BASELINES,
+    model_status,
     conformal_intervals,
     forecast_sanity,
     horizon_bucket,
@@ -2223,7 +2224,7 @@ XGB_FUTURE_FORECAST = pd.concat(
 # so these origins are out of sample for every candidate.
 # ============================================================
 
-BACKTEST_STEP_DAYS = 14
+BACKTEST_STEP_DAYS = 7
 XGB_CANDIDATE = "xgboost_recursive"
 
 
@@ -2378,8 +2379,12 @@ hospital_future_forecast = add_interval_columns(hospital_future_forecast, INTERV
 hospital_future_forecast["department"] = "All Departments"
 
 PUBLISHED_COLUMNS = ["date", "department", "predicted_admissions", "lower_80", "upper_80", "lower_95", "upper_95"]
+MODEL_STATUS = model_status(
+    hospital_summary.drop(columns="department"), CHAMPION, (XGB_CANDIDATE,)
+)
 for frame in (FUTURE_FORECAST, hospital_future_forecast):
-    frame["model"] = CHAMPION
+    for key, value in MODEL_STATUS.items():
+        frame[key] = value
     for column in PUBLISHED_COLUMNS[2:]:
         assert_count_column(frame, column)
     if not (
@@ -2390,7 +2395,7 @@ for frame in (FUTURE_FORECAST, hospital_future_forecast):
     ):
         raise RuntimeError("Published admission intervals are not nested around the forecast.")
 
-PUBLISHED_COLUMNS.append("model")
+PUBLISHED_COLUMNS.extend(MODEL_STATUS)
 FORECAST_SANITY = forecast_sanity(
     hospital_future_forecast["predicted_admissions"],
     sum(department_series.values()).to_numpy(),
@@ -2973,6 +2978,8 @@ model_summary = {
     "model": MODEL_NAME,
 
     "published_forecast_model": CHAMPION,
+
+    "model_status": MODEL_STATUS,
 
     "xgboost_beats_best_baseline": CHAMPION == XGB_CANDIDATE,
 

@@ -4,6 +4,6 @@ feature_count,77.0
 train_rows,76275.0
 validation_rows,17602.0
 test_rows,23470.0
-best_iteration,74.0
-selected_threshold,0.2
-training_seconds,5.0713942000002135
+best_iteration,56.0
+selected_threshold,0.18000000000000005
+training_seconds,4.762523199999919

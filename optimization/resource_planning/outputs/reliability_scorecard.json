@@ -9,31 +9,31 @@
     {
       "section": "Admission forecasting",
       "score": 4.0,
-      "evidence": "30-day rolling-origin backtest: published moving_average_28 MAE 2.95 admissions/day; xgboost_recursive MAE 3.10; the learned model does not beat the best naive baseline, so the baseline is published. One-step XGBoost holdout: 89% of departments beat the same-weekday baseline (mean MAE change 13.8%).",
+      "evidence": "30-day rolling-origin backtest: published moving_average_28 MAE 2.97 admissions/day; xgboost_recursive MAE 3.13; the learned model does not beat the best naive baseline, so the baseline is published. One-step XGBoost holdout: 89% of departments beat the same-weekday baseline (mean MAE change 13.8%).",
       "limitation": "Daily admissions are close to Poisson noise around a stable level; a learned model adds little over a moving average in this synthetic scenario."
     },
     {
       "section": "Occupancy forecasting",
       "score": 4.0,
-      "evidence": "30-day rolling-origin backtest: published ridge_recursive MAE 8.56 beds; ridge_blend MAE 11.64; best naive (moving_average_28) MAE 11.89; the learned model beats every naive baseline. One-step holdout beats the same-weekday baseline with WAPE 2.8%.",
+      "evidence": "30-day rolling-origin backtest: published ridge_recursive MAE 8.72 beds; ridge_blend MAE 11.6; best naive (moving_average_28) MAE 11.9; the learned model beats every naive baseline. One-step holdout beats the same-weekday baseline with WAPE 2.8%.",
       "limitation": "Forecast is synthetic and does not establish live capacity accuracy."
     },
     {
       "section": "ICU demand forecasting",
       "score": 4.0,
-      "evidence": "Holdout MAE 0.74 admissions/day beats the baseline.",
+      "evidence": "30-day rolling-origin backtest: published moving_average_28 MAE 0.748 ICU admissions/day; xgboost_recursive MAE 0.799; the learned model does not beat the best naive baseline, so the baseline is published. One-step holdout MAE 0.78 admissions/day.",
       "limitation": "This forecasts admissions flow, not occupied ICU census; low-count R\u00b2 can remain unstable."
     },
     {
       "section": "Length-of-stay prediction",
       "score": 4.0,
-      "evidence": "All-department holdout MAE 2.59 days.",
+      "evidence": "Rolling 30-day windows over the holdout: published xgboost MAE 2.62 days; best naive (mean_by_department_severity) MAE 3.04; the learned model beats every naive baseline. All-department holdout MAE 2.62 days.",
       "limitation": "Individual stays can still deviate by several days; use intervals for capacity planning."
     },
     {
       "section": "No-show prediction",
       "score": 4.5,
-      "evidence": "Brier score 0.113 vs prevalence baseline 0.128; ROC-AUC 0.741; meets the reliability threshold.",
+      "evidence": "Rolling 30-day windows over the holdout: published xgboost_calibrated brier 0.113; best naive (logistic_regression) brier 0.118; the learned model beats every naive baseline. Brier score 0.113 vs prevalence baseline 0.128; ROC-AUC 0.740; meets the reliability threshold.",
       "limitation": "Use only for outreach prioritization; never use it as a patient or access decision."
     },
     {
@@ -334,13 +334,13 @@
       "group": "icu",
       "forecast_file": "ml/icu_demand_forecasting/icu_future_forecast.csv",
       "score": 4.0,
-      "metric": "MAE 0.74 admissions/day",
+      "metric": "MAE 0.78 admissions/day",
       "threshold": "Must beat the 7-day baseline and have MAE <= 1 admission/day.",
       "beats_baseline": true,
       "test_rows": 144,
       "test_start": "2026-05-15",
       "test_end": "2026-10-05",
-      "evidence": "MAE 0.74 admissions/day; meets the reliability threshold.",
+      "evidence": "MAE 0.78 admissions/day; meets the reliability threshold.",
       "limitation": "Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values."
     },
     {
@@ -348,13 +348,13 @@
       "group": "Cardiology",
       "forecast_file": "ml/los_prediction/los_predictions.csv",
       "score": 4.0,
-      "metric": "MAE 2.47 days",
+      "metric": "MAE 2.53 days",
       "threshold": "MAE must be <= 3.0 days.",
       "beats_baseline": null,
       "test_rows": 189,
       "test_start": "2026-03-03",
       "test_end": "2026-10-01",
-      "evidence": "MAE 2.47 days; meets the reliability threshold.",
+      "evidence": "MAE 2.53 days; meets the reliability threshold.",
       "limitation": "Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values."
     },
     {
@@ -362,13 +362,13 @@
       "group": "Emergency",
       "forecast_file": "ml/los_prediction/los_predictions.csv",
       "score": 4.0,
-      "metric": "MAE 2.58 days",
+      "metric": "MAE 2.62 days",
       "threshold": "MAE must be <= 3.0 days.",
       "beats_baseline": null,
       "test_rows": 116,
       "test_start": "2026-03-04",
       "test_end": "2026-09-26",
-      "evidence": "MAE 2.58 days; meets the reliability threshold.",
+      "evidence": "MAE 2.62 days; meets the reliability threshold.",
       "limitation": "Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values."
     },
     {
@@ -376,13 +376,13 @@
       "group": "General Medicine",
       "forecast_file": "ml/los_prediction/los_predictions.csv",
       "score": 4.0,
-      "metric": "MAE 2.52 days",
+      "metric": "MAE 2.54 days",
       "threshold": "MAE must be <= 3.0 days.",
       "beats_baseline": null,
       "test_rows": 1040,
       "test_start": "2026-03-03",
       "test_end": "2026-10-01",
-      "evidence": "MAE 2.52 days; meets the reliability threshold.",
+      "evidence": "MAE 2.54 days; meets the reliability threshold.",
       "limitation": "Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values."
     },
     {
@@ -390,13 +390,13 @@
       "group": "ICU",
       "forecast_file": "ml/los_prediction/los_predictions.csv",
       "score": 3.0,
-      "metric": "MAE 3.18 days",
+      "metric": "MAE 3.19 days",
       "threshold": "MAE must be <= 3.0 days.",
       "beats_baseline": null,
       "test_rows": 136,
       "test_start": "2026-03-05",
       "test_end": "2026-09-21",
-      "evidence": "MAE 3.18 days; does not meet the reliability threshold.",
+      "evidence": "MAE 3.19 days; does not meet the reliability threshold.",
       "limitation": "Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values."
     },
     {
@@ -404,13 +404,13 @@
       "group": "Neurology",
       "forecast_file": "ml/los_prediction/los_predictions.csv",
       "score": 4.0,
-      "metric": "MAE 2.81 days",
+      "metric": "MAE 2.84 days",
       "threshold": "MAE must be <= 3.0 days.",
       "beats_baseline": null,
       "test_rows": 146,
       "test_start": "2026-03-04",
       "test_end": "2026-09-30",
-      "evidence": "MAE 2.81 days; meets the reliability threshold.",
+      "evidence": "MAE 2.84 days; meets the reliability threshold.",
       "limitation": "Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values."
     },
     {
@@ -418,13 +418,13 @@
       "group": "Oncology",
       "forecast_file": "ml/los_prediction/los_predictions.csv",
       "score": 4.0,
-      "metric": "MAE 2.50 days",
+      "metric": "MAE 2.53 days",
       "threshold": "MAE must be <= 3.0 days.",
       "beats_baseline": null,
       "test_rows": 69,
       "test_start": "2026-03-06",
       "test_end": "2026-09-17",
-      "evidence": "MAE 2.50 days; meets the reliability threshold.",
+      "evidence": "MAE 2.53 days; meets the reliability threshold.",
       "limitation": "Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values."
     },
     {
@@ -446,13 +446,13 @@
       "group": "Pediatrics",
       "forecast_file": "ml/los_prediction/los_predictions.csv",
       "score": 4.0,
-      "metric": "MAE 2.56 days",
+      "metric": "MAE 2.58 days",
       "threshold": "MAE must be <= 3.0 days.",
       "beats_baseline": null,
       "test_rows": 193,
       "test_start": "2026-03-05",
       "test_end": "2026-09-29",
-      "evidence": "MAE 2.56 days; meets the reliability threshold.",
+      "evidence": "MAE 2.58 days; meets the reliability threshold.",
       "limitation": "Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values."
     },
     {
@@ -460,13 +460,13 @@
       "group": "Surgery",
       "forecast_file": "ml/los_prediction/los_predictions.csv",
       "score": 4.0,
-      "metric": "MAE 2.53 days",
+      "metric": "MAE 2.55 days",
       "threshold": "MAE must be <= 3.0 days.",
       "beats_baseline": null,
       "test_rows": 216,
       "test_start": "2026-03-03",
       "test_end": "2026-09-27",
-      "evidence": "MAE 2.53 days; meets the reliability threshold.",
+      "evidence": "MAE 2.55 days; meets the reliability threshold.",
       "limitation": "Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values."
     },
     {
@@ -474,13 +474,13 @@
       "group": "all_departments",
       "forecast_file": "ml/los_prediction/los_predictions.csv",
       "score": 4.0,
-      "metric": "MAE 2.59 days",
+      "metric": "MAE 2.62 days",
       "threshold": "MAE must be <= 3.0 days.",
       "beats_baseline": null,
       "test_rows": 2240,
       "test_start": "2026-03-03",
       "test_end": "2026-10-01",
-      "evidence": "MAE 2.59 days; meets the reliability threshold.",
+      "evidence": "MAE 2.62 days; meets the reliability threshold.",
       "limitation": "Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values."
     },
     {
@@ -488,13 +488,13 @@
       "group": "holdout",
       "forecast_file": "ml/no_show_prediction/no_show_predictions.csv",
       "score": 4.5,
-      "metric": "Brier score 0.113 vs prevalence baseline 0.128; ROC-AUC 0.741",
+      "metric": "Brier score 0.113 vs prevalence baseline 0.128; ROC-AUC 0.740",
       "threshold": "Brier score must beat the pre-holdout prevalence baseline and be <= 0.17 for 4/5; ROC-AUC must also be >= 0.70 for 4.5/5.",
       "beats_baseline": null,
       "test_rows": 23470,
       "test_start": "2026-03-21",
       "test_end": "2026-10-05",
-      "evidence": "Brier score 0.113 vs prevalence baseline 0.128; ROC-AUC 0.741; meets the reliability threshold.",
+      "evidence": "Brier score 0.113 vs prevalence baseline 0.128; ROC-AUC 0.740; meets the reliability threshold.",
       "limitation": "Retrospective synthetic holdout performance only; this score is not a confidence interval or a guarantee for future forecast values."
     }
   ]

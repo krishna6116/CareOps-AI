@@ -2,7 +2,7 @@
 CAREOPS AI — LENGTH-OF-STAY MODEL REPORT
 ========================================================================
 
-Generated: 2026-10-10T15:24:57.521137
+Generated: 2026-10-12T10:49:08.299882
 
 DATA SOURCES
 ------------------------------------------------------------------------
@@ -11,21 +11,21 @@ Patients:   C:\Users\krish\Documents\CareOps-AI\data\synthetic\patients.csv
 
 DATASET
 ------------------------------------------------------------------------
-Training rows: 8,960
+Training rows: 8,806
 Testing rows:  2,240
 
 BASELINE MODEL
 ------------------------------------------------------------------------
-MAE:  4.4881 days
-RMSE: 5.7629 days
-R²:   -0.0003
+MAE:  4.4849 days
+RMSE: 5.7641 days
+R²:   -0.0007
 
 RANDOM FOREST MODEL
 ------------------------------------------------------------------------
-MAE:  2.5942 days
-RMSE: 3.2142 days
-R²:   0.6888
-MAPE: 26.79%
+MAE:  2.6203 days
+RMSE: 3.2711 days
+R²:   0.6777
+MAPE: 26.08%
 
 TRAINING
 ------------------------------------------------------------------------
@@ -33,21 +33,21 @@ Training time: 0.63 seconds
 
 TOP FEATURES BY RANDOM FOREST IMPORTANCE
 ------------------------------------------------------------------------
-categorical__severity_model_Critical                    0.430481
-categorical__severity_model_High                        0.199883
-categorical__severity_model_Low                         0.069862
-categorical__severity_model_Moderate                    0.063908
-categorical__department_model_ICU                       0.029053
-numeric__procedure_indicator_model                      0.026423
-numeric__icu_required_model                             0.024871
-numeric__comorbidity_count_model                        0.016086
-categorical__diagnosis_category_model_Cancer            0.013621
-categorical__diagnosis_category_model_Other             0.012650
-categorical__diagnosis_category_model_Gastrointestinal  0.008728
-categorical__diagnosis_category_model_Neurological      0.007966
-categorical__diagnosis_category_model_Diabetes          0.006727
-categorical__diagnosis_category_model_Trauma            0.005332
-numeric__age_model                                      0.005258
+categorical__severity_model_Critical                    0.429070
+categorical__severity_model_High                        0.199734
+categorical__severity_model_Low                         0.068414
+categorical__severity_model_Moderate                    0.058430
+numeric__procedure_indicator_model                      0.031664
+categorical__department_model_ICU                       0.031039
+numeric__icu_required_model                             0.025726
+numeric__comorbidity_count_model                        0.015826
+categorical__diagnosis_category_model_Cancer            0.013744
+categorical__diagnosis_category_model_Other             0.012641
+categorical__diagnosis_category_model_Gastrointestinal  0.008539
+categorical__diagnosis_category_model_Neurological      0.008193
+categorical__diagnosis_category_model_Diabetes          0.006350
+categorical__diagnosis_category_model_Trauma            0.005922
+numeric__age_model                                      0.005356
 
 MODEL INTERPRETATION
 ------------------------------------------------------------------------
