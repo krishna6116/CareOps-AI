@@ -365,20 +365,39 @@ export function BedAssignmentSection() {
   );
 }
 
-function StaffPage() {
+export function StaffPage() {
   const result = useApi<Row>('/dashboard/staff');
   if (result.loading) return <Loading />;
   if (result.error || !result.data) return <RequestError message={result.error ?? 'Staff data unavailable'} />;
   const data = result.data;
+  const policies = Object.fromEntries(asRows(data.policy_comparison).map((row) => [String(row.policy), row]));
+  const base = policies.first_fit_baseline ?? {};
+  const opt = policies.optimized ?? {};
+  const rows: ComparisonRow[] = [
+    { metric: 'Required positions', baseline: base.required_positions, scenario: opt.required_positions },
+    { metric: 'Unfilled positions', baseline: base.unfilled_positions, scenario: opt.unfilled_positions, lowerIsBetter: true },
+    { metric: 'Base-staff shifts', baseline: base.base_staff_shifts, scenario: opt.base_staff_shifts },
+    { metric: 'Synthetic surge shifts', baseline: base.surge_staff_shifts, scenario: opt.surge_staff_shifts, lowerIsBetter: true },
+    { metric: 'Overtime shifts', baseline: base.overtime_shifts, scenario: opt.overtime_shifts, lowerIsBetter: true },
+    { metric: 'Overtime hours', baseline: base.overtime_hours, scenario: opt.overtime_hours, lowerIsBetter: true },
+    { metric: 'Workload spread (std of hours, base staff)', baseline: base.base_hours_std, scenario: opt.base_hours_std, format: (value) => `${formatDecimal(value, 1)} h`, lowerIsBetter: true },
+    { metric: 'Shift-preference match', baseline: base.shift_preference_match_rate, scenario: opt.shift_preference_match_rate, format: (value) => formatPercent(value), lowerIsBetter: false },
+  ];
   return (
     <>
-      <PageHeader title="Staff scheduling" eyebrow="Optimized coverage" detail="The schedule is the saved OR-Tools output for the forecast horizon; required staff is derived from projected census and nurse ratios." />
+      <PageHeader title="Staff scheduling" eyebrow="Optimized coverage" detail="Required staff per shift comes from projected census (1 nurse : 4 beds) and historical role coverage. Both policies use the same requirements, availability, rest and hour rules." />
       <div className="metric-grid">
         <Metric label="Source staff" value={formatCount(data.staff_count)} />
         <Metric label="Scheduled shifts" value={formatCount(data.scheduled_shift_count)} />
         <Metric label="Scheduled hours" value={formatCount(data.scheduled_hours)} />
         <Metric label="Unfilled positions" value={formatCount(data.unfilled_positions)} />
       </div>
+      {asRows(data.policy_comparison).length > 0 && (
+        <Panel title="First-fit baseline vs CP-SAT schedule" detail="30-day horizon · simulated on synthetic data">
+          <ComparisonTable rows={rows} baselineLabel="First-fit baseline" scenarioLabel="CP-SAT optimized" />
+          <p className="muted">The baseline fills each position with the first eligible person in roster order, base staff before surge, and never schedules overtime. The optimizer may give base staff up to one extra shift a week; a full overtime shift costs more than a surge shift, so overtime is mostly partial. Surge staff are a scenario assumption, not hires.</p>
+        </Panel>
+      )}
       <Panel title="Coverage by date, department, role and shift"><DataTable rows={asRows(data.coverage)} /></Panel>
       <Panel title="Optimized schedule"><DataTable rows={asRows(data.schedule)} /></Panel>
       <Panel title="Source staff roster"><DataTable rows={asRows(data.staff)} /></Panel>
@@ -386,20 +405,32 @@ function StaffPage() {
   );
 }
 
-function AppointmentsPage() {
+export function AppointmentsPage() {
   const result = useApi<Row>('/dashboard/appointments');
   if (result.loading) return <Loading />;
   if (result.error || !result.data) return <RequestError message={result.error ?? 'Appointment data unavailable'} />;
   const data = result.data;
+  const kpi = asRows(data.kpis)[0] ?? {};
+  const rows: ComparisonRow[] = [
+    { metric: 'Doctor double-bookings', baseline: kpi.baseline_doctor_time_conflicts, scenario: kpi.optimized_doctor_time_conflicts, lowerIsBetter: true },
+    { metric: 'Bookings with an off-shift doctor', baseline: kpi.baseline_off_shift_doctor_bookings, scenario: kpi.optimized_off_shift_doctor_bookings, lowerIsBetter: true },
+    { metric: 'Bookings with an unavailable doctor', baseline: kpi.baseline_unavailable_doctor_bookings, scenario: kpi.optimized_unavailable_doctor_bookings, lowerIsBetter: true },
+  ];
   return (
     <>
-      <PageHeader title="Appointments" eyebrow="Provider optimization & attendance risk" detail="No-show risk informs overbooking review only; it never removes a patient from the schedule." />
+      <PageHeader title="Appointments" eyebrow="Provider scheduling & attendance risk" detail={`Last ${formatCount(kpi.planning_days)} clinic days (${String(kpi.planning_date_start ?? '')} to ${String(kpi.planning_date_end ?? '')}) re-slotted with one CP-SAT model per day.`} />
       <div className="metric-grid">
-        <Metric label="Source appointments" value={formatCount(data.source_appointment_count)} />
-        <Metric label="Optimized appointments" value={formatCount(data.optimized_count)} />
-        <Metric label="Unassigned appointments" value={formatCount(data.unassigned_count)} />
-        <Metric label="Risk predictions" value={formatCount(data.no_show_prediction_count)} />
+        <Metric label="Appointments scheduled" value={`${formatCount(kpi.appointments_scheduled)} / ${formatCount(kpi.appointments_requested)}`} />
+        <Metric label="Doctor changes" value={formatCount(kpi.doctor_changes)} note="Needed to move off-shift or unavailable bookings" />
+        <Metric label="Slot utilization" value={formatPercent(kpi.slot_utilization)} note="Booked ÷ rostered provider minutes" />
+        <Metric label="Utilization after expected no-shows" value={formatPercent(kpi.expected_attended_utilization)} />
+        <Metric label="Reminder outreach list" value={formatCount(kpi.reminder_outreach_count)} note={`Risk ≥ ${String(kpi.no_show_threshold ?? '')} (validation threshold)`} />
+        <Metric label="Expected idle minutes" value={formatCount(kpi.expected_no_show_minutes)} note="Σ risk × duration, for overbooking review" />
       </div>
+      <Panel title="Original bookings vs optimized schedule">
+        <ComparisonTable rows={rows} baselineLabel="Original bookings" scenarioLabel="Optimized" />
+        <p className="muted">No-show risk never changes who is booked, their priority or their slot. It only flags reminder outreach and estimates idle minutes so staff can review overbooking.</p>
+      </Panel>
       <Panel title="Optimized appointment schedule"><DataTable rows={asRows(data.appointment_schedule)} /></Panel>
       <Panel title="Highest predicted no-show risk" detail="Probabilities are signals, not determinations">
         <DataTable rows={asRows(data.no_show_predictions)} />
@@ -738,7 +769,7 @@ function AboutPage() {
       <Panel title="Limitations">
         <ul>
           <li>All data and results are synthetic and do not describe a real hospital.</li>
-          <li>Daily admission and ICU counts behave close to Poisson noise; no learned model beats the moving-average baseline for them, so the baseline is published.</li>
+          <li>Daily admission and ICU counts are close to Poisson, with small weekday and seasonal effects; no learned model beats the moving-average baseline for them, so the baseline is published.</li>
           <li>The ICU model forecasts admissions, not ICU census.</li>
           <li>The synthetic shift roster is not tied to ward census; rostered staffing is reported, not enforced, in the allocation replay.</li>
           <li>Surge beds and staff in the capacity plan are scenario assumptions.</li>

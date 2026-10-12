@@ -68,6 +68,9 @@ ARTIFACTS = {
     "optimization_staff_schedule": (
         "optimization/resource_planning/outputs/optimized_staff_schedule.csv"
     ),
+    "optimization_staff_policy_comparison": (
+        "optimization/resource_planning/outputs/staff_schedule_comparison.csv"
+    ),
     "optimization_staff_kpis": (
         "optimization/resource_planning/outputs/staff_coverage_kpis.csv"
     ),

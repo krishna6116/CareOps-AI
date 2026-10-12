@@ -304,10 +304,28 @@ def staff_coverage(question: str) -> GroundedAnswer:
                 for row in worst.itertuples()
             ) + "."
         )
+    comparison_path = OUTPUT_DIR / "staff_schedule_comparison.csv"
+    comparison = _csv(comparison_path)
+    evidence_extra: list[Evidence] = []
+    if not comparison.empty:
+        rows = comparison.set_index("policy")
+        base, opt = rows.loc["first_fit_baseline"], rows.loc["optimized"]
+        answer += (
+            f" Against a first-fit baseline on the same requirements, the optimizer leaves "
+            f"{int(opt['unfilled_positions'])} positions unfilled vs {int(base['unfilled_positions'])}, uses "
+            f"{int(opt['surge_staff_shifts'])} surge shifts vs {int(base['surge_staff_shifts'])}, and schedules "
+            f"{int(opt['overtime_shifts'])} overtime shifts ({int(opt['overtime_hours'])} hours; the baseline "
+            f"allows none). Shift-preference match is {_pct(opt['shift_preference_match_rate'])} vs "
+            f"{_pct(base['shift_preference_match_rate'])}."
+        )
+        evidence_extra = [
+            Evidence("baseline unfilled positions", int(base["unfilled_positions"]), "simulated", _rel(comparison_path)),
+            Evidence("optimized overtime hours", int(opt["overtime_hours"]), "simulated", _rel(comparison_path)),
+        ]
     if not surge.empty:
         answer += (
-            f" Coverage relies on {len(surge)} synthetic surge-staff assignments from the capacity "
-            "expansion plan, which are scenario assumptions, not hires."
+            f" Surge shifts draw on a synthetic pool of {int(surge['added_quantity'].sum())} people "
+            "in the capacity expansion plan, which is a scenario assumption, not hires."
         )
     return GroundedAnswer(
         intent="staff_coverage",
@@ -315,8 +333,10 @@ def staff_coverage(question: str) -> GroundedAnswer:
         evidence=[
             Evidence("required shift positions", int(coverage["required_staff"].sum()), "simulated", _rel(path)),
             Evidence("unfilled positions", int(coverage["unfilled_staff"].sum()), "simulated", _rel(path)),
+            *evidence_extra,
         ],
-        sources=[_rel(path)] + ([_rel(plan_path)] if not surge.empty else []),
+        sources=[_rel(path)] + ([_rel(comparison_path)] if evidence_extra else [])
+        + ([_rel(plan_path)] if not surge.empty else []),
         limitations=[
             "Required staff is derived from projected census and fixed nurse ratios.",
             "The synthetic historical roster is not tied to ward census.",
@@ -412,7 +432,7 @@ def model_limitations(question: str) -> GroundedAnswer:
     if not losers.empty:
         items.append(
             "No learned model beats the naive baseline for " + ", ".join(losers["Target"])
-            + "; the baseline is published instead (these counts behave close to Poisson noise)"
+            + "; the baseline is published instead (these counts are close to Poisson, with small weekday and seasonal effects)"
         )
     risk = data.get("occupancy_risk")
     if risk is not None and not risk.empty:

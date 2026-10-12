@@ -45,6 +45,18 @@ EMERGENCY_RESERVE = 2
 ICU_RESERVE = 2
 ISOLATION_RESERVE = 1
 SOLVER_SECONDS = 20
+# Staffing: base staff may work one extra shift beyond contracted weekly
+# hours (rolling 7 days) as overtime. A full overtime shift (8 h x 500) costs
+# more than a synthetic surge assignment (3,000), so overtime is used only
+# when no regular or surge staff can fill a position. An earlier weighting
+# (150 per hour) put base staff on overtime most weeks to save surge shifts.
+OVERTIME_CAP_HOURS = 8
+OVERTIME_PENALTY_PER_HOUR = 500
+SURGE_ASSIGNMENT_PENALTY = 3_000
+# Appointments: the last N clinic days are re-slotted, one CP-SAT model per day.
+APPOINTMENT_PLAN_DAYS = 7
+NO_SHOW_METADATA = ROOT / "ml" / "no_show_prediction" / "no_show_model_metadata.json"
+DEFAULT_NO_SHOW_THRESHOLD = 0.5
 SOLVER_WORKERS = 1
 SOLVER_RANDOM_SEED = 42
 SHIFTS = {
@@ -524,8 +536,19 @@ def optimize_staff_schedule(
     plan_date: date,
     planning_dates: list[date] | None = None,
     bed_forecast: pd.DataFrame | None = None,
+    policy: str = "optimized",
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Schedule a horizon using historical role coverage, workload, rest, and hour limits."""
+    """Schedule a horizon using historical role coverage, workload, rest, and hour limits.
+
+    ``policy="optimized"`` solves a CP-SAT model per day: fill every required
+    position, prefer base staff over the synthetic surge pool, allow limited
+    overtime at a cost, and spread workload. ``policy="first_fit"`` is the
+    comparison baseline: each position takes the first eligible person in
+    roster order (base staff first, then surge), with no overtime. Both use
+    the same requirements, availability, role, rest and hour rules.
+    """
+    if policy not in {"optimized", "first_fit"}:
+        raise ValueError(f"Unknown staffing policy: {policy}")
     staff = inputs["staff"].copy().fillna("")
     shifts = inputs["shifts"].copy()
     staff["_department"] = staff["department"].map(normalize)
@@ -735,10 +758,30 @@ def optimize_staff_schedule(
             hours_by_staff[staff_id] += float(row["hours"])
             intervals_by_staff[staff_id].append((start, end))
 
-        model = cp_model.CpModel()
-        assignments: dict[tuple[str, str, str, str, int], cp_model.IntVar] = {}
-        unfilled: dict[tuple[str, str, str, int], cp_model.IntVar] = {}
-        for (department, shift_name, role), required in sorted(coverage.items()):
+        def hour_limit(person: Any) -> float:
+            base = float(person["_max_hours"])
+            if policy == "optimized" and person.get("staff_source") != "synthetic_surge_pool":
+                return base + OVERTIME_CAP_HOURS
+            return base
+
+        def eligible(staff_id: str, person: Any, department: str, role: str,
+                     start: datetime, end: datetime, hours: float) -> bool:
+            if not person["_available"] or person["_role"] != role:
+                return False
+            if department not in {person["_department"], person["_specialty"]}:
+                return False
+            if hours_by_staff[staff_id] + hours > hour_limit(person):
+                return False
+            for previous_start, previous_end in intervals_by_staff[staff_id]:
+                gap = max(
+                    (start - previous_end).total_seconds(),
+                    (previous_start - end).total_seconds(),
+                )
+                if gap < 11 * 60 * 60:
+                    return False
+            return True
+
+        def shift_hours(role: str, shift_name: str) -> float:
             hours = float(
                 duration_by_role_shift.get(
                     (role, shift_name),
@@ -747,96 +790,103 @@ def optimize_staff_schedule(
             )
             if hours <= 0:
                 raise ValueError(f"Invalid historical shift duration for {role}/{shift_name}.")
-            start, end = _shift_interval(target_day, shift_name, hours)
-            for slot in range(required):
-                candidates = []
-                for staff_id, person in staff_rows.items():
-                    if not person["_available"]:
-                        continue
-                    if person["_role"] != role:
-                        continue
-                    if department not in {person["_department"], person["_specialty"]}:
-                        continue
-                    if hours_by_staff[staff_id] + hours > float(person["_max_hours"]):
-                        continue
-                    conflicts_with_rest = False
-                    for previous_start, previous_end in intervals_by_staff[staff_id]:
-                        gap = max(
-                            (start - previous_end).total_seconds(),
-                            (previous_start - end).total_seconds(),
-                        )
-                        if gap < 11 * 60 * 60:
-                            conflicts_with_rest = True
+            return hours
+
+        def is_surge(staff_id: str) -> bool:
+            return staff_rows[staff_id].get("staff_source") == "synthetic_surge_pool"
+
+        chosen: list[tuple[str, str, str, str, int]] = []
+        if policy == "first_fit":
+            roster_order = sorted(staff_rows, key=lambda staff_id: (is_surge(staff_id), staff_id))
+            used_today: set[str] = set()
+            for (department, shift_name, role), required in sorted(coverage.items()):
+                hours = shift_hours(role, shift_name)
+                start, end = _shift_interval(target_day, shift_name, hours)
+                for slot in range(required):
+                    for staff_id in roster_order:
+                        if staff_id in used_today:
+                            continue
+                        if eligible(staff_id, staff_rows[staff_id], department, role, start, end, hours):
+                            chosen.append((staff_id, department, shift_name, role, slot))
+                            used_today.add(staff_id)
                             break
-                    if conflicts_with_rest:
-                        continue
-                    key = (staff_id, department, shift_name, role, slot)
-                    if key not in assignments:
+        else:
+            model = cp_model.CpModel()
+            assignments: dict[tuple[str, str, str, str, int], cp_model.IntVar] = {}
+            unfilled: dict[tuple[str, str, str, int], cp_model.IntVar] = {}
+            for (department, shift_name, role), required in sorted(coverage.items()):
+                hours = shift_hours(role, shift_name)
+                start, end = _shift_interval(target_day, shift_name, hours)
+                for slot in range(required):
+                    candidates = []
+                    for staff_id, person in staff_rows.items():
+                        if not eligible(staff_id, person, department, role, start, end, hours):
+                            continue
+                        key = (staff_id, department, shift_name, role, slot)
                         assignments[key] = model.new_bool_var(
                             f"assign_{staff_id}_{department.replace(' ', '_')}_{shift_name}_{role}_{slot}"
                         )
-                    variable = assignments[key]
-                    candidates.append(variable)
-                model.add(sum(candidates) <= 1)
-                missing = model.new_bool_var(
-                    f"unfilled_{department}_{shift_name}_{role}_{slot}"
+                        candidates.append(assignments[key])
+                    missing = model.new_bool_var(
+                        f"unfilled_{department}_{shift_name}_{role}_{slot}"
+                    )
+                    model.add(sum(candidates) + missing == 1)
+                    unfilled[(department, shift_name, role, slot)] = missing
+
+            by_staff: dict[str, list] = defaultdict(list)
+            for (candidate_id, _, _, _, _), variable in assignments.items():
+                by_staff[candidate_id].append(variable)
+            for variables in by_staff.values():
+                model.add_at_most_one(variables)
+
+            objective_terms = []
+            for (staff_id, department, shift_name, role, _), variable in assignments.items():
+                person = staff_rows[staff_id]
+                hours = shift_hours(role, shift_name)
+                preference = normalize(person.get("shift_preference", ""))
+                preference_bonus = 20 if preference == normalize(shift_name) else 0
+                specialty_bonus = 10 if person["_specialty"] == department else 0
+                workload_penalty = int(hours_by_staff[staff_id] * 2)
+                overtime_hours = max(
+                    0.0, hours_by_staff[staff_id] + hours - float(person["_max_hours"])
                 )
-                model.add(sum(candidates) + missing == 1)
-                unfilled[(department, shift_name, role, slot)] = missing
-
-        for staff_id in staff_rows:
-            daily_assignments = [
-                variable for (candidate_id, _, _, _, _), variable in assignments.items()
-                if candidate_id == staff_id
-            ]
-            if daily_assignments:
-                model.add_at_most_one(daily_assignments)
-
-        objective_terms = []
-        for (staff_id, department, shift_name, role, _), variable in assignments.items():
-            person = staff_rows[staff_id]
-            preference = normalize(person.get("shift_preference", ""))
-            preference_bonus = 20 if preference == normalize(shift_name) else 0
-            specialty_bonus = 10 if person["_specialty"] == department else 0
-            workload_penalty = int(hours_by_staff[staff_id] * 2)
-            department_priority = (
-                2_000 if department == "emergency"
-                else 1_000 if department == "icu"
-                else 0
-            )
-            objective_terms.append(
-                (10_000 + department_priority + preference_bonus
-                 + specialty_bonus - workload_penalty) * variable
-            )
-        missing_penalties = []
-        for (department, _, _, _), missing in unfilled.items():
-            penalty = (
-                200_000 if department == "emergency"
-                else 150_000 if department == "icu"
-                else 100_000
-            )
-            missing_penalties.append(penalty * missing)
-        model.maximize(sum(objective_terms) - sum(missing_penalties))
-        solver = cp_model.CpSolver()
-        solver.parameters.max_time_in_seconds = SOLVER_SECONDS
-        solver.parameters.num_search_workers = SOLVER_WORKERS
-        solver.parameters.random_seed = SOLVER_RANDOM_SEED
-        status = solver.solve(model)
-        if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
-            raise RuntimeError(
-                f"Staff scheduling solver failed on {target_day}: {solver.status_name(status)}"
-            )
+                overtime_penalty = int(OVERTIME_PENALTY_PER_HOUR * min(overtime_hours, hours))
+                surge_penalty = SURGE_ASSIGNMENT_PENALTY if is_surge(staff_id) else 0
+                department_priority = (
+                    2_000 if department == "emergency"
+                    else 1_000 if department == "icu"
+                    else 0
+                )
+                objective_terms.append(
+                    (10_000 + department_priority + preference_bonus + specialty_bonus
+                     - workload_penalty - overtime_penalty - surge_penalty) * variable
+                )
+            missing_penalties = []
+            for (department, _, _, _), missing in unfilled.items():
+                penalty = (
+                    200_000 if department == "emergency"
+                    else 150_000 if department == "icu"
+                    else 100_000
+                )
+                missing_penalties.append(penalty * missing)
+            model.maximize(sum(objective_terms) - sum(missing_penalties))
+            solver = cp_model.CpSolver()
+            solver.parameters.max_time_in_seconds = SOLVER_SECONDS
+            solver.parameters.num_search_workers = SOLVER_WORKERS
+            solver.parameters.random_seed = SOLVER_RANDOM_SEED
+            status = solver.solve(model)
+            if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
+                raise RuntimeError(
+                    f"Staff scheduling solver failed on {target_day}: {solver.status_name(status)}"
+                )
+            chosen = [key for key, variable in assignments.items() if solver.value(variable)]
 
         todays_schedule_rows = []
-        for (staff_id, department, shift_name, role, slot), variable in assignments.items():
-            if not solver.value(variable):
-                continue
+        for staff_id, department, shift_name, role, slot in chosen:
             person = staff_rows[staff_id]
-            hours = float(
-                duration_by_role_shift.get(
-                    (role, shift_name),
-                    duration_by_shift.get(shift_name, SHIFT_HOURS),
-                )
+            hours = shift_hours(role, shift_name)
+            overtime_hours = max(
+                0.0, min(hours, hours_by_staff[staff_id] + hours - float(person["_max_hours"]))
             )
             scheduled_row = {
                 "date": target_day.isoformat(),
@@ -849,6 +899,7 @@ def optimize_staff_schedule(
                 "hours": hours,
                 "max_hours": int(person["_max_hours"]),
                 "prior_7_day_hours": hours_by_staff[staff_id],
+                "overtime_hours": overtime_hours,
                 "shift_preference": person.get("shift_preference", ""),
                 "coverage_slot": slot,
                 "staff_source": person.get("staff_source", "base_synthetic_workforce"),
@@ -879,14 +930,75 @@ def optimize_staff_schedule(
     return pd.DataFrame(schedule_rows), pd.DataFrame(coverage_rows)
 
 
-def optimize_appointments(inputs: dict[str, pd.DataFrame]) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Re-slot the latest appointment day, preserving doctor, duration, and urgency."""
+def no_show_threshold() -> float:
+    """Decision threshold chosen on validation data by the no-show model."""
+    if NO_SHOW_METADATA.is_file():
+        import json
+
+        value = json.loads(NO_SHOW_METADATA.read_text(encoding="utf-8")).get("selected_threshold")
+        if value is not None:
+            return float(value)
+    return DEFAULT_NO_SHOW_THRESHOLD
+
+
+def optimize_appointments(
+    inputs: dict[str, pd.DataFrame], days: int = APPOINTMENT_PLAN_DAYS,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Re-slot each of the last ``days`` clinic days and combine the KPIs.
+
+    How no-show risk is used: it never changes who is booked, their
+    priority, or their slot, so a high-risk patient is never deprioritised.
+    It only produces planning signals: a reminder-outreach flag at the
+    model's validation-chosen threshold, and the expected idle provider
+    minutes (risk x duration) for overbooking review by staff.
+    """
+    dates = as_date(inputs["appointments"]["date"]).dropna()
+    if dates.empty:
+        raise ValueError("No appointments with valid dates are available.")
+    plan_days = sorted(dates.unique())[-days:]
+    threshold = no_show_threshold()
+    results, metrics = [], []
+    for plan_day in plan_days:
+        result, day_metrics = _optimize_appointment_day(inputs, pd.Timestamp(plan_day), threshold)
+        results.append(result)
+        metrics.append(day_metrics)
+    result = pd.concat(results, ignore_index=True)
+    daily = pd.concat(metrics, ignore_index=True)
+    summed = [
+        column for column in daily.columns
+        if column not in {"planning_date_start", "planning_date_end", "mean_no_show_risk",
+                          "mean_schedule_shift_minutes", "slot_utilization",
+                          "expected_attended_utilization", "no_show_threshold"}
+    ]
+    combined = {column: int(daily[column].sum()) for column in summed}
+    weights = daily["appointments_requested"]
+    combined.update({
+        "planning_date_start": daily["planning_date_start"].min(),
+        "planning_date_end": daily["planning_date_end"].max(),
+        "planning_days": int(len(daily)),
+        "mean_no_show_risk": round(float((daily["mean_no_show_risk"] * weights).sum() / weights.sum()), 4),
+        "mean_schedule_shift_minutes": round(
+            float((daily["mean_schedule_shift_minutes"] * weights).sum() / weights.sum()), 2
+        ),
+        "no_show_threshold": round(threshold, 4),
+    })
+    available = combined["provider_available_minutes"]
+    combined["slot_utilization"] = round(combined["booked_minutes"] / available, 4) if available else 0.0
+    combined["expected_attended_utilization"] = round(
+        (combined["booked_minutes"] - combined["expected_no_show_minutes"]) / available, 4
+    ) if available else 0.0
+    ordered = ["planning_date_start", "planning_date_end", "planning_days"] + [
+        column for column in daily.columns if column not in {"planning_date_start", "planning_date_end"}
+    ]
+    return result, pd.DataFrame([combined])[ordered]
+
+
+def _optimize_appointment_day(
+    inputs: dict[str, pd.DataFrame], plan_day: pd.Timestamp, threshold: float,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Re-slot one clinic day, preserving duration and urgency."""
     appointments = inputs["appointments"].copy()
     appointments["_date"] = as_date(appointments["date"])
-    appointments = appointments[appointments["_date"].notna()]
-    if appointments.empty:
-        raise ValueError("No appointments with valid dates are available.")
-    plan_day = appointments["_date"].max()
     appointments = appointments[appointments["_date"] == plan_day].copy()
     appointments["_plan_day"] = plan_day
     appointments = appointments.sort_values(
@@ -1097,10 +1209,53 @@ def optimize_appointments(inputs: dict[str, pd.DataFrame]) -> tuple[pd.DataFrame
              - distance * movement_cost - start_minute // 15 - provider_change_cost) * variable
         )
     model.maximize(sum(objective) - sum(unbooked.values()) * 10_000_000)
+
+    # Greedy starting solution: in priority order, each appointment takes its
+    # nearest slot that does not overlap the provider's earlier picks. Busy
+    # days otherwise risk finishing the time limit with no solution at all.
+    options_by_index: dict[int, list[tuple[str, datetime]]] = defaultdict(list)
+    for index, provider_id, start in selected:
+        options_by_index[index].append((provider_id, start))
+    booked: dict[str, list[tuple[datetime, datetime]]] = defaultdict(list)
+    hinted: set[tuple[int, str, datetime]] = set()
+    order = sorted(
+        range(len(appointments)),
+        key=lambda index: (
+            -(3 if normalize(appointments.iloc[index].get("priority", "")) in {"emergency", "critical"}
+              else 2 if normalize(appointments.iloc[index].get("priority", "")) in {"urgent", "high"}
+              else 1),
+            index,
+        ),
+    )
+    for index in order:
+        duration = timedelta(minutes=int(appointments.iloc[index]["duration"]))
+        ranked = sorted(
+            options_by_index[index],
+            key=lambda option: (
+                option[0] != str(appointments.iloc[index]["doctor_id"]),
+                abs((option[1] - appointment_datetimes[index]).total_seconds()),
+            ),
+        )
+        for provider_id, start in ranked:
+            end = start + duration
+            if all(end <= other_start or start >= other_end
+                   for other_start, other_end in booked[provider_id]):
+                booked[provider_id].append((start, end))
+                hinted.add((index, provider_id, start))
+                break
+    for key, variable in selected.items():
+        model.add_hint(variable, key in hinted)
+    hinted_indexes = {index for index, _, _ in hinted}
+    for index, variable in unbooked.items():
+        model.add_hint(variable, index not in hinted_indexes)
+
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = SOLVER_SECONDS
     solver.parameters.num_search_workers = SOLVER_WORKERS
     solver.parameters.random_seed = SOLVER_RANDOM_SEED
+    # Probing presolve costs ~5 s per pass on a busy day (~28k optional
+    # intervals) and can exhaust the time limit before search starts.
+    solver.parameters.cp_model_probing_level = 0
     status = solver.solve(model)
     if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
         raise RuntimeError(f"Appointment scheduling solver failed: {solver.status_name(status)}")
@@ -1132,6 +1287,8 @@ def optimize_appointments(inputs: dict[str, pd.DataFrame]) -> tuple[pd.DataFrame
             "duration_minutes": int(row["duration"]),
             "priority": row.get("priority", ""),
             "no_show_risk": round(float(row["no_show_risk"]), 4),
+            # Planning signal only: never used to deny or reorder care.
+            "reminder_outreach": bool(float(row["no_show_risk"]) >= threshold),
             "status": "SCHEDULED" if assigned_start is not None else "UNSCHEDULED",
         })
     result = pd.DataFrame(output)
@@ -1156,6 +1313,18 @@ def optimize_appointments(inputs: dict[str, pd.DataFrame]) -> tuple[pd.DataFrame
             person["_department"], person["_specialty"]
         }:
             baseline_specialty_mismatches += 1
+    scheduled = result[result["status"] == "SCHEDULED"]
+    clinic_start = datetime.combine(plan_day.date(), datetime.min.time()) + timedelta(hours=8)
+    clinic_end = clinic_start + timedelta(hours=9)
+    available_minutes = 0.0
+    for provider_id in scheduled["optimized_doctor_id"].astype(str).unique():
+        windows = provider_windows.get(provider_id, [(clinic_start, clinic_end)])
+        available_minutes += sum(
+            max(0.0, (min(end, clinic_end) - max(start, clinic_start)).total_seconds() / 60)
+            for start, end in windows
+        )
+    booked_minutes = float(scheduled["duration_minutes"].sum())
+    expected_no_show_minutes = float((scheduled["no_show_risk"] * scheduled["duration_minutes"]).sum())
     metrics = pd.DataFrame([{
         "planning_date_start": appointments["plan_date"].min(),
         "planning_date_end": appointments["plan_date"].max(),
@@ -1195,6 +1364,15 @@ def optimize_appointments(inputs: dict[str, pd.DataFrame]) -> tuple[pd.DataFrame
             (result["original_doctor_id"] != result["optimized_doctor_id"]).sum()
         ),
         "mean_no_show_risk": round(float(result["no_show_risk"].mean()), 4),
+        "reminder_outreach_count": int(result["reminder_outreach"].sum()),
+        "provider_available_minutes": int(round(available_minutes)),
+        "booked_minutes": int(round(booked_minutes)),
+        "expected_no_show_minutes": int(round(expected_no_show_minutes)),
+        "slot_utilization": round(booked_minutes / available_minutes, 4) if available_minutes else 0.0,
+        "expected_attended_utilization": round(
+            (booked_minutes - expected_no_show_minutes) / available_minutes, 4
+        ) if available_minutes else 0.0,
+        "no_show_threshold": round(threshold, 4),
         "mean_schedule_shift_minutes": round(
             float((result.apply(
                 lambda row: abs(
@@ -1808,6 +1986,35 @@ def optimize_emergency_capacity(
     return pd.DataFrame(rows)
 
 
+def staff_policy_kpis(
+    policy: str, schedule: pd.DataFrame, coverage: pd.DataFrame,
+) -> dict[str, Any]:
+    """Coverage, overtime, surge use and workload balance for one staffing policy.
+
+    Workload balance is measured over base staff who worked at least one
+    shift in the horizon: the standard deviation and range of their hours.
+    """
+    base = schedule[schedule["staff_source"] != "synthetic_surge_pool"] if not schedule.empty else schedule
+    hours = base.groupby("staff_id")["hours"].sum() if not base.empty else pd.Series(dtype=float)
+    preference_matches = (
+        schedule["shift_preference"].map(normalize) == schedule["shift"].map(normalize)
+    ).sum() if not schedule.empty else 0
+    return {
+        "policy": policy,
+        "required_positions": int(coverage["required_staff"].sum()),
+        "filled_positions": int(coverage["assigned_staff"].sum()),
+        "unfilled_positions": int(coverage["unfilled_staff"].sum()),
+        "base_staff_shifts": int(len(base)),
+        "surge_staff_shifts": int(len(schedule) - len(base)),
+        "overtime_shifts": int((schedule.get("overtime_hours", pd.Series(dtype=float)) > 0).sum()),
+        "overtime_hours": float(schedule.get("overtime_hours", pd.Series(dtype=float)).sum()),
+        "base_staff_used": int(hours.size),
+        "base_hours_std": round(float(hours.std(ddof=0)), 2) if hours.size else 0.0,
+        "base_hours_range": float(hours.max() - hours.min()) if hours.size else 0.0,
+        "shift_preference_match_rate": round(float(preference_matches / len(schedule)), 4) if len(schedule) else 0.0,
+    }
+
+
 def validate_outputs(
     staff_schedule: pd.DataFrame,
     staff_coverage: pd.DataFrame,
@@ -1825,9 +2032,18 @@ def validate_outputs(
     if not staff_schedule.empty:
         if staff_schedule.duplicated(["date", "staff_id"]).any():
             errors.append("A staff member was scheduled more than once on a date.")
-        if (staff_schedule["prior_7_day_hours"] + staff_schedule["hours"]
-                > staff_schedule["max_hours"]).any():
-            errors.append("A scheduled staff member exceeds the weekly hour limit.")
+        surge = staff_schedule["staff_source"].eq("synthetic_surge_pool")
+        limit = staff_schedule["max_hours"] + (~surge) * OVERTIME_CAP_HOURS
+        if (staff_schedule["prior_7_day_hours"] + staff_schedule["hours"] > limit).any():
+            errors.append("A scheduled staff member exceeds the weekly hour limit plus overtime cap.")
+        expected_overtime = (
+            staff_schedule["prior_7_day_hours"] + staff_schedule["hours"]
+            - staff_schedule["max_hours"]
+        ).clip(lower=0).clip(upper=staff_schedule["hours"])
+        if "overtime_hours" in staff_schedule and (
+            (staff_schedule["overtime_hours"] - expected_overtime).abs() > 1e-6
+        ).any():
+            errors.append("Reported overtime hours do not match scheduled hours.")
         for _, group in staff_schedule.groupby("staff_id"):
             intervals = [
                 _shift_interval(
@@ -1978,6 +2194,13 @@ def main() -> None:
     staff_schedule, staff_coverage = optimize_staff_schedule(
         inputs, planning_date, planning_dates, bed_forecast
     )
+    baseline_staff_schedule, baseline_staff_coverage = optimize_staff_schedule(
+        inputs, planning_date, planning_dates, bed_forecast, policy="first_fit"
+    )
+    staff_comparison = pd.DataFrame([
+        staff_policy_kpis("first_fit_baseline", baseline_staff_schedule, baseline_staff_coverage),
+        staff_policy_kpis("optimized", staff_schedule, staff_coverage),
+    ])
     appointment_schedule, appointment_metrics = optimize_appointments(inputs)
     bed_detail, bed_kpis = optimize_bed_allocations(bed_forecast, inputs, staff_coverage)
     emergency = optimize_emergency_capacity(
@@ -2105,6 +2328,7 @@ def main() -> None:
         "bed_allocation_kpis.csv": bed_kpis,
         "optimized_staff_schedule.csv": staff_schedule,
         "staff_coverage_kpis.csv": staff_coverage,
+        "staff_schedule_comparison.csv": staff_comparison,
         "optimized_appointment_schedule.csv": appointment_schedule,
         "appointment_optimization_kpis.csv": appointment_metrics,
         "emergency_capacity_optimization.csv": emergency,

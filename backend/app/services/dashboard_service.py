@@ -278,6 +278,7 @@ def get_staff_dashboard() -> dict[str, Any]:
         "staff": staff.to_dict(orient="records"),
         "schedule": schedule.to_dict(orient="records"),
         "coverage": coverage.to_dict(orient="records"),
+        "policy_comparison": _read_csv(OUTPUT_DIR / "staff_schedule_comparison.csv").to_dict(orient="records"),
     }
 
 
@@ -296,6 +297,7 @@ def get_appointments_dashboard() -> dict[str, Any]:
         "optimized_count": int(len(schedule)),
         "unassigned_count": unassigned,
         "no_show_prediction_count": int(len(no_show)),
+        "kpis": _read_csv(OUTPUT_DIR / "appointment_optimization_kpis.csv").to_dict(orient="records"),
         "appointment_schedule": schedule.to_dict(orient="records"),
         # Highest-risk rows only; band counts over all rows are at /no-show/summary.
         "no_show_predictions": no_show.head(500).to_dict(orient="records"),

@@ -10,6 +10,7 @@ from optimization.resource_optimization import (
     optimize_bed_allocations,
     optimize_emergency_capacity,
     optimize_staff_schedule,
+    staff_policy_kpis,
     build_resource_gap_analysis,
     build_synthetic_surge_beds,
 )
@@ -364,12 +365,13 @@ class StaffSchedulingTests(unittest.TestCase):
         self.assertTrue((coverage["assigned_staff"] <= coverage["required_staff"]).all())
         self.assertEqual(coverage["required_staff"].sum(), 1)
 
-    def test_schedule_respects_rolling_weekly_hour_limit(self):
+    def _single_nurse_inputs(self, max_hours):
         staff = pd.DataFrame([
             {"staff_id": "n1", "staff_name": "Nurse", "role": "Nurse",
              "department": "Cardiology", "specialty": "Cardiology",
-             "availability": "Available", "shift_preference": "Night", "max_hours": 16},
+             "availability": "Available", "shift_preference": "Night", "max_hours": max_hours},
         ])
+        # Nights every third day: 16 hours in the 7 days before 2026-09-23.
         historical_nights = pd.date_range("2026-06-28", "2026-09-22", freq="3D")
         shifts = pd.DataFrame([
             {"date": day, "staff_id": "n1", "shift": "Night",
@@ -381,12 +383,56 @@ class StaffSchedulingTests(unittest.TestCase):
             {"date": "2026-09-22", "department": "Cardiology", "staff_demand": 1,
              "admissions": 1},
         ])
+        return {"staff": staff, "shifts": shifts, "daily_operations": operations}
+
+    def test_optimizer_uses_capped_overtime_and_reports_it(self):
         schedule, coverage = optimize_staff_schedule(
-            {"staff": staff, "shifts": shifts, "daily_operations": operations},
-            date(2026, 9, 23),
+            self._single_nurse_inputs(max_hours=16), date(2026, 9, 23),
+        )
+        self.assertEqual(int(coverage["unfilled_staff"].sum()), 0)
+        self.assertEqual(float(schedule["overtime_hours"].sum()), 8.0)
+
+    def test_baseline_never_schedules_overtime(self):
+        schedule, coverage = optimize_staff_schedule(
+            self._single_nurse_inputs(max_hours=16), date(2026, 9, 23), policy="first_fit",
         )
         self.assertTrue(schedule.empty)
         self.assertEqual(int(coverage["unfilled_staff"].sum()), 1)
+
+    def test_shift_beyond_the_overtime_cap_stays_unfilled(self):
+        schedule, coverage = optimize_staff_schedule(
+            self._single_nurse_inputs(max_hours=8), date(2026, 9, 23),
+        )
+        self.assertTrue(schedule.empty)
+        self.assertEqual(int(coverage["unfilled_staff"].sum()), 1)
+
+    def test_optimizer_prefers_surge_staff_to_a_full_overtime_shift(self):
+        inputs = self._single_nurse_inputs(max_hours=16)
+        forecast = pd.DataFrame([{
+            "date": "2026-09-23", "department": "cardiology", "projected_occupied_beds": 4,
+        }])
+        optimized, coverage = optimize_staff_schedule(
+            inputs, date(2026, 9, 23), [date(2026, 9, 23)], forecast,
+        )
+        baseline, baseline_coverage = optimize_staff_schedule(
+            inputs, date(2026, 9, 23), [date(2026, 9, 23)], forecast, policy="first_fit",
+        )
+        # n1 could only work Night as a full 8-hour overtime shift; a surge
+        # nurse is cheaper, so no overtime is scheduled.
+        self.assertEqual(int(coverage["unfilled_staff"].sum()), 0)
+        self.assertEqual(float(optimized["overtime_hours"].sum()), 0.0)
+        kpis = pd.DataFrame([
+            staff_policy_kpis("first_fit_baseline", baseline, baseline_coverage),
+            staff_policy_kpis("optimized", optimized, coverage),
+        ]).set_index("policy")
+        self.assertEqual(int(kpis.loc["optimized", "overtime_shifts"]), 0)
+        self.assertEqual(int(kpis.loc["optimized", "unfilled_positions"]), 0)
+
+    def test_unknown_policy_is_rejected(self):
+        with self.assertRaises(ValueError):
+            optimize_staff_schedule(
+                self._single_nurse_inputs(max_hours=16), date(2026, 9, 23), policy="greedy",
+            )
 
 
 class EmergencyCapacityTests(unittest.TestCase):
@@ -479,7 +525,7 @@ class AppointmentOptimizationTests(unittest.TestCase):
             "appointments": appointments,
             "no_show_predictions": pd.DataFrame(),
             "staff": staff,
-        })
+        }, days=1)
         self.assertEqual(result["appointment_id"].tolist(), ["today"])
         self.assertEqual(result.iloc[0]["no_show_risk"], 0)
 
@@ -552,10 +598,69 @@ class AppointmentOptimizationTests(unittest.TestCase):
             "no_show_predictions": pd.DataFrame(),
             "staff": staff,
             "shifts": shifts,
-        })
+        }, days=1)
         self.assertEqual(result["appointment_id"].tolist(), ["today"])
         self.assertEqual(result.iloc[0]["optimized_time"], "15:00")
         self.assertEqual(metrics.iloc[0]["optimized_off_shift_doctor_bookings"], 0)
+
+    def _week_of_appointments(self):
+        rows = []
+        for day in pd.date_range("2026-09-16", "2026-09-22", freq="D"):
+            for i in range(3):
+                rows.append({
+                    "appointment_id": f"{day:%m%d}-{i}", "patient_id": f"p{i}", "doctor_id": "d1",
+                    "department": "Cardiology", "date": f"{day:%Y-%m-%d}", "time": "09:00",
+                    "duration": 30, "priority": "Routine", "no_show": 0,
+                })
+        staff = pd.DataFrame([
+            {"staff_id": "d1", "staff_name": "Doctor", "role": "Doctor",
+             "department": "Cardiology", "specialty": "Cardiology", "availability": "Available"},
+        ])
+        return pd.DataFrame(rows), staff
+
+    def test_last_n_days_are_each_scheduled_without_conflicts(self):
+        appointments, staff = self._week_of_appointments()
+        result, metrics = optimize_appointments({
+            "appointments": appointments, "no_show_predictions": pd.DataFrame(), "staff": staff,
+        }, days=5)
+        self.assertEqual(result["date"].nunique(), 5)
+        self.assertEqual(result["date"].min(), "2026-09-18")
+        self.assertEqual(int(metrics.iloc[0]["planning_days"]), 5)
+        self.assertEqual(int(metrics.iloc[0]["appointments_scheduled"]), 15)
+        self.assertEqual(int(metrics.iloc[0]["optimized_doctor_time_conflicts"]), 0)
+        self.assertEqual(
+            count_appointment_conflicts(result, "optimized_time", "optimized_doctor_id", "date"), 0,
+        )
+
+    def test_no_show_risk_never_changes_bookings_only_flags_outreach(self):
+        appointments, staff = self._week_of_appointments()
+        low = pd.DataFrame({"appointment_id": appointments["appointment_id"],
+                            "predicted_no_show_probability": 0.01})
+        high = low.assign(predicted_no_show_probability=0.95)
+        run = lambda risks: optimize_appointments({
+            "appointments": appointments, "no_show_predictions": risks, "staff": staff,
+        }, days=7)
+        low_result, low_metrics = run(low)
+        high_result, high_metrics = run(high)
+        columns = ["appointment_id", "optimized_doctor_id", "optimized_time", "status"]
+        pd.testing.assert_frame_equal(low_result[columns], high_result[columns])
+        self.assertFalse(low_result["reminder_outreach"].any())
+        self.assertTrue(high_result["reminder_outreach"].all())
+        self.assertEqual(int(high_metrics.iloc[0]["reminder_outreach_count"]), 21)
+
+    def test_utilization_accounts_for_expected_no_shows(self):
+        appointments, staff = self._week_of_appointments()
+        risks = pd.DataFrame({"appointment_id": appointments["appointment_id"],
+                              "predicted_no_show_probability": 0.2})
+        _, metrics = optimize_appointments({
+            "appointments": appointments, "no_show_predictions": risks, "staff": staff,
+        }, days=7)
+        row = metrics.iloc[0]
+        self.assertEqual(int(row["booked_minutes"]), 21 * 30)
+        self.assertEqual(int(row["expected_no_show_minutes"]), round(0.2 * 21 * 30))
+        self.assertEqual(int(row["provider_available_minutes"]), 7 * 9 * 60)
+        self.assertAlmostEqual(row["slot_utilization"], 630 / 3780, places=4)
+        self.assertLess(row["expected_attended_utilization"], row["slot_utilization"])
 
     def test_off_shift_original_provider_falls_back_to_available_specialist(self):
         appointments = pd.DataFrame([{
