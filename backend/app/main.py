@@ -7,6 +7,7 @@ from backend.app.config import settings
 from backend.app.database import init_db
 from backend.app.routers.alerts import router as alerts_router
 from backend.app.routers.audit import router as audit_router
+from backend.app.routers.datasets import router as datasets_router
 from backend.app.routers.forecasts import router as forecasts_router
 from backend.app.routers.health import router as health_router
 from backend.app.routers.insights import router as insights_router
@@ -37,6 +38,7 @@ app.add_middleware(
 for router in (
     health_router,
     resources_router,
+    datasets_router,
     forecasts_router,
     optimization_router,
     recommendations_router,

@@ -64,3 +64,32 @@ class GenericResponse(BaseModel):
     status: str
     data: dict[str, Any] | list[Any] | None = None
     message: str | None = None
+
+
+class DatasetCatalogResponse(BaseModel):
+    dataset_count: int
+    datasets: list[dict[str, Any]]
+
+
+class DatasetPageResponse(BaseModel):
+    dataset: dict[str, Any]
+    offset: int
+    limit: int
+    returned_rows: int
+    rows: list[dict[str, Any]]
+
+
+class DatasetValidationResponse(BaseModel):
+    dataset_count: int
+    datasets: list[dict[str, Any]]
+
+
+class OperationsAnalyticsResponse(BaseModel):
+    filters: dict[str, Any]
+    summary: dict[str, Any]
+    daily: list[dict[str, Any]]
+    departments: list[dict[str, Any]]
+
+
+class DepartmentsResponse(BaseModel):
+    departments: list[str]
