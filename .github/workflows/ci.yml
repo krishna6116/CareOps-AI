@@ -5,9 +5,14 @@ on:
     branches: [main, master]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   python-tests:
     runs-on: ubuntu-latest
+    env:
+      MPLBACKEND: Agg
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -19,10 +24,48 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements-lock.txt
-      - name: Unit and pipeline tests
-        run: python -m unittest discover -s tests -p "test_*.py" -v
-      - name: Backend API tests
-        run: python -m pytest backend/app/tests -q
+      - name: Check migrations match the models
+        env:
+          CAREOPS_DATABASE_URL: sqlite:///./ci-migrations.db
+        run: |
+          python -m alembic -c backend/alembic.ini upgrade head
+          python -m alembic -c backend/alembic.ini check
+      - name: Data, model, optimization and API tests
+        run: python -m pytest -q -rs
+
+  postgres-integration:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: careops_test
+          POSTGRES_USER: careops
+          POSTGRES_PASSWORD: ci-only-password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U careops -d careops_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      CAREOPS_TEST_DATABASE_URL: postgresql+psycopg://careops:ci-only-password@localhost:5432/careops_test
+      CAREOPS_REQUIRE_POSTGRES_TESTS: "1"
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pip
+          cache-dependency-path: requirements-lock.txt
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-lock.txt
+      - name: PostgreSQL migrations, persistence and pipeline handoff
+        run: python -m pytest backend/app/tests/test_postgres_integration.py -v -rs
 
   pipeline-smoke:
     # End-to-end run on a small synthetic scenario (25% of patient and
@@ -54,21 +97,63 @@ jobs:
           path: |
             optimization/resource_planning/outputs/portfolio_run_manifest.json
             optimization/resource_planning/outputs/reliability_scorecard.txt
+            optimization/resource_planning/outputs/bed_assignment_summary.json
             docs/MODEL_METRICS.md
           if-no-files-found: warn
 
-  frontend-build:
+  frontend:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - name: Install frontend dependencies
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - name: Type check
+        run: npm run typecheck
+      - name: Component and workflow tests
+        run: npm test
+      - name: Production build
+        run: npm run build
+
+  docker-compose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create a local-only environment file
         run: |
-          cd frontend
-          npm ci
-      - name: Build frontend
+          {
+            echo "POSTGRES_PASSWORD=ci-only-$(openssl rand -hex 12)"
+            echo "CAREOPS_LLM_PROVIDER=deterministic"
+          } > .env
+      - name: Build and start PostgreSQL, API and frontend
+        run: docker compose up -d --build --wait --wait-timeout 300
+      - name: Check the running stack
         run: |
-          cd frontend
-          npm run build
+          curl -fsS http://127.0.0.1:8000/health | tee /dev/stderr | grep -q '"engine":"postgresql"'
+          curl -fsS http://127.0.0.1:8000/ready
+          curl -fsS http://127.0.0.1:8000/optimization/bed-assignments > /dev/null
+          curl -fsS -X POST http://127.0.0.1:8000/assistant/ask \
+            -H 'Content-Type: application/json' \
+            -d '{"question":"Why were some bed requests left unassigned?"}' | grep -q unassigned
+          curl -fsS http://127.0.0.1:5173/ | grep -q '<div id="root">'
+      - name: Restart the API and confirm persisted history survives
+        run: |
+          curl -fsS -X POST http://127.0.0.1:8000/simulation/run \
+            -H 'Content-Type: application/json' \
+            -d '{"scenario_name":"ci_restart","admissions_multiplier":1.1}' > /dev/null
+          docker compose restart backend
+          docker compose up -d --wait --wait-timeout 120
+          curl -fsS http://127.0.0.1:8000/simulation/runs | grep -q ci_restart
+      - name: Logs on failure
+        if: failure()
+        run: docker compose logs --no-color
+      - name: Stop the stack
+        if: always()
+        run: docker compose down -v

@@ -9,6 +9,8 @@ class Settings(BaseSettings):
     environment: str = "development"
     app_version: str = "0.1.0"
     database_url: str = "sqlite:///./careops.db"
+    database_pool_size: int = 5
+    database_max_overflow: int = 5
     llm_provider: str = "deterministic"
     llm_model: str = "gpt-4o-mini"
     llm_base_url: str = "http://127.0.0.1:11434"

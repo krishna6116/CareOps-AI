@@ -22,7 +22,7 @@ services:
       CAREOPS_DATABASE_URL: postgresql+psycopg://careops:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@postgres:5432/careops
       CAREOPS_ENVIRONMENT: development
       CAREOPS_CORS_ORIGINS: '["http://localhost:5173","http://127.0.0.1:5173"]'
-      CAREOPS_LLM_PROVIDER: ${CAREOPS_LLM_PROVIDER:-openai}
+      CAREOPS_LLM_PROVIDER: ${CAREOPS_LLM_PROVIDER:-deterministic}
       CAREOPS_LLM_MODEL: ${CAREOPS_LLM_MODEL:-gpt-4o-mini}
       CAREOPS_LLM_BASE_URL: ${CAREOPS_LLM_BASE_URL:-http://127.0.0.1:11434}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}

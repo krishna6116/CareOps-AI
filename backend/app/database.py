@@ -11,10 +11,18 @@ class Base(DeclarativeBase):
 
 
 database_url = settings.database_url
+_is_sqlite = database_url.startswith("sqlite")
 engine = create_engine(
     database_url,
-    connect_args={"check_same_thread": False} if database_url.startswith("sqlite") else {},
-    future=True,
+    connect_args={"check_same_thread": False} if _is_sqlite else {},
+    # PostgreSQL: a small pool, with dead connections replaced after a
+    # database restart instead of failing the next request.
+    **({} if _is_sqlite else {
+        "pool_size": settings.database_pool_size,
+        "max_overflow": settings.database_max_overflow,
+        "pool_pre_ping": True,
+        "pool_recycle": 1800,
+    }),
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine, future=True)
 

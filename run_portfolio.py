@@ -600,6 +600,22 @@ def run_pipeline(as_of: date, postgres: bool = False, exploratory: bool = False)
         scorecard, manifest, no_show_metadata
     )
     manifest.update(readiness)
+    assignment_path = OUTPUT / "bed_assignment_summary.json"
+    if assignment_path.is_file():
+        assignment = json.loads(assignment_path.read_text(encoding="utf-8"))
+        manifest["request_level_bed_assignment"] = {
+            "window": assignment["window"],
+            "solver_statuses": assignment["solver_statuses"],
+            "kpis": {
+                row["policy"]: {
+                    key: row[key] for key in (
+                        "requests", "assigned", "unassigned", "off_service_placements",
+                        "compatibility_violations",
+                    )
+                }
+                for row in assignment["kpis"]
+            },
+        }
     if postgres:
         if readiness["next_process_ready"]:
             from optimization.postgresql_integration import (

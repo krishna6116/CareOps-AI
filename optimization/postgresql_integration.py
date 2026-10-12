@@ -56,6 +56,15 @@ ARTIFACTS = {
     "optimization_bed_kpis": (
         "optimization/resource_planning/outputs/bed_allocation_kpis.csv"
     ),
+    "optimization_bed_assignment_requests": (
+        "optimization/resource_planning/outputs/bed_assignment_requests.csv"
+    ),
+    "optimization_bed_assignment_daily": (
+        "optimization/resource_planning/outputs/bed_assignment_daily.csv"
+    ),
+    "optimization_bed_assignment_kpis": (
+        "optimization/resource_planning/outputs/bed_assignment_kpis.csv"
+    ),
     "optimization_staff_schedule": (
         "optimization/resource_planning/outputs/optimized_staff_schedule.csv"
     ),

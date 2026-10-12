@@ -12,5 +12,11 @@
 node_modules
 frontend/dist
 frontend/node_modules
-tools/node-v*
+tools/
 *.log
+*.db
+*.sqlite*
+.pytest_cache
+.github
+notebooks
+data/features

@@ -74,6 +74,19 @@ def test_health_endpoint_redacts_database_credentials_and_errors(
     assert "secret" not in str(payload)
 
 
+def test_readiness_and_metadata(monkeypatch: pytest.MonkeyPatch) -> None:
+    ready = client.get("/ready")
+    assert ready.status_code == 200
+    assert ready.json()["checks"]["database"] == "ok"
+    meta = client.get("/meta").json()
+    assert meta["clinical_use"] is False
+    assert meta["scenario_as_of_date"] == ready.json()["checks"]["pipeline_run"]
+    monkeypatch.setattr("backend.app.routers.health.read_manifest", lambda: {})
+    not_ready = client.get("/ready")
+    assert not_ready.status_code == 503
+    assert not_ready.json()["checks"]["pipeline_run"] == "missing"
+
+
 def test_patients_endpoint() -> None:
     response = client.get("/patients")
     assert response.status_code == 200
