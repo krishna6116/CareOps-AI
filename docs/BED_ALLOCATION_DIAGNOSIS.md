@@ -65,8 +65,8 @@ from 2026-09-08 to 2026-10-05. They are in
 
 | Policy | Requests | Assigned | Off-service | Compatibility violations | Main unassigned reasons |
 | --- | ---: | ---: | ---: | ---: | --- |
-| Baseline (home-ward first fit) | 315 | 288 | 0 | 0 | 19 isolation patients with no isolation room in their home ward, 5 protected reserve, 3 beds taken |
-| Optimized (CP-SAT) | 315 | 311 | 22 | 0 | 2 protected reserve, 1 no compatible bed, 1 beds taken |
+| Baseline (home-ward first fit) | 315 | 288 | 0 | 0 | 19 isolation patients with no isolation room in their home ward, 8 protected reserve |
+| Optimized (CP-SAT) | 315 | 311 | 22 | 0 | 3 protected reserve, 1 no compatible bed |
 
 All 28 daily CP-SAT models solved to `OPTIMAL`. The gain comes from placing
 patients off-service in compatible general-ward or isolation beds, and from

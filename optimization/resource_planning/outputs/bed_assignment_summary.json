@@ -40,8 +40,8 @@
       "unassigned_no_compatible_bed_in_inventory": 19,
       "unassigned_all_compatible_beds_occupied": 0,
       "unassigned_staffing_limit": 0,
-      "unassigned_protected_reserve": 5,
-      "unassigned_taken_by_other_requests": 3
+      "unassigned_protected_reserve": 8,
+      "unassigned_taken_by_other_requests": 0
     },
     {
       "policy": "optimized",
@@ -57,8 +57,8 @@
       "unassigned_no_compatible_bed_in_inventory": 1,
       "unassigned_all_compatible_beds_occupied": 0,
       "unassigned_staffing_limit": 0,
-      "unassigned_protected_reserve": 2,
-      "unassigned_taken_by_other_requests": 1
+      "unassigned_protected_reserve": 3,
+      "unassigned_taken_by_other_requests": 0
     }
   ],
   "reason_definitions": {

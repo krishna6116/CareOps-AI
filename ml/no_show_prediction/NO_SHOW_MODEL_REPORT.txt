@@ -47,7 +47,7 @@ Algorithm: XGBoost binary classification
 Chronological split: 65% / 15% / 20%
 Historical features: leakage-safe
 scale_pos_weight: 5.567505
-Training time: 4.76 seconds
+Training time: 4.64 seconds
 
 TOP FEATURES
 ----------------------------------------------------------------------

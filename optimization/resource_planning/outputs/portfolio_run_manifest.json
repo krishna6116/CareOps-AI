@@ -76,5 +76,30 @@
     "score": 4.5,
     "required_score": 4.5
   },
-  "ready_for_live_operational_use": false
+  "ready_for_live_operational_use": false,
+  "request_level_bed_assignment": {
+    "window": [
+      "2026-09-08",
+      "2026-10-05"
+    ],
+    "solver_statuses": {
+      "OPTIMAL": 28
+    },
+    "kpis": {
+      "baseline": {
+        "requests": 315,
+        "assigned": 288,
+        "unassigned": 27,
+        "off_service_placements": 0,
+        "compatibility_violations": 0
+      },
+      "optimized": {
+        "requests": 315,
+        "assigned": 311,
+        "unassigned": 4,
+        "off_service_placements": 22,
+        "compatibility_violations": 0
+      }
+    }
+  }
 }

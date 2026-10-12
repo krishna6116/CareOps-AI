@@ -146,9 +146,9 @@ planning_date,admission_id,department,severity,admission_type,icu_required,isola
 2026-09-21,A0011470,Neurology,High,Urgent,True,False,19,5,ASSIGNED,B0111,ICU,home,,ASSIGNED,B0116,ICU,home,
 2026-09-21,A0011471,Pediatrics,Moderate,Elective,False,False,14,6,ASSIGNED,B0208,Pediatrics,home,,ASSIGNED,B0208,Pediatrics,home,
 2026-09-21,A0011472,Pediatrics,High,Elective,False,False,14,6,ASSIGNED,B0210,Pediatrics,home,,ASSIGNED,B0211,Pediatrics,home,
-2026-09-21,A0011473,ICU,Low,Elective,True,False,19,5,ASSIGNED,B0114,ICU,home,,UNASSIGNED,,,,taken_by_other_requests
-2026-09-21,A0011474,ICU,Moderate,Transfer,True,False,19,5,UNASSIGNED,,,,taken_by_other_requests,ASSIGNED,B0111,ICU,home,
-2026-09-21,A0011475,ICU,High,Emergency,True,False,19,5,UNASSIGNED,,,,taken_by_other_requests,ASSIGNED,B0104,ICU,home,
+2026-09-21,A0011473,ICU,Low,Elective,True,False,19,5,ASSIGNED,B0114,ICU,home,,UNASSIGNED,,,,protected_reserve
+2026-09-21,A0011474,ICU,Moderate,Transfer,True,False,19,5,UNASSIGNED,,,,protected_reserve,ASSIGNED,B0111,ICU,home,
+2026-09-21,A0011475,ICU,High,Emergency,True,False,19,5,UNASSIGNED,,,,protected_reserve,ASSIGNED,B0104,ICU,home,
 2026-09-22,A0011476,Emergency,Moderate,Elective,False,False,40,21,ASSIGNED,B0121,Emergency,home,,ASSIGNED,B0128,Emergency,home,
 2026-09-22,A0011477,General Medicine,Low,Urgent,False,False,168,83,ASSIGNED,B0001,General Medicine,home,,ASSIGNED,B0001,General Medicine,home,
 2026-09-22,A0011478,General Medicine,Moderate,Elective,False,False,168,83,ASSIGNED,B0002,General Medicine,home,,ASSIGNED,B0002,General Medicine,home,
@@ -273,7 +273,7 @@ planning_date,admission_id,department,severity,admission_type,icu_required,isola
 2026-10-01,A0011597,Oncology,Critical,Emergency,False,True,10,8,ASSIGNED,B0221,Oncology,home,,ASSIGNED,B0221,Oncology,home,
 2026-10-01,A0011598,ICU,Low,Elective,True,False,19,6,ASSIGNED,B0103,ICU,home,,ASSIGNED,B0120,ICU,home,
 2026-10-02,A0011599,Emergency,High,Transfer,False,False,40,26,ASSIGNED,B0122,Emergency,home,,ASSIGNED,B0130,Emergency,home,
-2026-10-02,A0011600,Emergency,High,Emergency,False,False,40,26,UNASSIGNED,,,,taken_by_other_requests,ASSIGNED,B0082,General Medicine,off_service,
+2026-10-02,A0011600,Emergency,High,Emergency,False,False,40,26,UNASSIGNED,,,,protected_reserve,ASSIGNED,B0082,General Medicine,off_service,
 2026-10-02,A0011601,General Medicine,Moderate,Urgent,False,False,168,69,ASSIGNED,B0003,General Medicine,home,,ASSIGNED,B0003,General Medicine,home,
 2026-10-02,A0011602,General Medicine,Low,Emergency,False,True,10,7,UNASSIGNED,,,,no_compatible_bed_in_inventory,ASSIGNED,B0221,Oncology,off_service,
 2026-10-02,A0011603,General Medicine,Moderate,Elective,False,False,168,69,ASSIGNED,B0008,General Medicine,home,,ASSIGNED,B0008,General Medicine,home,
