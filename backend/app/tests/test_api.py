@@ -196,10 +196,16 @@ def test_dashboard_and_model_output_endpoints() -> None:
 
     appointments = client.get("/dashboard/appointments").json()
     assert len(appointments["appointment_schedule"]) == appointments["optimized_count"]
-    assert len(appointments["no_show_predictions"]) == appointments["no_show_prediction_count"]
+    assert len(appointments["no_show_predictions"]) == min(500, appointments["no_show_prediction_count"])
 
     assert len(client.get("/los/predictions?limit=5000").json()) > 200
-    assert len(client.get("/no-show/predictions?limit=25000").json()) == appointments["no_show_prediction_count"]
+    no_show = client.get("/no-show/summary").json()
+    assert no_show["prediction_count"] == appointments["no_show_prediction_count"]
+    assert sum(no_show["risk_bands"].values()) == no_show["prediction_count"]
+    top = client.get("/no-show/predictions?limit=50").json()
+    probabilities = [row["predicted_no_show_probability"] for row in top]
+    assert probabilities == sorted(probabilities, reverse=True)
+    assert client.get("/no-show/predictions?limit=25000").status_code == 422
 
     optimization = client.get("/dashboard/optimization").json()
     assert optimization["appointment_kpis"]
@@ -608,6 +614,14 @@ def test_simulation_count_metrics_are_whole_numbers() -> None:
         "allocated_bed_days", "overflow_bed_days", "unfilled_staff_positions",
     ):
         assert isinstance(payload["simulated_metrics"][key], int), key
+    # The peak is hospital-wide, so it cannot be below any single day's
+    # department total in the saved baseline forecast.
+    import pandas as pd
+
+    baseline = pd.read_csv(OUTPUTS / "bed_availability_forecast.csv")
+    assert payload["simulated_metrics"]["peak_projected_occupied_beds"] >= int(
+        baseline.groupby("date")["projected_occupied_beds"].sum().max()
+    )
 
 
 def test_recommendations_endpoint() -> None:

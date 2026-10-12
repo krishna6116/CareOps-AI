@@ -178,8 +178,9 @@ def simulate_scenario(
         "projected_admissions": int(
             float(baseline_overview["predicted_admissions"]) * admissions_multiplier + 0.5
         ),
+        # Hospital-wide: sum departments per day, then take the peak day.
         "peak_projected_occupied_beds": int(
-            float(forecast["projected_occupied_beds"].max()) + 0.5
+            float(forecast.groupby("date")["projected_occupied_beds"].sum().max()) + 0.5
         ),
         "icu_bed_delta": icu_bed_delta,
         "staff_availability_delta": staff_availability_delta,

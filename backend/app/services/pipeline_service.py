@@ -236,3 +236,67 @@ def get_bed_assignment_requests(
         "limit": limit,
         "rows": page.astype(object).where(page.notna(), None).to_dict(orient="records"),
     }
+
+
+def get_model_evaluation() -> dict[str, Any]:
+    """Published model vs baselines, interval coverage and alert-threshold scores.
+
+    Uses the same summary as docs/MODEL_METRICS.md so the dashboard and the
+    report cannot disagree.
+    """
+    from ml import model_metrics_report as report
+
+    try:
+        data = report.load_outputs()
+    except FileNotFoundError:
+        return {}
+
+    def records(frame: pd.DataFrame) -> list[dict[str, Any]]:
+        return frame.astype(object).where(frame.notna(), None).to_dict(orient="records")
+
+    summary = report.summary_rows(data).rename(columns=lambda column: (
+        column.casefold().replace(" ", "_")
+    ))
+    summary["learned_beats_baseline"] = summary["learned_beats_baseline"].eq("yes")
+    coverage = []
+    for target, key in (
+        ("admissions", "admission_coverage"),
+        ("occupied_beds", "occupancy_coverage"),
+        ("icu_admissions", "icu_coverage"),
+    ):
+        frame = data[key]
+        # Only the method used for the published forecasts, as in the report.
+        frame = frame[frame["method"].eq("sequential_published")].copy()
+        frame.insert(0, "target", target)
+        coverage.extend(records(frame))
+    return {
+        "scenario_as_of_date": data["manifest"].get("scenario_as_of_date"),
+        "summary": records(summary),
+        "interval_coverage": coverage,
+        "occupancy_risk_thresholds": records(data["occupancy_risk"]),
+        "report": "docs/MODEL_METRICS.md",
+    }
+
+
+NO_SHOW_BANDS = (("below_0_2", 0.0, 0.2), ("0_2_to_0_5", 0.2, 0.5), ("0_5_and_above", 0.5, 1.000001))
+
+
+def get_no_show_summary() -> dict[str, Any]:
+    """Risk-band counts over every saved prediction, so clients need not download them."""
+    path = ML_ROOT / "no_show_prediction" / "no_show_predictions.csv"
+    if not path.exists():
+        return {}
+    frame = _read_csv(path)
+    probability = pd.to_numeric(frame["predicted_no_show_probability"], errors="coerce")
+    bands = {
+        name: int(((probability >= low) & (probability < high)).sum())
+        for name, low, high in NO_SHOW_BANDS
+    }
+    observed = pd.to_numeric(frame.get("actual_no_show"), errors="coerce")
+    return {
+        "prediction_count": int(probability.notna().sum()),
+        "risk_bands": bands,
+        "mean_predicted_probability": round(float(probability.mean()), 4),
+        "observed_no_show_rate": round(float(observed.mean()), 4) if observed is not None else None,
+        "window": [str(frame["appointment_datetime"].min()), str(frame["appointment_datetime"].max())],
+    }

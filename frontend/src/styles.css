@@ -157,3 +157,25 @@ select, input, textarea { border: 1px solid rgba(142, 170, 206, .24); border-rad
   .synthetic-badge { font-size: 9px; }
   .comparison-grid { grid-template-columns: 1fr; }
 }
+
+/* Accessibility, comparisons, assistant evidence and validation */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.panel h3 { margin: 18px 0 10px; color: #d6e3f3; font-size: 13px; }
+.panel h4 { margin: 14px 0 6px; color: #c5d4e7; font-size: 12px; }
+.comparison-table tbody th { color: #c5d4e7; font-weight: 600; text-align: left; }
+.delta-better { color: #47d7ae; }
+.delta-worse { color: #ff9c8f; }
+.kind { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 10px; white-space: nowrap; }
+.kind-observed { background: rgba(101, 165, 255, .14); color: #9bc5ff; }
+.kind-forecast { background: rgba(255, 196, 110, .12); color: #ffd491; }
+.kind-model_metric { background: rgba(178, 140, 255, .14); color: #cdb6ff; }
+.kind-simulated { background: rgba(71, 215, 174, .12); color: #8de8cb; }
+.fallback-note { padding: 10px 12px; border-left: 3px solid #ffc66e; border-radius: 5px; background: rgba(255, 196, 110, .08); color: #ffe2b5; font-size: 12px; }
+.form-errors { margin: 10px 0 0; padding-left: 18px; color: #ffb4a8; font-size: 12px; }
+.chart-hit { fill: transparent; }
+.chart-hit:hover { fill: rgba(240, 245, 252, .35); }
+.evaluation-grid { margin-top: 14px; }
+.panel details { margin-top: 14px; color: #a8bad1; font-size: 12px; }
+.panel details summary { cursor: pointer; margin-bottom: 10px; }
+.metric-grid.compact { margin-top: 14px; }
+.panel code { color: #b9cce3; font-size: 11px; }

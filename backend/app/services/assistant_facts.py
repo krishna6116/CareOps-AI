@@ -380,7 +380,8 @@ def model_reliability(question: str) -> GroundedAnswer:
         if key and key in data:
             frame = data[key]
             if "empirical_coverage" in frame:
-                eighty = frame[frame["level"] == 0.8]["empirical_coverage"]
+                published = frame[frame["method"].eq("sequential_published")]
+                eighty = published[published["level"].round(2) == 0.8]["empirical_coverage"]
                 if not eighty.empty:
                     sentences.append(
                         f"{target} 80% intervals covered {_pct(eighty.min())}-{_pct(eighty.max())} "
@@ -511,8 +512,11 @@ def occupancy_forecast(question: str) -> GroundedAnswer:
         f"The occupancy forecast peaks at {int(peak['forecast_occupied_beds'])} occupied beds on "
         f"{peak['date']} over {len(forecast)} days"
     )
-    if {"lower_80", "upper_80"} <= set(forecast.columns):
-        answer += f" (80% interval {int(peak['lower_80'])}-{int(peak['upper_80'])})"
+    if {"occupied_beds_lower_80", "occupied_beds_upper_80"} <= set(forecast.columns):
+        answer += (
+            f" (80% interval {int(peak['occupied_beds_lower_80'])}-"
+            f"{int(peak['occupied_beds_upper_80'])})"
+        )
     return GroundedAnswer(
         intent="occupancy_forecast", answer=answer + ".",
         evidence=[Evidence("peak forecast occupied beds", int(peak["forecast_occupied_beds"]),

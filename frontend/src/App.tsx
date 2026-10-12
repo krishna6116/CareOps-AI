@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useMemo, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import {
   BrowserRouter,
   NavLink,
@@ -7,8 +7,22 @@ import {
   Routes,
 } from 'react-router-dom';
 
-type Row = Record<string, unknown>;
-type Series = { name: string; values: Array<number | null> };
+import { API_URL, api, asObject, asRows, type Row, useApi } from './api';
+import {
+  ComparisonTable,
+  DataTable,
+  Empty,
+  JsonBlock,
+  Loading,
+  Metric,
+  PageHeader,
+  Panel,
+  RequestError,
+  TrendChart,
+  type ComparisonRow,
+} from './components';
+import { formatCount, formatDecimal, formatPercent, label, toNumber } from './format';
+
 type Overview = {
   total_beds: number;
   occupied_beds: number;
@@ -31,7 +45,6 @@ type Overview = {
   operational_recommendations: Row[];
 };
 
-const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8000';
 const navigation = [
   ['/', 'Executive overview'],
   ['/forecasting', 'Forecasting'],
@@ -46,47 +59,6 @@ const navigation = [
   ['/about', 'About / how it works'],
 ] as const;
 
-async function api<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`${API_URL}${path}`, {
-    ...init,
-    headers: {
-      ...(init?.body ? { 'Content-Type': 'application/json' } : {}),
-      ...init?.headers,
-    },
-  });
-  if (!response.ok) {
-    const detail = await response.json().catch(() => null) as { detail?: string } | null;
-    throw new Error(detail?.detail ?? `${response.status} ${response.statusText}`);
-  }
-  return response.json() as Promise<T>;
-}
-
-function useApi<T>(path: string) {
-  const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let active = true;
-    setLoading(true);
-    api<T>(path)
-      .then((result) => {
-        if (active) setData(result);
-      })
-      .catch((cause: unknown) => {
-        if (active) setError(cause instanceof Error ? cause.message : 'Request failed');
-      })
-      .finally(() => {
-        if (active) setLoading(false);
-      });
-    return () => {
-      active = false;
-    };
-  }, [path]);
-
-  return { data, error, loading };
-}
-
 export default function App() {
   return (
     <BrowserRouter>
@@ -97,9 +69,9 @@ export default function App() {
             <div><strong>CareOps AI</strong><small>Resource planning</small></div>
           </div>
           <nav aria-label="Main navigation">
-            {navigation.map(([path, label]) => (
+            {navigation.map(([path, name]) => (
               <NavLink key={path} to={path} end={path === '/'}>
-                {label}
+                {name}
               </NavLink>
             ))}
           </nav>
@@ -126,158 +98,270 @@ export default function App() {
   );
 }
 
-function OverviewPage() {
+export function OverviewPage() {
   const overview = useApi<Overview>('/dashboard/overview');
   const admissions = useApi<Row[]>('/forecast/admissions');
   const occupancy = useApi<Row[]>('/forecast/occupancy');
   const icu = useApi<Row[]>('/forecast/icu');
   const alerts = useApi<Row[]>('/alerts');
-  const error = overview.error ?? admissions.error ?? occupancy.error ?? icu.error ?? alerts.error;
-  if (overview.loading || admissions.loading || occupancy.loading || icu.loading || alerts.loading) {
-    return <Loading />;
-  }
+  const assignment = useApi<Row>('/optimization/bed-assignments');
+  const requests = [overview, admissions, occupancy, icu, alerts];
+  if (requests.some((item) => item.loading)) return <Loading />;
+  const error = requests.find((item) => item.error)?.error;
   if (error || !overview.data) return <RequestError message={error ?? 'Dashboard data unavailable'} />;
 
   const admissionsByDate = sumByDate(departmentRows(admissions.data ?? []), 'predicted_admissions');
-  const occupancyForecast = (occupancy.data ?? []).map((row) => number(row.forecast_occupied_beds));
-  const icuForecast = (icu.data ?? []).map((row) => number(row.predicted_icu_admissions));
+  const occupancyForecast = (occupancy.data ?? []).map((row) => toNumber(row.forecast_occupied_beds));
+  const icuForecast = (icu.data ?? []).map((row) => toNumber(row.predicted_icu_admissions));
   const summary = overview.data;
+  const optimized = asRows(assignment.data?.kpis).find((row) => row.policy === 'optimized');
 
   return (
     <>
-      <PageHeader title="Executive overview" eyebrow="Portfolio operations" detail={`Scenario run ${summary.scenario}`} />
+      <PageHeader title="Executive overview" eyebrow="Portfolio operations" detail={`Scenario cutoff ${summary.scenario}. Snapshot figures describe the synthetic hospital on that date; forecast figures cover the next ${summary.forecast_horizon_days} days.`} />
       <section className="metric-grid">
-        <Metric label="Total beds" value={summary.total_beds} />
-        <Metric label="Occupied beds" value={summary.occupied_beds} />
-        <Metric label="Available beds" value={summary.available_beds} />
-        <Metric label="Utilization" value={`${summary.utilization}%`} />
-        <Metric label="Forecast admissions" value={format(number(summary.predicted_admissions))} note={`${summary.forecast_horizon_days}-day model horizon`} />
-        <Metric label="Forecast occupancy" value={summary.predicted_occupancy === null ? 'Unavailable' : format(summary.predicted_occupancy)} note="Final saved occupancy forecast point" />
-        <Metric label="ICU available" value={`${summary.icu_available_beds} / ${summary.icu_total_beds}`} />
-        <Metric label="Emergency beds available" value={summary.emergency_available_beds} />
-        <Metric label="Audit alerts" value={summary.alerts} />
-        <Metric label="Optimization status" value={summary.optimization_status} />
+        <Metric label="Total beds" value={formatCount(summary.total_beds)} note="Snapshot" />
+        <Metric label="Occupied beds" value={formatCount(summary.occupied_beds)} note="Snapshot" />
+        <Metric label="Available beds" value={formatCount(summary.available_beds)} note="Snapshot · excludes maintenance" />
+        <Metric label="Occupancy" value={formatPercent(summary.total_beds ? summary.occupied_beds / summary.total_beds : null)} note="Snapshot · occupied / total beds" />
+        <Metric label="ICU available" value={`${formatCount(summary.icu_available_beds)} / ${formatCount(summary.icu_total_beds)}`} note="Snapshot" />
+        <Metric label="Forecast admissions" value={formatCount(summary.predicted_admissions)} note={`Forecast · next ${summary.forecast_horizon_days} days, rounded expected values`} />
+        <Metric label="Forecast occupied beds" value={summary.predicted_occupancy === null ? 'Unavailable' : formatCount(summary.predicted_occupancy)} note={`Forecast · ${summary.latest_forecast_date ?? 'final day'}`} />
+        <Metric label="Bed requests placed" value={optimized ? `${formatCount(optimized.assigned)} / ${formatCount(optimized.requests)}` : 'Unavailable'} note="Replay · last 28 days, CP-SAT" />
+        <Metric label="Open alerts" value={formatCount(summary.alerts)} note="Data-quality audit and saved alerts" />
+        <Metric label="Pipeline status" value={summary.optimization_status.replace(/_/g, ' ')} />
       </section>
       <div className="content-grid">
-        <Panel title="Admission demand" detail={`Latest model run · ${summary.latest_forecast_date ?? 'no forecast date'}`}>
-          <TrendChart labels={admissionsByDate.labels} series={[{ name: 'Predicted admissions', values: admissionsByDate.values }]} />
+        <Panel title="Admission demand" detail="Forecast · all departments, admissions per day">
+          <TrendChart labels={admissionsByDate.labels} series={[{ name: 'Forecast admissions', values: admissionsByDate.values }]} />
         </Panel>
-        <Panel title="Occupancy forecast" detail="Predicted occupied beds, not a live census">
-          <TrendChart labels={(occupancy.data ?? []).map((row) => String(row.date ?? ''))} series={[{ name: 'Predicted occupancy', values: occupancyForecast }]} />
+        <Panel title="Occupancy forecast" detail="Forecast · occupied beds, not a live census">
+          <TrendChart labels={(occupancy.data ?? []).map((row) => String(row.date ?? ''))} series={[{ name: 'Forecast occupied beds', values: occupancyForecast }]} />
         </Panel>
-        <Panel title="ICU admission flow" detail="The ICU model predicts admissions, not ICU bed census">
-          <TrendChart labels={(icu.data ?? []).map((row) => String(row.date ?? ''))} series={[{ name: 'Predicted ICU admissions', values: icuForecast }]} />
+        <Panel title="ICU admission flow" detail="Forecast · ICU admissions per day, not ICU bed census">
+          <TrendChart labels={(icu.data ?? []).map((row) => String(row.date ?? ''))} series={[{ name: 'Forecast ICU admissions', values: icuForecast }]} />
         </Panel>
-        <Panel title="Current alerts" detail="Generated from saved data-quality audit results">
+        <Panel title="Recommendations" detail="From the saved resource-gap analysis">
+          {summary.operational_recommendations.length
+            ? <ul>{summary.operational_recommendations.map((item, index) => <li key={index}><strong>[{String(item.priority)}] {String(item.title)}:</strong> {String(item.detail)}</li>)}</ul>
+            : <Empty>No resource-gap recommendations are available.</Empty>}
+        </Panel>
+        <Panel title="Current alerts" detail="Generated by audit rules and saved alerts">
           {(alerts.data ?? []).length
             ? <DataTable rows={alerts.data ?? []} />
-            : <Empty>No audit alerts are present in the current run.</Empty>}
-        </Panel>
-        <Panel title="Capacity pressure recommendations" detail="Sorted from the saved resource-gap analysis">
-          {summary.operational_recommendations.length
-            ? <DataTable rows={summary.operational_recommendations} />
-            : <Empty>No resource-gap recommendations are available.</Empty>}
+            : <Empty>No alerts are open in the current run.</Empty>}
         </Panel>
       </div>
     </>
   );
 }
 
-function ForecastingPage() {
+const HORIZONS = [7, 14, 30];
+
+export function ForecastingPage() {
+  const [horizon, setHorizon] = useState(30);
   const history = useApi<Row[]>('/forecast/history?days=90');
   const admissions = useApi<Row[]>('/forecast/admissions');
   const occupancy = useApi<Row[]>('/forecast/occupancy');
   const icu = useApi<Row[]>('/forecast/icu');
-  const los = useApi<Row[]>('/los/predictions?limit=5000');
-  const noShow = useApi<Row[]>('/no-show/predictions?limit=100000');
-  const metrics = useApi<Record<string, Row>>('/models/metrics');
-  const loading = [history, admissions, occupancy, icu, los, noShow, metrics].some((item) => item.loading);
-  const error = [history, admissions, occupancy, icu, los, noShow, metrics].find((item) => item.error)?.error;
-  if (loading) return <Loading />;
+  const los = useApi<Row[]>('/los/predictions?limit=500');
+  const noShow = useApi<Row[]>('/no-show/predictions?limit=500');
+  const noShowSummary = useApi<Row>('/no-show/summary');
+  const evaluation = useApi<Row>('/models/evaluation');
+  const all = [history, admissions, occupancy, icu, los, noShow, noShowSummary, evaluation];
+  if (all.some((item) => item.loading)) return <Loading />;
+  const error = all.find((item) => item.error)?.error;
   if (error) return <RequestError message={error} />;
 
   const historyRows = history.data ?? [];
-  const admissionHistory = historyRows.map((row) => number(row.admissions));
-  const dailyAdmissionForecast = sumByDate(departmentRows(admissions.data ?? []), 'predicted_admissions');
-  const admissionLabels = [...historyRows.map((row) => String(row.date ?? '')), ...dailyAdmissionForecast.labels];
-  const admissionActual = [...admissionHistory, ...dailyAdmissionForecast.labels.map(() => null)];
-  const admissionPredicted = [...historyRows.map(() => null), ...dailyAdmissionForecast.values];
-  const occupancyRows = occupancy.data ?? [];
-  const actualOccupancy = historyRows.map((row) => number(row.occupancy));
-  const occupancyLabels = [...historyRows.map((row) => String(row.date ?? '')), ...occupancyRows.map((row) => String(row.date ?? ''))];
-  const occupancyActual = [...actualOccupancy, ...occupancyRows.map(() => null)];
-  const occupancyPredicted = [...historyRows.map(() => null), ...occupancyRows.map((row) => number(row.forecast_occupied_beds))];
-  const icuRows = icu.data ?? [];
-  const icuActual = historyRows.map((row) => number(row.ICU_admissions));
-  const icuLabels = [...historyRows.map((row) => String(row.date ?? '')), ...icuRows.map((row) => String(row.date ?? ''))];
-  const icuActualSeries = [...icuActual, ...icuRows.map(() => null)];
-  const icuPredicted = [...historyRows.map(() => null), ...icuRows.map((row) => number(row.predicted_icu_admissions))];
+  const historyLabels = historyRows.map((row) => String(row.date ?? ''));
+  const pad = (values: Array<number | null>, count: number) => [...values, ...Array<null>(count).fill(null)];
+  const lead = (count: number, values: Array<number | null>) => [...Array<null>(count).fill(null), ...values];
+
+  const admissionForecast = sumByDate(departmentRows(admissions.data ?? []), 'predicted_admissions');
+  const admissionLabels = admissionForecast.labels.slice(0, horizon);
+  const admissionValues = admissionForecast.values.slice(0, horizon);
+  const occupancyRows = (occupancy.data ?? []).slice(0, horizon);
+  const icuRows = (icu.data ?? []).slice(0, horizon);
   const losRows = los.data ?? [];
   const riskRows = noShow.data ?? [];
+  const bands = asObject(noShowSummary.data?.risk_bands);
 
   return (
     <>
-      <PageHeader title="Forecasting & model outputs" eyebrow="Actual generated results" detail="Historical values, saved forecasts, prediction samples, and saved validation metrics." />
+      <PageHeader title="Forecasting & model evaluation" eyebrow="Saved model outputs" detail="Charts show 90 days of synthetic history followed by the saved forecast. Model evaluation metrics are kept separate from operational figures." />
+      <label className="filter-control">Forecast horizon
+        <select value={horizon} onChange={(event) => setHorizon(Number(event.target.value))}>
+          {HORIZONS.map((days) => <option key={days} value={days}>{days} days</option>)}
+        </select>
+      </label>
+      <ModelEvaluationPanel evaluation={evaluation.data ?? {}} />
       <div className="content-grid">
-        <Panel title="Admission demand" detail="Historical daily admissions and forecast totals aggregated across departments">
-          <TrendChart labels={admissionLabels} series={[
-            { name: 'Historical admissions', values: admissionActual },
-            { name: 'Forecast admissions', values: admissionPredicted },
+        <Panel title="Admission demand" detail="History vs forecast · all departments">
+          <TrendChart labels={[...historyLabels, ...admissionLabels]} series={[
+            { name: 'Historical admissions', values: pad(historyRows.map((row) => toNumber(row.admissions)), admissionLabels.length) },
+            { name: 'Forecast admissions', values: lead(historyRows.length, admissionValues) },
           ]} />
-          <DataTable rows={dailyAdmissionForecast.labels.map((date, index) => ({ date, predicted_admissions: dailyAdmissionForecast.values[index] }))} />
         </Panel>
-        <Panel title="Occupancy forecast" detail="Historical occupied census and generated 30-day forecast">
-          <TrendChart labels={occupancyLabels} series={[
-            { name: 'Historical occupancy', values: occupancyActual },
-            { name: 'Forecast occupied beds', values: occupancyPredicted },
+        <Panel title="Occupied beds" detail="History vs forecast with 80% interval">
+          <TrendChart labels={[...historyLabels, ...occupancyRows.map((row) => String(row.date ?? ''))]} series={[
+            { name: 'Historical occupied beds', values: pad(historyRows.map((row) => toNumber(row.occupancy)), occupancyRows.length) },
+            { name: 'Forecast occupied beds', values: lead(historyRows.length, occupancyRows.map((row) => toNumber(row.forecast_occupied_beds))) },
+            { name: 'Upper 80% bound', values: lead(historyRows.length, occupancyRows.map((row) => toNumber(row.occupied_beds_upper_80))) },
           ]} />
+        </Panel>
+        <Panel title="ICU admissions" detail="History vs forecast · admissions per day, not ICU census">
+          <TrendChart labels={[...historyLabels, ...icuRows.map((row) => String(row.date ?? ''))]} series={[
+            { name: 'Historical ICU admissions', values: pad(historyRows.map((row) => toNumber(row.ICU_admissions)), icuRows.length) },
+            { name: 'Forecast ICU admissions', values: lead(historyRows.length, icuRows.map((row) => toNumber(row.predicted_icu_admissions))) },
+          ]} />
+        </Panel>
+        <Panel title="Forecast table" detail={`Next ${horizon} days · whole-number counts with 80% / 95% intervals`}>
           <DataTable rows={occupancyRows} />
         </Panel>
-        <Panel title="ICU demand forecast" detail="Admissions per day; the model does not forecast occupied ICU bed census">
-          <TrendChart labels={icuLabels} series={[
-            { name: 'Historical ICU admissions', values: icuActualSeries },
-            { name: 'Predicted ICU admissions', values: icuPredicted },
-          ]} />
-          <DataTable rows={icuRows} />
-        </Panel>
-        <Panel title="LOS prediction sample" detail={`${losRows.length} saved predictions shown · predicted length of stay in days`}>
+        <Panel title="LOS predictions" detail={`${formatCount(losRows.length)} saved predictions · days, predicted at admission`}>
+          <Metric label="Mean predicted LOS" value={`${formatDecimal(mean(losRows.map((row) => toNumber(row.predicted_los_days))), 1)} days`} />
           <DataTable rows={losRows} />
-          <Metric label="Mean predicted LOS (sample)" value={format(mean(losRows.map((row) => number(row.predicted_los_days))))} />
         </Panel>
-        <Panel title="No-show risk sample" detail={`${riskRows.length} predictions, ordered by highest saved probability`}>
+        <Panel title="No-show risk" detail={`${formatCount(noShowSummary.data?.prediction_count)} holdout predictions · observed no-show rate ${formatPercent(noShowSummary.data?.observed_no_show_rate)} · probabilities are planning signals, not determinations`}>
           <div className="metric-grid compact">
-            <Metric label="High risk ≥ 0.5" value={riskRows.length ? riskRows.filter((row) => (number(row.predicted_no_show_probability) ?? -1) >= 0.5).length : null} />
-            <Metric label="Medium risk 0.2–0.5" value={riskRows.length ? riskRows.filter((row) => { const value = number(row.predicted_no_show_probability); return value !== null && value >= 0.2 && value < 0.5; }).length : null} />
-            <Metric label="Lower risk < 0.2" value={riskRows.length ? riskRows.filter((row) => { const value = number(row.predicted_no_show_probability); return value !== null && value < 0.2; }).length : null} />
+            <Metric label="Probability ≥ 0.5" value={formatCount(bands['0_5_and_above'])} />
+            <Metric label="0.2 – 0.5" value={formatCount(bands['0_2_to_0_5'])} />
+            <Metric label="Below 0.2" value={formatCount(bands.below_0_2)} />
           </div>
+          <h3>Highest predicted risk (top {formatCount(riskRows.length)})</h3>
           <DataTable rows={riskRows} />
-        </Panel>
-        <Panel title="Saved model metrics" detail="Validation metrics from generated model metadata files">
-          <JsonBlock value={metrics.data ?? {}} />
         </Panel>
       </div>
     </>
   );
 }
 
-function BedsPage() {
+function ModelEvaluationPanel({ evaluation }: { evaluation: Row }) {
+  const summary = asRows(evaluation.summary);
+  const coverage = asRows(evaluation.interval_coverage);
+  const risk = asRows(evaluation.occupancy_risk_thresholds);
+  if (!summary.length) return <Panel title="Model evaluation"><Empty>No evaluation outputs are available.</Empty></Panel>;
+  return (
+    <Panel title="Model evaluation" detail={`Backtests from run ${String(evaluation.scenario_as_of_date ?? 'unknown')} · lower is better for MAE and Brier · details in ${String(evaluation.report ?? 'docs/MODEL_METRICS.md')}`}>
+      <div className="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Target</th><th scope="col">Evaluation</th><th scope="col">Metric</th><th scope="col">Published model</th><th scope="col">Published</th><th scope="col">Best baseline</th><th scope="col">Best learned</th><th scope="col">Learned beats baseline</th></tr></thead>
+          <tbody>{summary.map((row) => (
+            <tr key={String(row.target)}>
+              <th scope="row">{String(row.target)}</th><td>{String(row.evaluation)}</td><td>{String(row.metric)}</td>
+              <td>{String(row.published_model)}</td><td>{String(row.published)}</td><td>{String(row.best_baseline)}</td>
+              <td>{String(row.best_learned)}</td><td className={row.learned_beats_baseline ? 'delta-better' : 'delta-worse'}>{row.learned_beats_baseline ? 'yes' : 'no — baseline published'}</td>
+            </tr>
+          ))}</tbody>
+        </table>
+      </div>
+      <div className="content-grid evaluation-grid">
+        <div>
+          <h3>Interval coverage (published intervals)</h3>
+          <DataTable rows={coverage.map((row) => ({
+            target: row.target, nominal: formatPercent(row.level, 0), horizon_days: row.bucket,
+            empirical_coverage: formatPercent(row.empirical_coverage), origins: row.evaluation_origins,
+          }))} />
+        </div>
+        <div>
+          <h3>Occupancy alert thresholds</h3>
+          <DataTable rows={risk.map((row) => ({
+            threshold: label(String(row.threshold_name)), beds: formatCount(row.threshold),
+            actual_days: row.actual_events, predicted_days: row.predicted_events,
+            recall: row.recall === null ? 'untested' : formatPercent(row.recall),
+          }))} />
+          <p className="muted">A threshold with 0 actual days was never reached in the backtest, so the forecast's alerting there is untested.</p>
+        </div>
+      </div>
+    </Panel>
+  );
+}
+
+export function BedsPage() {
   const beds = useApi<Row[]>('/dashboard/beds');
   const availability = useApi<Row[]>('/beds/availability');
-  const allocations = useApi<Row[]>('/optimization/runs');
-  if (beds.loading || availability.loading || allocations.loading) return <Loading />;
-  const error = beds.error ?? availability.error ?? allocations.error;
+  if (beds.loading || availability.loading) return <Loading />;
+  const error = beds.error ?? availability.error;
   if (error) return <RequestError message={error} />;
   const forecasts = availability.data ?? [];
   return (
     <>
-      <PageHeader title="Bed management" eyebrow="Inventory & demand" detail="Inventory counts use the generated bed snapshot; forecast and allocation values use saved planning outputs." />
-      <Panel title="Department inventory and next forecast date">
+      <PageHeader title="Bed management" eyebrow="Inventory, availability & allocation" detail="Inventory is the synthetic snapshot on the cutoff date. Availability is forecast from admissions, predicted LOS and the current census. Allocation replays actual synthetic arrivals." />
+      <Panel title="Department inventory and next forecast day">
         <DataTable rows={beds.data ?? []} />
       </Panel>
-      <Panel title="Bed availability forecast" detail={`${forecasts.length} saved department/day rows`}>
+      <BedAssignmentSection />
+      <Panel title="Bed availability forecast" detail={`${formatCount(forecasts.length)} department/day rows · available = operational capacity − projected occupied, never below zero`}>
         <DataTable rows={forecasts} />
       </Panel>
     </>
+  );
+}
+
+const REASON_LABELS: Record<string, string> = {
+  no_compatible_bed_in_inventory: 'No compatible bed in inventory',
+  all_compatible_beds_occupied: 'All compatible beds occupied',
+  staffing_limit: 'Staffing limit',
+  protected_reserve: 'Protected ICU/emergency reserve',
+  taken_by_other_requests: 'Taken by other requests',
+};
+
+export function BedAssignmentSection() {
+  const [policy, setPolicy] = useState<'optimized' | 'baseline'>('optimized');
+  const summary = useApi<Row>('/optimization/bed-assignments');
+  const unassigned = useApi<Row>(`/optimization/bed-assignments/requests?status=UNASSIGNED&policy=${policy}&limit=500`);
+  if (summary.loading) return <Panel title="Request-level bed allocation"><Loading /></Panel>;
+  if (summary.error || !summary.data) return <Panel title="Request-level bed allocation"><RequestError message={summary.error ?? 'Allocation results unavailable'} /></Panel>;
+  const data = summary.data;
+  const kpis = Object.fromEntries(asRows(data.kpis).map((row) => [String(row.policy), row]));
+  const base = kpis.baseline ?? {};
+  const opt = kpis.optimized ?? {};
+  const span = Array.isArray(data.window) ? data.window.map(String) : [];
+  const statuses = asObject(data.solver_statuses);
+  const rows: ComparisonRow[] = [
+    { metric: 'Requests', baseline: base.requests, scenario: opt.requests },
+    { metric: 'Assigned', baseline: base.assigned, scenario: opt.assigned, lowerIsBetter: false },
+    { metric: 'Unassigned', baseline: base.unassigned, scenario: opt.unassigned, lowerIsBetter: true },
+    { metric: 'Assignment rate', baseline: base.assignment_rate, scenario: opt.assignment_rate, format: (value) => formatPercent(value), lowerIsBetter: false },
+    { metric: 'High-severity assignment rate', baseline: base.high_severity_assignment_rate, scenario: opt.high_severity_assignment_rate, format: (value) => formatPercent(value), lowerIsBetter: false },
+    { metric: 'Off-service placements', baseline: base.off_service_placements, scenario: opt.off_service_placements },
+    { metric: 'Compatibility violations', baseline: base.compatibility_violations, scenario: opt.compatibility_violations, lowerIsBetter: true },
+    { metric: 'Placements above rostered staffing', baseline: base.staffing_exceedances, scenario: opt.staffing_exceedances, lowerIsBetter: true },
+  ];
+  const reasons = Object.keys(REASON_LABELS).map((reason) => ({
+    reason: REASON_LABELS[reason],
+    baseline: base[`unassigned_${reason}`] ?? 0,
+    optimized: opt[`unassigned_${reason}`] ?? 0,
+    definition: String(asObject(data.reason_definitions)[reason] ?? ''),
+  }));
+  return (
+    <Panel title="Request-level bed allocation" detail={`Replay ${span[0] ?? ''} to ${span[1] ?? ''} · solver ${Object.entries(statuses).map(([status, count]) => `${status} on ${formatCount(count)} days`).join(', ')}`}>
+      <p className="muted">Each day's actual synthetic arrivals are placed against the census rebuilt from the admission history. Baseline: {String(data.baseline_policy)} Both policies use the same compatibility, reserve and staffing rules.</p>
+      <ComparisonTable rows={rows} baselineLabel="Baseline" scenarioLabel="CP-SAT optimized" />
+      <h3>Why requests were not placed</h3>
+      <DataTable rows={reasons} />
+      <h3>Unassigned requests</h3>
+      <label className="filter-control">Policy
+        <select value={policy} onChange={(event) => setPolicy(event.target.value as 'optimized' | 'baseline')}>
+          <option value="optimized">CP-SAT optimized</option><option value="baseline">Baseline</option>
+        </select>
+      </label>
+      {unassigned.loading ? <Loading /> : unassigned.error ? <RequestError message={unassigned.error} /> : (
+        asRows(unassigned.data?.rows).length
+          ? <DataTable rows={asRows(unassigned.data?.rows).map((row) => ({
+            date: row.planning_date, admission: row.admission_id, department: row.department, severity: row.severity,
+            icu: row.icu_required, isolation: row.isolation_required, compatible_free_beds: row.compatible_free_beds,
+            reason: REASON_LABELS[String(row[`${policy}_reason`])] ?? row[`${policy}_reason`],
+          }))} />
+          : <Empty>Every request was placed under this policy.</Empty>
+      )}
+      <details>
+        <summary>Sensitivity to weights, reserve and staffing</summary>
+        <DataTable rows={asRows(data.sensitivity)} />
+      </details>
+      <p className="muted">Synthetic replay: this shows the allocator respects its rules. It is not evidence of improvement in a real hospital. See docs/BED_ALLOCATION_DIAGNOSIS.md.</p>
+    </Panel>
   );
 }
 
@@ -288,12 +372,12 @@ function StaffPage() {
   const data = result.data;
   return (
     <>
-      <PageHeader title="Staff scheduling" eyebrow="Optimized coverage" detail="The schedule is the saved OR-Tools output for the latest planning run." />
+      <PageHeader title="Staff scheduling" eyebrow="Optimized coverage" detail="The schedule is the saved OR-Tools output for the forecast horizon; required staff is derived from projected census and nurse ratios." />
       <div className="metric-grid">
-        <Metric label="Source staff" value={number(data.staff_count)} />
-        <Metric label="Scheduled shifts" value={number(data.scheduled_shift_count)} />
-        <Metric label="Scheduled hours" value={format(number(data.scheduled_hours))} />
-        <Metric label="Unfilled positions" value={number(data.unfilled_positions)} />
+        <Metric label="Source staff" value={formatCount(data.staff_count)} />
+        <Metric label="Scheduled shifts" value={formatCount(data.scheduled_shift_count)} />
+        <Metric label="Scheduled hours" value={formatCount(data.scheduled_hours)} />
+        <Metric label="Unfilled positions" value={formatCount(data.unfilled_positions)} />
       </div>
       <Panel title="Coverage by date, department, role and shift"><DataTable rows={asRows(data.coverage)} /></Panel>
       <Panel title="Optimized schedule"><DataTable rows={asRows(data.schedule)} /></Panel>
@@ -307,19 +391,18 @@ function AppointmentsPage() {
   if (result.loading) return <Loading />;
   if (result.error || !result.data) return <RequestError message={result.error ?? 'Appointment data unavailable'} />;
   const data = result.data;
-  const risk = asRows(data.no_show_predictions);
   return (
     <>
-      <PageHeader title="Appointments" eyebrow="Provider optimization & attendance risk" detail="The schedule and no-show probabilities are read from actual generated outputs." />
+      <PageHeader title="Appointments" eyebrow="Provider optimization & attendance risk" detail="No-show risk informs overbooking review only; it never removes a patient from the schedule." />
       <div className="metric-grid">
-        <Metric label="Source appointments" value={number(data.source_appointment_count)} />
-        <Metric label="Optimized appointments" value={number(data.optimized_count)} />
-        <Metric label="Unassigned appointments" value={number(data.unassigned_count)} />
-        <Metric label="Risk predictions available" value={number(data.no_show_prediction_count)} />
+        <Metric label="Source appointments" value={formatCount(data.source_appointment_count)} />
+        <Metric label="Optimized appointments" value={formatCount(data.optimized_count)} />
+        <Metric label="Unassigned appointments" value={formatCount(data.unassigned_count)} />
+        <Metric label="Risk predictions" value={formatCount(data.no_show_prediction_count)} />
       </div>
       <Panel title="Optimized appointment schedule"><DataTable rows={asRows(data.appointment_schedule)} /></Panel>
-      <Panel title="Highest predicted no-show risk" detail="Risk model probabilities are signals, not determinations">
-        <DataTable rows={risk} />
+      <Panel title="Highest predicted no-show risk" detail="Probabilities are signals, not determinations">
+        <DataTable rows={asRows(data.no_show_predictions)} />
       </Panel>
     </>
   );
@@ -333,23 +416,22 @@ function OptimizationPage() {
   const manifest = asObject(data.manifest);
   return (
     <>
-      <PageHeader title="OR-Tools optimization" eyebrow="Saved solver output" detail={`Planning run ${String(manifest.scenario_as_of_date ?? 'unknown')}`} />
+      <PageHeader title="OR-Tools optimization" eyebrow="Saved solver output" detail={`Planning run ${String(manifest.scenario_as_of_date ?? 'unknown')} · department/day planning over the forecast horizon`} />
       <div className="metric-grid">
-        <Metric label="Solver status" value={String(manifest.pipeline_status ?? 'unknown')} />
-        <Metric label="Forecast horizon" value={`${number(manifest.forecast_horizon_days)} days`} />
-        <Metric label="Assigned appointments" value={number(manifest.optimized_appointment_count)} />
-        <Metric label="Run ready" value={String(manifest.next_process_ready ?? false)} />
+        <Metric label="Pipeline status" value={String(manifest.pipeline_status ?? 'unknown').replace(/_/g, ' ')} />
+        <Metric label="Forecast horizon" value={`${formatCount(manifest.forecast_horizon_days)} days`} />
+        <Metric label="Scheduled appointments" value={formatCount(manifest.optimized_appointment_count)} />
+        <Metric label="Next stage ready" value={manifest.next_process_ready ? 'yes' : 'no'} />
       </div>
-      <Panel title="Baseline vs optimized metrics" detail="Values below come directly from bed_allocation_kpis.csv">
+      <Panel title="Department/day bed plan: baseline vs optimized" detail="From bed_allocation_kpis.csv. Identical rows mean projected demand fits capacity, so pooling has nothing to improve.">
         <DataTable rows={asRows(data.bed_kpis)} />
       </Panel>
       <Panel title="Daily department allocation detail"><DataTable rows={asRows(data.allocations)} /></Panel>
       <Panel title="ICU and emergency capacity"><DataTable rows={asRows(data.emergency_capacity)} /></Panel>
       <Panel title="Appointment optimization KPIs"><DataTable rows={asRows(data.appointment_kpis)} /></Panel>
       <Panel title="Staffing coverage KPIs"><DataTable rows={asRows(data.staff_kpis)} /></Panel>
-      <Panel title="Scenario capacity expansion"><DataTable rows={asRows(data.capacity_expansion)} /></Panel>
+      <Panel title="Scenario capacity expansion" detail="Synthetic surge beds and staff are scenario assumptions, not resources that exist"><DataTable rows={asRows(data.capacity_expansion)} /></Panel>
       <Panel title="Department resource gaps"><DataTable rows={asRows(data.resource_gaps)} /></Panel>
-      <Panel title="Forecast backtest results"><DataTable rows={asRows(data.forecast_backtest)} /></Panel>
       <Panel title="Reliability scorecard"><DataTable rows={asRows(data.reliability_scorecard)} /></Panel>
       <Panel title="Reliability evidence by dataset and forecast"><DataTable rows={asRows(data.reliability_details)} /></Panel>
       <Panel title="Run manifest"><JsonBlock value={manifest} /></Panel>
@@ -365,13 +447,13 @@ function AlertsPage() {
   const alerts = (result.data ?? []).filter((alert) => severity === 'all' || String(alert.severity) === severity);
   return (
     <>
-      <PageHeader title="Alerts" eyebrow="Data quality & capacity signals" detail="Items are derived from the saved audit and pipeline manifest; no synthetic alerts are fabricated." />
+      <PageHeader title="Alerts" eyebrow="Data quality & capacity signals" detail="Alerts come from the saved audit rules, the pipeline manifest and alerts recorded through the API." />
       <label className="filter-control">Severity
         <select value={severity} onChange={(event) => setSeverity(event.target.value)}>
-          <option value="all">All severities</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option>
+          <option value="all">All severities</option><option value="critical">Critical</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option>
         </select>
       </label>
-      <Panel title={`${alerts.length} matching alert(s)`}>
+      <Panel title={`${formatCount(alerts.length)} matching alert(s)`}>
         {alerts.length ? <DataTable rows={alerts} /> : <Empty>No alerts match this filter.</Empty>}
       </Panel>
     </>
@@ -391,30 +473,68 @@ type SimulationResult = {
   scope_note: string;
 };
 
-function SimulatorPage() {
-  const [admissionsMultiplier, setAdmissionsMultiplier] = useState(1.2);
-  const [icuBedDelta, setIcuBedDelta] = useState(-3);
-  const [staffDelta, setStaffDelta] = useState(-0.1);
+export const SIMULATION_LIMITS = {
+  admissions_multiplier: { min: 0, max: 3 },
+  icu_bed_delta: { min: -20, max: 20 },
+  staff_availability_delta: { min: -1, max: 1 },
+};
+
+export function validateScenario(admissionsMultiplier: number, icuBedDelta: number, staffDelta: number): string[] {
+  const problems: string[] = [];
+  const { admissions_multiplier: am, icu_bed_delta: icu, staff_availability_delta: staff } = SIMULATION_LIMITS;
+  if (!Number.isFinite(admissionsMultiplier) || admissionsMultiplier < am.min || admissionsMultiplier > am.max) {
+    problems.push(`Admissions multiplier must be between ${am.min} and ${am.max} (1.2 means +20%).`);
+  }
+  if (!Number.isInteger(icuBedDelta) || icuBedDelta < icu.min || icuBedDelta > icu.max) {
+    problems.push(`ICU bed change must be a whole number between ${icu.min} and ${icu.max}.`);
+  }
+  if (!Number.isFinite(staffDelta) || staffDelta < staff.min || staffDelta > staff.max) {
+    problems.push(`Staff availability change must be between ${staff.min * 100}% and +${staff.max * 100}%.`);
+  }
+  return problems;
+}
+
+const SIMULATION_METRICS: Array<[string, string]> = [
+  ['overflow_bed_days', 'Overflow bed-days'],
+  ['icu_overflow_bed_days', 'ICU overflow bed-days'],
+  ['overflow_due_to_staffing', 'Overflow due to staffing'],
+  ['overflow_due_to_bed_constraints', 'Overflow due to bed constraints'],
+  ['unmet_isolation_bed_days', 'Unmet isolation bed-days'],
+  ['staffing_constraint_violations', 'Staffing constraint violations'],
+  ['emergency_icu_reserve_violations', 'Emergency/ICU reserve violations'],
+  ['allocated_bed_days', 'Allocated bed-days'],
+];
+
+export function SimulatorPage() {
+  const [admissionsPercent, setAdmissionsPercent] = useState('20');
+  const [icuBedDelta, setIcuBedDelta] = useState('-3');
+  const [staffPercent, setStaffPercent] = useState('-10');
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const multiplier = 1 + Number(admissionsPercent) / 100;
+  const icuDelta = Number(icuBedDelta);
+  const staffDelta = Number(staffPercent) / 100;
+  const problems = [admissionsPercent, icuBedDelta, staffPercent].some((value) => value.trim() === '')
+    ? ['Every assumption needs a value (use 0 for no change).']
+    : validateScenario(multiplier, icuDelta, staffDelta);
 
   async function run(event: FormEvent) {
     event.preventDefault();
+    if (problems.length) return;
     setLoading(true);
     setError(null);
     setResult(null);
     try {
-      const response = await api<SimulationResult>('/simulation/run', {
+      setResult(await api<SimulationResult>('/simulation/run', {
         method: 'POST',
         body: JSON.stringify({
           scenario_name: 'dashboard_what_if',
-          admissions_multiplier: admissionsMultiplier,
-          icu_bed_delta: icuBedDelta,
+          admissions_multiplier: multiplier,
+          icu_bed_delta: icuDelta,
           staff_availability_delta: staffDelta,
         }),
-      });
-      setResult(response);
+      }));
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'Simulation failed');
     } finally {
@@ -422,61 +542,130 @@ function SimulatorPage() {
     }
   }
 
+  const rows: ComparisonRow[] = result ? SIMULATION_METRICS
+    .filter(([key]) => key in result.baseline_metrics)
+    .map(([key, name]) => ({
+      metric: name,
+      baseline: result.baseline_metrics[key],
+      scenario: result.simulated_metrics[key],
+      lowerIsBetter: key !== 'allocated_bed_days',
+    })) : [];
+
   return (
     <>
-      <PageHeader title="What-if simulator" eyebrow="Scenario solver" detail="Runs the existing OR-Tools bed allocator against adjusted inputs. Results remain synthetic planning scenarios." />
-      <Panel title="Scenario controls">
-        <form className="scenario-form" onSubmit={run}>
-          <label>Admissions multiplier
-            <input type="number" min="0" max="3" step="0.05" value={admissionsMultiplier} onChange={(event) => setAdmissionsMultiplier(Number(event.target.value))} />
+      <PageHeader title="What-if simulator" eyebrow="Scenario solver" detail="Applies your assumptions to a copy of the saved forecast and inventory, reruns the OR-Tools department/day allocator and emergency-capacity model, and compares with the saved baseline. Baseline data is never modified." />
+      <Panel title="Scenario assumptions">
+        <form className="scenario-form" onSubmit={run} noValidate>
+          <label>Admissions change (%)
+            <input type="number" step="5" value={admissionsPercent} onChange={(event) => setAdmissionsPercent(event.target.value)} aria-describedby="scenario-help" />
           </label>
-          <label>ICU bed capacity change
-            <input type="number" min="-20" max="20" step="1" value={icuBedDelta} onChange={(event) => setIcuBedDelta(Number(event.target.value))} />
+          <label>ICU beds (+/−)
+            <input type="number" step="1" value={icuBedDelta} onChange={(event) => setIcuBedDelta(event.target.value)} />
           </label>
-          <label>Staff availability change
-            <input type="number" min="-1" max="1" step="0.05" value={staffDelta} onChange={(event) => setStaffDelta(Number(event.target.value))} />
+          <label>Staff availability change (%)
+            <input type="number" step="5" value={staffPercent} onChange={(event) => setStaffPercent(event.target.value)} />
           </label>
-          <button className="button" type="submit" disabled={loading}>{loading ? 'Running solver…' : 'Run scenario'}</button>
+          <button className="button" type="submit" disabled={loading || problems.length > 0}>{loading ? 'Running solver…' : 'Run scenario'}</button>
         </form>
+        <p id="scenario-help" className="muted">Example: +20% admissions, −3 ICU beds, −10% staff availability.</p>
+        {problems.length > 0 && <ul className="form-errors" role="alert">{problems.map((problem) => <li key={problem}>{problem}</li>)}</ul>}
         {error && <RequestError message={error} />}
       </Panel>
       {result && (
-        <>
-          <Panel title="Baseline vs scenario" detail={`${result.solver} · source run ${result.source_run_id}`}>
-            <div className="comparison-grid">
-              <div><h3>Saved optimized baseline</h3><JsonBlock value={result.baseline_metrics} /></div>
-              <div><h3>Scenario solver result</h3><JsonBlock value={result.simulated_metrics} /></div>
-            </div>
-            <p className="recommendation"><strong>Solver-based recommendation:</strong> {result.operational_recommendation}</p>
-            <p className="muted">{result.scope_note}</p>
-            <p className="muted">Saved simulation ID: {result.simulation_id} · {result.timestamp}</p>
-          </Panel>
-        </>
+        <Panel title="Baseline vs scenario" detail={`${result.solver} · baseline run ${result.source_run_id} · saved as ${result.simulation_id}`}>
+          <ComparisonTable rows={rows} baselineLabel="Saved baseline" scenarioLabel="Scenario" />
+          <div className="metric-grid compact">
+            <Metric label="Scenario forecast admissions" value={formatCount(result.simulated_metrics.projected_admissions)} note="Scaled from the saved forecast, not retrained" />
+            <Metric label="Scenario peak occupied beds" value={formatCount(result.simulated_metrics.peak_projected_occupied_beds)} />
+            <Metric label="Scenario unfilled staff positions" value={formatCount(result.simulated_metrics.unfilled_staff_positions)} />
+          </div>
+          <p className="recommendation"><strong>Solver-based recommendation:</strong> {result.operational_recommendation}</p>
+          <p className="muted"><strong>Rerun:</strong> department/day bed allocator and emergency-capacity model. <strong>Not rerun:</strong> forecasting models and the request-level replay. {result.scope_note}</p>
+          <p className="muted">Saved {result.timestamp}</p>
+        </Panel>
       )}
     </>
   );
 }
 
-function AssistantPage() {
-  const [question, setQuestion] = useState('Why is ICU capacity under pressure?');
-  const [answer, setAnswer] = useState<Row | null>(null);
+export type AssistantAnswer = {
+  answer: string;
+  intent: string;
+  evidence: Array<{ label: string; value: unknown; kind: string; source: string }>;
+  limitations: string[];
+  sources: string[];
+  source_run_id: string;
+  evidence_run_id: string | null;
+  assistant_provider: string;
+  llm_configured: boolean;
+  fallback_reason: string | null;
+  simulation_ran: boolean;
+};
+
+const EXAMPLE_QUESTIONS = [
+  'How many beds are forecast to be available in seven days?',
+  'Which departments face the greatest capacity pressure?',
+  'Why were some bed requests left unassigned?',
+  'What happens if admissions increase by 20%?',
+  'Which shifts have insufficient staff coverage?',
+  'How reliable is the occupancy forecast?',
+  'What are the biggest limitations of the current models?',
+  'How does optimized allocation compare with the baseline?',
+  'Which recommendations are supported by the latest optimization run?',
+];
+
+const KIND_LABELS: Record<string, string> = {
+  observed: 'Observed (synthetic)',
+  forecast: 'Forecast',
+  model_metric: 'Model metric',
+  simulated: 'Simulated',
+};
+
+export function AssistantAnswerCard({ answer }: { answer: AssistantAnswer }) {
+  return (
+    <div className="answer">
+      <h3>Answer · run {answer.evidence_run_id ?? answer.source_run_id}</h3>
+      <p>{answer.answer}</p>
+      {answer.fallback_reason && (
+        <p className="fallback-note" role="note">The configured language model was not used: {answer.fallback_reason} This answer comes from the deterministic explainer.</p>
+      )}
+      {answer.evidence.length > 0 && (
+        <div className="table-wrap">
+          <table>
+            <caption className="sr-only">Evidence</caption>
+            <thead><tr><th scope="col">Evidence</th><th scope="col">Value</th><th scope="col">Type</th><th scope="col">Source</th></tr></thead>
+            <tbody>{answer.evidence.map((item) => (
+              <tr key={`${item.label}-${item.source}`}>
+                <th scope="row">{item.label}</th>
+                <td>{typeof item.value === 'number' && item.kind !== 'model_metric' && Number.isInteger(item.value) ? formatCount(item.value) : String(item.value)}</td>
+                <td><span className={`kind kind-${item.kind}`}>{KIND_LABELS[item.kind] ?? item.kind}</span></td>
+                <td><code>{item.source}</code></td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
+      )}
+      {answer.limitations.length > 0 && <><h4>Limitations</h4><ul>{answer.limitations.map((item) => <li key={item}>{item}</li>)}</ul></>}
+      <p className="muted">Sources: {answer.sources.join(', ')}{answer.simulation_ran ? ' · a new what-if simulation was run for this question' : ''}</p>
+      <p className="muted">Explainer: {answer.assistant_provider} · intent {answer.intent}</p>
+    </div>
+  );
+}
+
+export function AssistantPage() {
+  const [question, setQuestion] = useState(EXAMPLE_QUESTIONS[0]);
+  const [answer, setAnswer] = useState<AssistantAnswer | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const prompts = [
-    'Why is ICU capacity under pressure?',
-    'What is the latest admission forecast?',
-    'Explain the latest optimization run.',
-    'What happens if admissions increase by 20%?',
-    'Which department has the highest capacity pressure?',
-  ];
 
   async function ask(event: FormEvent) {
     event.preventDefault();
+    if (!question.trim()) return;
     setLoading(true);
     setError(null);
     setAnswer(null);
     try {
-      setAnswer(await api<Row>('/assistant/ask', { method: 'POST', body: JSON.stringify({ question }) }));
+      setAnswer(await api<AssistantAnswer>('/assistant/ask', { method: 'POST', body: JSON.stringify({ question }) }));
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'Assistant request failed');
     } finally {
@@ -486,16 +675,17 @@ function AssistantPage() {
 
   return (
     <>
-      <PageHeader title="CareOps assistant" eyebrow="Grounded explanations" detail="OpenAI explains saved CareOps results and actual OR-Tools what-if runs. Ollama is not required." />
-      <Panel title="Ask about this portfolio run">
-        <div className="prompt-list">{prompts.map((prompt) => <button key={prompt} type="button" className="prompt" onClick={() => setQuestion(prompt)}>{prompt}</button>)}</div>
+      <PageHeader title="CareOps assistant" eyebrow="Grounded explanations" detail="Answers are calculated from the saved forecasts, optimization runs and simulations, with the evidence and sources shown. An optional language model may rephrase them; no API key is required." />
+      <Panel title="Ask about this run">
+        <div className="prompt-list">{EXAMPLE_QUESTIONS.map((prompt) => <button key={prompt} type="button" className="prompt" onClick={() => setQuestion(prompt)}>{prompt}</button>)}</div>
         <form className="assistant-form" onSubmit={ask}>
           <label htmlFor="assistant-question">Question</label>
           <textarea id="assistant-question" value={question} maxLength={1000} onChange={(event) => setQuestion(event.target.value)} required />
-          <button className="button" type="submit" disabled={loading}>{loading ? 'Asking assistant…' : 'Ask'}</button>
+          <button className="button" type="submit" disabled={loading || !question.trim()}>{loading ? 'Working…' : 'Ask'}</button>
         </form>
         {error && <RequestError message={error} />}
-        {answer && <div className="answer"><h3>Answer · run {String(answer.source_run_id)}</h3><p>{String(answer.answer)}</p><p className="muted">Assistant provider: {String(answer.assistant_provider)} · {answer.llm_configured ? 'configured' : 'no API key required'}</p><p className="muted">Sources: {asRows(answer.sources).map((source) => String(source)).join(', ') || JSON.stringify(answer.sources)}</p></div>}
+        {answer && <AssistantAnswerCard answer={answer} />}
+        <p className="muted">Decision support on synthetic data only. The assistant does not make clinical decisions or take operational actions.</p>
       </Panel>
     </>
   );
@@ -506,51 +696,27 @@ function AuditPage() {
   const checks = useApi<Row[]>('/audit/runs');
   const assistantAudit = useApi<Row[]>('/audit/assistant');
   const simulations = useApi<Row[]>('/simulation/runs');
-  const [selectedRun, setSelectedRun] = useState('');
-  const [runDetail, setRunDetail] = useState<Row | null>(null);
-  const [detailError, setDetailError] = useState<string | null>(null);
-  const [runDetailLoading, setRunDetailLoading] = useState(false);
-  const runId = selectedRun || String(runs.data?.[0]?.scenario_as_of_date ?? '');
-
-  useEffect(() => {
-    if (!runId) {
-      setRunDetail(null);
-      setDetailError(null);
-      setRunDetailLoading(false);
-      return;
-    }
-    let active = true;
-    setRunDetail(null);
-    setDetailError(null);
-    setRunDetailLoading(true);
-    api<Row>(`/optimization/runs/${encodeURIComponent(runId)}`)
-      .then((data) => { if (active) { setRunDetail(data); setDetailError(null); } })
-      .catch((cause: unknown) => { if (active) setDetailError(cause instanceof Error ? cause.message : 'Run detail unavailable'); })
-      .finally(() => { if (active) setRunDetailLoading(false); });
-    return () => { active = false; };
-  }, [runId]);
-
-  if (runs.loading || checks.loading || assistantAudit.loading || simulations.loading) return <Loading />;
-  const error = runs.error ?? checks.error ?? assistantAudit.error ?? simulations.error;
+  const all = [runs, checks, assistantAudit, simulations];
+  if (all.some((item) => item.loading)) return <Loading />;
+  const error = all.find((item) => item.error)?.error;
   if (error) return <RequestError message={error} />;
+  const latest = (runs.data ?? [])[0];
   return (
     <>
-      <PageHeader title="Audit & run history" eyebrow="Reproducibility" detail="Pipeline artifacts, assistant requests, and persisted what-if simulations from the current environment." />
-      <Panel title="Portfolio runs">
-        {(runs.data ?? []).length ? (
-          <>
-            <label className="filter-control">Select run
-              <select value={runId} onChange={(event) => setSelectedRun(event.target.value)}>
-                {(runs.data ?? []).map((run) => <option key={String(run.scenario_as_of_date)} value={String(run.scenario_as_of_date)}>{String(run.scenario_as_of_date)} · {String(run.pipeline_status)}</option>)}
-              </select>
-            </label>
-            {detailError ? <RequestError message={detailError} /> : runDetailLoading ? <Loading /> : runDetail && <JsonBlock value={runDetail} />}
-          </>
-        ) : <Empty>No completed pipeline runs are recorded.</Empty>}
+      <PageHeader title="Audit & run history" eyebrow="Reproducibility" detail="Pipeline manifest, data-quality checks, assistant requests and persisted what-if simulations from this environment's database." />
+      <Panel title="Pipeline runs">
+        {latest ? <JsonBlock value={latest} /> : <Empty>No completed pipeline runs are recorded.</Empty>}
       </Panel>
-      <Panel title="Data quality audit"><DataTable rows={checks.data ?? []} /></Panel>
-      <Panel title="AI assistant request audit"><DataTable rows={assistantAudit.data ?? []} /></Panel>
-      <Panel title="What-if simulation history"><DataTable rows={simulations.data ?? []} /></Panel>
+      <Panel title="Data-quality audit"><DataTable rows={checks.data ?? []} /></Panel>
+      <Panel title="Assistant request audit"><DataTable rows={assistantAudit.data ?? []} /></Panel>
+      <Panel title="What-if simulation history">
+        <DataTable rows={(simulations.data ?? []).map((run) => ({
+          simulation_id: run.simulation_id, timestamp: run.timestamp, scenario: run.scenario_name,
+          ...asObject(run.assumptions),
+          scenario_overflow_bed_days: asObject(run.simulated_metrics).overflow_bed_days,
+          scenario_unfilled_staff: asObject(run.simulated_metrics).unfilled_staff_positions,
+        }))} />
+      </Panel>
     </>
   );
 }
@@ -558,158 +724,30 @@ function AuditPage() {
 function AboutPage() {
   return (
     <>
-      <PageHeader title="About CareOps AI" eyebrow="How it works" detail="A reproducible, synthetic hospital resource-planning project." />
+      <PageHeader title="About CareOps AI" eyebrow="How it works" detail="A reproducible hospital resource-planning project on synthetic data." />
       <Panel title="Data-to-decision flow">
         <ol className="flow-list">
-          <li>Synthetic patient, admission, bed, staff, appointment, operation, and shift records</li>
-          <li>Admission, occupancy, ICU-admission, LOS, and no-show model outputs</li>
-          <li>Bed availability forecast combines admissions, LOS, occupancy, and discharge estimates</li>
-          <li>OR-Tools CP-SAT allocates compatible beds and schedules staff/providers under modeled constraints</li>
-          <li>FastAPI serves the saved artifacts; this dashboard visualizes those API responses</li>
-          <li>The assistant uses saved CareOps results; OpenAI is the primary optional cloud provider, with a deterministic demo provider available without a key</li>
+          <li>Seeded synthetic patients, admissions, beds, staff, appointments, shifts and daily operations</li>
+          <li>Admission, occupancy and ICU-admission forecasts; LOS and no-show models; each backtested against naive baselines</li>
+          <li>Bed availability forecast from admissions, predicted LOS and the current census</li>
+          <li>OR-Tools CP-SAT: department/day bed plan, request-level bed allocation replay, staff and appointment scheduling, emergency capacity</li>
+          <li>FastAPI serves the saved results; this dashboard shows those API responses</li>
+          <li>The assistant answers from calculated results with evidence and sources; an optional LLM may only rephrase</li>
         </ol>
-      </Panel>
-      <Panel title="Project capabilities">
-        <ul>
-          <li><strong>Forecasting:</strong> 30-day admission, occupied-bed, and ICU-admission forecasts, plus length-of-stay and appointment no-show predictions.</li>
-          <li><strong>Resource planning:</strong> CP-SAT bed allocation, staff and provider scheduling, emergency capacity analysis, and a scenario-based capacity expansion plan.</li>
-          <li><strong>Model evaluation:</strong> chronological holdout backtests against simple baselines, per-model metrics, and a reliability scorecard with dataset-level evidence.</li>
-          <li><strong>Operational review:</strong> data-quality audit results, resource-gap analysis, persisted what-if runs, assistant request audit, and a reproducible run manifest.</li>
-        </ul>
-      </Panel>
-      <Panel title="Technology and reproducibility">
-        <ul>
-          <li><strong>Data and modeling:</strong> Python, pandas, scikit-learn, and seeded synthetic datasets.</li>
-          <li><strong>Optimization and API:</strong> Google OR-Tools CP-SAT and FastAPI; optional PostgreSQL persistence for pipeline handoff.</li>
-          <li><strong>Dashboard:</strong> React, TypeScript, Vite, and a REST connection to the FastAPI service.</li>
-          <li><strong>Re-run:</strong> use <code>.\.venv\Scripts\python.exe run_portfolio.py</code> from the project root; the run manifest and detailed CSV outputs are saved under <code>optimization/resource_planning/outputs/</code>.</li>
-        </ul>
-      </Panel>
-      <Panel title="Project deliverables">
-        <ul>
-          <li>Forecast charts and prediction samples for the latest saved synthetic scenario.</li>
-          <li>Baseline-versus-optimized bed KPIs, per-day allocations, staff coverage, and appointment scheduling results.</li>
-          <li>Forecast backtest tables, reliability details, capacity assumptions, and source-data audit results.</li>
-          <li>An interactive what-if solver and a grounded assistant that explains saved results and scenario runs.</li>
-        </ul>
       </Panel>
       <Panel title="Limitations">
         <ul>
-          <li>All bundled source data and generated results are synthetic.</li>
-          <li>ICU demand is an admissions-flow forecast; the model does not estimate future ICU census.</li>
-          <li>Optimization relies on scenario-only surge capacity and flex staffing where stated in the run manifest.</li>
-          <li>OpenAI use requires a server-side API key and sends the question plus aggregate synthetic project outputs to the provider. Ollama is optional, not required.</li>
-          <li>The demo mode needs no API key; it is a rules-based explanation provider, not a language model.</li>
-          <li>Never use these outputs as clinical decisions or real hospital staffing/placement orders.</li>
+          <li>All data and results are synthetic and do not describe a real hospital.</li>
+          <li>Daily admission and ICU counts behave close to Poisson noise; no learned model beats the moving-average baseline for them, so the baseline is published.</li>
+          <li>The ICU model forecasts admissions, not ICU census.</li>
+          <li>The synthetic shift roster is not tied to ward census; rostered staffing is reported, not enforced, in the allocation replay.</li>
+          <li>Surge beds and staff in the capacity plan are scenario assumptions.</li>
+          <li>Never use these outputs for clinical decisions or real placement or staffing orders.</li>
         </ul>
       </Panel>
       <Panel title="Service links"><p><a href={`${API_URL}/docs`} target="_blank" rel="noreferrer">FastAPI documentation</a> · <a href={`${API_URL}/health`} target="_blank" rel="noreferrer">Backend health</a></p></Panel>
     </>
   );
-}
-
-function PageHeader({ title, eyebrow, detail }: { title: string; eyebrow: string; detail?: string }) {
-  return <header className="page-header"><div><p className="eyebrow">{eyebrow}</p><h1>{title}</h1>{detail && <p className="page-detail">{detail}</p>}</div><span className="synthetic-badge">Synthetic data</span></header>;
-}
-
-function Panel({ title, detail, children }: { title: string; detail?: string; children: React.ReactNode }) {
-  return <section className="panel"><div className="panel-heading"><h2>{title}</h2>{detail && <p>{detail}</p>}</div>{children}</section>;
-}
-
-function Metric({ label, value, note }: { label: string; value: string | number | null; note?: string }) {
-  return <article className="metric-card"><span>{label}</span><strong>{value ?? 'Unavailable'}</strong>{note && <small>{note}</small>}</article>;
-}
-
-function TrendChart({ labels, series }: { labels: string[]; series: Series[] }) {
-  const width = 760;
-  const height = 230;
-  const pad = 28;
-  const allValues = series.flatMap((line) => line.values.filter((value): value is number => value !== null && Number.isFinite(value)));
-  if (!labels.length || !allValues.length) return <Empty>No chart data is available.</Empty>;
-  const min = Math.min(0, ...allValues);
-  const max = Math.max(...allValues, min + 1);
-  const colors = ['#65a5ff', '#47d7ae', '#ffc66e'];
-  const x = (index: number) => pad + (labels.length <= 1 ? 0 : index * (width - pad * 2) / (labels.length - 1));
-  const y = (value: number) => height - pad - (value - min) * (height - pad * 2) / (max - min || 1);
-  const paths = series.map((line) => {
-    let started = false;
-    return line.values.map((value, index) => {
-      if (value === null || !Number.isFinite(value)) { started = false; return ''; }
-      const point = `${started ? 'L' : 'M'}${x(index).toFixed(1)},${y(value).toFixed(1)}`;
-      started = true;
-      return point;
-    }).join(' ');
-  });
-  return (
-    <div className="chart-wrap">
-      <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={series.map((line) => line.name).join(', ')}>
-        {[0, 1, 2, 3].map((tick) => {
-          const value = min + (max - min) * tick / 3;
-          const lineY = y(value);
-          return <g key={tick}><line x1={pad} x2={width - pad} y1={lineY} y2={lineY} className="chart-grid" /><text x="2" y={lineY + 4} className="chart-label">{format(value)}</text></g>;
-        })}
-        {paths.map((path, index) => <path key={series[index].name} d={path} fill="none" stroke={colors[index % colors.length]} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />)}
-      </svg>
-      <div className="chart-legend">{series.map((line, index) => <span key={line.name}><i style={{ backgroundColor: colors[index % colors.length] }} />{line.name}</span>)}</div>
-      <div className="chart-range"><span>{labels[0]}</span><span>{labels[labels.length - 1]}</span></div>
-    </div>
-  );
-}
-
-function DataTable({ rows }: { rows: Row[] }) {
-  const [query, setQuery] = useState('');
-  const [pageSize, setPageSize] = useState(25);
-  const [page, setPage] = useState(0);
-  const columns = useMemo(() => Array.from(new Set(rows.flatMap((row) => Object.keys(row)))), [rows]);
-  const filteredRows = useMemo(() => {
-    const normalizedQuery = query.trim().toLocaleLowerCase();
-    if (!normalizedQuery) return rows;
-    return rows.filter((row) => Object.values(row).some((value) => display(value).toLocaleLowerCase().includes(normalizedQuery)));
-  }, [query, rows]);
-  const pageCount = Math.ceil(filteredRows.length / pageSize);
-  const currentPage = Math.min(page, Math.max(0, pageCount - 1));
-  const visibleRows = filteredRows.slice(currentPage * pageSize, (currentPage + 1) * pageSize);
-
-  useEffect(() => setPage(0), [query, pageSize, rows]);
-
-  if (!rows.length || !columns.length) return <Empty>No rows are available.</Empty>;
-  return (
-    <>
-      <div className="table-toolbar">
-        <label>Search records<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search any column" /></label>
-        <label>Rows per page<select value={pageSize} onChange={(event) => setPageSize(Number(event.target.value))}><option value={10}>10</option><option value={25}>25</option><option value={50}>50</option><option value={100}>100</option></select></label>
-        <span className="table-count">{filteredRows.length ? `Showing ${currentPage * pageSize + 1}–${Math.min((currentPage + 1) * pageSize, filteredRows.length)} of ${filteredRows.length} records` : 'No matching records'}</span>
-      </div>
-      {visibleRows.length ? (
-        <>
-          <div className="table-wrap"><table><thead><tr>{columns.map((column) => <th key={column}>{column.replace(/_/g, ' ')}</th>)}</tr></thead><tbody>
-            {visibleRows.map((row, index) => <tr key={`${String(row.id ?? row.admission_id ?? row.appointment_id ?? row.date ?? 'row')}-${currentPage * pageSize + index}`}>{columns.map((column) => <td key={column}>{display(row[column])}</td>)}</tr>)}
-          </tbody></table></div>
-          <div className="table-pagination">
-            <button type="button" className="button button-secondary" onClick={() => setPage(currentPage - 1)} disabled={currentPage === 0}>Previous</button>
-            <span>Page {currentPage + 1} of {pageCount}</span>
-            <button type="button" className="button button-secondary" onClick={() => setPage(currentPage + 1)} disabled={currentPage + 1 >= pageCount}>Next</button>
-          </div>
-        </>
-      ) : <Empty>No records match this search.</Empty>}
-    </>
-  );
-}
-
-function JsonBlock({ value }: { value: unknown }) {
-  return <pre className="json-block">{JSON.stringify(value, null, 2)}</pre>;
-}
-
-function Loading() {
-  return <div className="state-card" role="status">Loading real CareOps data…</div>;
-}
-
-function RequestError({ message }: { message: string }) {
-  return <div className="state-card error-state" role="alert"><strong>Could not load this data</strong><p>{message}</p><small>Check that the FastAPI backend is running and reachable at {API_URL}.</small><p><button className="button" type="button" onClick={() => window.location.reload()}>Retry</button></p></div>;
-}
-
-function Empty({ children }: { children: React.ReactNode }) {
-  return <p className="empty-state">{children}</p>;
 }
 
 // Admission forecasts include an "All Departments" total row per day; sum departments only.
@@ -721,39 +759,15 @@ function sumByDate(rows: Row[], field: string) {
   const totals = new Map<string, number>();
   rows.forEach((row) => {
     const date = String(row.date ?? '');
-    const value = number(row[field]);
+    const value = toNumber(row[field]);
     if (!date || value === null) return;
     totals.set(date, (totals.get(date) ?? 0) + value);
   });
   const labels = [...totals.keys()].sort();
-  return { labels, values: labels.map((label) => totals.get(label) ?? 0) };
-}
-
-function asRows(value: unknown): Row[] {
-  return Array.isArray(value) ? value.filter((row): row is Row => typeof row === 'object' && row !== null) : [];
-}
-
-function asObject(value: unknown): Row {
-  return typeof value === 'object' && value !== null ? value as Row : {};
-}
-
-function number(value: unknown): number | null {
-  if (value === null || value === undefined || value === '' || typeof value === 'boolean') return null;
-  const parsed = Number(value);
-  return Number.isFinite(parsed) ? parsed : null;
+  return { labels, values: labels.map((date) => totals.get(date) ?? 0) };
 }
 
 function mean(values: Array<number | null>): number | null {
   const valid = values.filter((value): value is number => value !== null && Number.isFinite(value));
   return valid.length ? valid.reduce((sum, value) => sum + value, 0) / valid.length : null;
-}
-
-function format(value: number | null): string {
-  return value === null || !Number.isFinite(value) ? 'Unavailable' : new Intl.NumberFormat(undefined, { maximumFractionDigits: 1 }).format(value);
-}
-
-function display(value: unknown): string {
-  if (value === null || value === undefined) return '—';
-  if (typeof value === 'object') return JSON.stringify(value);
-  return String(value);
 }

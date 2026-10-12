@@ -21,8 +21,10 @@ from backend.app.services.pipeline_service import (
     get_historical_operations,
     get_icu_forecast,
     get_los_predictions,
+    get_model_evaluation,
     get_model_metrics,
     get_no_show_predictions,
+    get_no_show_summary,
 )
 from backend.app.services.simulation_service import (
     simulate_scenario,
@@ -116,14 +118,30 @@ def los_predictions(
 
 @router.get("/no-show/predictions")
 def no_show_predictions(
-    limit: int = Query(default=500, ge=1, le=100000),
+    limit: int = Query(default=500, ge=1, le=5000),
 ) -> list[dict[str, Any]]:
     return get_no_show_predictions(limit)
+
+
+@router.get("/no-show/summary")
+def no_show_summary() -> dict[str, Any]:
+    summary = get_no_show_summary()
+    if not summary:
+        raise HTTPException(status_code=404, detail="No saved no-show predictions are available.")
+    return summary
 
 
 @router.get("/models/metrics")
 def model_metrics() -> dict[str, Any]:
     return get_model_metrics()
+
+
+@router.get("/models/evaluation")
+def model_evaluation() -> dict[str, Any]:
+    evaluation = get_model_evaluation()
+    if not evaluation:
+        raise HTTPException(status_code=404, detail="Model evaluation outputs are missing.")
+    return evaluation
 
 
 @router.post("/assistant/ask")

@@ -297,7 +297,8 @@ def get_appointments_dashboard() -> dict[str, Any]:
         "unassigned_count": unassigned,
         "no_show_prediction_count": int(len(no_show)),
         "appointment_schedule": schedule.to_dict(orient="records"),
-        "no_show_predictions": no_show.to_dict(orient="records"),
+        # Highest-risk rows only; band counts over all rows are at /no-show/summary.
+        "no_show_predictions": no_show.head(500).to_dict(orient="records"),
     }
 
 
