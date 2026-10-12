@@ -1,5 +1,7 @@
 # CareOps AI — Hospital Operations Forecasting and Resource Planning
 
+[![CareOps-AI CI](https://github.com/krishna6116/CareOps-AI/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/krishna6116/CareOps-AI/actions/workflows/ci.yml)
+
 A decision-support portfolio project. It forecasts hospital admissions, occupied
 beds, ICU admissions, length of stay and appointment no-shows, then uses Google
 OR-Tools to plan beds, staff shifts and appointments against those forecasts.
@@ -116,11 +118,11 @@ makes no claim about real-world savings or outcomes.
 | Appointment scheduling | Partial | Conflict-free provider reassignment; no-show risk is reported but not used in the objective |
 | Emergency capacity | Done | ICU/emergency capacity vs shared allocation with reserve rules |
 | FastAPI backend | Done | Typed routes, pagination where results are large, `/health`, `/ready`, `/meta` |
-| PostgreSQL | Done | Alembic migrations; persistence, restart and pipeline-handoff tests pass on PostgreSQL 17.6 (`backend/app/tests/test_postgres_integration.py`) |
+| PostgreSQL | Done | Alembic migrations; persistence, restart and pipeline-handoff tests pass on PostgreSQL 17.6 locally and PostgreSQL 16 in CI (`backend/app/tests/test_postgres_integration.py`) |
 | React dashboard | Done | All pages read the API; whole-number counts; Vitest component and workflow tests |
 | What-if simulator | Done, scoped | Reruns the department allocator and emergency model; forecasts are scaled, not retrained |
 | AI assistant | Done | Deterministic grounded answers with evidence; optional OpenAI/Ollama only rephrase |
-| Deployment | Partial | Docker Compose with healthchecks and a CI job that starts the stack; no public demo is hosted |
+| Deployment | Partial | Docker Compose with healthchecks; CI builds and starts the full stack and checks it end to end; no public demo is hosted |
 
 ## How to run
 
