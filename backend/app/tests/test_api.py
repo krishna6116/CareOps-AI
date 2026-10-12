@@ -682,3 +682,17 @@ def test_rate_limiter_window_expires() -> None:
     assert limiter.check("a", now=10.0) == pytest.approx(50.0)
     assert limiter.check("b", now=10.0) is None
     assert limiter.check("a", now=60.0) is None
+
+
+def test_history_reports_occupied_beds_not_summed_percentages() -> None:
+    import pandas as pd
+
+    history = client.get("/forecast/history?days=30").json()
+    assert "occupancy" not in history[-1]
+    occupancy = pd.read_csv(
+        Path(__file__).resolve().parents[3] / "ml" / "occupancy_forecasting" / "historical_occupancy.csv"
+    ).set_index("date")["occupied_beds"]
+    for row in history:
+        if row["date"] in occupancy.index:
+            assert row["occupied_beds"] == int(occupancy.loc[row["date"]]), row["date"]
+            assert row["occupied_beds"] <= 230

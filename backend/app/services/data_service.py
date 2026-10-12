@@ -400,10 +400,12 @@ def get_operations_analytics(
     daily_fields = [
         column for column in (
             "admissions", "discharges", "emergency_cases", "ICU_admissions",
-            "occupancy", "staff_demand", "bed_demand",
+            "staff_demand", "bed_demand",
         )
         if column in operations
     ]
+    # ``occupancy`` is a per-department percentage, so it is never summed;
+    # ``bed_demand`` is the occupied-bed count and sums to the hospital census.
     if operations.empty:
         daily = pd.DataFrame(columns=["date", *daily_fields])
         department_summary = pd.DataFrame(columns=["department"])
@@ -414,12 +416,14 @@ def get_operations_analytics(
             .sum()
             .sort_values("date")
         )
+        if "bed_demand" in daily:
+            daily["occupied_beds"] = daily["bed_demand"]
         department_summary = (
             operations.groupby("department", as_index=False)
             .agg(
                 admissions=("admissions", "sum"),
                 discharges=("discharges", "sum"),
-                mean_daily_occupancy=("occupancy", "mean"),
+                mean_occupancy_percent=("occupancy", "mean"),
                 emergency_cases=("emergency_cases", "sum"),
             )
         )

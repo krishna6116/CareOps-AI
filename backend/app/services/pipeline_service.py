@@ -80,8 +80,18 @@ def get_historical_operations(days: int = 90) -> list[dict[str, Any]]:
     frame["date"] = pd.to_datetime(frame["date"], errors="coerce")
     frame = frame.dropna(subset=["date"])
     if "department" in frame.columns:
-        numeric_columns = frame.select_dtypes(include="number").columns.tolist()
-        frame = frame.groupby("date", as_index=False)[numeric_columns].sum()
+        # Sum count columns only: ``occupancy`` is a per-department percentage
+        # and ``seasonal_multiplier`` a factor, so summing them is meaningless.
+        counts = [
+            column for column in (
+                "admissions", "discharges", "emergency_cases", "ICU_admissions",
+                "bed_demand", "staff_demand",
+            )
+            if column in frame.columns
+        ]
+        frame = frame.groupby("date", as_index=False)[counts].sum()
+        if "bed_demand" in frame:
+            frame["occupied_beds"] = frame["bed_demand"].astype(int)
     frame = frame.sort_values("date").tail(days)
     frame["date"] = frame["date"].dt.date.astype(str)
     return frame.to_dict(orient="records")
