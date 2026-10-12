@@ -1,43 +1,73 @@
 # Deployment and operations
 
-Docker Compose defines PostgreSQL, the FastAPI backend, and a production-built
-React frontend served by Nginx. PostgreSQL has a persistent named volume; the
-backend waits for its health check, applies Alembic migrations, and exposes its
-own health check before the frontend starts. Published ports bind to localhost
-by default.
-
 ## Docker Compose
 
+Compose runs three services:
+
+- `postgres`: PostgreSQL 16 with a named volume and a `pg_isready` healthcheck.
+- `backend`: waits for a healthy database, runs `alembic upgrade head`, then
+  starts the API. Runs as a non-root user with a `/health` healthcheck.
+- `frontend`: a production Vite build served by Nginx. It starts after the
+  backend is healthy.
+
+Published ports bind to `127.0.0.1` only.
+
 ```powershell
-Copy-Item .env.example .env
-notepad .env
-docker compose up --build
+Copy-Item .env.example .env      # set a unique, URL-safe POSTGRES_PASSWORD
+docker compose up --build --wait # returns once every healthcheck passes
+docker compose ps
+docker compose logs backend
+docker compose down              # keeps data; add -v to delete the database volume
 ```
 
-Replace `POSTGRES_PASSWORD` in `.env` with a unique URL-safe local password
-before startup. Compose builds the backend database URL from that value. Never
-commit `.env` or place production credentials in source control.
-The dashboard bundle is built with `VITE_API_URL=http://localhost:8000` by
-default, which is the browser-visible API address for a local Compose run.
+The dashboard bundle is built with `VITE_API_URL=http://localhost:8000`, the
+address the browser uses. The assistant defaults to the deterministic provider.
+Set `CAREOPS_LLM_PROVIDER` and `OPENAI_API_KEY` in `.env` to enable rephrasing.
+Never commit `.env`.
+
+A container being up does not mean it is healthy. Check
+`http://localhost:8000/ready`, which returns 503 until the database is
+reachable and a completed pipeline run is present. The image contains the
+committed pipeline outputs, so a fresh stack is ready without retraining.
 
 ## Local processes
 
-From the repository root, run the API:
-
 ```powershell
 .\.venv\Scripts\python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
+Set-Location frontend; npm ci; $env:VITE_API_URL = "http://localhost:8000"; npm run dev
 ```
 
-Then run the frontend as described in [frontend.md](./frontend.md). For a local
-PostgreSQL backend, set `CAREOPS_DATABASE_URL` and
-`CAREOPS_CORS_ORIGINS=["http://localhost:5173"]` in the process environment.
-The default local database is SQLite.
+For PostgreSQL, set `CAREOPS_DATABASE_URL` and run the Alembic migration first
+(see [database.md](database.md)). If the dashboard runs on another origin, set
+`CAREOPS_CORS_ORIGINS`.
 
-## URLs
+## Continuous integration
 
-- Dashboard: `http://localhost:5173`
-- API: `http://localhost:8000`
-- API documentation: `http://localhost:8000/docs`
-- Health: `http://localhost:8000/health`
+`.github/workflows/ci.yml` runs on every push and pull request. It has five
+jobs:
 
-Docker runtime validation depends on Docker Desktop/Engine being available.
+1. **Python:** pytest across data, model, optimization and API tests, plus an
+   Alembic drift check.
+2. **PostgreSQL:** integration tests against a PostgreSQL 16 service. The job
+   fails if they are skipped.
+3. **Pipeline smoke run:** a 25% synthetic scenario to 2025-06-30, with every
+   stage and gate.
+4. **Frontend:** Node 24 type check, Vitest and production build.
+5. **Docker Compose:** builds and starts the stack, waits on healthchecks,
+   calls the API, assistant and dashboard, restarts the API and checks that
+   simulation history survived.
+
+No secrets are needed. The workflow has read-only repository permissions, and
+the Compose job generates a throwaway database password.
+
+## Public demo
+
+No public deployment exists. The stack is ready for any Docker host. On a
+platform such as Render or Fly.io, the remaining manual steps are:
+
+1. Create a managed PostgreSQL database.
+2. Set `CAREOPS_DATABASE_URL` and `CAREOPS_CORS_ORIGINS` on the backend service.
+3. Build the frontend with `VITE_API_URL` set to the public API URL.
+
+The API has no authentication, so do not expose `POST /optimization/run`
+publicly; it reruns the whole pipeline.

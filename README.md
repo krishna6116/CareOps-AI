@@ -34,10 +34,12 @@ flowchart LR
   A & L & O & I --> B[Bed availability projection<br/>whole beds]
   B --> R[OR-Tools CP-SAT<br/>beds, staff, appointments]
   N --> R
-  R --> S[Reliability scorecard<br/>+ run manifest]
+  V --> Q[Request-level bed replay<br/>baseline vs CP-SAT]
+  R & Q --> S[Reliability scorecard<br/>+ run manifest]
   S --> M[docs/MODEL_METRICS.md]
   S --> API[FastAPI] --> UI[React dashboard]
-  S -.optional.-> PG[(PostgreSQL)]
+  API --> AS[Grounded assistant<br/>evidence + sources]
+  API <--> PG[(PostgreSQL<br/>simulations, audit,<br/>pipeline handoff)]
   V -.--exploratory.-> E[Cleaning, EDA,<br/>feature tables]
 ```
 
@@ -72,40 +74,58 @@ Published no-show model: ROC-AUC 0.74, PR-AUC 0.32, calibration error (ECE) 0.01
 
 ### Planning results (simulation, not model accuracy)
 
-The optimizer finds a plan with zero bed, ICU and emergency overflow and no
-unfilled shifts. It needs **scenario-only** extra capacity to do so: temporary
-surge beds and a synthetic flex-staff pool, both listed in
-`optimization/resource_planning/outputs/capacity_expansion_plan.csv`. These
-show the plan is feasible under the model's assumptions. They are not
-measured improvements, and this project makes no claim about real-world
-savings or outcomes.
+**30-day department plan.** The optimizer finds a plan with zero bed, ICU and
+emergency overflow and no unfilled shifts. It needs **scenario-only** extra
+capacity to do so: temporary surge beds and a synthetic flex-staff pool, both
+listed in `optimization/resource_planning/outputs/capacity_expansion_plan.csv`.
+Its baseline and optimized bed KPIs are identical, because projected demand
+(about 60% of beds) fits capacity and pooling has nothing to improve.
+
+**Request-level bed allocation.** `optimization/bed_assignment.py` replays the
+actual synthetic arrivals of the 28 days to 2026-10-05 against the census
+rebuilt for each day, using the same rules for both policies:
+
+| Policy | Requests | Assigned | Off-service | Compatibility violations |
+|---|---:|---:|---:|---:|
+| Baseline: arrival-order first fit, home ward only | 315 | 288 | 0 | 0 |
+| CP-SAT: severity-weighted, off-service penalty | 315 | 311 | 22 | 0 |
+
+All 28 daily models solve to OPTIMAL. Every unassigned request has a reason code.
+This replaces an earlier study whose 146 "requests" were 31–61 days old
+admissions placed on a single day; see
+[docs/BED_ALLOCATION_DIAGNOSIS.md](docs/BED_ALLOCATION_DIAGNOSIS.md).
+
+These results show that plans are feasible and that rules are respected under
+the model's assumptions. They are not measured improvements, and this project
+makes no claim about real-world savings or outcomes.
 
 ## Project status
 
-| Blueprint stage | Status | Where / what is still missing |
+| Area | Status | Evidence / what is missing |
 |---|---|---|
-| Foundation, synthetic data | Done | `data/synthetic/generate_data.py`, cross-file integrity checks in `run_portfolio.py` |
-| Cleaning, EDA, feature engineering | Done (exploratory) | `run_portfolio.py --exploratory`; the models build their own leakage-safe features |
-| Admission forecasting | Done | 30-day backtest vs naive baselines; the winner is published (see Results) |
-| Occupancy forecasting | Done | 30-day backtest vs naive baselines; the winner is published (see Results) |
-| Length-of-stay prediction | Implemented | One-step holdout only; rolling backtest vs baselines is next |
-| ICU demand forecasting | Implemented | Forecasts ICU admissions, not ICU census; one-step holdout only |
-| No-show prediction | Implemented | Calibrated XGBoost vs prevalence baseline; fairness checks not yet done |
-| Bed availability | Implemented | Projection in `optimization/resource_optimization.py` |
-| OR-Tools bed allocation | Implemented | Does not yet plan to a forecast percentile |
-| Staff scheduling | Implemented, partial | CP-SAT with availability, max hours, one shift per day, rest; no overtime/imbalance objective or leave |
-| Appointment scheduling | Implemented, partial | Latest-day reassignment to specialty-matched providers; no-show risk not used |
-| Emergency capacity | Implemented, partial | ICU/emergency capacity vs shared allocation; no alerting thresholds yet |
-| FastAPI backend | Implemented | `backend/app/`; serves saved outputs |
-| React dashboard | Implemented | `frontend/`; no prediction intervals shown yet |
-| What-if simulator | Implemented | Re-solves the bed allocator; single run, no repeated seeds ([details](docs/simulation.md)) |
-| AI assistant | Implemented | OpenAI / Ollama / rules-based demo; no grounding evaluation set yet |
-| Deployment | Partial | Docker Compose; no public demo |
+| Synthetic data | Done | Seeded generator; cross-file integrity checks in `run_portfolio.py`; regenerating reproduces the committed CSVs byte for byte |
+| Cleaning, EDA, features | Done (exploratory) | `run_portfolio.py --exploratory`; models build their own leakage-safe features (`tests/test_leakage_audit.py`) |
+| Admission forecasting | Done | 30-day rolling-origin backtest; the baseline wins and is published |
+| Occupancy forecasting | Done | Ridge beats every naive baseline; split-conformal intervals with measured coverage |
+| Length of stay | Done | Rolling 30-day holdout windows vs department × severity baseline |
+| ICU demand | Done, scoped | Forecasts ICU admissions (baseline wins); ICU census is projected in planning, not forecast |
+| No-show | Done | Calibrated XGBoost vs logistic and prevalence baselines; ROC/PR-AUC, Brier, ECE |
+| Bed availability | Done | Department/day projection from admissions, predicted LOS and census; never negative |
+| Bed allocation | Done | Department plan plus request-level replay with reason codes and sensitivity table |
+| Staff scheduling | Partial | CP-SAT with availability, max hours, rest and a workload-spreading penalty; no explicit overtime model |
+| Appointment scheduling | Partial | Conflict-free provider reassignment; no-show risk is reported but not used in the objective |
+| Emergency capacity | Done | ICU/emergency capacity vs shared allocation with reserve rules |
+| FastAPI backend | Done | Typed routes, pagination where results are large, `/health`, `/ready`, `/meta` |
+| PostgreSQL | Done | Alembic migrations; persistence, restart and pipeline-handoff tests pass on PostgreSQL 17.6 (`backend/app/tests/test_postgres_integration.py`) |
+| React dashboard | Done | All pages read the API; whole-number counts; Vitest component and workflow tests |
+| What-if simulator | Done, scoped | Reruns the department allocator and emergency model; forecasts are scaled, not retrained |
+| AI assistant | Done | Deterministic grounded answers with evidence; optional OpenAI/Ollama only rephrase |
+| Deployment | Partial | Docker Compose with healthchecks and a CI job that starts the stack; no public demo is hosted |
 
 ## How to run
 
 Requirements: Python 3.14 (pinned in `.python-version`; CI and Docker use the
-same version), and Node 20+ for the dashboard.
+same version) and Node 24 for the dashboard (Vite 8 and Vitest 5).
 
 ```powershell
 python -m venv .venv
@@ -123,7 +143,7 @@ $env:CAREOPS_SCENARIO_SCALE = "0.25"
 .\.venv\Scripts\python.exe run_portfolio.py --as-of-date 2025-06-30
 Remove-Item Env:\CAREOPS_SCENARIO_SCALE
 
-# Tests
+# Tests (data, models, optimization, API); run from the project root
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
@@ -146,27 +166,62 @@ $env:VITE_API_URL = "http://localhost:8000"
 npm run dev   # http://localhost:5173
 ```
 
-The API serves the saved pipeline outputs. SQLite is used by default for alerts
-and simulation records.
+The API serves the saved pipeline outputs. Alerts, what-if simulations and the
+assistant audit are stored in the database: SQLite by default, PostgreSQL when
+`CAREOPS_DATABASE_URL` is set. `/health` reports the database, `/ready` returns
+503 until a database and a completed run are available, and `/meta` describes
+the run.
+
+Dashboard checks, from `frontend/`: `npm run typecheck`, `npm test` (Vitest)
+and `npm run build`.
+
+### AI assistant
+
+The assistant answers from calculated results, not from a language model. Each
+question is routed to an intent, such as bed availability in N days,
+department pressure, unassigned requests, baseline vs optimized,
+staff coverage, forecast reliability, limitations, recommendations or what-if
+runs. The answer is computed from the saved outputs and returned with
+evidence. Each evidence item is labelled observed, forecast, model metric or
+simulated, with source files and the run ID.
+
+No API key is needed. With `CAREOPS_LLM_PROVIDER=openai` (and
+`OPENAI_API_KEY`) or `ollama` (loopback URL only), the model only rephrases
+the grounded answer. Any number in its output that does not appear in the
+evidence is rejected. If the provider is missing, fails or is rejected, the
+grounded answer is returned with a `fallback_reason`, and the audit log
+records it. The assistant does not make clinical decisions or take actions.
+See [docs/ai_assistant.md](docs/ai_assistant.md).
 
 ### Docker
 
 ```powershell
 Copy-Item .env.example .env   # then set a unique POSTGRES_PASSWORD
-docker compose up --build
+docker compose up --build --wait   # PostgreSQL, API (runs migrations first), dashboard
+# Dashboard: http://localhost:5173   API: http://localhost:8000/docs
+docker compose down                # add -v to delete the database volume
 ```
 
-### PostgreSQL handoff (optional)
+### PostgreSQL
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements-postgresql.txt
 $env:CAREOPS_DATABASE_URL = "postgresql+psycopg://USER:PASSWORD@HOST:5432/DATABASE"
-.\.venv\Scripts\python.exe run_portfolio.py --as-of-date 2026-10-05 --postgres
-Remove-Item Env:\CAREOPS_DATABASE_URL
+.\.venv\Scripts\python.exe -m alembic -c backend/alembic.ini upgrade head   # application tables
+.\.venv\Scripts\python.exe run_portfolio.py --as-of-date 2026-10-05 --postgres  # optional handoff
 ```
 
-This loads source data, forecasts and optimization outputs into a `careops`
-schema in one transaction, tagged by `run_id`.
+`--postgres` loads source data, forecasts and optimization outputs into a
+`careops` schema in one transaction, tagged by `run_id`; reloading a run
+replaces it. To run the PostgreSQL tests, point `CAREOPS_TEST_DATABASE_URL`
+at a disposable database:
+
+```powershell
+$env:CAREOPS_TEST_DATABASE_URL = "postgresql+psycopg://USER:PASSWORD@localhost:5432/careops_test"
+.\.venv\Scripts\python.exe -m pytest backend/app/tests/test_postgres_integration.py -v
+```
+
+The psycopg driver is already in `requirements-lock.txt`. Common setup problems
+are covered in [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 
 ## Forecasting rules
 
@@ -202,11 +257,13 @@ ml/
 optimization/
   resource_optimization.py    OR-Tools planner (beds, staff, appointments, emergency)
   resource_validation.py      Input audit and holdout scoring
-  bed_allocation/             Standalone bed-allocation study
+  bed_assignment.py           Request-level replay: baseline vs CP-SAT, reason codes
+  bed_allocation/             Superseded standalone study (see its README)
   resource_planning/outputs/  Planner outputs, scorecard, run manifest
-backend/app/                  FastAPI service
-frontend/                     React + TypeScript dashboard
-tests/                        Pipeline, evaluation and output-rule tests
+backend/app/                  FastAPI service, grounded assistant, Alembic models
+  tests/                      API tests; PostgreSQL tests (need a database URL)
+frontend/                     React + TypeScript dashboard and Vitest tests
+tests/                        Pipeline, evaluation, optimization and output-rule tests
 docs/                         Model metrics, architecture, API, deployment notes
 ```
 
@@ -226,13 +283,20 @@ model inputs.
   validation and evaluation for every model (`ml/scenario_config.py`; a test
   checks the cutoff against the generated data). History features may still
   look back into those days.
-- **Retrospective evaluation only.** Backtests use 12 origins on one simulated
-  history. That is not a prospective trial, and interval coverage estimates
-  from 6 evaluation origins are noisy.
+- **Retrospective evaluation only.** Time-series backtests use 24 weekly
+  origins on one simulated history. That is not a prospective trial, and
+  interval coverage measured on the later origins is noisy.
 - **Admissions are near noise.** The published admissions forecast is a 28-day
   moving average because nothing tested beat it.
-- **ICU, LOS and no-show** models have one-step holdout checks only. The ICU
-  model forecasts admissions, not ICU census.
+- **ICU scope.** The ICU model forecasts admissions, not ICU census. Census is
+  projected in planning from admissions and predicted LOS.
+- **Staffing data.** The synthetic shift roster was generated independently of
+  the ward census. The allocation replay therefore reports rostered-staffing
+  exceedances rather than enforcing them. Enforcing them places only 55 of 315
+  requests, which reflects the data artifact rather than a finding.
+- **Scenario scope.** What-if runs scale the saved forecasts and rerun the
+  department allocator and emergency model. They do not retrain forecasts or
+  rerun the request-level replay.
 - **Planning feasibility depends on scenario capacity.** Zero overflow is
   achieved with synthetic surge beds and flex staff. Costs are illustrative
   assumptions, not quotes.
@@ -245,4 +309,8 @@ model inputs.
 More detail: [model metrics](docs/MODEL_METRICS.md),
 [resource optimization](docs/RESOURCE_OPTIMIZATION.md),
 [architecture](docs/architecture.md), [API](docs/api.md),
-[deployment](docs/deployment.md), [AI assistant](docs/ai_assistant.md).
+[deployment](docs/deployment.md), [AI assistant](docs/ai_assistant.md),
+[data dictionary](docs/DATA_DICTIONARY.md),
+[troubleshooting](docs/TROUBLESHOOTING.md),
+[bed allocation diagnosis](docs/BED_ALLOCATION_DIAGNOSIS.md),
+[project audit and scorecard](docs/PROJECT_AUDIT.md).

@@ -27,7 +27,7 @@ not met by extra surge beds.
 Baseline and scenario values for allocated and overflow bed-days (split into
 staffing-driven and bed-constraint-driven), unmet isolation bed-days, staffing,
 physical-capacity and emergency/ICU-reserve violations, ICU overflow, peak
-projected occupied beds and unfilled staff positions. A rule-based
+projected occupied beds (hospital-wide: departments summed per day, then the peak day) and unfilled staff positions. Count metrics are integers. A rule-based
 recommendation states which measured quantity got worse. Each run, with its
 assumptions and metrics, is stored in the configured SQL database
 (`SimulationRecord`, `SimulationResult`).
