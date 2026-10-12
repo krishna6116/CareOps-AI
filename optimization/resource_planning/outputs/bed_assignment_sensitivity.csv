@@ -1,0 +1,13 @@
+variant,policy,off_service_penalty,icu_reserve,emergency_reserve,staffing_hard,assigned,unassigned,off_service_placements,staffing_exceedances
+documented,baseline,50,2,2,False,288,27,0,263
+documented,optimized,50,2,2,False,311,4,22,279
+no_off_service_penalty,baseline,0,2,2,False,288,27,0,263
+no_off_service_penalty,optimized,0,2,2,False,311,4,103,257
+off_service_penalty_900,baseline,900,2,2,False,288,27,0,263
+off_service_penalty_900,optimized,900,2,2,False,311,4,22,279
+no_protected_reserve,baseline,50,0,0,False,296,19,0,271
+no_protected_reserve,optimized,50,0,0,False,314,1,18,282
+double_reserve,baseline,50,4,4,False,275,40,0,252
+double_reserve,optimized,50,4,4,False,301,14,25,271
+rostered_staffing_hard,baseline,50,2,2,True,25,290,0,0
+rostered_staffing_hard,optimized,50,2,2,True,55,260,34,0

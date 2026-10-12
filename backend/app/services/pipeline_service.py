@@ -198,3 +198,41 @@ def get_optimization_allocations(run_id: str) -> list[dict]:
     if not path.exists():
         return []
     return _read_csv(path).to_dict(orient="records")
+
+
+def get_bed_assignment_summary() -> dict[str, Any]:
+    """Request-level replay: summary, policy KPIs, daily solver log, sensitivity."""
+    path = OUTPUT_DIR / "bed_assignment_summary.json"
+    if not path.exists():
+        return {}
+    return {
+        **json.loads(path.read_text(encoding="utf-8")),
+        "daily": _read_csv(OUTPUT_DIR / "bed_assignment_daily.csv").to_dict(orient="records"),
+        "sensitivity": _read_csv(OUTPUT_DIR / "bed_assignment_sensitivity.csv").to_dict(orient="records"),
+    }
+
+
+def get_bed_assignment_requests(
+    policy: str = "optimized",
+    status: str | None = None,
+    planning_date: str | None = None,
+    department: str | None = None,
+    offset: int = 0,
+    limit: int = 100,
+) -> dict[str, Any]:
+    frame = _read_csv(OUTPUT_DIR / "bed_assignment_requests.csv")
+    if frame.empty:
+        return {"total": 0, "offset": offset, "limit": limit, "rows": []}
+    if status:
+        frame = frame[frame[f"{policy}_status"].str.casefold() == status.casefold()]
+    if planning_date:
+        frame = frame[frame["planning_date"] == planning_date]
+    if department:
+        frame = frame[frame["department"].str.casefold() == department.casefold()]
+    page = frame.iloc[offset:offset + limit]
+    return {
+        "total": int(len(frame)),
+        "offset": offset,
+        "limit": limit,
+        "rows": page.astype(object).where(page.notna(), None).to_dict(orient="records"),
+    }

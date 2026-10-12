@@ -1,0 +1,77 @@
+{
+  "module": "request_level_bed_assignment",
+  "data_scope": "fully_synthetic_replay",
+  "as_of_date": "2026-10-05",
+  "window": [
+    "2026-09-08",
+    "2026-10-05"
+  ],
+  "requests_definition": "Actual synthetic arrivals on each planning day; their recorded beds are ignored.",
+  "census_definition": "In-service beds held by patients with admission_date < day < discharge_date. Beds in maintenance in the inventory snapshot are treated as out of service on every day.",
+  "baseline_policy": "Arrival-order first fit into the home ward, no off-service placement, same reserve and staffing rules as the optimizer.",
+  "objective": {
+    "assign_weight": 1000,
+    "severity_weight": 100,
+    "off_service_penalty": 50,
+    "unstaffed_ward_penalty": 20
+  },
+  "constraints": {
+    "icu_reserve_beds": 2,
+    "emergency_reserve_beds": 2,
+    "reserve_exception": "critical severity",
+    "nurse_to_bed_ratio": 4,
+    "staffing": "reported (staffing_exceedances); hard only in the rostered_staffing_hard sensitivity variant"
+  },
+  "solver_statuses": {
+    "OPTIMAL": 28
+  },
+  "kpis": [
+    {
+      "policy": "baseline",
+      "requests": 315,
+      "assigned": 288,
+      "unassigned": 27,
+      "assignment_rate": 0.9143,
+      "high_severity_assignment_rate": 0.9244,
+      "off_service_placements": 0,
+      "free_bed_fill_rate": 0.1027,
+      "compatibility_violations": 0,
+      "staffing_exceedances": 263,
+      "unassigned_no_compatible_bed_in_inventory": 19,
+      "unassigned_all_compatible_beds_occupied": 0,
+      "unassigned_staffing_limit": 0,
+      "unassigned_protected_reserve": 5,
+      "unassigned_taken_by_other_requests": 3
+    },
+    {
+      "policy": "optimized",
+      "requests": 315,
+      "assigned": 311,
+      "unassigned": 4,
+      "assignment_rate": 0.9873,
+      "high_severity_assignment_rate": 0.9916,
+      "off_service_placements": 22,
+      "free_bed_fill_rate": 0.111,
+      "compatibility_violations": 0,
+      "staffing_exceedances": 279,
+      "unassigned_no_compatible_bed_in_inventory": 1,
+      "unassigned_all_compatible_beds_occupied": 0,
+      "unassigned_staffing_limit": 0,
+      "unassigned_protected_reserve": 2,
+      "unassigned_taken_by_other_requests": 1
+    }
+  ],
+  "reason_definitions": {
+    "no_compatible_bed_in_inventory": "No in-service bed matches the request's bed type, isolation, and ward rules (for the baseline: no such bed in the home ward).",
+    "all_compatible_beds_occupied": "Compatible beds exist but every one was occupied at the start of the day.",
+    "staffing_limit": "Free compatible beds exist only in wards already at rostered nurse capacity (only when staffing is a hard constraint).",
+    "protected_reserve": "The only free compatible beds are the protected ICU/emergency reserve, which is held for critical-severity requests.",
+    "taken_by_other_requests": "Free compatible beds existed but were all assigned to other requests the same day."
+  },
+  "limitations": [
+    "Arrivals are batched per day; intra-day timing is not modeled.",
+    "Isolation labels are synthetic scenario probabilities, not clinical flags.",
+    "Bed maintenance status is only known for the snapshot date.",
+    "The synthetic shift roster is not tied to ward census, so rostered staffing is reported rather than enforced."
+  ]
+}

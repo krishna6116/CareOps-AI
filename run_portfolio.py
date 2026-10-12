@@ -53,6 +53,7 @@ PIPELINE = [
     ROOT / "ml" / "icu_demand_forecasting" / "icu_demand_forecasting.py",
     ROOT / "ml" / "no_show_prediction" / "no_show_prediction.py",
     ROOT / "optimization" / "resource_optimization.py",
+    ROOT / "optimization" / "bed_assignment.py",
     ROOT / "reliability_scorecard.py",
 ]
 # Exploratory stages: cleaned copies, EDA reports, and feature tables built
