@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -16,7 +19,15 @@ from backend.app.routers.recommendations import router as recommendations_router
 from backend.app.routers.resources import router as resources_router
 from backend.app.routers.simulations import router as simulations_router
 
+
+@asynccontextmanager
+async def lifespan(_: FastAPI) -> AsyncIterator[None]:
+    init_db()
+    yield
+
+
 app = FastAPI(
+    lifespan=lifespan,
     title=settings.project_name,
     version=settings.app_version,
     description=(
@@ -48,11 +59,6 @@ for router in (
     insights_router,
 ):
     app.include_router(router)
-
-
-@app.on_event("startup")
-def startup_event() -> None:
-    init_db()
 
 
 @app.get("/")

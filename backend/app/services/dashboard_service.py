@@ -186,6 +186,7 @@ def get_recommendations() -> list[dict[str, object]]:
                 ["incremental_nurses_required_per_shift", "optimized_overflow", "date"],
                 ascending=[False, False, True],
             )
+            gaps["date"] = gaps["date"].dt.date.astype(str)
             results = gaps.head(10).to_dict(orient="records")
             for recommendation in results:
                 overflow = int(recommendation.get("optimized_overflow", 0) or 0)

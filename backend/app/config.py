@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     environment: str = "development"
     app_version: str = "0.1.0"
     database_url: str = "sqlite:///./careops.db"
-    llm_provider: str = "openai"
+    llm_provider: str = "deterministic"
     llm_model: str = "gpt-4o-mini"
     llm_base_url: str = "http://127.0.0.1:11434"
     openai_api_key: str | None = Field(

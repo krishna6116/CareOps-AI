@@ -1,8 +1,6 @@
 from __future__ import annotations
 
 import re
-from math import isfinite
-from statistics import fmean
 from typing import Any
 from uuid import uuid4
 
@@ -11,6 +9,7 @@ from pydantic import ValidationError
 
 from backend.app.schemas.api import AssistantRequest, SimulationRequest
 from backend.app.services.ai_assistant import AssistantProviderError, HealthcareAssistant
+from backend.app.services.assistant_facts import answer_question
 from backend.app.services.dashboard_service import (
     get_appointments_dashboard,
     get_bed_management,
@@ -19,17 +18,13 @@ from backend.app.services.dashboard_service import (
     get_staff_dashboard,
 )
 from backend.app.services.pipeline_service import (
-    get_admission_forecast,
-    get_bed_availability,
     get_historical_operations,
     get_icu_forecast,
     get_los_predictions,
     get_model_metrics,
     get_no_show_predictions,
-    get_occupancy_forecast,
 )
 from backend.app.services.simulation_service import (
-    get_simulation_runs,
     simulate_scenario,
 )
 
@@ -135,18 +130,14 @@ def model_metrics() -> dict[str, Any]:
 def ask_assistant(payload: AssistantRequest) -> dict[str, Any]:
     overview = get_overview()
     optimization = get_optimization_dashboard()
-    admissions = optimization["manifest"].get("scenario_as_of_date")
-    if not admissions:
+    run_id = optimization["manifest"].get("scenario_as_of_date")
+    if not run_id:
         raise HTTPException(
             status_code=503,
             detail="No completed portfolio run is available to explain.",
         )
     scenario_request = _scenario_from_question(payload.question)
-    sources = [
-        "portfolio_run_manifest.json",
-        "current synthetic bed inventory",
-        "generated forecast and optimization outputs",
-    ]
+    simulation_ran = False
     if scenario_request:
         try:
             request = SimulationRequest(
@@ -164,48 +155,32 @@ def ask_assistant(payload: AssistantRequest) -> dict[str, Any]:
             request.icu_bed_delta,
             request.staff_availability_delta,
         )
-        sources.append("OR-Tools what-if simulation")
+        simulation_ran = True
 
-    los_predictions = get_los_predictions()
-    predicted_los = []
-    for row in los_predictions:
-        try:
-            value = float(row["predicted_los_days"])
-        except (KeyError, TypeError, ValueError):
-            continue
-        if isfinite(value):
-            predicted_los.append(value)
-    los_summary = {
-        "prediction_count": len(predicted_los),
-        "mean_predicted_los_days": round(fmean(predicted_los), 2),
-    } if predicted_los else {}
+    grounded = answer_question(payload.question, scenario_request)
+    sources = list(grounded.sources)
+    if simulation_ran:
+        sources.append("OR-Tools what-if simulation")
     context = {
         **overview,
-        "scenario_as_of_date": admissions,
-        "admission_forecast": get_admission_forecast(),
-        "occupancy_forecast": get_occupancy_forecast(),
-        "los_prediction_summary": los_summary,
-        "bed_availability": get_bed_availability()[:100],
-        "bed_kpis": optimization["bed_kpis"],
-        "icu_forecast": get_icu_forecast(),
-        "recommendations": overview.get("operational_recommendations", []),
-        "alerts": overview.get("alerts", 0),
-        "model_metrics": get_model_metrics(),
-        "simulations": get_simulation_runs(limit=20),
+        "scenario_as_of_date": run_id,
+        "grounded_answer": grounded.to_dict(),
     }
     assistant = HealthcareAssistant()
     try:
-        answer = assistant.answer_audited(
-            payload.question,
-            context,
-            sources,
-        )
+        result = assistant.answer_audited(payload.question, context, sources)
     except AssistantProviderError as exc:
         raise HTTPException(status_code=exc.status_code, detail=exc.detail) from exc
     return {
-        "answer": answer,
-        "source_run_id": admissions,
+        "answer": result["answer"],
+        "intent": grounded.intent,
+        "evidence": grounded.to_dict()["evidence"],
+        "limitations": grounded.limitations,
+        "source_run_id": run_id,
+        "evidence_run_id": grounded.run_id,
         "sources": sources,
+        "simulation_ran": simulation_ran,
         "llm_configured": assistant.provider.is_configured,
-        "assistant_provider": assistant.provider.provider,
+        "assistant_provider": result["provider_used"],
+        "fallback_reason": result["fallback_reason"],
     }

@@ -258,7 +258,7 @@ def test_assistant_uses_actual_model_scope(monkeypatch: pytest.MonkeyPatch) -> N
         "/assistant/ask",
         json={"question": "What is the latest admission forecast?"},
     )
-    assert "30-day admission forecast" in admissions.json()["answer"]
+    assert "30-day hospital admission forecast" in admissions.json()["answer"]
 
 
 def test_simulation_endpoint(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -439,7 +439,7 @@ def test_openai_assistant_requires_a_server_side_api_key() -> None:
         provider.generate("How many beds?", {"total_beds": 230})
 
 
-def test_openai_missing_key_is_reported_and_audited(
+def test_openai_missing_key_falls_back_to_grounded_answer_and_is_audited(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     monkeypatch.setattr("backend.app.config.settings.llm_provider", "openai")
@@ -447,15 +447,18 @@ def test_openai_missing_key_is_reported_and_audited(
 
     response = client.post(
         "/assistant/ask",
-        json={"question": "How many beds?"},
+        json={"question": "How many beds are forecast to be available in 7 days?"},
     )
 
-    assert response.status_code == 503
-    assert "OPENAI_API_KEY is not configured" in response.json()["detail"]
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["assistant_provider"] == "deterministic"
+    assert "OPENAI_API_KEY is not configured" in payload["fallback_reason"]
+    assert payload["intent"] == "bed_availability"
     record = client.get("/audit/assistant").json()[0]
     assert record["provider"] == "openai"
-    assert record["response_status"] == "error"
-    assert record["error"] == response.json()["detail"]
+    assert record["response_status"] == "fallback"
+    assert record["error"] == payload["fallback_reason"]
 
 
 def test_ollama_rejects_non_loopback_context_destination() -> None:
@@ -468,7 +471,7 @@ def test_ollama_rejects_non_loopback_context_destination() -> None:
         provider.generate("Question", {"total_beds": 230})
 
 
-def test_ollama_unavailability_is_reported_without_demo_fallback(
+def test_ollama_unavailability_falls_back_with_reason(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     monkeypatch.setattr("backend.app.config.settings.llm_provider", "ollama")
@@ -481,8 +484,130 @@ def test_ollama_unavailability_is_reported_without_demo_fallback(
         "/assistant/ask",
         json={"question": "Summarize the admission forecast."},
     )
-    assert response.status_code == 503
-    assert "Local Ollama is unavailable" in response.json()["detail"]
+    assert response.status_code == 200
+    assert response.json()["assistant_provider"] == "deterministic"
+    assert "Local Ollama is unavailable" in response.json()["fallback_reason"]
+
+
+def test_llm_rephrasing_with_unverified_number_falls_back(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class FakeResponse:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args: object) -> None:
+            return None
+
+        def read(self) -> bytes:
+            return json.dumps({"message": {"content": "There are 9999 free beds."}}).encode()
+
+    monkeypatch.setattr("backend.app.config.settings.llm_provider", "ollama")
+    monkeypatch.setattr(
+        "backend.app.services.ai_assistant.urlopen", lambda *args, **kwargs: FakeResponse()
+    )
+    payload = client.post(
+        "/assistant/ask", json={"question": "How many beds are available in 7 days?"},
+    ).json()
+    assert "9999" not in payload["answer"]
+    assert payload["assistant_provider"] == "deterministic"
+    assert "could not be verified" in payload["fallback_reason"]
+
+
+OUTPUTS = Path(__file__).resolve().parents[3] / "optimization" / "resource_planning" / "outputs"
+
+
+@pytest.mark.parametrize(
+    ("question", "intent"),
+    [
+        ("How many beds are forecast to be available in seven days?", "bed_availability"),
+        ("Which departments face the greatest capacity pressure?", "capacity_pressure"),
+        ("Why were some bed requests left unassigned?", "unassigned_requests"),
+        ("Which shifts have insufficient staff coverage?", "staff_coverage"),
+        ("How reliable is the occupancy forecast?", "model_reliability"),
+        ("What are the biggest limitations of the current models?", "model_limitations"),
+        ("How does optimized allocation compare with the baseline?", "allocation_comparison"),
+        ("Which recommendations are supported by the latest optimization run?", "recommendations"),
+    ],
+)
+def test_assistant_answers_example_questions_from_saved_outputs(
+    monkeypatch: pytest.MonkeyPatch, question: str, intent: str,
+) -> None:
+    monkeypatch.setattr("backend.app.config.settings.llm_provider", "deterministic")
+    payload = client.post("/assistant/ask", json={"question": question}).json()
+    assert payload["intent"] == intent
+    assert payload["sources"]
+    assert payload["evidence_run_id"]
+    assert any("Synthetic" in item for item in payload["limitations"])
+    # Count evidence is presented as whole numbers.
+    for item in payload["evidence"]:
+        if item["kind"] in {"forecast", "observed", "simulated"} and isinstance(item["value"], float):
+            assert "utilization" in item["label"], item
+
+
+def test_assistant_seven_day_availability_matches_forecast_file(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    import pandas as pd
+
+    monkeypatch.setattr("backend.app.config.settings.llm_provider", "deterministic")
+    manifest = json.loads((OUTPUTS / "portfolio_run_manifest.json").read_text(encoding="utf-8"))
+    target = (pd.Timestamp(manifest["scenario_as_of_date"]) + pd.Timedelta(days=7)).date().isoformat()
+    forecast = pd.read_csv(OUTPUTS / "bed_availability_forecast.csv")
+    expected = int(forecast.loc[forecast["date"] == target, "forecast_available_beds"].sum())
+    payload = client.post(
+        "/assistant/ask", json={"question": "How many beds will be free in 7 days?"},
+    ).json()
+    assert target in payload["answer"]
+    assert f"leaving {expected} available" in payload["answer"]
+
+
+def test_assistant_unassigned_answer_matches_replay_kpis(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr("backend.app.config.settings.llm_provider", "deterministic")
+    summary = json.loads((OUTPUTS / "bed_assignment_summary.json").read_text(encoding="utf-8"))
+    kpis = {row["policy"]: row for row in summary["kpis"]}
+    answer = client.post(
+        "/assistant/ask", json={"question": "Why were bed requests unassigned?"},
+    ).json()["answer"]
+    for policy in ("baseline", "optimized"):
+        assert (
+            f"{kpis[policy]['unassigned']} of {kpis[policy]['requests']} requests unassigned"
+            in answer
+        )
+
+
+def test_bed_assignment_endpoints_paginate_and_validate() -> None:
+    summary = client.get("/optimization/bed-assignments")
+    assert summary.status_code == 200
+    body = summary.json()
+    assert body["solver_statuses"]
+    assert {row["policy"] for row in body["kpis"]} == {"baseline", "optimized"}
+    assert all(row["compatibility_violations"] == 0 for row in body["kpis"])
+    page = client.get("/optimization/bed-assignments/requests?limit=5&offset=5").json()
+    assert page["limit"] == 5 and page["offset"] == 5
+    assert len(page["rows"]) <= 5
+    assert page["total"] == sum(row["requests"] for row in body["daily"])
+    unassigned = client.get(
+        "/optimization/bed-assignments/requests?status=UNASSIGNED&policy=baseline"
+    ).json()
+    assert unassigned["rows"]
+    assert all(row["baseline_reason"] for row in unassigned["rows"])
+    assert client.get("/optimization/bed-assignments/requests?limit=501").status_code == 422
+    assert client.get("/optimization/bed-assignments/requests?policy=x").status_code == 422
+
+
+def test_simulation_count_metrics_are_whole_numbers() -> None:
+    payload = client.post(
+        "/simulation/run",
+        json={"scenario_name": "counts", "admissions_multiplier": 1.13},
+    ).json()
+    for key in (
+        "projected_admissions", "peak_projected_occupied_beds", "forecast_bed_days",
+        "allocated_bed_days", "overflow_bed_days", "unfilled_staff_positions",
+    ):
+        assert isinstance(payload["simulated_metrics"][key], int), key
 
 
 def test_recommendations_endpoint() -> None:

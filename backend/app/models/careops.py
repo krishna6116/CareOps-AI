@@ -1,11 +1,16 @@
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import UTC, datetime
 
 from sqlalchemy import Boolean, Column, Date, DateTime, Float, ForeignKey, Integer, JSON, String, Text
 from sqlalchemy.orm import relationship
 
 from backend.app.database import Base
+
+
+def utc_now() -> datetime:
+    """Naive UTC timestamp, matching the existing timezone-less columns."""
+    return datetime.now(UTC).replace(tzinfo=None)
 
 
 class Patient(Base):
@@ -15,7 +20,7 @@ class Patient(Base):
     patient_name = Column(String(160), nullable=False)
     age = Column(Integer, nullable=True)
     gender = Column(String(32), nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class Bed(Base):
@@ -28,7 +33,7 @@ class Bed(Base):
     isolation_capable = Column(Boolean, default=False)
     emergency_reserve = Column(Boolean, default=False)
     available_for_emergency = Column(Boolean, default=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class Staff(Base):
@@ -39,7 +44,7 @@ class Staff(Base):
     role = Column(String(64), nullable=False)
     availability = Column(String(32), nullable=False)
     max_hours = Column(Float, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class Admission(Base):
@@ -55,7 +60,7 @@ class Admission(Base):
     icu_required = Column(Integer, nullable=False)
     assigned_bed_id = Column(String(64), ForeignKey("beds.bed_id"), nullable=False)
     stay_status = Column(String(32), nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class DischargeEvent(Base):
@@ -65,7 +70,7 @@ class DischargeEvent(Base):
     admission_id = Column(String(64), ForeignKey("admissions.admission_id"), nullable=False)
     department = Column(String(128), nullable=False)
     discharge_date = Column(Date, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class Appointment(Base):
@@ -79,7 +84,7 @@ class Appointment(Base):
     appointment_time = Column(String(16), nullable=False)
     duration = Column(Integer, nullable=False)
     no_show = Column(Integer, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class Shift(Base):
@@ -91,7 +96,7 @@ class Shift(Base):
     shift_name = Column(String(32), nullable=False)
     hours = Column(Float, nullable=False)
     assigned = Column(String(8), nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class AdmissionForecast(Base):
@@ -102,7 +107,7 @@ class AdmissionForecast(Base):
     date = Column(Date, nullable=False)
     department = Column(String(128), nullable=False)
     predicted_admissions = Column(Float, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class OccupancyForecast(Base):
@@ -114,7 +119,7 @@ class OccupancyForecast(Base):
     forecast_occupied_beds = Column(Float, nullable=False)
     utilization = Column(Float, nullable=True)
     available_capacity = Column(Float, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class LOSPrediction(Base):
@@ -126,7 +131,7 @@ class LOSPrediction(Base):
     expected_los_days = Column(Float, nullable=False)
     prediction_interval_low = Column(Float, nullable=True)
     prediction_interval_high = Column(Float, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class BedAvailability(Base):
@@ -140,7 +145,7 @@ class BedAvailability(Base):
     occupied_beds = Column(Integer, nullable=False)
     available_beds = Column(Integer, nullable=False)
     reserved_beds = Column(Integer, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class BedAllocation(Base):
@@ -152,7 +157,7 @@ class BedAllocation(Base):
     allocation_status = Column(String(32), nullable=False)
     allocated_beds = Column(Integer, nullable=False)
     overflow_bed_days = Column(Float, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class OptimizationRun(Base):
@@ -160,11 +165,11 @@ class OptimizationRun(Base):
 
     run_id = Column(String(64), primary_key=True)
     scenario = Column(String(128), nullable=False)
-    started_at = Column(DateTime, default=datetime.utcnow)
+    started_at = Column(DateTime, default=utc_now)
     completed_at = Column(DateTime, nullable=True)
     optimizer_status = Column(String(64), nullable=False)
     kpis = Column(JSON, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class AlertLog(Base):
@@ -176,7 +181,7 @@ class AlertLog(Base):
     category = Column(String(64), nullable=False)
     message = Column(Text, nullable=False)
     source = Column(String(128), nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class Recommendation(Base):
@@ -188,7 +193,7 @@ class Recommendation(Base):
     title = Column(String(200), nullable=False)
     detail = Column(Text, nullable=False)
     priority = Column(String(32), nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class SimulationRecord(Base):
@@ -199,7 +204,7 @@ class SimulationRecord(Base):
     assumptions = Column(JSON, nullable=False)
     baseline_metrics = Column(JSON, nullable=False)
     simulated_metrics = Column(JSON, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class SimulationResult(Base):
@@ -210,7 +215,7 @@ class SimulationResult(Base):
     metric_name = Column(String(128), nullable=False)
     baseline_value = Column(Float, nullable=True)
     simulated_value = Column(Float, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class ModelRun(Base):
@@ -221,7 +226,7 @@ class ModelRun(Base):
     run_id = Column(String(64), nullable=False)
     version = Column(String(128), nullable=False)
     metrics = Column(JSON, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class AuditLog(Base):
@@ -232,7 +237,7 @@ class AuditLog(Base):
     check_name = Column(String(128), nullable=False)
     status = Column(String(32), nullable=False)
     details = Column(Text, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)
 
 
 class AssistantAudit(Base):
@@ -247,4 +252,4 @@ class AssistantAudit(Base):
     sources = Column(JSON, nullable=False)
     latency_ms = Column(Integer, nullable=False)
     error = Column(Text, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utc_now)

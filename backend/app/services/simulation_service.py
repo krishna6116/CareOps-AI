@@ -152,8 +152,8 @@ def simulate_scenario(
 
     def kpis(row: dict) -> dict[str, float | int]:
         return {
-            "forecast_bed_days": float(row["forecast_bed_days"]),
-            "allocated_bed_days": float(row["allocated_bed_days"]),
+            "forecast_bed_days": int(round(float(row["forecast_bed_days"]))),
+            "allocated_bed_days": int(round(float(row["allocated_bed_days"]))),
             "overflow_bed_days": int(row["overflow_bed_days"]),
             "overflow_due_to_staffing": int(row["overflow_bed_days_due_to_staffing"]),
             "overflow_due_to_bed_constraints": int(row["overflow_bed_days_due_to_bed_constraints"]),
@@ -173,13 +173,13 @@ def simulate_scenario(
     )
     baseline_overview = get_overview()
     scenario_metrics.update({
-        "projected_admissions": round(
-            float(baseline_overview["predicted_admissions"]) * admissions_multiplier,
-            2,
+        # Counts are presented as whole numbers (half up); the solver
+        # works on the unrounded projections.
+        "projected_admissions": int(
+            float(baseline_overview["predicted_admissions"]) * admissions_multiplier + 0.5
         ),
-        "peak_projected_occupied_beds": round(
-            float(forecast["projected_occupied_beds"].max()),
-            2,
+        "peak_projected_occupied_beds": int(
+            float(forecast["projected_occupied_beds"].max()) + 0.5
         ),
         "icu_bed_delta": icu_bed_delta,
         "staff_availability_delta": staff_availability_delta,
