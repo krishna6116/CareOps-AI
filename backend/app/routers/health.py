@@ -7,12 +7,13 @@ from fastapi.responses import JSONResponse
 
 from backend.app.config import settings
 from backend.app.database import check_database_health
+from backend.app.schemas.api import AppMetadata, HealthStatus
 from backend.app.services.pipeline_service import read_manifest
 
 router = APIRouter(prefix="", tags=["health"])
 
 
-@router.get("/health")
+@router.get("/health", response_model=HealthStatus, response_model_exclude_none=True)
 def health_check() -> dict[str, object]:
     db_status = check_database_health()
     database: dict[str, object] = {
@@ -46,7 +47,7 @@ def readiness_check() -> JSONResponse:
     )
 
 
-@router.get("/meta")
+@router.get("/meta", response_model=AppMetadata)
 def application_metadata() -> dict[str, object]:
     manifest = read_manifest()
     return {

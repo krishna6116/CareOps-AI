@@ -1,8 +1,9 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 
-from backend.app.schemas.api import SimulationRequest
+from backend.app.schemas.api import SimulationRequest, SimulationResponse
+from backend.app.security import rate_limit_interactive
 from backend.app.services.simulation_service import (
     get_simulation,
     get_simulation_runs,
@@ -12,7 +13,11 @@ from backend.app.services.simulation_service import (
 router = APIRouter(prefix="", tags=["simulations"])
 
 
-@router.post("/simulation/run")
+@router.post(
+    "/simulation/run",
+    response_model=SimulationResponse,
+    dependencies=[Depends(rate_limit_interactive)],
+)
 def run_simulation(payload: SimulationRequest) -> dict:
     scenario = simulate_scenario(
         payload.scenario_name,

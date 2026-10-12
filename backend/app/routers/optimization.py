@@ -3,9 +3,10 @@ from __future__ import annotations
 from datetime import date
 from typing import Any, Literal
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 
-from backend.app.schemas.api import OptimizationRunRequest
+from backend.app.schemas.api import BedAssignmentPage, BedAssignmentSummary, OptimizationRunRequest
+from backend.app.security import require_api_key
 from backend.app.services.pipeline_service import (
     get_bed_assignment_requests,
     get_bed_assignment_summary,
@@ -18,7 +19,7 @@ from backend.app.services.pipeline_service import (
 router = APIRouter(prefix="", tags=["optimization"])
 
 
-@router.post("/optimization/run")
+@router.post("/optimization/run", dependencies=[Depends(require_api_key)])
 def run_optimization(payload: OptimizationRunRequest) -> dict:
     try:
         result = run_portfolio_pipeline(
@@ -51,7 +52,7 @@ def read_optimization_allocations(run_id: str) -> list[dict]:
     return allocations
 
 
-@router.get("/optimization/bed-assignments")
+@router.get("/optimization/bed-assignments", response_model=BedAssignmentSummary)
 def bed_assignment_summary() -> dict[str, Any]:
     summary = get_bed_assignment_summary()
     if not summary:
@@ -62,7 +63,7 @@ def bed_assignment_summary() -> dict[str, Any]:
     return summary
 
 
-@router.get("/optimization/bed-assignments/requests")
+@router.get("/optimization/bed-assignments/requests", response_model=BedAssignmentPage)
 def bed_assignment_requests(
     policy: Literal["baseline", "optimized"] = "optimized",
     status: Literal["ASSIGNED", "UNASSIGNED"] | None = None,

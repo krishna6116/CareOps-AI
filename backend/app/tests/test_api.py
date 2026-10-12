@@ -11,6 +11,7 @@ from sqlalchemy.orm import sessionmaker
 
 from backend.app.database import Base
 from backend.app.main import app
+from backend.app.security import RateLimiter, interactive_limiter
 from backend.app.services.ai_assistant import (
     AssistantProviderError,
     LLMProvider,
@@ -32,6 +33,7 @@ def isolated_database(monkeypatch: pytest.MonkeyPatch, tmp_path) -> None:
     monkeypatch.setattr("backend.app.services.ai_assistant.SessionLocal", test_sessions)
     monkeypatch.setattr("backend.app.services.dashboard_service.SessionLocal", test_sessions)
     monkeypatch.setattr("backend.app.services.simulation_service.SessionLocal", test_sessions)
+    interactive_limiter.reset()
     yield
     engine.dispose()
 
@@ -642,3 +644,41 @@ def test_recommendations_endpoint() -> None:
     assert response.status_code == 200
     payload = response.json()
     assert isinstance(payload, list)
+
+
+def test_admin_endpoints_require_the_configured_api_key(monkeypatch: pytest.MonkeyPatch) -> None:
+    alert = {"severity": "low", "category": "test", "message": "synthetic"}
+    monkeypatch.setattr("backend.app.config.settings.api_key", "correct-key")
+    assert client.post("/alerts", json=alert).status_code == 401
+    assert client.post("/alerts", json=alert, headers={"X-API-Key": "wrong"}).status_code == 401
+    assert client.post("/optimization/run", json={}).status_code == 401
+    assert client.post("/recommendations/generate", json={}).status_code == 401
+    assert client.post("/alerts", json=alert, headers={"X-API-Key": "correct-key"}).status_code == 200
+
+
+def test_admin_endpoints_fail_closed_outside_development(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr("backend.app.config.settings.api_key", None)
+    monkeypatch.setattr("backend.app.config.settings.environment", "production")
+    response = client.post("/alerts", json={"severity": "low", "category": "t", "message": "m"})
+    assert response.status_code == 503
+    assert "CAREOPS_API_KEY" in response.json()["detail"]
+    # Read endpoints stay public.
+    assert client.get("/alerts").status_code == 200
+
+
+def test_interactive_endpoints_are_rate_limited(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr("backend.app.security.interactive_limiter", RateLimiter(limit=2))
+    question = {"question": "How reliable is the occupancy forecast?"}
+    assert client.post("/assistant/ask", json=question).status_code == 200
+    assert client.post("/assistant/ask", json=question).status_code == 200
+    limited = client.post("/assistant/ask", json=question)
+    assert limited.status_code == 429
+    assert int(limited.headers["retry-after"]) >= 1
+
+
+def test_rate_limiter_window_expires() -> None:
+    limiter = RateLimiter(limit=1, window_seconds=60)
+    assert limiter.check("a", now=0.0) is None
+    assert limiter.check("a", now=10.0) == pytest.approx(50.0)
+    assert limiter.check("b", now=10.0) is None
+    assert limiter.check("a", now=60.0) is None

@@ -1,8 +1,9 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 
 from backend.app.schemas.api import RecommendationRequest
+from backend.app.security import require_api_key
 from backend.app.services.dashboard_service import get_recommendations
 
 router = APIRouter(prefix="", tags=["recommendations"])
@@ -13,7 +14,7 @@ def list_recommendations() -> list[dict]:
     return get_recommendations()
 
 
-@router.post("/recommendations/generate")
+@router.post("/recommendations/generate", dependencies=[Depends(require_api_key)])
 def generate_recommendations(payload: RecommendationRequest) -> dict:
     items = get_recommendations()
     if payload.department:

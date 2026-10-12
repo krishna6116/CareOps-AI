@@ -4,12 +4,20 @@ import re
 from typing import Any
 from uuid import uuid4
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import ValidationError
 
-from backend.app.schemas.api import AssistantRequest, SimulationRequest
+from backend.app.schemas.api import (
+    AssistantRequest,
+    AssistantResponse,
+    ModelEvaluationResponse,
+    NoShowSummary,
+    OverviewResponse,
+    SimulationRequest,
+)
 from backend.app.services.ai_assistant import AssistantProviderError, HealthcareAssistant
 from backend.app.services.assistant_facts import answer_question
+from backend.app.security import rate_limit_interactive
 from backend.app.services.dashboard_service import (
     get_appointments_dashboard,
     get_bed_management,
@@ -72,7 +80,7 @@ def _scenario_from_question(question: str) -> dict[str, Any] | None:
     return scenario or None
 
 
-@router.get("/dashboard/overview")
+@router.get("/dashboard/overview", response_model=OverviewResponse)
 def dashboard_overview() -> dict[str, Any]:
     return get_overview()
 
@@ -123,7 +131,7 @@ def no_show_predictions(
     return get_no_show_predictions(limit)
 
 
-@router.get("/no-show/summary")
+@router.get("/no-show/summary", response_model=NoShowSummary)
 def no_show_summary() -> dict[str, Any]:
     summary = get_no_show_summary()
     if not summary:
@@ -136,7 +144,7 @@ def model_metrics() -> dict[str, Any]:
     return get_model_metrics()
 
 
-@router.get("/models/evaluation")
+@router.get("/models/evaluation", response_model=ModelEvaluationResponse)
 def model_evaluation() -> dict[str, Any]:
     evaluation = get_model_evaluation()
     if not evaluation:
@@ -144,7 +152,11 @@ def model_evaluation() -> dict[str, Any]:
     return evaluation
 
 
-@router.post("/assistant/ask")
+@router.post(
+    "/assistant/ask",
+    response_model=AssistantResponse,
+    dependencies=[Depends(rate_limit_interactive)],
+)
 def ask_assistant(payload: AssistantRequest) -> dict[str, Any]:
     overview = get_overview()
     optimization = get_optimization_dashboard()
