@@ -391,8 +391,8 @@ Replay KPIs per policy.
 | `unassigned_no_compatible_bed_in_inventory` | int64 | 0.0 | 19 |  |
 | `unassigned_all_compatible_beds_occupied` | int64 | 0.0 | 0 |  |
 | `unassigned_staffing_limit` | int64 | 0.0 | 0 |  |
-| `unassigned_protected_reserve` | int64 | 0.0 | 5 |  |
-| `unassigned_taken_by_other_requests` | int64 | 0.0 | 3 |  |
+| `unassigned_protected_reserve` | int64 | 0.0 | 8 |  |
+| `unassigned_taken_by_other_requests` | int64 | 0.0 | 0 |  |
 
 ### `optimization/resource_planning/outputs/staff_coverage_kpis.csv`
 

@@ -94,6 +94,13 @@ physical-versus-operational capacity difference rather than assuming they match.
   occupied beds using the stated four-beds-per-nurse proxy. A labeled,
   scenario-only flex roster is sized to meet these positions while retaining
   hour and rest constraints. The planner stops if any positions remain unfilled.
+  Base staff may work one extra shift per rolling 7 days as overtime. A full
+  overtime shift (8 h x 500) is costed above a surge assignment (3,000), so
+  overtime appears only where it is cheaper than calling in surge staff
+  (mostly partial shifts). A first-fit baseline (roster order, base staff
+  first, no overtime) runs on the same requirements and rules;
+  `staff_schedule_comparison.csv` compares unfilled positions, surge and
+  overtime use, workload spread and shift-preference match.
 - Capacity expansion: forecast peak census determines explicit temporary surge
   bed counts by department, including ICU/emergency protected reserves and
   isolation-compatible capacity. The `capacity_expansion_plan.csv` file lists
@@ -102,14 +109,18 @@ physical-versus-operational capacity difference rather than assuming they match.
   not existing inventory, confirmed hiring, funding, or market-rate estimates.
   The constrained baseline remains in the KPI comparison. The optimized run
   fails closed if any bed, ICU, or emergency overflow remains.
-- Appointment scheduling: re-slots the latest appointment day in the source
-  schedule using available specialty-matched doctors, 15-minute slots, doctor
-  non-overlap, duration, and priority. No-show scores are reported but are not
-  used to move appointments in the current planner.
+- Appointment scheduling: re-slots each of the last 7 clinic days (one CP-SAT
+  model per day) using available specialty-matched doctors, 15-minute slots,
+  doctor non-overlap, duration, and priority. A greedy conflict-free schedule
+  is supplied as a solution hint and presolve probing is off, so a busy day
+  (~28k optional intervals) cannot exhaust the time limit with no solution.
+  No-show risk never changes who is booked, their priority or their slot: it
+  flags reminder outreach at the model's validation-chosen threshold and
+  estimates expected idle minutes (risk x duration) for overbooking review.
   Missing scores use only prior-date department history, never same-day outcome
   labels. The synthetic provider roster and shifts are generated with
   department-level appointment coverage targets; the portfolio run fails if
-  any appointment on the planning day remains unassigned.
+  any appointment in the planning window remains unassigned.
 - Emergency capacity: compares projected ICU bed census and emergency demand
   with physical bed and staffed capacity, protects the ICU reserve, and can
   use unoccupied General Medicine beds for emergency overflow only within
@@ -132,7 +143,7 @@ physical-versus-operational capacity difference rather than assuming they match.
   Brier score beats that baseline and is at most 0.17; it reaches 4.5/5 only
   when ROC-AUC is also at least 0.70 on the same chronological holdout. These
   are stored test-set metrics; they do not establish prospective or 30-day
-  recursive accuracy. No-show probabilities are retained for review but do
+  recursive accuracy. No-show probabilities flag reminder outreach but do
   not affect appointment time changes. Inspect department-level rows and do
   not rely on a single hospital-wide average.
 
@@ -143,6 +154,7 @@ physical-versus-operational capacity difference rather than assuming they match.
 - `bed_allocation_kpis.csv`
 - `optimized_staff_schedule.csv`
 - `staff_coverage_kpis.csv`
+- `staff_schedule_comparison.csv`
 - `optimized_appointment_schedule.csv`
 - `appointment_optimization_kpis.csv`
 - `emergency_capacity_optimization.csv`

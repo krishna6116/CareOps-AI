@@ -9,7 +9,7 @@
   "validation_rows": 17602,
   "test_rows": 23470,
   "selected_threshold": 0.18000000000000005,
-  "training_seconds": 4.6378970999994635,
+  "training_seconds": 4.517508499999167,
   "scale_pos_weight": 5.567504735663854,
   "probability_calibration": {
     "method": "Platt scaling fitted on validation predictions only",

@@ -53,3 +53,34 @@ The tests (`src/*.test.ts[x]`) cover:
 - loading, error and empty states
 - simulator validation and request payloads
 - the assistant evidence card and its error handling
+
+## Browser end-to-end tests
+
+`e2e/dashboard.spec.ts` (Playwright) checks that:
+
+- every page opens with no error states and no console errors, and saves a
+  full-page screenshot to `e2e-screenshots/`;
+- overview counts have no decimals;
+- the assistant answers an example question with evidence;
+- a simulator preset runs and shows the baseline comparison;
+- bed allocation lists unassigned requests for both policies;
+- invalid simulator input is blocked before any request.
+
+```powershell
+npm run build                      # live mode: starts the API and a preview server
+$env:E2E_PYTHON = ".venv\Scripts\python.exe"     # relative to the repo root; CI uses "python"
+$env:E2E_BROWSER_CHANNEL = "chrome" # or msedge; omit to use Playwright's Chromium
+npx playwright test
+
+npm run build:demo                 # static demo (export the snapshot first)
+$env:E2E_MODE = "demo"; npx playwright test
+```
+
+On 2026-10-12 all 16 tests passed in the installed Google Chrome, against
+both the live API and the demo build.
+
+## Static demo mode
+
+`VITE_DEMO_MODE=snapshot` (set by `npm run build:demo` through `.env.demo`)
+makes `src/api.ts` read exported JSON files instead of calling the API. See
+[deployment.md](deployment.md#public-demo-github-pages).

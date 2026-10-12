@@ -1,0 +1,3 @@
+policy,required_positions,filled_positions,unfilled_positions,base_staff_shifts,surge_staff_shifts,overtime_shifts,overtime_hours,base_staff_used,base_hours_std,base_hours_range,shift_preference_match_rate
+first_fit_baseline,6718,6691,27,4179,2512,0,0.0,222,44.05,184.0,0.5255
+optimized,6718,6718,0,4353,2365,424,1500.0,224,30.99,154.0,0.9219

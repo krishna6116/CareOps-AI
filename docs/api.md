@@ -52,4 +52,18 @@ and `/redoc`. CORS allows only the origins in `CAREOPS_CORS_ORIGINS`.
 - `GET /audit/runs` (data-quality audit), `GET /audit/assistant?limit=100`
 
 Request schemas reject unknown fields where a silently ignored filter would
-mislead. Validation errors return 422.
+mislead. Validation errors return 422. The main routes declare Pydantic
+response models, so `/docs` shows their exact shape.
+
+## Access control
+
+- **Admin endpoints** (`POST /optimization/run`, `POST /alerts`,
+  `POST /recommendations/generate`) require `X-API-Key` to equal
+  `CAREOPS_API_KEY`. A wrong key returns 401. If no key is configured, these
+  endpoints work only when `CAREOPS_ENVIRONMENT=development` and otherwise
+  return 503, so a misconfigured deployment fails closed.
+- **Interactive solver endpoints** (`POST /simulation/run`,
+  `POST /assistant/ask`) stay open for the dashboard. They are limited per
+  client address to `CAREOPS_INTERACTIVE_RATE_LIMIT_PER_MINUTE` (default 20)
+  and return 429 with `Retry-After`. The limiter is per process.
+- Read endpoints are public and serve synthetic data only.

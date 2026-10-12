@@ -7,6 +7,11 @@ beds, ICU admissions, length of stay and appointment no-shows, then uses Google
 OR-Tools to plan beds, staff shifts and appointments against those forecasts.
 A FastAPI service and a React dashboard present the results.
 
+**Live demo: [krishna6116.github.io/CareOps-AI](https://krishna6116.github.io/CareOps-AI/)**. This is a
+static snapshot of the dashboard exported from the real API for the 2026-10-05 run. The assistant
+and simulator show precomputed results for the example questions and presets. Run the project
+locally (below) for the live API.
+
 > **Synthetic data only.** Every patient, bed, shift and appointment is
 > generated. Nothing here has been validated on a real hospital, and the
 > outputs are not clinical or staffing decisions. See
@@ -97,6 +102,23 @@ This replaces an earlier study whose 146 "requests" were 31–61 days old
 admissions placed on a single day; see
 [docs/BED_ALLOCATION_DIAGNOSIS.md](docs/BED_ALLOCATION_DIAGNOSIS.md).
 
+**Staff scheduling.** Both policies use the same 30-day requirements, availability, rest and
+hour rules (`staff_schedule_comparison.csv`):
+
+| Policy | Unfilled positions | Surge shifts | Overtime shifts (hours) | Workload spread (std, h) | Shift-preference match |
+|---|---:|---:|---:|---:|---:|
+| First fit, base staff first, no overtime | 27 | 2,512 | 0 (0) | 44.1 | 52.5% |
+| CP-SAT with costed overtime | 0 | 2,365 | 424 (1,500) | 31.0 | 92.2% |
+
+A full overtime shift is costed above a surge shift, so overtime is mostly partial. An earlier
+weighting put base staff on overtime most weeks (2,211 shifts) to save surge staff and was
+rejected.
+
+**Appointments.** The last 7 clinic days: 838 of 838 appointments booked, doctor double-bookings
+77 → 0, bookings with off-shift doctors 254 → 0. No-show risk never changes bookings. It flags
+217 appointments for reminder outreach at the model's validation threshold (0.18) and estimates
+4,287 expected idle minutes for overbooking review.
+
 These results show that plans are feasible and that rules are respected under
 the model's assumptions. They are not measured improvements, and this project
 makes no claim about real-world savings or outcomes.
@@ -106,7 +128,7 @@ makes no claim about real-world savings or outcomes.
 | Area | Status | Evidence / what is missing |
 |---|---|---|
 | Synthetic data | Done | Seeded generator; cross-file integrity checks in `run_portfolio.py`; regenerating reproduces the committed CSVs byte for byte |
-| Cleaning, EDA, features | Done (exploratory) | `run_portfolio.py --exploratory`; models build their own leakage-safe features (`tests/test_leakage_audit.py`) |
+| Cleaning, EDA, features | Done | Tested findings in [docs/EDA_FINDINGS.md](docs/EDA_FINDINGS.md) (dispersion, weekday and seasonal tests, roster gap, no-show drivers); models build their own leakage-safe features (`tests/test_leakage_audit.py`) |
 | Admission forecasting | Done | 30-day rolling-origin backtest; the baseline wins and is published |
 | Occupancy forecasting | Done | Ridge beats every naive baseline; split-conformal intervals with measured coverage |
 | Length of stay | Done | Rolling 30-day holdout windows vs department × severity baseline |
@@ -114,15 +136,15 @@ makes no claim about real-world savings or outcomes.
 | No-show | Done | Calibrated XGBoost vs logistic and prevalence baselines; ROC/PR-AUC, Brier, ECE |
 | Bed availability | Done | Department/day projection from admissions, predicted LOS and census; never negative |
 | Bed allocation | Done | Department plan plus request-level replay with reason codes and sensitivity table |
-| Staff scheduling | Partial | CP-SAT with availability, max hours, rest and a workload-spreading penalty; no explicit overtime model |
-| Appointment scheduling | Partial | Conflict-free provider reassignment; no-show risk is reported but not used in the objective |
+| Staff scheduling | Done | CP-SAT with availability, rest, hours, costed overtime and workload spreading; compared with a first-fit baseline |
+| Appointment scheduling | Done | 7 clinic days, conflict-free; no-show risk drives reminder outreach and idle-time estimates, never bookings |
 | Emergency capacity | Done | ICU/emergency capacity vs shared allocation with reserve rules |
-| FastAPI backend | Done | Typed routes, pagination where results are large, `/health`, `/ready`, `/meta` |
+| FastAPI backend | Done | Typed responses, pagination, `/health`, `/ready`, `/meta`; API key on admin endpoints, rate limits on solver endpoints |
 | PostgreSQL | Done | Alembic migrations; persistence, restart and pipeline-handoff tests pass on PostgreSQL 17.6 locally and PostgreSQL 16 in CI (`backend/app/tests/test_postgres_integration.py`) |
-| React dashboard | Done | All pages read the API; whole-number counts; Vitest component and workflow tests |
+| React dashboard | Done | All pages read the API; whole-number counts; Vitest tests plus Playwright tests of every page in a real browser |
 | What-if simulator | Done, scoped | Reruns the department allocator and emergency model; forecasts are scaled, not retrained |
 | AI assistant | Done | Deterministic grounded answers with evidence; optional OpenAI/Ollama only rephrase |
-| Deployment | Partial | Docker Compose with healthchecks; CI builds and starts the full stack and checks it end to end; no public demo is hosted |
+| Deployment | Done | Public static demo on GitHub Pages; Docker Compose stack checked end to end in CI; a live public API needs a hosting account |
 
 ## How to run
 
@@ -174,8 +196,11 @@ assistant audit are stored in the database: SQLite by default, PostgreSQL when
 503 until a database and a completed run are available, and `/meta` describes
 the run.
 
-Dashboard checks, from `frontend/`: `npm run typecheck`, `npm test` (Vitest)
-and `npm run build`.
+Dashboard checks, from `frontend/`: `npm run typecheck`, `npm test` (Vitest),
+`npm run build`, and `npx playwright test` (browser tests of every page against
+the live API; see [docs/frontend.md](docs/frontend.md)). `npm run build:demo`
+builds the static GitHub Pages demo from a snapshot exported by
+`deploy/export_demo_snapshot.py`.
 
 ### AI assistant
 

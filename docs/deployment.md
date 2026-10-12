@@ -43,7 +43,7 @@ For PostgreSQL, set `CAREOPS_DATABASE_URL` and run the Alembic migration first
 
 ## Continuous integration
 
-`.github/workflows/ci.yml` runs on every push and pull request. It has five
+`.github/workflows/ci.yml` runs on every push and pull request. It has six
 jobs:
 
 1. **Python:** pytest across data, model, optimization and API tests, plus an
@@ -53,21 +53,44 @@ jobs:
 3. **Pipeline smoke run:** a 25% synthetic scenario to 2025-06-30, with every
    stage and gate.
 4. **Frontend:** Node 24 type check, Vitest and production build.
-5. **Docker Compose:** builds and starts the stack, waits on healthchecks,
+5. **Browser end-to-end:** Playwright opens every dashboard page in Chromium,
+   first against the live API and then against the static demo build. It
+   fails on console errors and uploads screenshots.
+6. **Docker Compose:** builds and starts the stack, waits on healthchecks,
    calls the API, assistant and dashboard, restarts the API and checks that
    simulation history survived.
 
-No secrets are needed. The workflow has read-only repository permissions, and
-the Compose job generates a throwaway database password.
+No secrets are needed. The workflows have read-only repository permissions
+(Pages has its own), and the Compose job generates a throwaway database
+password.
 
-## Public demo
+## Public demo (GitHub Pages)
 
-No public deployment exists. The stack is ready for any Docker host. On a
-platform such as Render or Fly.io, the remaining manual steps are:
+`.github/workflows/pages.yml` publishes a static snapshot of the dashboard on
+every push to `master`:
 
-1. Create a managed PostgreSQL database.
-2. Set `CAREOPS_DATABASE_URL` and `CAREOPS_CORS_ORIGINS` on the backend service.
-3. Build the frontend with `VITE_API_URL` set to the public API URL.
+1. `deploy/export_demo_snapshot.py` calls the real FastAPI app in-process for
+   every GET path the dashboard reads (listed in
+   `frontend/src/demo-config.json`), the nine assistant example questions and
+   the four simulator presets. It writes the responses to
+   `frontend/public/demo/`.
+2. `npm run build:demo` builds with `VITE_DEMO_MODE=snapshot` and base
+   `/CareOps-AI/`, from `frontend/.env.demo`. In this mode the dashboard reads
+   those files, uses hash routes because Pages cannot rewrite deep links, and
+   shows a banner saying it is a static snapshot.
+3. The site is deployed to `https://krishna6116.github.io/CareOps-AI/`.
 
-The API has no authentication, so do not expose `POST /optimization/run`
-publicly; it reruns the whole pipeline.
+What the demo does not do: answer free-form questions, solve arbitrary
+scenarios, or write alerts. These need the live API, and the page explains
+this when you try them. The repository setting *Settings → Pages → Source*
+must be *GitHub Actions*.
+
+A live public API would need a hosting account (Render, Fly.io or similar)
+with managed PostgreSQL. To set one up:
+
+1. Set `CAREOPS_DATABASE_URL`, `CAREOPS_CORS_ORIGINS`,
+   `CAREOPS_ENVIRONMENT=production` and `CAREOPS_API_KEY`.
+2. Build the frontend with `VITE_API_URL` set to the public API URL.
+
+Admin endpoints then require the key, and the solver endpoints are rate
+limited (see [api.md](api.md)).
