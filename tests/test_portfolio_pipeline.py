@@ -132,15 +132,30 @@ class PortfolioSourceValidationTests(unittest.TestCase):
         self.assertEqual(filtered["admission_id"].tolist(), ["completed"])
         self.assertEqual(excluded, 1)
 
-    def test_appointment_gate_accepts_only_fully_scheduled_output(self):
-        schedule = pd.DataFrame({"status": ["SCHEDULED", "SCHEDULED"]})
+    def test_appointment_gate_accepts_only_provably_unavoidable_gaps(self):
+        full = validate_appointment_schedule(pd.DataFrame({"status": ["SCHEDULED", "SCHEDULED"]}))
+        self.assertEqual((full["scheduled"], full["unassigned"]), (2, 0))
 
-        self.assertEqual(validate_appointment_schedule(schedule), 2)
+        explained = validate_appointment_schedule(pd.DataFrame({
+            "status": ["SCHEDULED", "UNSCHEDULED", "UNSCHEDULED"],
+            "unscheduled_reason": [None, "no_specialty_doctor_on_shift", "on_shift_capacity_full"],
+            "solver_status": ["OPTIMAL", "OPTIMAL", "OPTIMAL"],
+        }))
+        self.assertEqual(explained["unassigned"], 2)
+        self.assertEqual(explained["unassigned_reasons"], {
+            "no_specialty_doctor_on_shift": 1, "on_shift_capacity_full": 1,
+        })
 
+        # No reason recorded (older output): fail.
         with self.assertRaisesRegex(ValueError, "1 unassigned appointments"):
-            validate_appointment_schedule(
-                pd.DataFrame({"status": ["SCHEDULED", "UNSCHEDULED"]})
-            )
+            validate_appointment_schedule(pd.DataFrame({"status": ["SCHEDULED", "UNSCHEDULED"]}))
+        # Capacity full is only accepted when the solver proved the day optimal.
+        with self.assertRaisesRegex(ValueError, "not provably unavoidable"):
+            validate_appointment_schedule(pd.DataFrame({
+                "status": ["UNSCHEDULED"],
+                "unscheduled_reason": ["on_shift_capacity_full"],
+                "solver_status": ["FEASIBLE"],
+            }))
 
     def test_forecast_validation_accepts_department_grain_dates(self):
         start = pd.Timestamp("2026-10-01")

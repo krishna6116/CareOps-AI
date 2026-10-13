@@ -119,8 +119,14 @@ physical-versus-operational capacity difference rather than assuming they match.
   estimates expected idle minutes (risk x duration) for overbooking review.
   Missing scores use only prior-date department history, never same-day outcome
   labels. The synthetic provider roster and shifts are generated with
-  department-level appointment coverage targets; the portfolio run fails if
-  any appointment in the planning window remains unassigned.
+  department-level appointment coverage targets. An appointment may stay
+  unbooked only for a recorded, provable reason: no doctor of its specialty
+  is on shift in clinic hours that day (`no_specialty_doctor_on_shift`), or
+  every on-shift slot is taken on a day CP-SAT proved OPTIMAL
+  (`on_shift_capacity_full`). Any other unbooked appointment fails the run;
+  the manifest records the unassigned count and reasons. The full 2026-10-05
+  run books all 838; the smaller CI smoke scenario has days with no
+  specialist rostered.
 - Emergency capacity: compares projected ICU bed census and emergency demand
   with physical bed and staffed capacity, protects the ICU reserve, and can
   use unoccupied General Medicine beds for emergency overflow only within

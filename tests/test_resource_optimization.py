@@ -618,6 +618,22 @@ class AppointmentOptimizationTests(unittest.TestCase):
         ])
         return pd.DataFrame(rows), staff
 
+    def test_appointment_without_an_on_shift_specialist_is_explained(self):
+        appointments, staff = self._week_of_appointments()
+        appointments = pd.concat([appointments, pd.DataFrame([{
+            "appointment_id": "onc-1", "patient_id": "p9", "doctor_id": "d9",
+            "department": "Oncology", "date": "2026-09-22", "time": "10:00",
+            "duration": 30, "priority": "Routine", "no_show": 0,
+        }])], ignore_index=True)
+        result, metrics = optimize_appointments({
+            "appointments": appointments, "no_show_predictions": pd.DataFrame(), "staff": staff,
+        }, days=1)
+        row = result.set_index("appointment_id").loc["onc-1"]
+        self.assertEqual(row["status"], "UNSCHEDULED")
+        self.assertEqual(row["unscheduled_reason"], "no_specialty_doctor_on_shift")
+        self.assertEqual(int(metrics.iloc[0]["unassigned_no_doctor_on_shift"]), 1)
+        self.assertTrue(result.loc[result["status"] == "SCHEDULED", "unscheduled_reason"].isna().all())
+
     def test_last_n_days_are_each_scheduled_without_conflicts(self):
         appointments, staff = self._week_of_appointments()
         result, metrics = optimize_appointments({

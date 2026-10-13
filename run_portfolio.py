@@ -472,15 +472,46 @@ def validate_forecast_artifacts(as_of: date) -> dict[str, list[str]]:
     return date_summary
 
 
-def validate_appointment_schedule(schedule: pd.DataFrame) -> int:
+UNAVOIDABLE_APPOINTMENT_REASONS = {"no_specialty_doctor_on_shift", "on_shift_capacity_full"}
+
+
+def validate_appointment_schedule(schedule: pd.DataFrame) -> dict[str, object]:
+    """Accept unbooked appointments only when they are provably unavoidable.
+
+    An appointment may stay unbooked if no doctor of its specialty is on
+    shift in clinic hours that day, or if every on-shift slot is taken and
+    CP-SAT proved the day OPTIMAL (it maximises bookings first). Anything
+    else -- a missing reason, or 'capacity full' on a day the solver did not
+    prove -- fails the run.
+    """
     if schedule.empty or "status" not in schedule.columns:
         raise ValueError("Optimized appointment schedule is empty or missing status.")
     unscheduled = schedule[schedule["status"] != "SCHEDULED"]
     if not unscheduled.empty:
-        raise ValueError(
-            f"Optimized appointment schedule has {len(unscheduled)} unassigned appointments."
+        reasons = (
+            unscheduled["unscheduled_reason"]
+            if "unscheduled_reason" in unscheduled.columns
+            else pd.Series(pd.NA, index=unscheduled.index)
         )
-    return len(schedule)
+        unexplained = ~reasons.isin(UNAVOIDABLE_APPOINTMENT_REASONS)
+        if "solver_status" in unscheduled.columns:
+            unproved = (reasons == "on_shift_capacity_full") & (unscheduled["solver_status"] != "OPTIMAL")
+        else:
+            unproved = reasons == "on_shift_capacity_full"
+        if (unexplained | unproved).any():
+            raise ValueError(
+                f"Optimized appointment schedule has {int((unexplained | unproved).sum())} "
+                "unassigned appointments that are not provably unavoidable."
+            )
+    return {
+        "requested": int(len(schedule)),
+        "scheduled": int(len(schedule) - len(unscheduled)),
+        "unassigned": int(len(unscheduled)),
+        "unassigned_reasons": {
+            str(reason): int(count)
+            for reason, count in unscheduled["unscheduled_reason"].value_counts().items()
+        } if not unscheduled.empty else {},
+    }
 
 
 def run_pipeline(as_of: date, postgres: bool = False, exploratory: bool = False) -> None:
@@ -518,9 +549,7 @@ def run_pipeline(as_of: date, postgres: bool = False, exploratory: bool = False)
             appointment_schedule = pd.read_csv(
                 OUTPUT / "optimized_appointment_schedule.csv"
             )
-            scheduled_appointments = validate_appointment_schedule(
-                appointment_schedule
-            )
+            appointment_check = validate_appointment_schedule(appointment_schedule)
             audit_path = OUTPUT / "data_quality_audit.csv"
             audit = pd.read_csv(audit_path)
             failures = audit[audit["status"] == "FAIL"]
@@ -564,9 +593,11 @@ def run_pipeline(as_of: date, postgres: bool = False, exploratory: bool = False)
                         "unfilled_staff_positions": 0,
                         "icu_overflow_bed_days": 0,
                         "emergency_overflow_bed_days": 0,
-                        "unassigned_appointments": 0,
+                        "unassigned_appointments": appointment_check["unassigned"],
                     },
-                    "optimized_appointment_count": scheduled_appointments,
+                    "optimized_appointment_count": appointment_check["scheduled"],
+                    "appointments_requested": appointment_check["requested"],
+                    "unassigned_appointment_reasons": appointment_check["unassigned_reasons"],
                     "synthetic_capacity_expansion": {
                         "scenario_only": True,
                         "temporary_surge_beds": int(bed_plan["added_quantity"].sum()),

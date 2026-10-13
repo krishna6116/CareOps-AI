@@ -289,7 +289,7 @@ def get_appointments_dashboard() -> dict[str, Any]:
     if not no_show.empty and "predicted_no_show_probability" in no_show.columns:
         no_show = no_show.sort_values("predicted_no_show_probability", ascending=False)
     if not schedule.empty:
-        unassigned = int(schedule["status"].astype(str).str.casefold().isin({"unassigned", "unbooked"}).sum()) if "status" in schedule.columns else 0
+        unassigned = int(schedule["status"].astype(str).str.casefold().isin({"unassigned", "unbooked", "unscheduled"}).sum()) if "status" in schedule.columns else 0
     else:
         unassigned = 0
     return {

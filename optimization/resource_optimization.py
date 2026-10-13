@@ -1107,6 +1107,9 @@ def _optimize_appointment_day(
     selected: dict[tuple[int, str, datetime], cp_model.IntVar] = {}
     optional_intervals: dict[str, list[cp_model.IntervalVar]] = defaultdict(list)
     unbooked: dict[int, cp_model.IntVar] = {}
+    # Bookable (doctor, slot) options per appointment; none means no doctor of
+    # that specialty is on shift during clinic hours that day.
+    option_counts: dict[int, int] = {}
     original_minutes: list[int] = []
     appointment_datetimes: list[datetime] = []
     for index, row in appointments.iterrows():
@@ -1188,6 +1191,7 @@ def _optimize_appointment_day(
                     f"appt_interval_{index}_{provider_id}_{candidate.strftime('%Y%m%d%H%M')}",
                 )
                 optional_intervals[provider_id].append(interval)
+        option_counts[index] = len(options)
         unbooked[index] = model.new_bool_var(f"appt_unbooked_{index}")
         model.add(sum(options) + unbooked[index] == 1)
     for intervals in optional_intervals.values():
@@ -1290,6 +1294,14 @@ def _optimize_appointment_day(
             # Planning signal only: never used to deny or reorder care.
             "reminder_outreach": bool(float(row["no_show_risk"]) >= threshold),
             "status": "SCHEDULED" if assigned_start is not None else "UNSCHEDULED",
+            # Why an appointment could not be booked: no specialty doctor on
+            # shift, or every on-shift slot taken (proved when OPTIMAL).
+            "unscheduled_reason": (
+                None if assigned_start is not None
+                else "no_specialty_doctor_on_shift" if option_counts.get(index, 0) == 0
+                else "on_shift_capacity_full"
+            ),
+            "solver_status": solver.status_name(status),
         })
     result = pd.DataFrame(output)
     appointments["plan_date"] = appointments["_plan_day"].dt.strftime("%Y-%m-%d")
@@ -1360,6 +1372,11 @@ def _optimize_appointment_day(
         ),
         "baseline_doctor_time_conflicts": before_conflicts,
         "optimized_doctor_time_conflicts": after_conflicts,
+        "unassigned_no_doctor_on_shift": int(
+            (result["unscheduled_reason"] == "no_specialty_doctor_on_shift").sum()
+        ),
+        "unassigned_capacity_full": int((result["unscheduled_reason"] == "on_shift_capacity_full").sum()),
+        "solver_optimal_days": int(status == cp_model.OPTIMAL),
         "doctor_changes": int(
             (result["original_doctor_id"] != result["optimized_doctor_id"]).sum()
         ),
