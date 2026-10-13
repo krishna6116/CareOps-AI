@@ -66,7 +66,7 @@ a file or a screen.
 | 14 Explanations and recommendations | `assistant_facts.py`, `dashboard_service.get_recommendations` | API tests | `/assistant/ask`, `/recommendations` | Done |
 | 15 What-if | `simulation_service.py` | API tests, PostgreSQL restart test | `/simulation/*`; Simulator | Done; forecasts scaled, not retrained |
 | 16 Business metrics | KPI CSVs, [validation.md](validation.md) | optimization tests | Optimization, Bed management | Done |
-| 17 Testing | 166 Python + 6 PostgreSQL + 20 Vitest + 16 browser | CI | — | Done |
+| 17 Testing | 167 Python + 6 PostgreSQL + 20 Vitest + 16 browser (also run against the deployed demo) | CI | — | Done |
 | 18 Build and runtime | pipeline, API smoke, frontend build | CI | — | Done |
 | 19 Docker, CI/CD, demo | `Dockerfile`, `docker-compose.yml`, `ci.yml`, `pages.yml`, `deploy/export_demo_snapshot.py` | CI docker-compose and browser-e2e jobs | public demo | Done |
 | 20 Documentation | README, `docs/` | `test_generated_docs.py` | — | Done |
@@ -97,11 +97,11 @@ a file or a screen.
 | 18 | What-if simulation | 4.0 | Validated inputs; persisted; states what was rerun; hospital-wide integer KPIs | Forecasts scaled, not retrained; no repeated seeds |
 | 19 | Explainability and auditability | 4.0 | Manifest, scorecard, reason codes, assistant audit, simulation history | Only the latest pipeline run is kept as a manifest |
 | 20 | Automated testing | 4.5 | 166 Python, 6 PostgreSQL, 20 Vitest and 16 browser tests; all run in CI | No load or performance tests |
-| 21 | Docker and deployment | 4.0 | CI `docker-compose` job (run 38275091237, commit 51313e7) builds the images, waits on all three healthchecks, calls the API, assistant and dashboard, and confirms simulation history survives an API restart on PostgreSQL. Non-root backend image. | Not run on a local Docker host (Docker Desktop not installed here); no public demo deployment |
-| 22 | CI/CD | 4.5 | Five jobs all passed on commit 51313e7: Python tests + migration drift check, PostgreSQL 16 integration (fails if skipped), 25% pipeline smoke run, frontend type check/tests/build, Docker Compose stack | No deployment stage (no hosting account) |
+| 21 | Docker and deployment | 4.5 | CI `docker-compose` job (run 38444586244, commit 19dcf72) builds the images, waits on all three healthchecks, calls the API, assistant and dashboard, and confirms simulation history survives an API restart on PostgreSQL. Non-root backend image. Public demo deployed by Pages run 38444586274 at https://krishna6116.github.io/CareOps-AI/; all 16 Playwright tests pass against the deployed site in Google Chrome | Docker not run on a local host (Docker Desktop not installed here); the demo is a static snapshot, not a live API |
+| 22 | CI/CD | 4.5 | All six jobs passed on commit 19dcf72 (run 38444586244): Python tests and migration drift check, PostgreSQL 16 integration (fails if skipped), 25% pipeline smoke run, frontend type check/tests/build, browser end-to-end in Chromium (live API and demo build), Docker Compose stack. The Pages workflow deploys the demo on every push. CI caught two real defects in this round (the 7-day appointment gate, the readiness gate); both were fixed | GitHub warns that Node 20 actions and ubuntu-latest will change versions |
 | 23 | Documentation | 4.5 | README, generated metrics and data dictionary, diagnosis, troubleshooting, per-component docs | — |
 | 24 | Security and hygiene | 4.5 | API key on admin endpoints, rate limits, no secrets in any commit, `.env` ignored, non-root image, localhost-bound ports, redacted assistant audit, pinned dependencies of at least two weeks' age | No user accounts; the limiter is per process |
-| 25 | GitHub publication | 4.5 | 24 commits fast-forwarded to `origin/master` (5b11c5c → 51313e7) with no force push; remote verified equal to local; full-history secret scan clean | — |
+| 25 | GitHub publication | 4.5 | All work fast-forwarded to `origin/master` with no force push (5b11c5c → 51313e7 → ee639e6 → 19dcf72 and this commit); remote verified equal to local; full-history secret scan clean; public demo live | — |
 
 Categories below 4.5 are scored honestly against the evidence above. The
 remaining gaps:

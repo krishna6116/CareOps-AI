@@ -74,10 +74,14 @@ npx playwright test
 
 npm run build:demo                 # static demo (export the snapshot first)
 $env:E2E_MODE = "demo"; npx playwright test
+
+# The deployed GitHub Pages demo, without starting any local server
+$env:E2E_MODE = "demo"; $env:E2E_BASE_URL = "https://krishna6116.github.io/CareOps-AI/"; npx playwright test
 ```
 
 On 2026-10-12 all 16 tests passed in the installed Google Chrome, against
-both the live API and the demo build.
+both the live API and the demo build. On 2026-10-13 they also passed against
+the deployed site at https://krishna6116.github.io/CareOps-AI/.
 
 ## Static demo mode
 
