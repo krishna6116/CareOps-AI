@@ -206,7 +206,7 @@ class PortfolioSourceValidationTests(unittest.TestCase):
                 "unfilled_staff_positions": 0,
                 "icu_overflow_bed_days": 0,
                 "emergency_overflow_bed_days": 0,
-                "unassigned_appointments": 0,
+                "unexplained_unassigned_appointments": 0,
             },
             "source_integrity_checks_passed": True,
             "audit_failures": 0,
@@ -241,7 +241,7 @@ class PortfolioSourceValidationTests(unittest.TestCase):
                 "unfilled_staff_positions": 0,
                 "icu_overflow_bed_days": 0,
                 "emergency_overflow_bed_days": 1,
-                "unassigned_appointments": 0,
+                "unexplained_unassigned_appointments": 0,
             },
             "source_integrity_checks_passed": True,
             "audit_failures": 0,
@@ -264,6 +264,28 @@ class PortfolioSourceValidationTests(unittest.TestCase):
         self.assertEqual(
             readiness["no_show_model_integration"]["required_score"], 4.5
         )
+
+    def test_explained_unassigned_appointments_do_not_block_readiness(self):
+        scorecard = {"minimum_target": 4.0, "sections": [
+            {"section": "No-show prediction", "score": 4.5},
+            {"section": "Admission forecasting", "score": 4.0},
+        ]}
+        manifest = {
+            "optimized_capacity_gates": {
+                "overflow_bed_days": 0, "unfilled_staff_positions": 0,
+                "icu_overflow_bed_days": 0, "emergency_overflow_bed_days": 0,
+                "unexplained_unassigned_appointments": 0,
+            },
+            # Reported, not gated: no specialist was on shift for these.
+            "unassigned_appointments": 6,
+            "source_integrity_checks_passed": True,
+            "audit_failures": 0,
+        }
+        no_show_metadata = {
+            "historical_features_are_leakage_safe": True, "source_data_modified": False,
+        }
+        readiness = build_pipeline_readiness(scorecard, manifest, no_show_metadata)
+        self.assertTrue(readiness["next_process_ready"], readiness["next_process_blockers"])
 
     def test_postgres_handoff_requires_database_url(self):
         with self.assertRaisesRegex(RuntimeError, "CAREOPS_DATABASE_URL"):

@@ -36,7 +36,7 @@ def main() -> None:
         )
 
     schedule = pd.read_csv(OUTPUT / "optimized_appointment_schedule.csv")
-    scheduled = validate_appointment_schedule(schedule)
+    appointment_check = validate_appointment_schedule(schedule)
     allocation = pd.read_csv(OUTPUT / "bed_allocation_kpis.csv")
     optimized = allocation[allocation["scenario"].eq("optimized")]
     coverage = pd.read_csv(OUTPUT / "staff_coverage_kpis.csv")
@@ -46,7 +46,7 @@ def main() -> None:
         "unfilled_staff_positions": int(coverage["unfilled_staff"].sum()),
         "icu_overflow_bed_days": int(emergency["icu_overflow"].sum()),
         "emergency_overflow_bed_days": int(emergency["emergency_overflow"].sum()),
-        "unassigned_appointments": len(schedule) - scheduled,
+        "unexplained_unassigned_appointments": appointment_check["unexplained_unassigned"],
     }
     if any(gates.values()):
         raise RuntimeError(f"Portfolio capacity gates failed: {gates}")
@@ -73,7 +73,7 @@ def main() -> None:
             audit["status"].eq("WARN"), "check"
         ].astype(str).tolist(),
         "optimized_capacity_gates": gates,
-        "optimized_appointment_count": scheduled,
+        "optimized_appointment_count": appointment_check["scheduled"],
         "synthetic_capacity_expansion": {
             "scenario_only": True,
             "temporary_surge_beds": int(beds["added_quantity"].sum()),

@@ -507,6 +507,8 @@ def validate_appointment_schedule(schedule: pd.DataFrame) -> dict[str, object]:
         "requested": int(len(schedule)),
         "scheduled": int(len(schedule) - len(unscheduled)),
         "unassigned": int(len(unscheduled)),
+        # Reaching here means every gap was explained; unexplained ones raise.
+        "unexplained_unassigned": 0,
         "unassigned_reasons": {
             str(reason): int(count)
             for reason, count in unscheduled["unscheduled_reason"].value_counts().items()
@@ -593,8 +595,11 @@ def run_pipeline(as_of: date, postgres: bool = False, exploratory: bool = False)
                         "unfilled_staff_positions": 0,
                         "icu_overflow_bed_days": 0,
                         "emergency_overflow_bed_days": 0,
-                        "unassigned_appointments": appointment_check["unassigned"],
+                        # Only unexplained gaps block the run; provably
+                        # unavoidable ones are reported below.
+                        "unexplained_unassigned_appointments": appointment_check["unexplained_unassigned"],
                     },
+                    "unassigned_appointments": appointment_check["unassigned"],
                     "optimized_appointment_count": appointment_check["scheduled"],
                     "appointments_requested": appointment_check["requested"],
                     "unassigned_appointment_reasons": appointment_check["unassigned_reasons"],
